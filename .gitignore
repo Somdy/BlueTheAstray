@@ -5,8 +5,6 @@ target/
 
 # 不上传所有卡图，过于庞大
 src/main/resources/AstrayAssets/images/cardports/*.png
-src/main/resources/AstrayAssets/images/cardports/!1.png
-src/main/resources/AstrayAssets/images/cardports/!1_p.png
 
 .idea/
 
