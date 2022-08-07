@@ -1,0 +1,10 @@
+{
+    "modid": "BlueTheAstray",
+    "name": "Blue The Astray [蓝]",
+    "author_list": ["Somdy"],
+    "description": "该 Mod 仍在测试阶段！\nMod 设置中选择将碎片作为起始遗物，或者在 Neow 开局处选择 [拾起其他维度的碎片] ，均可获得该 Mod 内容的主要遗物。在火堆选择 “生火” 即可进入特殊商店页面，不允许反悔。目前只有 50 个遗物。",
+    "version": "0.0.1",
+    "sts_version": "12-22-2020",
+    "mts_version": "3.26.0",
+    "dependencies": ["basemod", "LazyManKits"]
+}

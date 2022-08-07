@@ -1,0 +1,55 @@
+
+skeleton.png
+size: 625,492
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cloak
+  rotate: false
+  xy: 347, 203
+  size: 242, 287
+  orig: 242, 287
+  offset: 0, 0
+  index: -1
+clothShadow
+  rotate: true
+  xy: 347, 2
+  size: 199, 276
+  orig: 199, 276
+  offset: 0, 0
+  index: -1
+red_eye
+  rotate: false
+  xy: 591, 235
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+scythe
+  rotate: true
+  xy: 2, 162
+  size: 328, 343
+  orig: 328, 343
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 591, 257
+  size: 233, 29
+  orig: 233, 29
+  offset: 0, 0
+  index: -1
+skull
+  rotate: true
+  xy: 2, 7
+  size: 153, 174
+  orig: 153, 174
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 178, 27
+  size: 95, 133
+  orig: 95, 133
+  offset: 0, 0
+  index: -1

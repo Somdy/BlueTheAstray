@@ -1,0 +1,38 @@
+[
+  {
+    "ID": "卡牌ID = 归属（职业-B，无色-C，扩展-E）+ 卡牌索引",
+    "NAME": "卡牌名称",
+    "DESCRIPTION": "卡牌描述。",
+    "UPGRADED_DESC": [
+      "升级后的文本。启迪牌不可缺少该项。",
+      "启迪牌的另外文本。"
+    ],
+    "UPDATED_DESC": [ "更新描述用的文本。" ],
+    "MSG": [ "信息文本" ]
+  },
+  {
+    "ID": "B1",
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 伤害。"
+  },
+  {
+    "ID": "B2",
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 格挡 。"
+  },
+  {
+    "ID": "B3",
+    "NAME": "魔法飞弹",
+    "DESCRIPTION": "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
+    "UPGRADED_DESC": [
+      "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
+      "astray:晋升 !astray:promos! ， astray:储能 NL astray:启迪 ， astray:魔法 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
+    ]
+  },
+
+  {
+    "ID": "E89",
+    "NAME": "星星",
+    "DESCRIPTION": "随机敌人受到 !D! 伤害"
+  }
+]

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>wolf.theblue</groupId>
+    <artifactId>BlueTheWollf</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <SlayTheSpire.version>03-05-2020</SlayTheSpire.version>
+        <ModTheSpire.version>3.22.0</ModTheSpire.version>
+        <basemod.version>5.22.0</basemod.version>
+        <LMK.version>1.3.1</LMK.version>
+        <LMK.BETA.version>1.3.2</LMK.BETA.version>
+        <LMK.BETA.path>D:\oData\Programme Files\Steam\steamapps\common\SlayTheSpire\mods</LMK.BETA.path>
+        <Steam.path>D:\oData\Programme Files\Steam\steamapps</Steam.path>
+        <SpireCustomMod.path>D:\oData\Programme Files\Steam\steamapps\common\SlayTheSpire\mods</SpireCustomMod.path>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.megacrit.cardcrawl</groupId>
+            <artifactId>slaythespire</artifactId>
+            <version>${SlayTheSpire.version}</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/common/SlayTheSpire/desktop-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl</groupId>
+            <artifactId>ModTheSpire</artifactId>
+            <version>${ModTheSpire.version}</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1605060445/ModTheSpire.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>basemod</groupId>
+            <artifactId>basemod</artifactId>
+            <version>${basemod.version}</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1605833019/BaseMod.jar</systemPath>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>rs.lazymankits</groupId>-->
+<!--            <artifactId>LazyManKits</artifactId>-->
+<!--            <version>${LMK.version}</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${Steam.path}/workshop/content/646570/2554005913/[STS]Lazy Man's Kits.jar</systemPath>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>rs.lazymankits</groupId>
+            <artifactId>LazyManKits</artifactId>
+            <version>${LMK.BETA.version}</version>
+            <scope>system</scope>
+            <systemPath>${LMK.BETA.path}/[STS]Lazy Man's Kits.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>TheNightmare</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <copy file="target/${project.build.finalName}.jar" tofile = "${SpireCustomMod.path}/${project.build.finalName}.jar"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
