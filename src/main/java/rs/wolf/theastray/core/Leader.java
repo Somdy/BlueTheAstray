@@ -10,10 +10,12 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.characters.BlueTheAstray;
+import rs.wolf.theastray.commands.CheatCMD;
 import rs.wolf.theastray.commands.ManaCMD;
 import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.localizations.TALocalLoader;
@@ -57,6 +59,7 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         TALocalLoader.Initialize();
         String lang = getSupLang();
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "AstrayAssets/locals/" + lang + "/chars.json");
+        BaseMod.loadCustomStringsFile(PowerStrings.class, "AstrayAssets/locals/" + lang + "/powers.json");
     }
     
     @Override
@@ -87,6 +90,7 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     @Override
     public void receivePostInitialize() {
         ConsoleCommand.addCommand("bluemana", ManaCMD.class);
+        ConsoleCommand.addCommand("bluecheat", CheatCMD.class);
     }
     
     @Override

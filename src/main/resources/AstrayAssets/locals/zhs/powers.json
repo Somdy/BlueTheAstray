@@ -1,0 +1,22 @@
+{
+  "astray:AstrayPower": {
+    "NAME": "能力",
+    "DESCRIPTIONS": [
+      "你"
+    ]
+  },
+
+  "astray:BurntPower": {
+    "NAME": "余烬",
+    "DESCRIPTIONS": [
+      "#y[owner] 在其回合开始时失去 #b[amt_0] 点生命值和所有 #y余烬 。受到 #y魔法 牌的伤害后， #y余烬  增加 #b[amt_1] 层。"
+    ]
+  },
+
+  "astray:FrostPower": {
+    "NAME": "冰霜",
+    "DESCRIPTIONS": [
+      "#y[owner] 造成的伤害减少 #b[amt_0] 点。在其回合结束时， #y冰霜 减半。在受到 #r非 #y魔法 牌的伤害后， #y冰霜 减少 #b1 层。"
+    ]
+  }
+}

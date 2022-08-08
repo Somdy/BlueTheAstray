@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
+import rs.wolf.theastray.powers.BurntPower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,15 @@ public class B3 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.FIRE));
+        if (finalBranch() == 1) { // 用 finalBranch 来判断真正的分支
+            // 用 burnt(int, AbstractCreature) 来获取余烬的层数
+            addToBot(ApplyPower(t, s, new BurntPower(t, s, burnt(magicNumber, t))));
+        }
     }
     
     @Override
     public void selfUpgrade() {
-        upgradeWithChosenBranch();
+        branchingUpgrade();
     }
     
     @Override

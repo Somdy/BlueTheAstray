@@ -19,6 +19,7 @@ import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
 import rs.lazymankits.interfaces.cards.SwappableUpgBranchCard;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.lazymankits.utils.LMSK;
+import rs.wolf.theastray.commands.Cheat;
 import rs.wolf.theastray.data.CardData;
 import rs.wolf.theastray.interfaces.MagicModifier;
 import rs.wolf.theastray.localizations.TACardLocals;
@@ -63,7 +64,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     protected final String[] U_MSG = cardStrings.MSG;
     
     public AstrayCard(@NotNull CardData data, int cost, CardColor color, CardTarget target) {
-        super(data.getID(), "uninitialized", TAUtils.CardImage(Integer.parseInt(data.getID().substring(1))), 
+        super(data.getCardID(), "uninitialized", TAUtils.CardImage(Integer.parseInt(data.getInternalID().substring(1))), 
                 cost, "uninitialized", data.getType(), color, data.getRarity(), target);
         this.data = data;
         setCanEnlighten(false);
@@ -73,7 +74,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     private void initLocals() {
-        cardLocals = TALocalLoader.CARD(data.getID());
+        cardLocals = TALocalLoader.CARD(data.getInternalID());
         NAME = cardLocals.NAME;
         DESCRIPTION = cardLocals.DESCRIPTION;
         if (cardLocals.UPGRADED_DESC != null)
@@ -344,8 +345,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     /**
      * 以选定的分支升级
      */
-    protected void upgradeWithChosenBranch() {
-        Objects.requireNonNull(possibleBranches()).get(chosenBranch()).upgrade();
+    protected void branchingUpgrade() {
+        upgradeWithTheCorrectBranch();
     }
     
     /**
@@ -354,6 +355,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      */
     protected void upgradeTexts(int branchIndex) {
         upgradeName();
+        setLocalBranch(branchIndex);
         if (UPGRADED_DESC != null) {
             rawDescription = UPGRADED_DESC[branchIndex];
             initializeDescription();
@@ -502,6 +504,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         if (magical) {
             setManaCost(manaCost);
             addTags(TACardEnums.MAGICAL);
+        } else {
+            tags.remove(TACardEnums.MAGICAL);
         }
         return this;
     }
@@ -513,7 +517,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @see #setMagical(boolean, int) 
      */
     public final AstrayCard setMagical(boolean magical) {
-        return setMagical(true, 1);
+        return setMagical(magical, 1);
     }
     
     /**
@@ -533,7 +537,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      */
     public final AstrayCard setMagicalDerivative(boolean magicalDerivative) {
         isMagicalDerivative = magicalDerivative;
-        setMagical(true, 0);
+        setMagical(magicalDerivative, 0);
         return this;
     }
     
@@ -598,6 +602,12 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         return canEnlighten();
     }
     
+    @Override
+    public final boolean usingLocalBranch() {
+        return true;
+    }
+    
+    
     /**
      * 返回该牌可用的升级分支，仅对 {@link #canEnlighten()} 为 true 的牌生效。
      * 当 {@link #inRestroom()} 为 true，即在火堆升级，该方法返回所有可用的升级分支
@@ -606,9 +616,9 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @return 当 {@link #inRestroom()} 为 true，返回所有可用分支，否则返回一个随机分支
      */
     @Override
-    public final List<UpgradeBranch> possibleBranches() {
+    public List<UpgradeBranch> getPossibleBranches() {
         if (canEnlighten()) {
-            if (inRestroom() || outOfDungeon()) return branches();
+            if (inRestroom() || outOfDungeon() || Cheat.IsCheating(Cheat.IEL)) return possibleBranches();
             Random copy = LMSK.CardRandomRng().copy();
             int index = copy.random(branches().size() - 1);
             return new ArrayList<UpgradeBranch>() {{
@@ -616,6 +626,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
             }};
         }
         return null;
+    }
+    
+    @Override
+    public final List<UpgradeBranch> possibleBranches() {
+        return branches();
     }
     
     /**
@@ -628,6 +643,13 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     protected void log(Object what) {
         TAUtils.Log(this, "[" + name + "] " + what);
+    }
+    
+    protected int burnt(int originalValue, AbstractCreature target) {
+        if (target instanceof AbstractMonster && ((AbstractMonster) target).getIntentBaseDmg() > 0)
+            originalValue *= 2;
+        if (originalValue < 0) originalValue = 0;
+        return originalValue;
     }
     
     protected NullableSrcDamageAction DamageAction(AbstractCreature t, AbstractCreature s, int damage,

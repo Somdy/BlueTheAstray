@@ -2,6 +2,7 @@ package rs.wolf.theastray.data;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import org.jetbrains.annotations.NotNull;
+import rs.wolf.theastray.utils.TAUtils;
 
 public class CardData {
     private final String ID;
@@ -16,7 +17,11 @@ public class CardData {
         this.rarity = rarity;
     }
     
-    public String getID() {
+    public String getCardID() {
+        return TAUtils.MakeID(ID);
+    }
+    
+    public String getInternalID() {
         return ID;
     }
     
