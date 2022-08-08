@@ -1,7 +1,10 @@
 package rs.wolf.theastray.utils;
 
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -67,5 +70,17 @@ public interface TAUtils extends LMGameGeneralUtils {
     @NotNull
     static String CardImage(int localID) {
         return "AstrayAssets/images/cardports/" + localID + ".png";
+    }
+    
+    static UIStrings UIStrings(@NotNull String id) {
+        if (!id.startsWith(GetPrefix()))
+            id = MakeID(id);
+        return CardCrawlGame.languagePack.getUIString(id);
+    }
+    
+    static PowerStrings PowerStrings(@NotNull String id) {
+        if (!id.startsWith(GetPrefix()))
+            id = MakeID(id);
+        return CardCrawlGame.languagePack.getPowerStrings(id);
     }
 }

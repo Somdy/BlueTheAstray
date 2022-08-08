@@ -31,7 +31,7 @@ public class DataMst {
     }
     
     public static String ID(int index) {
-        if (DataIndexMap.containsKey(index)) return DataIndexMap.get(index).getID();
+        if (DataIndexMap.containsKey(index)) return DataIndexMap.get(index).getCardID();
         TAUtils.Log("UNDEFINED INDEX: [" + index + "]");
         return "UNDEFINED";
     }
@@ -43,7 +43,7 @@ public class DataMst {
     }
     
     public static String ID(String localname) {
-        if (DataNameMap.containsKey(localname)) return DataNameMap.get(localname).getID();
+        if (DataNameMap.containsKey(localname)) return DataNameMap.get(localname).getCardID();
         TAUtils.Log("UNDEFINED LOCAL NAME: [" + localname + "]");
         return "UNDEFINED";
     }
