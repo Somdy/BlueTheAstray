@@ -29,11 +29,9 @@ public class ManaCMD extends ConsoleCommand {
         result.add("add");
         result.add("lose");
         if (tokens[depth].equalsIgnoreCase("add") || tokens[depth].equalsIgnoreCase("lose")) {
-            if (tokens[depth + 1].matches("\\d+"))
+            if (tokens.length > depth + 1 && tokens[depth + 1].matches("\\d+"))
                 complete = true;
             result = smallNumbers();
-        } else if (tokens[depth].equalsIgnoreCase("inf")) {
-            complete = true;
         }
         return result;
     }

@@ -2,6 +2,7 @@ package rs.wolf.theastray.characters;
 
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -13,9 +14,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbGreen;
 import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.patches.TACardEnums;
@@ -44,7 +47,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public ManaMst manaMst;
     
     public BlueTheAstray() {
-        super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbGreen(), null, null);
+        super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbBlue(), null, null);
         initializeClass(null, Shoulder_2, Shoulder_1, corpse, getLoadout(), 20F, -10F,
                 300F, 370F, new EnergyManager(3));
         manaMst = new ManaMst(this, 10, 10, ManaMst.Layout.REVOLUTION);
@@ -78,6 +81,11 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public void preBattlePrep() {
         manaMst.initPreBattle();
         super.preBattlePrep();
+    }
+    
+    @Override
+    public Texture getEnergyImage() {
+        return ImageMaster.BLUE_ORB_FLASH_VFX;
     }
     
     @Override

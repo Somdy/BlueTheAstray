@@ -1,5 +1,13 @@
 [
   {
+    "ID": "AstrayCard",
+    "NAME": "Card Name",
+    "DESCRIPTION": "Card Description",
+    "MSG": [ 
+      "没有足够的法力。"
+    ]
+  },
+  {
     "ID": "卡牌ID = 归属（职业-B，无色-C，扩展-E）+ 卡牌索引",
     "NAME": "卡牌名称",
     "DESCRIPTION": "卡牌描述。",

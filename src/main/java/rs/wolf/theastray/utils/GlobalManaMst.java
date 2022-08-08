@@ -3,18 +3,41 @@ package rs.wolf.theastray.utils;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.characters.BlueTheAstray;
+import rs.wolf.theastray.patches.mechanics.ManaMechanicsPatch;
+import rs.wolf.theastray.ui.manalayout.ManaMst;
 
 public class GlobalManaMst {
+    
+    public static void InitPlayerMana(AbstractPlayer p) {
+        if (p instanceof BlueTheAstray) {
+            TAUtils.Log("[" + p.name + "] has own mana");
+            return;
+        }
+        ManaMechanicsPatch.ManaField.manaMst.set(p, new ManaMst(p, 10, 0, ManaMst.Layout.LINE));
+    }
+    
+    public static ManaMst GetPlayerManaMst(AbstractPlayer p) {
+        if (p instanceof BlueTheAstray)
+            return ((BlueTheAstray) p).manaMst;
+        ManaMst mst = ManaMechanicsPatch.ManaField.manaMst.get(p);
+        if (mst == null) {
+            TAUtils.Log("[" + p.name + "] has no mana, initializing");
+            InitPlayerMana(p);
+            return GetPlayerManaMst(p);
+        }
+        return mst;
+    }
+    
     public static void GainMana(int amt) {
         AbstractPlayer p = LMSK.Player();
-        if (p instanceof BlueTheAstray)
-            ((BlueTheAstray) p).manaMst.gainMana(amt);
+        ManaMst mst = GetPlayerManaMst(p);
+        mst.gainMana(amt);
     }
     
     public static void LoseMana(int amt) {
         AbstractPlayer p = LMSK.Player();
-        if (p instanceof BlueTheAstray)
-            ((BlueTheAstray) p).manaMst.useMana(amt);
+        ManaMst mst = GetPlayerManaMst(p);
+        mst.useMana(amt);
     }
     
     public static void UseMana(int amt) {
@@ -23,15 +46,13 @@ public class GlobalManaMst {
     
     public static boolean HasEnoughMana(int amt) {
         AbstractPlayer p = LMSK.Player();
-        if (p instanceof BlueTheAstray)
-            return ((BlueTheAstray) p).manaMst.canUseMana(amt) && ((BlueTheAstray) p).manaMst.hasMana();
-        return false;
+        ManaMst mst = GetPlayerManaMst(p);
+        return mst.canUseMana(amt) && mst.hasMana();
     }
     
     public static boolean HasMana() {
         AbstractPlayer p = LMSK.Player();
-        if (p instanceof BlueTheAstray)
-            return ((BlueTheAstray) p).manaMst.hasMana();
-        return false;
+        ManaMst mst = GetPlayerManaMst(p);
+        return mst.hasMana();
     }
 }

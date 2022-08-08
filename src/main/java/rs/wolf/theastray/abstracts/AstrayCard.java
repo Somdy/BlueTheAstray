@@ -59,6 +59,9 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     protected String[] UPDATED_DESC;
     protected String[] MSG;
     
+    protected final TACardLocals cardStrings = TALocalLoader.CARD(TAUtils.MakeID("AstrayCard"));
+    protected final String[] U_MSG = cardStrings.MSG;
+    
     public AstrayCard(@NotNull CardData data, int cost, CardColor color, CardTarget target) {
         super(data.getID(), "uninitialized", TAUtils.CardImage(Integer.parseInt(data.getID().substring(1))), 
                 cost, "uninitialized", data.getType(), color, data.getRarity(), target);
@@ -290,10 +293,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         if (!isMagical() && !isMagicalDerivative()) return true;
         if (isInAutoplay) return true;
         int thisManaCost = getManaOnUse();
-        if (!isMagicalDerivative())
-            return GlobalManaMst.HasEnoughMana(thisManaCost);
-        if (GlobalManaMst.HasEnoughMana(thisManaCost))
-            return GlobalManaMst.HasMana();
+        boolean hasMana = GlobalManaMst.HasMana();
+        boolean hasEnoughMana = GlobalManaMst.HasEnoughMana(thisManaCost);
+        if (isMagicalDerivative() && hasMana) return true;
+        if (hasEnoughMana && hasMana) return true;
+        cantUseMessage = U_MSG[0];
         return false;
     }
     

@@ -49,10 +49,14 @@ public class ManaMst implements TAUtils {
     }
     
     private void selfGainMana(int amt) {
-        Mana last = orbs.get(orbs.size() - 1);
-        for (int i = 0; i < amt; i++) {
-            Mana mana = new Mana(last.cX, last.cY);
-            orbs.add(mana);
+        if (orbs.isEmpty()) {
+            orbs.add(new Mana(getManaPosition(0, 0)));
+        } else {
+            Mana last = orbs.get(orbs.size() - 1);
+            for (int i = 0; i < amt; i++) {
+                Mana mana = new Mana(last.cX, last.cY);
+                orbs.add(mana);
+            }
         }
         reorganizeManaOrbs();
     }
