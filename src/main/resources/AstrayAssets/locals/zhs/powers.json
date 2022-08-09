@@ -18,5 +18,12 @@
     "DESCRIPTIONS": [
       "#y[owner] 造成的伤害减少 #b[amt_0] 点。在其回合结束时， #y冰霜 减半。在受到 #r非 #y魔法 牌的伤害后， #y冰霜 减少 #b1 层。"
     ]
+  },
+
+  "astray:MagicPower": {
+    "NAME": "魔力",
+    "DESCRIPTIONS": [
+      "#y[owner] 的魔法牌所有数值增加 #b[amt_0] 点。"
+    ]
   }
 }

@@ -37,6 +37,40 @@
       "astray:晋升 !astray:promos! ， astray:储能 NL astray:启迪 ， astray:魔法 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
     ]
   },
+  {
+    "ID": "B3",
+    "NAME": "魔法飞弹",
+    "DESCRIPTION": "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
+    "UPGRADED_DESC": [
+      "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
+      "astray:启迪 ， astray:晋升 !astray:promos! ， astray:储能 ， astray:魔法 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
+    ]
+  },
+  {
+    "ID": "B4",
+    "NAME": "魔力释放",
+    "DESCRIPTION": "astray:启迪 NL 如果有2 astray:法力 ，获得 !M! astray:魔力 。 NL 消耗 。",
+    "UPGRADED_DESC": [
+      "astray:启迪 ， astray:魔法 NL 如果有2 astray:法力 ，获得 !M! astray:魔力 。 NL 消耗 。",
+      "astray:启迪 ， astray:衍生魔法 NL 获得 !B! 格挡，抽 !M! 张牌。"
+    ]
+  },
+  {
+    "ID": "B5",
+    "NAME": "迷雾阵",
+    "DESCRIPTION": "所有敌人获得 !M! 层 虚弱 。 NL 消耗 。",
+    "UPGRADED_DESC": [
+      "所有敌人获得 !M! 层 虚弱 并失去 !astray:extras! 点 力量 。 NL 消耗 。"
+    ]
+  },
+  {
+    "ID": "B6",
+    "NAME": "法力盾",
+    "DESCRIPTION": "astray:魔法 NL 获得 !B! 格挡， NL 每点法力额外获得 !M! 格挡 。",
+    "MSG": [
+      " NL （获得%d点 格挡 ）"
+    ]
+  },
 
   {
     "ID": "E89",

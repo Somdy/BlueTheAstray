@@ -30,7 +30,6 @@ import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @SuppressWarnings("unused")
 public abstract class AstrayCard extends LMCustomCard implements TAUtils, BranchableUpgradeCard, SwappableUpgBranchCard {
@@ -350,6 +349,15 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     /**
+     * 更新文本描述
+     * @param newDescription 新的文本描述
+     */
+    protected void updateDescription(String newDescription) {
+        rawDescription = newDescription;
+        initializeDescription();
+    }
+    
+    /**
      * 升级该牌的名称，同时根据所给的分支，升级相应的文本。
      * @param branchIndex 启迪牌的分支，0 或 1
      */
@@ -357,8 +365,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         upgradeName();
         setLocalBranch(branchIndex);
         if (UPGRADED_DESC != null) {
-            rawDescription = UPGRADED_DESC[branchIndex];
-            initializeDescription();
+            if (branchIndex >= UPGRADED_DESC.length) {
+                log("has no [" + branchIndex + "] upgraded description");
+                branchIndex = UPGRADED_DESC.length - 1;
+            }
+            updateDescription(UPGRADED_DESC[branchIndex]);
         }
     }
     

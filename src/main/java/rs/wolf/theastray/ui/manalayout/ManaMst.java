@@ -75,6 +75,18 @@ public class ManaMst implements TAUtils {
         reorganizeManaOrbs();
     }
     
+    public int getCurrMana() {
+        return currMana;
+    }
+    
+    public int getMaxMana() {
+        return maxMana;
+    }
+    
+    public int getStartingMana() {
+        return startingMana;
+    }
+    
     public boolean canUseMana(int amt) {
         return currMana >= amt && orbs.size() >= amt;
     }

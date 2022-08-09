@@ -55,4 +55,22 @@ public class GlobalManaMst {
         ManaMst mst = GetPlayerManaMst(p);
         return mst.hasMana();
     }
+    
+    public static int CurrentMana() {
+        AbstractPlayer p = LMSK.Player();
+        ManaMst mst = GetPlayerManaMst(p);
+        return mst.getCurrMana();
+    }
+    
+    public static int MaxMana() {
+        AbstractPlayer p = LMSK.Player();
+        ManaMst mst = GetPlayerManaMst(p);
+        return mst.getMaxMana();
+    }
+    
+    public static int StartingMana() {
+        AbstractPlayer p = LMSK.Player();
+        ManaMst mst = GetPlayerManaMst(p);
+        return mst.getStartingMana();
+    }
 }

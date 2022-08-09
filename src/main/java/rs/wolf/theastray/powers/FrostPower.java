@@ -1,7 +1,6 @@
 package rs.wolf.theastray.powers;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -18,6 +17,7 @@ public class FrostPower extends AstrayPower {
     public FrostPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(ID, "int", PowerType.DEBUFF, owner);
         setValues(source, amount);
+        preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();
     }
     
