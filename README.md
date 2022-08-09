@@ -13,3 +13,12 @@
 
 ### 懒人工具包 API：
 用群文件里的“[STS]Lazy Man's Kits”
+
+
+### 能力代码类：
+
+|能力名|类|
+|:---:|:---:|
+|余烬|BurntPower|
+|冰霜|FrostPower|
+|魔力|MagicPower|
