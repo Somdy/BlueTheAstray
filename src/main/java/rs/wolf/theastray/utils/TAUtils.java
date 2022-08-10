@@ -2,6 +2,9 @@ package rs.wolf.theastray.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,12 +16,26 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.utils.LMGameGeneralUtils;
+import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.core.Leader;
 
 public interface TAUtils extends LMGameGeneralUtils {
     
     default String getSupLang() {
         return getSupportedLanguage(Settings.language);
+    }
+    
+    default CardGroup findCardGroupWhereCardIs(AbstractCard target) {
+        AbstractPlayer p = LMSK.Player();
+        if (p.drawPile.contains(target))
+            return p.drawPile;
+        if (p.hand.contains(target))
+            return p.hand;
+        if (p.discardPile.contains(target))
+            return p.discardPile;
+        if (p.exhaustPile.contains(target))
+            return p.exhaustPile;
+        return null;
     }
     
     @NotNull

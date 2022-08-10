@@ -31,17 +31,19 @@ public class B7 extends AstrayProCard {
         }
         addToBot(new ModifyManaAction(1));
         addToBot(new SimpleGridCardSelectBuilder(c -> c.hasTag(TACardEnums.MAGICAL))
-                .setCardGroup(cpr().drawPile).setAmount(1).setMsg(String.format(MSG[0], 1))
+                .setCardGroup(cpr().drawPile, cpr().hand, cpr().discardPile)
+                .setAmount(1).setMsg(String.format(MSG[0], 1))
                 .setAnyNumber(false).setCanCancel(false)
                 .setManipulator(new GridCardManipulator() {
                     @Override
                     public boolean manipulate(AbstractCard card, int i, CardGroup cardGroup) {
+                        CardGroup group = findCardGroupWhereCardIs(card);
+                        assert group != null;
                         if (!upgraded || finalBranch() == 0) {
-                            cpr().drawPile.removeCard(card);
-                            cpr().drawPile.moveToDeck(card, false);
+                            group.moveToDeck(card, false);
                         }
                         if (finalBranch() == 1) {
-                            cpr().drawPile.moveToHand(card);
+                            group.moveToHand(card);
                         }
                         return false;
                     }
