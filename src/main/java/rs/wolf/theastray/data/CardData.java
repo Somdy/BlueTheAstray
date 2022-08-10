@@ -38,7 +38,7 @@ public class CardData {
     }
     
     @NotNull
-    public static CardData Format(@NotNull LocalDataUnit unit) {
+    public static CardData Format(@NotNull LocalCardDataUnit unit) {
         CardData data = new CardData(unit.id, unit.localname, unit.getType(), unit.getRarity());
         return data;
     }

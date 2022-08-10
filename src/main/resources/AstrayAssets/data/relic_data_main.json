@@ -1,0 +1,13 @@
+﻿[
+	{"id":"Relic1", "localname":"学徒笔记", "tier":"STARTER", "sfx":"FLAT"},
+	{"id":"Relic2", "localname":"施法笔记", "tier":"BOSS", "sfx":"FLAT"},
+	{"id":"Relic3", "localname":"水晶魔方", "tier":"BOSS", "sfx":"SOLID"},
+	{"id":"Relic4", "localname":"深渊绘本", "tier":"BOSS", "sfx":"FLAT"},
+	{"id":"Relic5", "localname":"星轮之书", "tier":"RARE", "sfx":"FLAT"},
+	{"id":"Relic6", "localname":"饕餮的胃袋", "tier":"RARE", "sfx":"HEAVY"},
+	{"id":"Relic7", "localname":"旅行者套装", "tier":"SHOP", "sfx":"CLINK"},
+	{"id":"Relic8", "localname":"历练者徽章", "tier":"UNCOMMON", "sfx":"CLINK"},
+	{"id":"Relic9", "localname":"爆裂冰袋", "tier":"COMMON", "sfx":"HEAVY"},
+	{"id":"Relic10", "localname":"奇迹魔杖", "tier":"SHOP", "sfx":"MAGICAL"},
+	{"id":"Relic11", "localname":"扭曲符文", "tier":"SPECIAL", "sfx":"MAGICAL"}
+]

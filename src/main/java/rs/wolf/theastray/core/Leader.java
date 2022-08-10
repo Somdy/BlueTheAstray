@@ -1,5 +1,6 @@
 package rs.wolf.theastray.core;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.devcommands.ConsoleCommand;
 import basemod.interfaces.*;
@@ -8,18 +9,18 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.Keyword;
-import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.*;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.utils.LMSK;
+import rs.wolf.theastray.abstracts.AstrayRelic;
 import rs.wolf.theastray.characters.BlueTheAstray;
 import rs.wolf.theastray.commands.CheatCMD;
 import rs.wolf.theastray.commands.ManaCMD;
 import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.localizations.TALocalLoader;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.relics.Relic1;
 import rs.wolf.theastray.utils.MsgLogger;
 import rs.wolf.theastray.utils.TAUtils;
 import rs.wolf.theastray.variables.TAExtraMagic;
@@ -30,7 +31,8 @@ import java.nio.charset.StandardCharsets;
 @SpireInitializer
 @SuppressWarnings("unused")
 public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
-        PostInitializeSubscriber, EditCharactersSubscriber {
+        PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber {
+    public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
     
@@ -60,6 +62,8 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         String lang = getSupLang();
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "AstrayAssets/locals/" + lang + "/chars.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "AstrayAssets/locals/" + lang + "/powers.json");
+        BaseMod.loadCustomStringsFile(RelicStrings.class, "AstrayAssets/locals/" + lang + "/relics.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, "AstrayAssets/locals/" + lang + "/ui.json");
     }
     
     @Override
@@ -103,5 +107,15 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new BlueTheAstray(), TA_BTN, TA_PTR, TACardEnums.BlueTheAstray);
+    }
+    
+    @Override
+    public void receiveEditRelics() {
+        new AutoAdd(MOD_ID)
+                .packageFilter(Relic1.class)
+                .any(AstrayRelic.class, (i, r) -> {
+                    BaseMod.addRelicToCustomPool(r.makeCopy(), TACardEnums.TA_CardColor);
+                    TAUtils.Log("[" + r.name + "] added");
+                });
     }
 }

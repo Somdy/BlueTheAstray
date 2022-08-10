@@ -20,14 +20,14 @@ public class CardMst {
     private static final List<AstrayCard> EXTS = new ArrayList<>();
     
     public static void RegisterCards() {
-        new AutoAdd("BlueTheAstray")
+        new AutoAdd(Leader.MOD_ID)
                 .packageFilter(StrikeTA.class)
                 .any(AstrayProCard.class, (i, c) -> {
                     addProCard(c);
                     BaseMod.addCard(c.makeCopy());
                     TAUtils.Log("[" + c.name + "] added");
                 });
-        new AutoAdd("BlueTheAstrayExt")
+        new AutoAdd(Leader.MOD_ID)
                 .packageFilter(E89.class)
                 .any(AstrayExtCard.class, (i, c) -> {
                     addExtCard(c);

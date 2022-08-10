@@ -50,7 +50,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
         super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbBlue(), null, null);
         initializeClass(null, Shoulder_2, Shoulder_1, corpse, getLoadout(), 20F, -10F,
                 300F, 370F, new EnergyManager(3));
-        manaMst = new ManaMst(this, 10, 10, ManaMst.Layout.REVOLUTION);
+        manaMst = new ManaMst(this, 10, 0, ManaMst.Layout.REVOLUTION);
         loadAnimation(SK_ALT, SK_JSON, 1.25F);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
@@ -68,7 +68,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     @Override
     public ArrayList<String> getStartingRelics() {
-        return listFromObjs(BurningBlood.ID);
+        return listFromObjs(GlobalIDMst.RelicID(1));
     }
     
     @Override

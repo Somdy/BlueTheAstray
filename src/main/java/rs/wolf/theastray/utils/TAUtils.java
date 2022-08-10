@@ -1,8 +1,11 @@
 package rs.wolf.theastray.utils;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -68,8 +71,20 @@ public interface TAUtils extends LMGameGeneralUtils {
     }
     
     @NotNull
-    static String CardImage(int localID) {
-        return "AstrayAssets/images/cardports/" + localID + ".png";
+    static String CardImage(int index) {
+        return "AstrayAssets/images/cardports/" + index + ".png";
+    }
+    
+    static Texture RelicImage(int index) {
+        if (Gdx.files.internal("AstrayAssets/images/relics/" + index + ".png").exists())
+            return ImageMaster.loadImage("AstrayAssets/images/relics/" + index + ".png");
+        return ImageMaster.loadImage("AstrayAssets/images/relics/test.png");
+    }
+    
+    static Texture RelicOutlineImage(int index) {
+        if (Gdx.files.internal("AstrayAssets/images/relics/outline/" + index + ".png").exists())
+            return ImageMaster.loadImage("AstrayAssets/images/relics/outline/" + index + ".png");
+        return ImageMaster.loadImage("AstrayAssets/images/relics/test.png");
     }
     
     static UIStrings UIStrings(@NotNull String id) {

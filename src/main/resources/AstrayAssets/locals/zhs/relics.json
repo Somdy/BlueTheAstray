@@ -1,0 +1,9 @@
+{
+  "astray:Relic1": {
+    "NAME": "学徒笔记",
+    "FLAVOR": "求知者即为学徒。",
+    "DESCRIPTIONS": [
+      "每回合开始时，获得 #b1 #yastray:法力 。"
+    ]
+  }
+}

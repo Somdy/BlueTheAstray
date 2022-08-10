@@ -3,7 +3,7 @@ package rs.wolf.theastray.data;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import rs.wolf.theastray.utils.TAUtils;
 
-public class LocalDataUnit {
+public class LocalCardDataUnit {
     protected String id;
     protected String localname;
     protected String type;
