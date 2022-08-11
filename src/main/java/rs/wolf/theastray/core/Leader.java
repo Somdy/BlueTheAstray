@@ -8,11 +8,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.utils.LMSK;
+import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayRelic;
 import rs.wolf.theastray.characters.BlueTheAstray;
 import rs.wolf.theastray.commands.CheatCMD;
@@ -31,7 +36,7 @@ import java.nio.charset.StandardCharsets;
 @SpireInitializer
 @SuppressWarnings("unused")
 public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
-        PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber {
+        PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
@@ -117,5 +122,39 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
                     BaseMod.addRelicToCustomPool(r.makeCopy(), TACardEnums.TA_CardColor);
                     TAUtils.Log("[" + r.name + "] added");
                 });
+    }
+
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower p, AbstractCreature t, AbstractCreature s) {
+        if (t instanceof AbstractPlayer) {
+            AbstractPlayer player = LMSK.Player();
+            for (AbstractCard card : player.drawPile.group) {
+                if (card instanceof AstrayCard)
+                    ((AstrayCard) card).onPlayerReceivePower(p, s);
+            }
+            for (AbstractCard card : player.hand.group) {
+                if (card instanceof AstrayCard)
+                    ((AstrayCard) card).onPlayerReceivePower(p, s);
+            }
+            for (AbstractCard card : player.discardPile.group) {
+                if (card instanceof AstrayCard)
+                    ((AstrayCard) card).onPlayerReceivePower(p, s);
+            }
+        }
+        if (s instanceof AbstractPlayer) {
+            AbstractPlayer player = LMSK.Player();
+            for (AbstractCard card : player.drawPile.group) {
+                if (card instanceof AstrayCard)
+                    ((AstrayCard) card).onPlayerApplyPower(p, t);
+            }
+            for (AbstractCard card : player.hand.group) {
+                if (card instanceof AstrayCard)
+                    ((AstrayCard) card).onPlayerApplyPower(p, t);
+            }
+            for (AbstractCard card : player.discardPile.group) {
+                if (card instanceof AstrayCard)
+                    ((AstrayCard) card).onPlayerApplyPower(p, t);
+            }
+        }
     }
 }

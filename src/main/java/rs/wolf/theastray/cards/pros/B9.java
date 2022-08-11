@@ -23,23 +23,23 @@ public class B9 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         if (!upgraded || finalBranch() == 1) {
-            addToBot(new QuickAction(() -> {
+            atbTmpAction(() -> {
                 for (AbstractMonster m : getAllLivingMstrs()) {
                     if (m.getIntentBaseDmg() > 0)
                         addToTop(ApplyPower(m, s, new WeakPower(m, magicNumber, false)));
                     else 
                         addToTop(ApplyPower(m, s, new VulnerablePower(m, magicNumber, false)));
                 }
-            }));
+            });
             return;
         }
         if (finalBranch() == 0) {
-            addToBot(new QuickAction(() -> {
+            atbTmpAction(() -> {
                 for (AbstractMonster m : getAllLivingMstrs()) {
                     addToTop(ApplyPower(m, s, new WeakPower(m, magicNumber, false)));
                     addToTop(ApplyPower(m, s, new VulnerablePower(m, magicNumber, false)));
                 }
-            }));
+            });
         }
     }
     

@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.rooms.RestRoom;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.abstracts.LMCustomCard;
 import rs.lazymankits.actions.common.NullableSrcDamageAction;
+import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
 import rs.lazymankits.interfaces.cards.SwappableUpgBranchCard;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
@@ -684,4 +685,26 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     protected ApplyPowerAction ApplyPower(AbstractCreature t, AbstractCreature s, AbstractPower p) {
         return ApplyPower(t, s, p, p.amount);
     }
+    
+    protected void atbTmpAction(Runnable action) {
+        addToBot(new QuickAction(action));
+    }
+    
+    protected void attTmpAction(Runnable action) {
+        addToTop(new QuickAction(action));
+    }
+    
+    /**
+     * 当玩家获得任意能力时触发
+     * @param power 获得的能力
+     * @param source 来源
+     */
+    public void onPlayerReceivePower(AbstractPower power, AbstractCreature source) {}
+    
+    /**
+     * 当玩家给予任意能力时触发
+     * @param power 给予的能力
+     * @param target 目标
+     */
+    public void onPlayerApplyPower(AbstractPower power, AbstractCreature target) {}
 }

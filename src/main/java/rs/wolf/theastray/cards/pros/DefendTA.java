@@ -6,7 +6,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 
 public class DefendTA extends AstrayProCard {
     public DefendTA() {
-        super("防御", 1, CardTarget.SELF);
+        super(2, 1, CardTarget.SELF);
         setBlockValue(5, true);
     }
     

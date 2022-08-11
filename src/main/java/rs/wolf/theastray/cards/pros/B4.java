@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.powers.MagicPower;
@@ -24,10 +23,10 @@ public class B4 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         if (!upgraded || finalBranch() == 0) {
-            addToBot(new QuickAction(() -> {
+            atbTmpAction(() -> {
                 if (GlobalManaMst.CurrentMana() >= 2)
                     addToTop(ApplyPower(s, s, new MagicPower(s, magicNumber)));
-            }));
+            });
             return;
         }
         if (finalBranch() == 1) {
