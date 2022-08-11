@@ -111,6 +111,20 @@ public class ManaMst implements TAUtils {
     private void reorganizeManaOrbs() {
         orbs.removeAll(removeList);
         removeList.clear();
+        if (orbs.isEmpty()) return;
+        if (orbs.size() != currMana) {
+            TAUtils.Log("MANA ORB SIZE DOES NOT FIT CURRENT MANA !!!!");
+            int diff = currMana - orbs.size();
+            if (diff > 0) {
+                Mana last = orbs.get(orbs.size() - 1);
+                for (int i = 0; i < diff; i++) {
+                    Mana mana = new Mana(last.cX, last.cY);
+                    orbs.add(mana);
+                }
+            } else {
+                currMana -= diff;
+            }
+        }
         float totalLen = scale(96F * 0.6F) * (currMana - 1);
         for (int i = 0; i < currMana; i++) {
             orbs.get(i).transAnim(getManaPosition(i, totalLen));
@@ -120,6 +134,7 @@ public class ManaMst implements TAUtils {
     public void initPreBattle() {
         ballHb.move(owner.hb.x - scale(100F), owner.hb.cY);
         orbs.clear();
+        currMana = 0;
         float totalLen = scale(96F * 0.6F) * (startingMana - 1);
         for (int i = 0; i < startingMana; i++) {
             Mana mana = new Mana(getManaPosition(i, totalLen));

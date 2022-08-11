@@ -580,7 +580,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     /**
-     * 判断该牌是否为启迪牌。包含三个条件 {@link #isBranchable()} 和 {@link #isSwappable()}
+     * 判断该牌是否为启迪牌。包含两个条件 {@link #isBranchable()} 和 {@link #isSwappable()}
      * @return 当且仅当 {@link #isBranchable()} 和 {@link #isSwappable()} 均为 true 时，返回 true，否则返回 false
      */
     public boolean canEnlighten() {
@@ -600,11 +600,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * 判断玩家是否在火堆
      * @return 当玩家在火堆，返回 true，否则 false
      */
-    private boolean inRestroom() {
+    protected final boolean inRestroom() {
         return TAUtils.RoomChecker(RestRoom.class, AbstractRoom.RoomPhase.INCOMPLETE);
     }
     
-    private boolean outOfDungeon() {
+    protected final boolean outOfDungeon() {
         return !TAUtils.RoomAvailable();
     }
     

@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar;
 import javassist.CtBehavior;
 import rs.wolf.theastray.utils.TAUtils;
 
-public class ExtensionCardColorTabNameFix {
+public class ExtCardColorTabNameFix {
     @SpirePatch(optional = true,
             cls = "basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix$Render",
             method = "Insert")
