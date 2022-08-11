@@ -14,6 +14,7 @@
 ### 懒人工具包 API：
 用群文件里的“[STS]Lazy Man's Kits”
 
+LMK 的使用参考：https://github.com/Somdy/LazyManKits/wiki
 
 ### 能力代码类：
 
