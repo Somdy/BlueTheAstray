@@ -41,7 +41,7 @@ public class B12 extends AstrayProCard {
         super.onPlayerReceivePower(power, source);
         if (inHand()) return;
         if (isPowerTypeOf(power, AbstractPower.PowerType.DEBUFF)) {
-            atbTmpAction(() -> {
+            attTmpAction(() -> {
                 findCardGroupWhereCardIs(this).moveToHand(this);
                 applyPowers();
                 cpr().hand.refreshHandLayout();

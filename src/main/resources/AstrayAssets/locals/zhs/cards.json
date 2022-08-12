@@ -31,10 +31,10 @@
   {
     "ID": "B3",
     "NAME": "魔法飞弹",
-    "DESCRIPTION": "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
+    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 造成 !D! 伤害",
     "UPGRADED_DESC": [
-      "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
-      "astray:晋升 !astray:promos! ， astray:储能 NL astray:启迪 ， astray:魔法 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
+      "astray:魔法 ， astray:启迪 NL 造成 !D! 伤害",
+      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:储能 ， astray:启迪 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
     ]
   },
   {
@@ -42,8 +42,8 @@
     "NAME": "魔法飞弹",
     "DESCRIPTION": "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
     "UPGRADED_DESC": [
-      "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
-      "astray:启迪 ， astray:晋升 !astray:promos! ， astray:储能 ， astray:魔法 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
+      "astray:魔法 ， astray:启迪 NL 造成 !D! 伤害",
+      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
     ]
   },
   {
@@ -51,8 +51,8 @@
     "NAME": "魔力释放",
     "DESCRIPTION": "astray:启迪 NL 如果有2 astray:法力 ，获得 !M! astray:魔力 。 NL 消耗 ",
     "UPGRADED_DESC": [
-      "astray:启迪 ， astray:魔法 NL 如果有2 astray:法力 ，获得 !M! astray:魔力 。 NL 消耗 ",
-      "astray:启迪 ， astray:衍生魔法 NL 获得 !B! 格挡，抽 !M! 张牌。"
+      "astray:魔法 ， astray:启迪 NL 如果有2 astray:法力 ，获得 !M! astray:魔力 。 NL 消耗 ",
+      "astray:衍生魔法 ， astray:启迪 NL 获得 !B! 格挡，抽 !M! 张牌。"
     ]
   },
   {
@@ -74,10 +74,10 @@
   {
     "ID": "B7",
     "NAME": "法术准备",
-    "DESCRIPTION": "astray:启迪 NL 抽 !M! 张牌。 NL 获得1个法力充能。选择牌堆中1张魔法牌置于抽牌堆顶。 NL 消耗 ",
+    "DESCRIPTION": "astray:启迪 NL 抽 !M! 张牌。 NL 获得1 astray:法力 。选择牌堆中1张魔法牌置于抽牌堆顶。 NL 消耗 ",
     "UPGRADED_DESC": [
-      "astray:启迪 NL 抽 !M! 张牌。 NL 获得1个法力充能。选择牌堆中1张魔法牌置于抽牌堆顶。",
-      "astray:启迪 NL 获得1个法力充能。 NL 选择牌堆中1张魔法牌置入手牌。 NL 消耗 。"
+      "astray:启迪 NL 抽 !M! 张牌。 NL 获得1 astray:法力 。选择牌堆中1张魔法牌置于抽牌堆顶。",
+      "astray:启迪 NL 获得1 astray:法力 。 NL 选择牌堆中1张魔法牌置入手牌。 NL 消耗 。"
     ],
     "MSG": [
       "选择 %d 张牌置于抽牌堆顶",
@@ -99,10 +99,10 @@
   {
     "ID": "B9",
     "NAME": "占卜魔法",
-    "DESCRIPTION": "astray:启迪 ， astray:魔法 NL 给予所有将要攻击的敌人 !M! 层 虚弱 ， NL 其他敌人 !astray:extras! 层 易伤 。",
+    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 给予所有将要攻击的敌人 !M! 层 虚弱 ， NL 其他敌人 !astray:extras! 层 易伤 。",
     "UPGRADED_DESC": [
-      "astray:启迪 ， astray:魔法 NL 给予所有敌人 !M! 层 易伤 与 虚弱 。 NL 消耗 。",
-      "astray:启迪 ， astray:魔法 NL 给予所有将要攻击的敌人 !M! 层 虚弱 ， NL 其他敌人 !astray:extras! 层 易伤 。 NL 消耗 "
+      "astray:魔法 ， astray:启迪 NL 给予所有敌人 !M! 层 易伤 和 虚弱 。 NL 消耗 。",
+      "astray:魔法 ， astray:启迪 NL 给予所有将要攻击的敌人 !M! 层 虚弱 ， NL 其他敌人 !astray:extras! 层 易伤 。 NL 消耗 "
     ]
   },
   {
@@ -126,6 +126,46 @@
       "astray:启迪 ， 保留 NL 移除自身所有负面状态。 NL 获得负面状态时，将该牌加入手牌。 NL 消耗 。",
       "astray:启迪 NL 移除1个自身的负面状态并获得 !B! 格挡 。 NL 获得负面状态时，将该牌加入手牌。 NL 消耗 "
     ]
+  },
+  {
+    "ID": "B13",
+    "NAME": "魔石碎片",
+    "DESCRIPTION": "astray:启迪 NL 获得 !M! astray:法力 。 NL *法力 耗尽时将这张牌加入手牌。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 获得 !M! astray:法力 。 NL *法力 耗尽时将这张牌加入手牌。 NL 消耗",
+      "astray:启迪 NL 获得 !M! astray:法力 。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B14",
+    "NAME": "奥术飞弹",
+    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。",
+      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。"
+    ]
+  },
+  {
+    "ID": "B15",
+    "NAME": "立场堆叠",
+    "DESCRIPTION": "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
+    "UPGRADED_DESC": [
+      "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
+      "astray:魔法 ， astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。"
+    ]
+  },
+  {
+    "ID": "B16",
+    "NAME": "灵活一跃",
+    "DESCRIPTION": "获得 !B! 格挡 。 NL 抽 !M! 张牌。 NL 给予所有敌人 !astray:extras! 层 虚弱 。",
+    "UPGRADED_DESC": [
+      "获得 !B! 格挡 。 NL 抽 !M! 张牌。 NL 给予所有敌人 !astray:extras! 层 虚弱 和 astray:冰霜 。"
+    ]
+  },
+  {
+    "ID": "B17",
+    "NAME": "冰霜飞弹",
+    "DESCRIPTION": "astray:魔法 NL 造成 !D! 伤害。 NL 给予 !M! 层 astray:冰霜 。"
   },
 
   {

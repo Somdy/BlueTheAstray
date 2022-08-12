@@ -23,20 +23,11 @@ public class FrostPower extends AstrayPower {
     
     @Override
     public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
-        if (type == DamageInfo.DamageType.NORMAL && amount > 0 && damage <= amount)
-            damage = 0;
-        return super.atDamageFinalGive(damage, type);
-    }
-    
-    @Override
-    public int onAttackToChangeDamage(DamageInfo info, int damageAmount) {
-        if (info.type == DamageInfo.DamageType.NORMAL && amount > 0) {
-            if (damageAmount <= amount && damageAmount > 0) {
-                Log("??? How is possible: " + damageAmount);
-                damageAmount = 0;
-            }
+        if (type == DamageInfo.DamageType.NORMAL && amount > 0) {
+            damage -= amount;
+            if (damage < 0) damage = 0;
         }
-        return super.onAttackToChangeDamage(info, damageAmount);
+        return super.atDamageFinalGive(damage, type);
     }
     
     @Override

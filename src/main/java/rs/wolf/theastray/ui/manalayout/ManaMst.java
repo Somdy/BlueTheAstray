@@ -3,11 +3,15 @@ package rs.wolf.theastray.ui.manalayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbActivateEffect;
 import org.jetbrains.annotations.NotNull;
+import rs.lazymankits.utils.LMSK;
+import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
@@ -43,9 +47,27 @@ public class ManaMst implements TAUtils {
     public void gainMana(int amt) {
         if (currMana + amt > maxMana)
             amt = maxMana - currMana;
+        amt = triggerCardsOnGainingMana(amt);
         if (amt <= 0) return;
         currMana += amt;
         selfGainMana(amt);
+    }
+    
+    private int triggerCardsOnGainingMana(int amount) {
+        AbstractPlayer p = LMSK.Player();
+        for (AbstractCard card : p.drawPile.group) {
+            if (card instanceof AstrayCard)
+                amount = ((AstrayCard) card).modifyOnGainingMana(amount);
+        }
+        for (AbstractCard card : p.hand.group) {
+            if (card instanceof AstrayCard)
+                amount = ((AstrayCard) card).modifyOnGainingMana(amount);
+        }
+        for (AbstractCard card : p.discardPile.group) {
+            if (card instanceof AstrayCard)
+                amount = ((AstrayCard) card).modifyOnGainingMana(amount);
+        }
+        return amount;
     }
     
     private void selfGainMana(int amt) {
@@ -58,7 +80,24 @@ public class ManaMst implements TAUtils {
                 orbs.add(mana);
             }
         }
+        triggerCardsOnManaGained(amt);
         reorganizeManaOrbs();
+    }
+    
+    private void triggerCardsOnManaGained(int amount) {
+        AbstractPlayer p = LMSK.Player();
+        for (AbstractCard card : p.drawPile.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onManaGained(amount);
+        }
+        for (AbstractCard card : p.hand.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onManaGained(amount);
+        }
+        for (AbstractCard card : p.discardPile.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onManaGained(amount);
+        }
     }
     
     public void loseMana(int amt) {
@@ -106,6 +145,25 @@ public class ManaMst implements TAUtils {
             AbstractDungeon.effectsQueue.add(new PlasmaOrbActivateEffect(mana.cX, mana.cY));
         }
         loseMana(amt);
+        if (currMana <= 0) {
+            triggerCardsOnManaRunOut();
+        }
+    }
+    
+    private void triggerCardsOnManaRunOut() {
+        AbstractPlayer p = LMSK.Player();
+        for (AbstractCard card : p.drawPile.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onManaRunOut();
+        }
+        for (AbstractCard card : p.hand.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onManaRunOut();
+        }
+        for (AbstractCard card : p.discardPile.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onManaRunOut();
+        }
     }
     
     private void reorganizeManaOrbs() {

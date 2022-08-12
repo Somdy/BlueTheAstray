@@ -381,7 +381,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         upgradeTexts(0);
     }
     
-    public void storage(boolean storage) {
+    /**
+     * 设置该牌是否有 <strong>储能</strong>
+     * @param storage 要该牌具有储能，传入 true
+     */
+    public void setStorage(boolean storage) {
         addTags(TACardEnums.STORAGE);
     }
     
@@ -424,6 +428,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     public void upgradePromos(int num) {
         basePromos += num;
+        promos += num;
         setUpgradedPromos(true);
     }
     
@@ -619,7 +624,6 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         return true;
     }
     
-    
     /**
      * 返回该牌可用的升级分支，仅对 {@link #canEnlighten()} 为 true 的牌生效。
      * 当 {@link #inRestroom()} 为 true，即在火堆升级，该方法返回所有可用的升级分支
@@ -657,8 +661,27 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         TAUtils.Log(this, "[" + name + "] " + what);
     }
     
+    /**
+     * 根据目标敌人返回余烬层数
+     * @param originalValue 基础层数
+     * @param target 目标敌人
+     * @return 若目标无攻击意图，返回基础层数，否则返回两倍的层数
+     */
     protected int burnt(int originalValue, AbstractCreature target) {
         if (target instanceof AbstractMonster && ((AbstractMonster) target).getIntentBaseDmg() > 0)
+            originalValue *= 2;
+        if (originalValue < 0) originalValue = 0;
+        return originalValue;
+    }
+    
+    /**
+     * 根据目标敌人返回冰霜层数
+     * @param originalValue 基础层数
+     * @param target 目标敌人
+     * @return 若目标有攻击意图，返回基础层数，否则返回两倍的层数
+     */
+    protected int frost(int originalValue, AbstractCreature target) {
+        if (target instanceof AbstractMonster && ((AbstractMonster) target).getIntentBaseDmg() <= 0)
             originalValue *= 2;
         if (originalValue < 0) originalValue = 0;
         return originalValue;
@@ -707,4 +730,12 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @param target 目标
      */
     public void onPlayerApplyPower(AbstractPower power, AbstractCreature target) {}
+    
+    public void onManaRunOut() {}
+    
+    public int modifyOnGainingMana(int amount) {
+        return amount;
+    }
+    
+    public void onManaGained(int amount) {}
 }

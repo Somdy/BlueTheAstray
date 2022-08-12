@@ -4,27 +4,22 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
-import rs.wolf.theastray.powers.BurntPower;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class B3 extends AstrayProCard {
-    public B3() {
-        super(3, 1, CardTarget.ENEMY);
-        setDamageValue(9, true);
-        setCanEnlighten(true); // 将该牌设为启迪牌
-        setMagical(true); // 将该牌设为魔法牌
+public class B14 extends AstrayProCard {
+    public B14() {
+        super(14, 1, CardTarget.SELF);
+        setDamageValue(10, true);
+        setPromosValue(1, true);
+        setCanEnlighten(true);
         setStorage(true);
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.FIRE));
-        if (finalBranch() == 1) { // 用 finalBranch 来判断真正的分支
-            // 用 burnt(int, AbstractCreature) 来获取余烬的层数
-            addToBot(ApplyPower(t, s, new BurntPower(t, s, burnt(magicNumber, t))));
-        }
     }
     
     @Override
@@ -33,17 +28,17 @@ public class B3 extends AstrayProCard {
     }
     
     @Override
-    protected List<UpgradeBranch> branches() { // 启迪牌一定要重写该方法
+    protected List<UpgradeBranch> branches() {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                upgradeDamage(6);
+                upgradeDamage(5);
+                upgradePromos(1);
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeDamage(1);
-                setMagicValue(1, true);
-                setPromosValue(1, true);
+                upgradeDamage(5);
+                setMagicalDerivative(true);
             });
         }};
     }
