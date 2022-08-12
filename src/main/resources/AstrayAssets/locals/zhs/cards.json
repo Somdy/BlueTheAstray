@@ -167,6 +167,15 @@
     "NAME": "冰霜飞弹",
     "DESCRIPTION": "astray:魔法 NL 造成 !D! 伤害。 NL 给予 !M! 层 astray:冰霜 。"
   },
+  {
+    "ID": "B74",
+    "NAME": "断裂记忆",
+    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时，丢弃该牌。 NL 随机获得 !M! astray:法力 或 [E] ，然后抽 !astray:extras! 张牌",
+    "UPGRADED_DESC": [
+      "不能被打出 。 NL 抽到这张牌时，丢弃该牌。 NL 随机获得 !M! astray:法力 和 [E] ，然后抽 !astray:extras! 张牌",
+      ""
+    ]
+  },
 
   {
     "ID": "E89",
