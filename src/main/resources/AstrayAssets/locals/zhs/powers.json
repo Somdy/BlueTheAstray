@@ -5,25 +5,29 @@
       "你"
     ]
   },
-
   "astray:BurntPower": {
     "NAME": "余烬",
     "DESCRIPTIONS": [
       "#y[owner] 在其回合开始时失去 #b[amt_0] 点生命值和所有 #y余烬 。受到 #y魔法 牌的伤害后， #y余烬  增加 #b[amt_1] 层。"
     ]
   },
-
   "astray:FrostPower": {
     "NAME": "冰霜",
     "DESCRIPTIONS": [
       "#y[owner] 造成的伤害减少 #b[amt_0] 点。在其回合结束时， #y冰霜 减半。在受到 #r非 #y魔法 牌的伤害后， #y冰霜 减少 #b1 层。"
     ]
   },
-
   "astray:MagicPower": {
     "NAME": "魔力",
     "DESCRIPTIONS": [
       "#y[owner] 的魔法牌所有数值增加 #b[amt_0] 点。"
+    ]
+  },
+  
+  "astray:MagicalBodyPower": {
+    "NAME": "魔力躯体",
+    "DESCRIPTIONS": [
+      "手牌满时依然可以抽牌。每张溢出的牌获得 #b[amt_0] 点 #y格挡 。"
     ]
   }
 }

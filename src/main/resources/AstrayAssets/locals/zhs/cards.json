@@ -148,10 +148,10 @@
   {
     "ID": "B15",
     "NAME": "立场堆叠",
-    "DESCRIPTION": "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
+    "DESCRIPTION": "astray:启迪 ， 保留  NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
     "UPGRADED_DESC": [
       "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
-      "astray:魔法 ， astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。"
+      "astray:魔法 ， astray:启迪 ， 保留  NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。"
     ]
   },
   {
@@ -168,11 +168,35 @@
     "DESCRIPTION": "astray:魔法 NL 造成 !D! 伤害。 NL 给予 !M! 层 astray:冰霜 。"
   },
   {
+    "ID": "B18",
+    "NAME": "巫师之手",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 造成 !D! 伤害，未 *储能 时返回手牌并返还 astray:法力 。"
+  },
+  {
+    "ID": "B19",
+    "NAME": "混乱法术",
+    "DESCRIPTION": "astray:启迪 ，打出后随机： NL 抽 !M! 张0费 *魔法牌 ； NL 或将 !M! 张耗能为0的随机 astray:魔法牌 置入手牌。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:启迪 NL 将 !M! 张耗能为0的随机 *魔法牌 置入手牌。 NL 消耗",
+      "astray:魔法 ， astray:启迪 NL 抽 !M! 张耗能为0的 *魔法牌 。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B20",
+    "NAME": "开幕礼花",
+    "DESCRIPTION": "astray:魔法 ， 固有 NL 对所有敌人造成 !D! 点伤害并给予 !M! 层 astray:余烬 。 NL 消耗"
+  },
+  {
+    "ID": "B63",
+    "NAME": "魔力躯体",
+    "DESCRIPTION": "手牌满时依然可以抽牌。 NL 每张溢出的牌获得 !B! 点 格挡 。"
+  },
+  {
     "ID": "B74",
     "NAME": "断裂记忆",
-    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时，丢弃该牌。 NL 随机获得 !M! astray:法力 或 [E] ，然后抽 !astray:extras! 张牌",
+    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时， NL 丢弃该牌。 NL 随机获得 !M! astray:法力 或 [E] ，并抽 !astray:extras! 张非同名牌。",
     "UPGRADED_DESC": [
-      "不能被打出 。 NL 抽到这张牌时，丢弃该牌。 NL 随机获得 !M! astray:法力 和 [E] ，然后抽 !astray:extras! 张牌",
+      "不能被打出 。 NL 抽到这张牌时， NL 丢弃该牌。 NL 随机获得 !M! astray:法力 和 [E] ，并抽 !astray:extras! 张非同名牌。",
       ""
     ]
   },

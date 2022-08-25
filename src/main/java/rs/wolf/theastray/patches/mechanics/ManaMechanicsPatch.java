@@ -96,7 +96,7 @@ public class ManaMechanicsPatch {
             if (c.hasTag(TACardEnums.STORAGE)) {
                 boolean energy = EnergyPanel.getCurrentEnergy() <= 0;
                 boolean mana = GlobalManaMst.HasMana();
-                LMSK.AddToBot(new TriggerStorageAction(energy, mana));
+                LMSK.AddToBot(new TriggerStorageAction(energy, mana, c));
             }
         }
         private static class StorageLocator extends SpireInsertLocator {

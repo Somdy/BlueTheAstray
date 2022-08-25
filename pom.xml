@@ -61,7 +61,7 @@
     </dependencies>
 
     <build>
-        <finalName>TheNightmare</finalName>
+        <finalName>BlueTheAstray</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -23,8 +23,7 @@ public class B16 extends AstrayProCard {
         atbTmpAction(() -> {
             for (AbstractMonster m : getAllLivingMstrs()) {
                 addToTop(ApplyPower(m, s, new WeakPower(m, getExtraMagic(), false)));
-                if (upgraded)
-                    addToTop(ApplyPower(m, s, new FrostPower(m, s, frost(getExtraMagic(), m))));
+                if (upgraded) addToTop(ApplyPower(m, s, frostPower(m, s, getExtraMagic())));
             }
         });
     }

@@ -44,6 +44,8 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     private static final String TA_BTN = "AstrayAssets/images/char/button.png";
     private static final String TA_PTR = "AstrayAssets/images/char/portrait.jpg";
     
+    public static boolean SHOW_OVERDRAWN_CARDS = true;
+    
     public static void initialize() {
         BaseMod.subscribe(new Leader());
     }

@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.abstracts.LMCustomCard;
+import rs.lazymankits.actions.common.BetterDamageAllEnemiesAction;
 import rs.lazymankits.actions.common.NullableSrcDamageAction;
 import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
@@ -26,11 +27,14 @@ import rs.wolf.theastray.interfaces.MagicModifier;
 import rs.wolf.theastray.localizations.TACardLocals;
 import rs.wolf.theastray.localizations.TALocalLoader;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.powers.BurntPower;
+import rs.wolf.theastray.powers.FrostPower;
 import rs.wolf.theastray.utils.GlobalManaMst;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
 public abstract class AstrayCard extends LMCustomCard implements TAUtils, BranchableUpgradeCard, SwappableUpgBranchCard {
@@ -548,14 +552,12 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     /**
      * 设置该牌为衍生魔法牌，且法力消耗为 0，所有牌默认为非衍生魔法牌
      * @param magicalDerivative 要设该牌为衍生魔法牌，传入 true
-     * @return 该牌本身
      * @see #setMagical(boolean, int)
      * @see #setMagical(boolean) 
      */
-    public final AstrayCard setMagicalDerivative(boolean magicalDerivative) {
+    public final void setMagicalDerivative(boolean magicalDerivative) {
         isMagicalDerivative = magicalDerivative;
         setMagical(magicalDerivative, 0);
-        return this;
     }
     
     public final boolean isBranchable() {
@@ -675,6 +677,17 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     /**
+     * 根据目标敌人返回相应层数的余烬效果
+     * @param t 目标敌人
+     * @param s 来源
+     * @param amount 基础层数
+     * @return 若目标无攻击意图，返回基础层数的余烬，否则返回两倍层数的余烬
+     */
+    protected BurntPower burntPower(AbstractCreature t, AbstractCreature s, int amount) {
+        return new BurntPower(t, s, burnt(amount, t));
+    }
+    
+    /**
      * 根据目标敌人返回冰霜层数
      * @param originalValue 基础层数
      * @param target 目标敌人
@@ -685,6 +698,17 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
             originalValue *= 2;
         if (originalValue < 0) originalValue = 0;
         return originalValue;
+    }
+    
+    /**
+     * 根据目标敌人返回相应层数的冰霜效果
+     * @param t 目标敌人
+     * @param s 来源
+     * @param amount 基础层数
+     * @return 若目标有攻击意图，返回基础层数的冰霜，否则返回两倍层数的冰霜
+     */
+    protected FrostPower frostPower(AbstractCreature t, AbstractCreature s, int amount) {
+        return new FrostPower(t, s, frost(amount, t));
     }
     
     protected NullableSrcDamageAction DamageAction(AbstractCreature t, AbstractCreature s, int damage,
@@ -701,6 +725,21 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         return DamageAction(t, s, damage, damageTypeForTurn, effect);
     }
     
+    protected BetterDamageAllEnemiesAction DamageAllEnemiesAction(AbstractCreature s, DamageInfo.DamageType type, 
+                                                                  AbstractGameAction.AttackEffect effect, 
+                                                                  Consumer<AbstractCreature> func) {
+        return new BetterDamageAllEnemiesAction(multiDamage, crtDmgSrc(s), type, effect, func);
+    }
+    
+    protected BetterDamageAllEnemiesAction DamageAllEnemiesAction(AbstractCreature s, AbstractGameAction.AttackEffect effect, 
+                                                                  Consumer<AbstractCreature> func) {
+        return DamageAllEnemiesAction(s, damageTypeForTurn, effect, func);
+    }
+    
+    protected BetterDamageAllEnemiesAction DamageAllEnemiesAction(AbstractCreature s, AbstractGameAction.AttackEffect effect) {
+        return DamageAllEnemiesAction(s, damageTypeForTurn, effect, null);
+    }
+    
     protected ApplyPowerAction ApplyPower(AbstractCreature t, AbstractCreature s, AbstractPower p, int stackAmt) {
         return new ApplyPowerAction(t, s, p, stackAmt);
     }
@@ -715,6 +754,14 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     protected void attTmpAction(Runnable action) {
         addToTop(new QuickAction(action));
+    }
+    
+    public final boolean canSpawnInCombat() {
+        return selfCanSpawnInCombat();
+    }
+    
+    protected boolean selfCanSpawnInCombat() {
+        return true;
     }
     
     /**
@@ -738,4 +785,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     public void onManaGained(int amount) {}
+    
+    public void onStorageTriggered(boolean energy, boolean mana) {}
+    
+    public void onNeitherStorageTriggers() {}
 }

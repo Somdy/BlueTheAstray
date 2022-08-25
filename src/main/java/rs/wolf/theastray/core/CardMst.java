@@ -2,8 +2,12 @@ package rs.wolf.theastray.core;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.Madness;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.jetbrains.annotations.NotNull;
+import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.cards.AstrayProCard;
@@ -14,10 +18,12 @@ import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class CardMst {
-    private static final List<AstrayCard> PROS = new ArrayList<>();
-    private static final List<AstrayCard> EXTS = new ArrayList<>();
+    public static final List<AstrayCard> PROS = new ArrayList<>();
+    public static final List<AstrayCard> EXTS = new ArrayList<>();
+    public static final List<AstrayCard> MAGICS = new ArrayList<>();
     
     public static void RegisterCards() {
         new AutoAdd(Leader.MOD_ID)
@@ -38,12 +44,28 @@ public class CardMst {
     
     private static void addProCard(AstrayProCard card) {
         PROS.add(card);
+        if (card.hasTag(TACardEnums.MAGICAL))
+            MAGICS.add(card);
         UnlockTracker.unlockCard(card.cardID);
     }
     
     private static void addExtCard(AstrayExtCard card) {
         EXTS.add(card);
+        if (card.hasTag(TACardEnums.MAGICAL))
+            MAGICS.add(card);
         UnlockTracker.unlockCard(card.cardID);
+    }
+    
+    public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean extIncluded, Predicate<AbstractCard> expt) {
+        List<AstrayCard> tmp = new ArrayList<>();
+        MAGICS.stream().filter(c -> (extIncluded && c.canSpawnInCombat()) || !EXTS.contains(c)).forEach(tmp::add);
+        if (tmp.isEmpty()) return new Madness();
+        int index = rng.random(tmp.size() - 1);
+        return tmp.get(index).makeCopy();
+    }
+    
+    public static AbstractCard ReturnRndMagicInCombat(Predicate<AbstractCard> expt) {
+        return ReturnRndMagicInCombat(LMSK.CardRandomRng(), true, expt);
     }
     
     public static void RegisterColors() {

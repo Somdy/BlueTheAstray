@@ -22,8 +22,8 @@ public class B3 extends AstrayProCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.FIRE));
         if (finalBranch() == 1) { // 用 finalBranch 来判断真正的分支
-            // 用 burnt(int, AbstractCreature) 来获取余烬的层数
-            addToBot(ApplyPower(t, s, new BurntPower(t, s, burnt(magicNumber, t))));
+            // 用 burntPower(target, source, amount) 来获取余烬效果
+            addToBot(ApplyPower(t, s, burntPower(t, s, magicNumber)));
         }
     }
     
