@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import org.jetbrains.annotations.NotNull;
 import rs.wolf.theastray.utils.TAUtils;
 
+import java.util.Objects;
+
 public class CardData {
     private final String ID;
     private final String localname;
@@ -37,10 +39,22 @@ public class CardData {
         return rarity;
     }
     
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CardData data = (CardData) o;
+        return ID.equals(data.ID) && localname.equals(data.localname);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID, localname);
+    }
+    
     @NotNull
     public static CardData Format(@NotNull LocalCardDataUnit unit) {
-        CardData data = new CardData(unit.id, unit.localname, unit.getType(), unit.getRarity());
-        return data;
+        return new CardData(unit.id, unit.localname, unit.getType(), unit.getRarity());
     }
     
     @NotNull

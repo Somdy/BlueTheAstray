@@ -11,9 +11,9 @@ import java.util.Map;
 
 public class DataMst {
     private static final Map<Integer, CardData> CardDataIndexMap = new HashMap<>();
-    private static final Map<String, CardData> CardDataNameMap = new HashMap<>();
+    private static final Map<String, Integer> CardDataNameMap = new HashMap<>();
     private static final Map<Integer, RelicData> RelicDataIndexMap = new HashMap<>();
-    private static final Map<String, RelicData> RelicDataNameMap = new HashMap<>();
+    private static final Map<String, Integer> RelicDataNameMap = new HashMap<>();
     
     public static void Initialize() {
         Gson gson = new Gson();
@@ -27,7 +27,7 @@ public class DataMst {
                 int index = Integer.parseInt(unit.id.substring(1));
                 CardData data = CardData.Format(unit);
                 CardDataIndexMap.put(index, data);
-                CardDataNameMap.put(unit.localname, data);
+                CardDataNameMap.put(unit.localname, index);
                 MsgLogger.Append(index);
             }
             MsgLogger.End();
@@ -42,7 +42,7 @@ public class DataMst {
                 int index = Integer.parseInt(unit.id.substring(5));
                 RelicData data = RelicData.Format(unit);
                 RelicDataIndexMap.put(index, data);
-                RelicDataNameMap.put(unit.localname, data);
+                RelicDataNameMap.put(unit.localname, index);
                 MsgLogger.Append(index);
             }
             MsgLogger.End();
@@ -56,7 +56,9 @@ public class DataMst {
     }
     
     public static String CardID(String localname) {
-        if (CardDataNameMap.containsKey(localname)) return CardDataNameMap.get(localname).getCardID();
+        if (CardDataNameMap.containsKey(localname)) {
+            return CardDataIndexMap.get(CardDataNameMap.get(localname)).getCardID();
+        }
         TAUtils.Log("UNDEFINED CARD LOCAL NAME: [" + localname + "]");
         return "UNDEFINED";
     }
@@ -68,7 +70,9 @@ public class DataMst {
     }
     
     public static CardData GetCardData(String localname) {
-        if (CardDataNameMap.containsKey(localname)) return CardDataNameMap.get(localname);
+        if (CardDataNameMap.containsKey(localname)) {
+            return CardDataIndexMap.get(CardDataNameMap.get(localname));
+        }
         TAUtils.Log("UNDEFINED CARD LOCAL NAME: [" + localname + "]");
         return CardData.MockingData();
     }
@@ -80,7 +84,9 @@ public class DataMst {
     }
     
     public static String RelicID(String localname) {
-        if (RelicDataNameMap.containsKey(localname)) return RelicDataNameMap.get(localname).getRelicID();
+        if (RelicDataNameMap.containsKey(localname)) {
+            return RelicDataIndexMap.get(RelicDataNameMap.get(localname)).getRelicID();
+        }
         TAUtils.Log("UNDEFINED RELIC LOCAL NAME: [" + localname + "]");
         return "UNDEFINED";
     }
@@ -92,7 +98,9 @@ public class DataMst {
     }
     
     public static RelicData GetRelicData(String localname) {
-        if (RelicDataNameMap.containsKey(localname)) return RelicDataNameMap.get(localname);
+        if (RelicDataNameMap.containsKey(localname)) {
+            return RelicDataIndexMap.get(RelicDataNameMap.get(localname));
+        }
         TAUtils.Log("UNDEFINED RELIC LOCAL NAME: [" + localname + "]");
         return RelicData.MockingData();
     }

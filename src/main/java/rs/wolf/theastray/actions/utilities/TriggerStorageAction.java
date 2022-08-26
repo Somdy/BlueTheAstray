@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.curses.Pain;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayGameAction;
 import rs.wolf.theastray.actions.commons.ModifyManaAction;
+import rs.wolf.theastray.cards.colorless.C88;
+import rs.wolf.theastray.core.CardMst;
 
 public class TriggerStorageAction extends AstrayGameAction {
     private boolean[] triggers;
@@ -31,7 +33,7 @@ public class TriggerStorageAction extends AstrayGameAction {
         if (triggers[1])
             addToTop(new ModifyManaAction(1));
         if (triggers[2])
-            addToTop(new MakeTempCardInHandAction(new Pain()));
+            addToTop(new MakeTempCardInHandAction(CardMst.GetCard("短路")));
         if (card != null && card instanceof AstrayCard)
             ((AstrayCard) card).onStorageTriggered(triggers[0], triggers[1]);
         isDone = true;

@@ -15,7 +15,7 @@ public class ModifyManaAction extends AstrayGameAction {
         if (amount > 0)
             GlobalManaMst.GainMana(amount);
         if (amount < 0)
-            GlobalManaMst.LoseMana(amount);
+            GlobalManaMst.LoseMana(-amount);
         isDone = true;
     }
 }

@@ -56,7 +56,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     private boolean branchable; // 是否可分支
     private boolean swappable; // 是否可互换分支
     
-    protected CardData data;
+    public final CardData data;
     protected TACardLocals cardLocals;
     protected String NAME;
     protected String DESCRIPTION;
@@ -390,7 +390,10 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @param storage 要该牌具有储能，传入 true
      */
     public void setStorage(boolean storage) {
-        addTags(TACardEnums.STORAGE);
+        if (storage) 
+            addTags(TACardEnums.STORAGE);
+        else 
+            tags.remove(TACardEnums.STORAGE);
     }
     
     public void upgradeExtraMagic(int num) {

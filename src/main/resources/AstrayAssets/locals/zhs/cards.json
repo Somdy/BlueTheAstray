@@ -49,9 +49,9 @@
   {
     "ID": "B4",
     "NAME": "魔力释放",
-    "DESCRIPTION": "astray:启迪 NL 如果有2 astray:法力 ，获得 !M! astray:魔力 。 NL 消耗 ",
+    "DESCRIPTION": "astray:启迪 NL 如果有2 astray:法力 ，获得 !M! 点 astray:魔力 。 NL 消耗 ",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:启迪 NL 如果有2 astray:法力 ，获得 !M! astray:魔力 。 NL 消耗 ",
+      "astray:魔法 ， astray:启迪 NL 如果有2 astray:法力 ，获得 !M! 点 astray:魔力 。 NL 消耗 ",
       "astray:衍生魔法 ， astray:启迪 NL 获得 !B! 格挡，抽 !M! 张牌。"
     ]
   },
@@ -148,7 +148,7 @@
   {
     "ID": "B15",
     "NAME": "立场堆叠",
-    "DESCRIPTION": "astray:启迪 ， 保留  NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
+    "DESCRIPTION": "astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
     "UPGRADED_DESC": [
       "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
       "astray:魔法 ， astray:启迪 ， 保留  NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。"
@@ -187,6 +187,28 @@
     "DESCRIPTION": "astray:魔法 ， 固有 NL 对所有敌人造成 !D! 点伤害并给予 !M! 层 astray:余烬 。 NL 消耗"
   },
   {
+    "ID": "B21",
+    "NAME": "水晶球",
+    "DESCRIPTION": "预见 !M! 张牌， NL 从弃牌堆选择1张牌置入手牌。",
+    "MSG": ["选择 %d 张置入手牌"]
+  },
+  {
+    "ID": "B22",
+    "NAME": "混乱魔弹",
+    "DESCRIPTION": "astray:魔法 ， 虚无 NL 造成 !D! 伤害。 NL 打出后随机变化耗能并回到手牌。只在 消耗 时消耗 astray:法力 。"
+  },
+  {
+    "ID": "B23",
+    "NAME": "超载射线",
+    "DESCRIPTION": "astray:魔法 NL astray:晋升 !astray:promos! ， astray:储能 NL 造成 !D! 伤害， NL 失去 !M! 点 astray:魔力 。"
+  },
+  {
+    "ID": "B24",
+    "NAME": "跳跃火花",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 对一名随机敌人造成 !D! 点伤害， NL 每有一名敌人重复 !M! 次。",
+    "MSG": [" NL （造成%d点伤害%d次）"]
+  },
+  {
     "ID": "B63",
     "NAME": "魔力躯体",
     "DESCRIPTION": "手牌满时依然可以抽牌。 NL 每张溢出的牌获得 !B! 点 格挡 。"
@@ -201,6 +223,11 @@
     ]
   },
 
+  {
+    "ID": "C88",
+    "NAME": "短路",
+    "DESCRIPTION": "不能被打出 NL 该牌在手中时 astray:魔力 失效。 NL 打出1张 astray:魔法牌 后自动 消耗 该牌。"
+  },
   {
     "ID": "E89",
     "NAME": "星星",

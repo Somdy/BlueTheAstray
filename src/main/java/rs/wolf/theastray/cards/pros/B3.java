@@ -15,7 +15,6 @@ public class B3 extends AstrayProCard {
         setDamageValue(9, true);
         setCanEnlighten(true); // 将该牌设为启迪牌
         setMagical(true); // 将该牌设为魔法牌
-        setStorage(true);
     }
     
     @Override
