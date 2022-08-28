@@ -291,11 +291,12 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     public boolean hasEnoughEnergy() {
-        return super.hasEnoughEnergy() && hasEnoughMana();
+        boolean hasEnoughMana = !isMagical() && !isMagicalDerivative() || hasEnoughMana();
+        return super.hasEnoughEnergy() && hasEnoughMana;
     }
     
     protected boolean hasEnoughMana() {
-        if (!isMagical() && !isMagicalDerivative()) return true;
+//        if (!isMagical() && !isMagicalDerivative()) return true;
         if (isInAutoplay) return true;
         int thisManaCost = getManaOnUse();
         boolean hasMana = GlobalManaMst.HasMana();
@@ -731,6 +732,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     protected BetterDamageAllEnemiesAction DamageAllEnemiesAction(AbstractCreature s, DamageInfo.DamageType type, 
                                                                   AbstractGameAction.AttackEffect effect, 
                                                                   Consumer<AbstractCreature> func) {
+        if (!isMultiDamage) {
+            log("WARNING !!! [" + name + "] USING MULTI DAMAGE WITHOUT SETTING IT BEFORE");
+            isMultiDamage = true;
+            applyPowers();
+        }
         return new BetterDamageAllEnemiesAction(multiDamage, crtDmgSrc(s), type, effect, func);
     }
     

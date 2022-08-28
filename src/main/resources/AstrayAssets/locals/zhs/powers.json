@@ -31,5 +31,17 @@
     "DESCRIPTIONS": [
       "手牌满时依然可以抽牌。每张溢出的牌获得 #b[amt_0] 点 #y格挡 。"
     ]
+  },
+  "astray:PurityPower": {
+    "NAME": "纯粹",
+    "DESCRIPTIONS": [
+      "回合结束时，你如果本回合内只打出过 #y纯粹 ，获得 #b[amt_0] 点 #y格挡 。"
+    ]
+  },
+  "astray:AbyssPower": {
+    "NAME": "深渊幻像",
+    "DESCRIPTIONS": [
+      "你的回合开始时，所有敌人获得 #b[amt_0] 层其在你的上回合结束时拥有过的 #r负面效果 。"
+    ]
   }
 }

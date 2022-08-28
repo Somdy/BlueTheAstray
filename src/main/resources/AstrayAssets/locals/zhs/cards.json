@@ -74,9 +74,9 @@
   {
     "ID": "B7",
     "NAME": "法术准备",
-    "DESCRIPTION": "astray:启迪 NL 抽 !M! 张牌。 NL 获得1 astray:法力 。选择牌堆中1张魔法牌置于抽牌堆顶。 NL 消耗 ",
+    "DESCRIPTION": "astray:启迪 NL 抽 !M! 张牌并获得1 astray:法力 。选择牌堆中1张魔法牌置于抽牌堆顶。 NL 消耗 ",
     "UPGRADED_DESC": [
-      "astray:启迪 NL 抽 !M! 张牌。 NL 获得1 astray:法力 。选择牌堆中1张魔法牌置于抽牌堆顶。",
+      "astray:启迪 NL 抽 !M! 张牌并获得1 astray:法力 。选择牌堆中1张魔法牌置于抽牌堆顶。",
       "astray:启迪 NL 获得1 astray:法力 。 NL 选择牌堆中1张魔法牌置入手牌。 NL 消耗 。"
     ],
     "MSG": [
@@ -108,7 +108,7 @@
   {
     "ID": "B10",
     "NAME": "生命碎片",
-    "DESCRIPTION": "可多次 升级 。 NL 获得 !M! + 升级 次数层 再生 。 NL 不可在战斗中 升级 ， 消耗 ",
+    "DESCRIPTION": "获得 !M! + 升级 次数的 再生 。 NL 可多次 升级 但 NL 不可在战斗中 升级 。 消耗 ",
     "MSG": [
       " NL （获得%d层 再生 。）"
     ]
@@ -121,7 +121,7 @@
   {
     "ID": "B12",
     "NAME": "净化咒语",
-    "DESCRIPTION": "astray:启迪 NL 移除1个自身的负面状态。 NL 获得负面状态时，将该牌加入手牌。 NL 消耗 ",
+    "DESCRIPTION": "astray:启迪 NL 移除1个自身的 NL 负面状态。 NL 获得负面状态时，将该牌加入手牌。 NL 消耗 ",
     "UPGRADED_DESC": [
       "astray:启迪 ， 保留 NL 移除自身所有负面状态。 NL 获得负面状态时，将该牌加入手牌。 NL 消耗 。",
       "astray:启迪 NL 移除1个自身的负面状态并获得 !B! 格挡 。 NL 获得负面状态时，将该牌加入手牌。 NL 消耗 "
@@ -148,10 +148,10 @@
   {
     "ID": "B15",
     "NAME": "立场堆叠",
-    "DESCRIPTION": "astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
+    "DESCRIPTION": "astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。",
     "UPGRADED_DESC": [
-      "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。",
-      "astray:魔法 ， astray:启迪 ， 保留  NL 获得 !B! 格挡 。 NL 打出后重置费用并回到手牌。"
+      "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。",
+      "astray:魔法 NL astray:启迪 ， 保留  NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。"
     ]
   },
   {
@@ -209,9 +209,58 @@
     "MSG": [" NL （造成%d点伤害%d次）"]
   },
   {
+    "ID": "B25",
+    "NAME": "纯粹",
+    "DESCRIPTION": "获得 !B! 格挡 。 NL 回合结束时，如果本回合内你只打出过纯粹，再获得 !M! 格挡 。 NL 消耗"
+  },
+  {
+    "ID": "B26",
+    "NAME": "回路",
+    "DESCRIPTION": "astray:魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:启迪 ， astray:储能 NL 造成 !D! 伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
+      "astray:魔法 ， astray:启迪 ， astray:储能 NL 造成 !D! 伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
+    ]
+  },
+  {
+    "ID": "B27",
+    "NAME": "震荡",
+    "DESCRIPTION": "astray:魔法 NL 对所有敌人造成 !D! 点伤害， NL 每有一名敌人多造成 !M! 点伤害。",
+    "MSG": [" NL （造成 %d 点伤害）"]
+  },
+  {
+    "ID": "B28",
+    "NAME": "魔术飞牌",
+    "DESCRIPTION": "对随机敌人造成 !D! 点伤害 !M! 次， NL 每个敌人最多只受到 !astray:extras! 次伤害。 NL 受 astray:魔力 加成。"
+  },
+  {
+    "ID": "B29",
+    "NAME": "引火",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。 NL 将一张 *灼伤 置入手牌。"
+  },
+  {
+    "ID": "B30",
+    "NAME": "扰动",
+    "DESCRIPTION": "造成 !D! 点伤害， NL 给予 !M! 层 虚弱 。 NL 需消耗2 astray:法力 。"
+  },
+  {
+    "ID": "B31",
+    "NAME": "魔法爆破",
+    "DESCRIPTION": "astray:魔法 NL 对所有敌人造成 !D! 点伤害， NL 给予 !M! 倍于 astray:魔力 层数的 astray:余烬 。"
+  },
+  
+  {
     "ID": "B63",
     "NAME": "魔力躯体",
     "DESCRIPTION": "手牌满时依然可以抽牌。 NL 每张溢出的牌获得 !B! 点 格挡 。"
+  },
+  {
+    "ID": "B67",
+    "NAME": "星海幻象",
+    "DESCRIPTION": "将所有未 消耗 的 astray:魔法牌 变化为随机 *魔法牌 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "将所有未 消耗 的 astray:魔法牌 变化为 升级 的随机 *魔法牌 。 NL 消耗"
+    ]
   },
   {
     "ID": "B74",
@@ -223,6 +272,34 @@
     ]
   },
 
+  {
+    "ID": "E80",
+    "NAME": "时间幻象",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 获得 !M! 层 *残影 。 NL 每点 astray:法力 获得 !B! 点 格挡 。 NL 消耗 弃牌堆中所有牌。 NL 消耗",
+    "MSG": [
+      "残影",
+      "你的下一回合开始时， #y格挡 不会消失。"
+    ]
+  },
+  {
+    "ID": "E81",
+    "NAME": "深渊幻像",
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 你的回合开始时，所有敌人获得 !M! 层其在上回合拥有过的负面效果。 NL 将 !astray:extras! 张随机 诅咒 洗入弃牌堆。"
+  },
+  {
+    "ID": "E82",
+    "NAME": "星穹幻象",
+    "DESCRIPTION": "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 将等量的 *星星 置入手牌。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 将等量 升级 的 *星星 NL 置入手牌。 消耗",
+      "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 打出等量的 *星星 ， NL 目标随机。 消耗"
+    ]
+  },
+  {
+    "ID": "E84",
+    "NAME": "巨人幻像",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 获得 !M! 层易伤 。 NL 获得 !B! 点 格挡 。 NL 消耗"
+  },
   {
     "ID": "C88",
     "NAME": "短路",

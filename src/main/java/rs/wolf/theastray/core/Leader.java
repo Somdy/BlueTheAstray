@@ -28,6 +28,7 @@ import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.relics.Relic1;
 import rs.wolf.theastray.utils.MsgLogger;
 import rs.wolf.theastray.utils.TAUtils;
+import rs.wolf.theastray.variables.TAExtNeed;
 import rs.wolf.theastray.variables.TAExtraMagic;
 import rs.wolf.theastray.variables.TAPromotion;
 
@@ -102,12 +103,14 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     public void receivePostInitialize() {
         ConsoleCommand.addCommand("bluemana", ManaCMD.class);
         ConsoleCommand.addCommand("bluecheat", CheatCMD.class);
+        MsgLogger.Log();
     }
     
     @Override
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new TAPromotion());
         BaseMod.addDynamicVariable(new TAExtraMagic());
+        BaseMod.addDynamicVariable(new TAExtNeed());
         CardMst.RegisterCards();
     }
     

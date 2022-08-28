@@ -115,7 +115,8 @@ public class CardMst {
     }
     
     public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean extIncluded, Predicate<AbstractCard> expt) {
-        List<AstrayCard> tmp = GetAllCards((d, c) -> (extIncluded && c.canSpawnInCombat()) || !EXTS.contains(d.getInternalID()));
+        List<AstrayCard> tmp = GetAllCards((d, c) -> c.hasTag(TACardEnums.MAGICAL) 
+                && ((extIncluded && c.canSpawnInCombat()) || !EXTS.contains(d.getInternalID())));
         tmp.removeIf(c -> !expt.test(c));
         if (tmp.isEmpty()) return new Madness();
         int index = rng.random(tmp.size() - 1);

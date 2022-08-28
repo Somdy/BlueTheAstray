@@ -10,7 +10,7 @@ import rs.wolf.theastray.interfaces.MagicModifier;
 import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
 
-public class MagicPower extends AstrayPower implements MagicModifier {
+public final class MagicPower extends AstrayPower implements MagicModifier {
     public static final String ID = TAUtils.MakeID("MagicPower");
     
     public MagicPower(AbstractCreature owner, int amount) {
