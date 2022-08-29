@@ -1,11 +1,13 @@
 package rs.wolf.theastray.abstracts;
 
+import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
@@ -66,6 +68,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     protected final TACardLocals cardStrings = TALocalLoader.CARD(TAUtils.MakeID("AstrayCard"));
     protected final String[] U_MSG = cardStrings.MSG;
+    protected final TooltipInfo ILLUSION_CARD = new TooltipInfo(U_MSG[1], U_MSG[2]);
     
     public AstrayCard(@NotNull CardData data, int cost, CardColor color, CardTarget target) {
         super(data.getCardID(), "uninitialized", TAUtils.CardImage(Integer.parseInt(data.getInternalID().substring(1))), 

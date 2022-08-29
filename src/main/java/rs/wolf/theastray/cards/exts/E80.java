@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.BlurPower;
 import rs.wolf.theastray.cards.AstrayExtCard;
+import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.utils.GlobalManaMst;
 
 public class E80 extends AstrayExtCard {
@@ -16,6 +17,7 @@ public class E80 extends AstrayExtCard {
         setMagicalDerivative(true);
         exhaust = true;
         addTip(MSG[0], MSG[1]);
+        addTags(TACardEnums.ILLUSION);
     }
     
     @Override

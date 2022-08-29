@@ -4,7 +4,9 @@
     "NAME": "Card Name",
     "DESCRIPTION": "Card Description",
     "MSG": [ 
-      "没有足够的法力。"
+      "没有足够的法力。",
+      "幻象牌",
+      "包括 #y星海幻象 、 #y时间幻象 、 #y深渊幻像 、 #y星穹幻象 、 #y死神幻象 、 #y巨人幻象 和 #y镜中幻象 。"
     ]
   },
   {
@@ -248,7 +250,30 @@
     "NAME": "魔法爆破",
     "DESCRIPTION": "astray:魔法 NL 对所有敌人造成 !D! 点伤害， NL 给予 !M! 倍于 astray:魔力 层数的 astray:余烬 。"
   },
-  
+  {
+    "ID": "B32",
+    "NAME": "幻像描绘",
+    "DESCRIPTION": "astray:启迪 NL 将 !M! 张随机 *幻象牌 置入手牌。 NL 将一张 *镜中幻像 洗入抽牌堆 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 将 !M! 张随机 *幻像牌 置入手牌。 NL 将一张 *镜中幻像 洗入抽牌堆。 NL 消耗",
+      "astray:启迪 NL 将 !M! 张随机 *幻像牌 洗入弃牌堆。 NL 抽 !astray:extras! 张牌。"
+    ]
+  },
+  {
+    "ID": "B33",
+    "NAME": "未来已定",
+    "DESCRIPTION": "将抽牌堆顶牌的 NL 一张复制置入手牌， NL 其耗能在本场战斗 NL 变为0. NL 消耗"
+  },
+  {
+    "ID": "B34",
+    "NAME": "思维读取",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 如果没有敌人的意图为攻击， NL 则该牌耗能为0."
+  },
+  {
+    "ID": "B35",
+    "NAME": "霜风冲袭",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 astray:冰霜 。"
+  },
   {
     "ID": "B63",
     "NAME": "魔力躯体",
@@ -296,9 +321,19 @@
     ]
   },
   {
+    "ID": "E83",
+    "NAME": "死神幻像",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 你在下回合开始前， NL 免疫 !M! 以下的伤害。 NL 消耗"
+  },
+  {
     "ID": "E84",
-    "NAME": "巨人幻像",
+    "NAME": "巨人幻象",
     "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 获得 !M! 层易伤 。 NL 获得 !B! 点 格挡 。 NL 消耗"
+  },
+  {
+    "ID": "C85",
+    "NAME": "镜中幻象",
+    "DESCRIPTION": "不能被打出 NL 抽到时将该牌的一张复制置入手牌。 NL 如果手中有至少三张 *幻象牌 ，结束你的回合。"
   },
   {
     "ID": "C88",

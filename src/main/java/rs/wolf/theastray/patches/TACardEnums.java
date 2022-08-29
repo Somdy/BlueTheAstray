@@ -23,4 +23,6 @@ public class TACardEnums {
     public static AbstractCard.CardTags MAGICAL;
     @SpireEnum(name = "theastray_storage_tag")
     public static AbstractCard.CardTags STORAGE;
+    @SpireEnum(name = "theastray_illusion_tag")
+    public static AbstractCard.CardTags ILLUSION;
 }

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import rs.wolf.theastray.cards.AstrayExtCard;
+import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.powers.unique.AbyssPower;
 
 public class E81 extends AstrayExtCard {
@@ -12,6 +13,7 @@ public class E81 extends AstrayExtCard {
         super(81, 2, 14, CardTarget.ALL_ENEMY);
         setMagicValue(1, true);
         setExtraMagicValue(1, true);
+        addTags(TACardEnums.ILLUSION);
     }
     
     @Override

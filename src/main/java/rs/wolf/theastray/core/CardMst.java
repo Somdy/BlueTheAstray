@@ -10,9 +10,11 @@ import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.cards.AstrayColorlessCard;
+import rs.wolf.theastray.cards.AstrayCurseCard;
 import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.cards.colorless.C88;
+import rs.wolf.theastray.cards.curses.C85;
 import rs.wolf.theastray.cards.exts.E89;
 import rs.wolf.theastray.cards.pros.StrikeTA;
 import rs.wolf.theastray.data.CardData;
@@ -50,6 +52,12 @@ public class CardMst {
         new AutoAdd(Leader.MOD_ID)
                 .packageFilter(C88.class)
                 .any(AstrayColorlessCard.class, (i, c) -> {
+                    addMiscCard(c);
+                    registerCard(c);
+                });
+        new AutoAdd(Leader.MOD_ID)
+                .packageFilter(C85.class)
+                .any(AstrayCurseCard.class, (i, c) -> {
                     addMiscCard(c);
                     registerCard(c);
                 });
@@ -91,7 +99,7 @@ public class CardMst {
     }
     
     @NotNull
-    public static List<AstrayCard> GetAllCards(Predicate<AbstractCard> expt) {
+    public static List<AstrayCard> GetAllCards(Predicate<AstrayCard> expt) {
         return GetAllCards((data, card) -> expt.test(card));
     }
     
@@ -112,6 +120,22 @@ public class CardMst {
         if (CARD_MAP.containsKey(data))
             return CARD_MAP.get(data).makeCopy();
         return new Madness();
+    }
+    
+    @NotNull
+    public static List<AstrayCard> ReturnAllCardsInCombat(Predicate<AstrayCard> expt) {
+        return GetAllCards(c -> c.canSpawnInCombat() && expt.test(c));
+    }
+    
+    @NotNull
+    public static List<AstrayCard> ReturnAllCardsInCombat() {
+        return ReturnAllCardsInCombat(AstrayCard::canSpawnInCombat);
+    }
+    
+    @NotNull
+    public static AstrayCard ReturnRndCardInCombat(Predicate<AstrayCard> expt) {
+        List<AstrayCard> tmp = ReturnAllCardsInCombat(expt);
+        return tmp.get(LMSK.CardRandomRng().random(tmp.size() - 1));
     }
     
     public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean extIncluded, Predicate<AbstractCard> expt) {

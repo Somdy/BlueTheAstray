@@ -83,7 +83,7 @@
 	{"id":"E82", "localname":"星穹幻象", "type":"Skill", "rarity":"Common"},
 	{"id":"E83", "localname":"死神幻象", "type":"Skill", "rarity":"Common"},
 	{"id":"E84", "localname":"巨人幻象", "type":"Skill", "rarity":"Common"},
-	{"id":"E85", "localname":"镜中幻象", "type":"Curse", "rarity":"Curse"},
+	{"id":"C85", "localname":"镜中幻象", "type":"Curse", "rarity":"Curse"},
 	{"id":"C86", "localname":"枯竭", "type":"Curse", "rarity":"Curse"},
 	{"id":"C87", "localname":"魔网断开", "type":"Status", "rarity":"Common"},
 	{"id":"C88", "localname":"短路", "type":"Status", "rarity":"Common"},

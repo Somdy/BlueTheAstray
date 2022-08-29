@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import rs.wolf.theastray.cards.AstrayExtCard;
+import rs.wolf.theastray.patches.TACardEnums;
 
 public class E84 extends AstrayExtCard {
     public E84() {
@@ -12,6 +13,7 @@ public class E84 extends AstrayExtCard {
         setMagicValue(1, true);
         setMagicalDerivative(true);
         exhaust = true;
+        addTags(TACardEnums.ILLUSION);
     }
     
     @Override

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayExtCard;
+import rs.wolf.theastray.patches.TACardEnums;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class E82 extends AstrayExtCard {
         setCanEnlighten(true);
         exhaust = true;
         cardsToPreview = new E89();
+        addTags(TACardEnums.ILLUSION);
     }
     
     @Override
