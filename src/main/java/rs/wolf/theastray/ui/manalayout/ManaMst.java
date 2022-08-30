@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbActivateEffect;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
+import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class ManaMst implements TAUtils {
     }
     
     public void gainMana(int amt) {
+        AbstractPlayer p = LMSK.Player();
+        if (p.hand.group.stream().anyMatch(c -> c.cardID.equals(GlobalIDMst.CardID(87))))
+            return;
         if (currMana + amt > maxMana)
             amt = maxMana - currMana;
         amt = triggerCardsOnGainingMana(amt);

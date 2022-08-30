@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
@@ -454,6 +453,14 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
                 basePromos = 0;
             }
         }
+    }
+    
+    public void setBasePromos(int basePromos) {
+        this.basePromos = basePromos;
+    }
+    
+    public void setCurrPromos(int promos) {
+        this.promos = promos;
     }
     
     public final int getPromos() {

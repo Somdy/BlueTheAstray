@@ -49,5 +49,11 @@
     "DESCRIPTIONS": [
       "#y[owner] 在下回合开始前，免疫 #b[amt_0] 以下的伤害。"
     ]
+  },
+  "astray:FrostShieldPower": {
+    "NAME": "臻冰之盾",
+    "DESCRIPTIONS": [
+      "下回合开始时，将一张 #y%s 置入你的手牌。"
+    ]
   }
 }

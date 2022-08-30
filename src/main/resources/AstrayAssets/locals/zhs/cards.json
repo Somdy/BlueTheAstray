@@ -248,7 +248,7 @@
   {
     "ID": "B31",
     "NAME": "魔法爆破",
-    "DESCRIPTION": "astray:魔法 NL 对所有敌人造成 !D! 点伤害， NL 给予 !M! 倍于 astray:魔力 层数的 astray:余烬 。"
+    "DESCRIPTION": "astray:魔法 NL 对所有敌人 NL 造成 !D! 点伤害， NL 给予 !M! 倍于 astray:魔力 层数 NL 的 astray:余烬 。"
   },
   {
     "ID": "B32",
@@ -275,9 +275,58 @@
     "DESCRIPTION": "astray:魔法 ， astray:储能 NL 获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 astray:冰霜 。"
   },
   {
+    "ID": "B36",
+    "NAME": "臻冰之盾",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 获得 !B! +所有敌人 astray:冰霜 总层数的 格挡 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:储能 NL 获得 !B! +所有敌人 astray:冰霜 总层数的 格挡 。 NL 下回合将一张该牌未 升级 的复制置入手牌。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B37",
+    "NAME": "法力沙漏",
+    "DESCRIPTION": "astray:启迪 NL 获得 !M! [E] ， NL 失去 !astray:extras! astray:法力 。",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 获得 !M! [E] ， NL 失去 !astray:extras! astray:法力 。",
+      "astray:启迪 NL 获得 !M! [E] ， NL 将 !astray:extras! 张 *魔网断开 置入手牌。"
+    ]
+  },
+  {
+    "ID": "B38",
+    "NAME": "即死飞弹",
+    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL 造成 !D! 点伤害。 NL 若目标生命值低于你 !M! 倍 astray:魔力 则将其消灭。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:晋升 !astray:promos! NL 对所有敌人造成 !D! 点伤害，直接击杀生命值低于你 !M! 倍 astray:魔力 的目标。"
+    ]
+  },
+  {
+    "ID": "B39",
+    "NAME": "魔术检索",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 每抽到一张 astray:魔法牌 NL 就再抽 !astray:extras! 张。"
+  },
+  
+  {
+    "ID": "B41",
+    "NAME": "精神穿刺",
+    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! X NL 移除目标所有 格挡 ， NL 造成 !D! 点伤害。",
+    "UPDATED_DESC": [
+      "astray:魔法 ， astray:晋升 !astray:promos! NL 移除目标所有 格挡 ， NL 造成 !D! 点伤害。"
+    ]
+  },
+  
+  {
     "ID": "B63",
     "NAME": "魔力躯体",
     "DESCRIPTION": "手牌满时依然可以抽牌。 NL 每张溢出的牌获得 !B! 点 格挡 。"
+  },
+  {
+    "ID": "B66",
+    "NAME": "破碎晶体",
+    "DESCRIPTION": "不能被打出 ， 保留 NL 无法被 升级 NL 第二次 保留 时 消耗 。 NL 消耗 时获得 !M! 层 *缓冲 ， NL 并对所有敌人 NL 造成 !D! 点伤害。",
+    "MSG": [
+      "缓冲",
+      "抵挡下次受到的伤害。"
+    ]
   },
   {
     "ID": "B67",
@@ -296,7 +345,26 @@
       ""
     ]
   },
+  
+  {
+    "ID": "B76",
+    "NAME": "星线",
+    "DESCRIPTION": "astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
+    "UPGRADED_DESC": [
+      "astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
+      "astray:魔法 ， astray:astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 对所有敌人造成 !D! 点伤害。"
+    ]
+  },
 
+  {
+    "ID": "B79",
+    "NAME": "折镜迷宫",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 对所有敌人造成 !D! 伤害。 NL 每个敌人将 !M! 张随机 *幻象牌 洗入抽牌堆。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:储能 NL 对所有敌人造成 !D! 伤害。 NL 每个敌人将 !M! 张随机 *幻象牌 置入手牌。 NL 消耗",
+      ""
+    ]
+  },
   {
     "ID": "E80",
     "NAME": "时间幻象",
@@ -334,6 +402,11 @@
     "ID": "C85",
     "NAME": "镜中幻象",
     "DESCRIPTION": "不能被打出 NL 抽到时将该牌的一张复制置入手牌。 NL 如果手中有至少三张 *幻象牌 ，结束你的回合。"
+  },
+  {
+    "ID": "C87",
+    "NAME": "魔网断开",
+    "DESCRIPTION": "不能被打出 NL 虚无 NL 该牌在手中时， NL 无法获得 astray:法力 。"
   },
   {
     "ID": "C88",

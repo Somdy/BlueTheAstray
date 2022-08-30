@@ -27,6 +27,6 @@ public class B34 extends AstrayProCard {
     }
     
     private boolean noAttackingEnemies() {
-        return getAllLivingMstrs().stream().noneMatch(m -> m.getIntentBaseDmg() > 0);
+        return !outOfDungeon() && getAllLivingMstrs().stream().noneMatch(m -> m.getIntentBaseDmg() > 0);
     }
 }
