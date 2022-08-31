@@ -55,5 +55,17 @@
     "DESCRIPTIONS": [
       "下回合开始时，将一张 #y%s 置入你的手牌。"
     ]
+  },
+  "astray:WizardFieldPower": {
+    "NAME": "巫师力场",
+    "DESCRIPTIONS": [
+      "失去生命值前， #y[owner] 可以保留最多 #b[amt_0] 点 #y格挡 至下回合。"
+    ]
+  },
+  "astray:StoneFleshPower": {
+    "NAME": "石肤术",
+    "DESCRIPTIONS": [
+      "失去生命值前， #y[owner] 受到的伤害减少 #b[amt_0]% ."
+    ]
   }
 }

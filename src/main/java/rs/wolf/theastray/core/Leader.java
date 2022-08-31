@@ -6,6 +6,7 @@ import basemod.devcommands.ConsoleCommand;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
+import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.abstracts.AstrayRelic;
 import rs.wolf.theastray.characters.BlueTheAstray;
 import rs.wolf.theastray.commands.CheatCMD;
@@ -37,7 +39,8 @@ import java.nio.charset.StandardCharsets;
 @SpireInitializer
 @SuppressWarnings("unused")
 public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
-        PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber {
+        PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber, 
+        OnPlayerLoseBlockSubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
@@ -161,5 +164,18 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
                     ((AstrayCard) card).onPlayerApplyPower(p, t);
             }
         }
+    }
+    
+    @Override
+    public int receiveOnPlayerLoseBlock(int block) {
+        float tmp = block;
+        AbstractPlayer player = LMSK.Player();
+        for (AbstractPower p : player.powers) {
+            if (p instanceof AstrayPower)
+                tmp = ((AstrayPower) p).onPlayerLosingBlock(tmp);
+        }
+        if (tmp < 0) tmp = 0F;
+        block = MathUtils.floor(tmp);
+        return block;
     }
 }

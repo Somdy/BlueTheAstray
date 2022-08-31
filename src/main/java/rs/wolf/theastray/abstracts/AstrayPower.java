@@ -153,4 +153,8 @@ public abstract class AstrayPower extends LMCustomPower implements TAUtils {
     protected TextureAtlas getPowerAtlas() {
         return null;
     }
+    
+    public float onPlayerLosingBlock(float block) {
+        return block;
+    }
 }

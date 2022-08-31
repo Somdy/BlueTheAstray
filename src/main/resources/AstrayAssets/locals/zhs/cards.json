@@ -253,10 +253,10 @@
   {
     "ID": "B32",
     "NAME": "幻像描绘",
-    "DESCRIPTION": "astray:启迪 NL 将 !M! 张随机 *幻象牌 置入手牌。 NL 将一张 *镜中幻像 洗入抽牌堆 。 NL 消耗",
+    "DESCRIPTION": "astray:启迪 NL 将 !M! 张随机 *幻象牌 NL 置入手牌。 NL 将一张 *镜中幻像 NL 洗入抽牌堆 。 NL 消耗",
     "UPGRADED_DESC": [
-      "astray:启迪 NL 将 !M! 张随机 *幻像牌 置入手牌。 NL 将一张 *镜中幻像 洗入抽牌堆。 NL 消耗",
-      "astray:启迪 NL 将 !M! 张随机 *幻像牌 洗入弃牌堆。 NL 抽 !astray:extras! 张牌。"
+      "astray:启迪 NL 将 !M! 张随机 *幻像牌 NL 置入手牌。 NL 将一张 *镜中幻像 NL 洗入抽牌堆。 NL 消耗",
+      "astray:启迪 NL 将 !M! 张随机 *幻像牌 NL 洗入弃牌堆。 NL 抽 !astray:extras! 张牌。"
     ]
   },
   {
@@ -304,13 +304,46 @@
     "NAME": "魔术检索",
     "DESCRIPTION": "抽 !M! 张牌。 NL 每抽到一张 astray:魔法牌 NL 就再抽 !astray:extras! 张。"
   },
-  
+  {
+    "ID": "B40",
+    "NAME": "巫师力场",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 获得 !B! 点 格挡 ， NL 失去生命前可以一直保留最多 !M! 点 格挡 至下回合。"
+  },
   {
     "ID": "B41",
     "NAME": "精神穿刺",
     "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! X NL 移除目标所有 格挡 ， NL 造成 !D! 点伤害。",
     "UPDATED_DESC": [
       "astray:魔法 ， astray:晋升 !astray:promos! NL 移除目标所有 格挡 ， NL 造成 !D! 点伤害。"
+    ]
+  },
+  {
+    "ID": "B42",
+    "NAME": "灵界之眼",
+    "DESCRIPTION": "astray:启迪 NL 失去 !M! 点生命， NL 从 !astray:extras! 张其它颜色的能力牌中选择一张打出。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 失去 !M! 点生命， NL 从 !astray:extras! 张 升级 的其它 NL 颜色的能力牌中 NL 选择一张打出。 NL 消耗",
+      "astray:启迪 NL 失去 !M! 点生命， NL 从 !astray:extras! 张其它颜色的能力牌中选择一张打出。 NL 消耗"
+    ],
+    "MSG": [
+      "选择1张打出"
+    ]
+  },
+  {
+    "ID": "B43",
+    "NAME": "石肤术",
+    "DESCRIPTION": "astray:魔法 NL 在失去生命值前，受到的伤害减少 !M! %. NL 将 *魔网断开 置入手牌 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL 在失去生命值前，受到的伤害减少 !M! %. NL 将 *魔网断开 置入手牌"
+    ]
+  },
+  {
+    "ID": "B44",
+    "NAME": "肉体活化",
+    "DESCRIPTION": "astray:启迪 NL 失去1点 astray:魔力 ， NL 随机获得 !M! 点 力量 或者 !astray:extras! 点 敏捷 。",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 失去1点 astray:魔力 ， NL 获获得 !M! 点 力量 和 !astray:extras! 点 敏捷 。",
+      "astray:启迪 NL 失去1点 astray:魔力 ， NL 随机获得 !M! 点 力量 或 敏捷 。 NL 将该牌洗入抽牌堆。"
     ]
   },
   
@@ -417,5 +450,22 @@
     "ID": "E89",
     "NAME": "星星",
     "DESCRIPTION": "随机敌人受到 !D! 伤害"
+  },
+  {
+    "ID": "E90",
+    "NAME": "渐冻",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有敌人失去 NL 所有 astray:冰霜 ， NL 并失去等量的 力量 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有敌人失去所有 astray:冰霜 ， NL 并失去等量的 力量 ， NL 获得等量的 虚弱 。"
+    ]
+  },
+  {
+    "ID": "E91",
+    "NAME": "折跃黑门",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 获得 !M! 层 *缓冲 ， NL 所有敌人获得 NL !astray:extras! 层 虚弱 。 NL 消耗",
+    "MSG": [
+      "缓冲",
+      "抵挡下次受到的伤害。"
+    ]
   }
 ]

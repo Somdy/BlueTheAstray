@@ -18,7 +18,6 @@ public class B37 extends AstrayProCard {
         setMagicValue(3, true);
         setExtraMagicValue(2, true);
         setCanEnlighten(true);
-        cardsToPreview = new C87();
     }
     
     @Override
@@ -46,6 +45,7 @@ public class B37 extends AstrayProCard {
             add(() -> {
                 upgradeTexts(1);
                 upgradeExtraMagic(-1);
+                cardsToPreview = CardMst.GetCard("魔网断开");
             });
         }};
     }

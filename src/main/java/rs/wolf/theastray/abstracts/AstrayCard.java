@@ -334,6 +334,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         super.displayUpgrades();
         if (isUpgradedPromos())
             setPromosModified(true);
+        if (isUpgradedExtraMagic())
+            setExtraMagicModified(true);
     }
     
     @Override
