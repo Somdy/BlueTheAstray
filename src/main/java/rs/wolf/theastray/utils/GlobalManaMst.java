@@ -28,6 +28,22 @@ public class GlobalManaMst {
         return mst;
     }
     
+    public static void ClearPostBattle() {
+        AbstractPlayer p = LMSK.Player();
+        if (p instanceof BlueTheAstray) {
+            ((BlueTheAstray) p).manaMst.clearPostBattle();
+            return;
+        }
+        ManaMst mst = ManaMechanicsPatch.ManaField.manaMst.get(p);
+        if (mst != null) {
+            mst.clearPostBattle();
+            return;
+        }
+        TAUtils.Log("[" + p.name + "] has no mana, initializing");
+        InitPlayerMana(p);
+        ClearPostBattle();
+    }
+    
     public static void GainMana(int amt) {
         AbstractPlayer p = LMSK.Player();
         ManaMst mst = GetPlayerManaMst(p);

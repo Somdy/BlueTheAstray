@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
 import org.jetbrains.annotations.NotNull;
+import rs.wolf.theastray.utils.TAImageMst;
 import rs.wolf.theastray.utils.TAUtils;
 
 public class Mana extends AbstractOrb implements TAUtils {
@@ -20,7 +21,6 @@ public class Mana extends AbstractOrb implements TAUtils {
     private static final float ORB_WAVY_DIST = 0.04F;
     private static final float vfxIntervalMin = 0.1F;
     private static final float vfxIntervalMax = 0.4F;
-    private static final Texture IMAGE = ImageMaster.loadImage("AstrayAssets/images/ui/manalayout/mana.png");
     private float vfxTimer = 1.0F;
     private float animX;
     private float animY;
@@ -31,7 +31,7 @@ public class Mana extends AbstractOrb implements TAUtils {
         cY = tY = pos.y;
         hb.move(pos.x, pos.y);
         angle = MathUtils.random(360F);
-        img = IMAGE;
+        img = TAImageMst.MANA;
     }
     
     public Mana(float cX, float cY) {

@@ -12,10 +12,11 @@ public class ModifyManaAction extends AstrayGameAction {
     
     @Override
     public void update() {
+        int mod = Math.abs(amount);
         if (amount > 0)
-            GlobalManaMst.GainMana(amount);
+            GlobalManaMst.GainMana(mod);
         if (amount < 0)
-            GlobalManaMst.LoseMana(-amount);
+            GlobalManaMst.LoseMana(mod);
         isDone = true;
     }
 }

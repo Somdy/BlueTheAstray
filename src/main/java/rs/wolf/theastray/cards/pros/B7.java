@@ -12,6 +12,7 @@ import rs.wolf.theastray.actions.commons.ModifyManaAction;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.utils.GlobalManaMst;
+import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class B7 extends AstrayProCard {
             addToBot(new DrawCardAction(s, magicNumber));
         }
         addToBot(new ModifyManaAction(1));
-        addToBot(new SimpleGridCardSelectBuilder(c -> c.hasTag(TACardEnums.MAGICAL))
+        addToBot(new SimpleGridCardSelectBuilder(TAUtils::IsMagical)
                 .setCardGroup(cpr().drawPile, cpr().hand, cpr().discardPile)
                 .setAmount(1).setMsg(String.format(MSG[0], 1))
                 .setAnyNumber(false).setCanCancel(false)

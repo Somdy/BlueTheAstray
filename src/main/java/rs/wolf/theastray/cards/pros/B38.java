@@ -41,6 +41,7 @@ public class B38 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
+        target = CardTarget.ALL_ENEMY;
         isMultiDamage = true;
     }
 }

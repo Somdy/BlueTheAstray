@@ -40,15 +40,6 @@
     ]
   },
   {
-    "ID": "B3",
-    "NAME": "魔法飞弹",
-    "DESCRIPTION": "astray:启迪 ， astray:魔法 NL 造成 !D! 伤害",
-    "UPGRADED_DESC": [
-      "astray:魔法 ， astray:启迪 NL 造成 !D! 伤害",
-      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害，给予 !M! astray:余烬 。"
-    ]
-  },
-  {
     "ID": "B4",
     "NAME": "魔力释放",
     "DESCRIPTION": "astray:启迪 NL 如果有2 astray:法力 ，获得 !M! 点 astray:魔力 。 NL 消耗 ",
@@ -153,7 +144,7 @@
     "DESCRIPTION": "astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。",
     "UPGRADED_DESC": [
       "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。",
-      "astray:魔法 NL astray:启迪 ， 保留  NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。"
+      "astray:魔法 NL astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。"
     ]
   },
   {
@@ -346,6 +337,87 @@
       "astray:启迪 NL 失去1点 astray:魔力 ， NL 随机获得 !M! 点 力量 或 敏捷 。 NL 将该牌洗入抽牌堆。"
     ]
   },
+  {
+    "ID": "B45",
+    "NAME": "倾泄",
+    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL 消耗所有 astray:法力 ， NL 每个造成 !D! 点伤害。 NL 击杀目标会返还消耗的 *法力 。"
+  },
+  {
+    "ID": "B46",
+    "NAME": "编撰绘本",
+    "DESCRIPTION": "每击败过一名boss， NL 获得 !M! 点 astray:魔力 。 NL 变更本场战斗中所有同名牌效果。 NL 消耗",
+    "UPGRADED_DESC": [
+      "固有 NL 每击败过一名boss， NL 获得 !M! 点 astray:魔力 。 NL 变更本场战斗中所有同名牌效果。 NL 消耗"
+    ],
+    "UPDATED_DESC": [
+      "抽1张牌。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B47",
+    "NAME": "失控反应",
+    "DESCRIPTION": "astray:启迪 NL 随机 消耗 !M! 张手牌， NL 每张获得 !B! 格挡 。 NL 消耗"
+  },
+  {
+    "ID": "B48",
+    "NAME": "择运",
+    "DESCRIPTION": "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得1 astray:法力 ， NL 否则获得 [E] ，然后弃1张牌。",
+    "UPGRADED_DESC": [
+      "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得1 astray:法力 ， NL 否则获得 [E] ，然后弃1张牌。",
+      "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得1 astray:法力 ， NL 否则获得 [E] ."
+    ]
+  },
+  {
+    "ID": "B49",
+    "NAME": "幸运骰子",
+    "DESCRIPTION": "随机获得1~6 *金币 ， NL 造成等量伤害。 NL 抽1张牌。 NL 消耗",
+    "UPGRADED_DESC": [
+      "随机造成 !M! ~ !D! 点伤害 NL 获得等量 *金币 。 NL 抽1张牌。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B50",
+    "NAME": "渐升仪式",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 不消耗 astray:法力 。 NL 每次打出后 astray:晋升 。",
+    "UPDATED_DESC": [
+      "astray:魔法 ， astray:储能 NL astray:晋升 !astray:promos! NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 不消耗 astray:法力 。 NL 每次打出后 astray:晋升 。"
+    ]
+  },
+  {
+    "ID": "B51",
+    "NAME": "元素展现",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 对所有敌人造成它们 NL astray:冰霜 与 astray:余烬 总层数 NL !M! 倍的伤害， NL 然后给予它们 !astray:extras! *余烬 。",
+    "UPDATED_DESC": [
+      "astray:魔法 ， astray:储能 NL 对所有敌人造成它们 NL astray:冰霜 与 astray:余烬 总层数 NL !M! 倍的伤害， NL 然后给予它们 !astray:extras! *余烬 和 *冰霜。"
+    ]
+  },
+  {
+    "ID": "B52",
+    "NAME": "附魔之刃",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 造成 !D! 点伤害， NL 给予 !M! 层 易伤 、 虚弱 、 NL astray:余烬 和 astray:冰霜 。 NL 消耗"
+  },
+  {
+    "ID": "B53",
+    "NAME": "法力律动",
+    "DESCRIPTION": "每当失去1 astray:法力 ， NL 获得 !astray:extras! [E] ."
+  },
+  {
+    "ID": "B54",
+    "NAME": "涌动立场",
+    "DESCRIPTION": "astray:启迪 NL 回合开始时，每有1 astray:法力 ， NL 获得 !M! 点 格挡 。",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 回合开始时，每有1 astray:法力 ， NL 获得 !M! 点 格挡 。",
+      "astray:启迪 NL 回合结束时，每有1 astray:法力 ， NL 获得 !M! 点 格挡 。"
+    ]
+  },
+  {
+    "ID": "B55",
+    "NAME": "序列",
+    "DESCRIPTION": "在你 消耗 1张 NL astray:魔法牌 后， NL 将 !M! 张随机 *魔法牌 NL 置入手牌。",
+    "UPGRADED_DESC": [
+      "在你 消耗 1张 astray:魔法牌 或打出1张 NL astray:衍生魔法 后， NL 将 !M! 张随机 *魔法牌 NL 置入手牌。"
+    ]
+  },
   
   {
     "ID": "B63",
@@ -369,6 +441,17 @@
       "将所有未 消耗 的 astray:魔法牌 变化为 升级 的随机 *魔法牌 。 NL 消耗"
     ]
   },
+
+  {
+    "ID": "B70",
+    "NAME": "爆裂流星",
+    "DESCRIPTION": "随机打出X-1张攻击 astray:魔法牌 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "随机打出X-1张攻击 astray:魔法牌 。 NL 获得X astray:法力 。 NL 消耗",
+      ""
+    ]
+  },
+  
   {
     "ID": "B74",
     "NAME": "断裂记忆",
@@ -388,7 +471,16 @@
       "astray:魔法 ， astray:astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 对所有敌人造成 !D! 点伤害。"
     ]
   },
-
+  
+  {
+    "ID": "B78",
+    "NAME": "机械心智",
+    "DESCRIPTION": "astray:启迪 NL 抽牌堆每有一张能力牌，获得 !M! [E] .",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 抽牌堆与弃牌堆每有一张能力牌，获得 !M! [E] .",
+      "astray:启迪 NL 抽牌堆每有一张能力牌，抽 !M! 张牌。"
+    ]
+  },
   {
     "ID": "B79",
     "NAME": "折镜迷宫",
@@ -449,7 +541,7 @@
   {
     "ID": "E89",
     "NAME": "星星",
-    "DESCRIPTION": "随机敌人受到 !D! 伤害"
+    "DESCRIPTION": "随机敌人受到 !D! 伤害。 NL 消耗"
   },
   {
     "ID": "E90",

@@ -9,6 +9,7 @@ public class B10 extends AstrayProCard {
     public B10() {
         super(10, 1, CardTarget.SELF);
         setMagicValue(2, true);
+        exhaust = true;
     }
     
     @Override

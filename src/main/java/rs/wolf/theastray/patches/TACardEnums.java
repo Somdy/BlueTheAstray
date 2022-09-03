@@ -21,6 +21,8 @@ public class TACardEnums {
     
     @SpireEnum(name = "theastray_magical_tag")
     public static AbstractCard.CardTags MAGICAL;
+    @SpireEnum(name = "theastray_magical_derivative_tag")
+    public static AbstractCard.CardTags DE_MAGICAL;
     @SpireEnum(name = "theastray_storage_tag")
     public static AbstractCard.CardTags STORAGE;
     @SpireEnum(name = "theastray_illusion_tag")

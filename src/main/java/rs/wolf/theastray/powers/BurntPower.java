@@ -52,7 +52,7 @@ public class BurntPower extends AstrayPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info != null && info instanceof CustomDmgInfo && info.owner == source) {
             AbstractCard sourceCard = ((CustomDmgInfo) info).source.getCardFrom();
-            if (sourceCard != null && sourceCard.hasTag(TACardEnums.MAGICAL)) {
+            if (sourceCard != null && TAUtils.IsMagical(sourceCard)) {
                 checkValues();
                 addToTop(new ApplyPowerAction(owner, owner, this, extraAmt));
             }

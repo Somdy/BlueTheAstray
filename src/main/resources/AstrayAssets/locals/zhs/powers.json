@@ -67,5 +67,35 @@
     "DESCRIPTIONS": [
       "失去生命值前， #y[owner] 受到的伤害减少 #b[amt_0]% ."
     ]
+  },
+  "astray:ManaTempoPower": {
+    "NAME": "法力律动",
+    "DESCRIPTIONS": [
+      "每当失去 #b[amt_0] #y法力 ，获得 #b[amt_1] [E]."
+    ]
+  },
+  "astray:ManaFieldPower": {
+    "NAME": "涌动立场",
+    "DESCRIPTIONS": [
+      "回合开始时，每有 #b1 #y法力 ，获得 #b[amt_0] 点 #y格挡 。"
+    ]
+  },
+  "astray:ManaFieldFastPower": {
+    "NAME": "涌动立场",
+    "DESCRIPTIONS": [
+      "回合结束时，每有 #b1 #y法力 ，获得 #b[amt_0] 点 #y格挡 。"
+    ]
+  },
+  "astray:SequenceExhaustPower": {
+    "NAME": "主序列",
+    "DESCRIPTIONS": [
+      "在你 #y消耗 #b1 张 #y魔法牌 后，将 #b[amt_0] 张随机 #y魔法牌 置入手牌。"
+    ]
+  },
+  "astray:SequencePlayPower": {
+    "NAME": "次序列",
+    "DESCRIPTIONS": [
+      "在你打出 #b1 张 #y衍生魔法 后，将 #b[amt_0] 张随机 #y魔法牌 置入手牌。"
+    ]
   }
 }

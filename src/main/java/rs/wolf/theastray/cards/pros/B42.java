@@ -45,10 +45,12 @@ public class B42 extends AstrayProCard {
                     group.addToRandomSpot(card);
                 }
             }
+            log("Empty card group? " + group.isEmpty());
             if (!group.isEmpty()) {
+                log("Empty card group? " + group.isEmpty());
                 addToTop(new SimpleGridCardSelectBuilder(c -> true)
                         .setMsg(MSG[0]).setCardGroup(group).setAmount(1)
-                        .setShouldMatchAll(true).setCanCancel(false).setAnyNumber(false)
+                        .setCanCancel(false).setAnyNumber(false)
                         .setManipulator(new GridCardManipulator() {
                             @Override
                             public boolean manipulate(AbstractCard card, int i, CardGroup cardGroup) {
@@ -57,8 +59,6 @@ public class B42 extends AstrayProCard {
                             }
                         }));
             }
-            tmp.clear();
-            group.clear();
         });
     }
     

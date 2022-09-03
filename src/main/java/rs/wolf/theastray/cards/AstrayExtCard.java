@@ -29,7 +29,7 @@ public abstract class AstrayExtCard extends AstrayCard {
     
     protected boolean hasEnoughEnlightenCards() {
         List<AbstractCard> tmp = new ArrayList<>(cpr().masterDeck.group);
-        tmp.removeIf(c -> !(c instanceof AstrayCard) || !((AstrayCard) c).isExtension());
+        tmp.removeIf(c -> !(c instanceof AstrayCard) || !((AstrayCard) c).isEnlightenCard());
         return getExtensionNeed() >= tmp.size();
     }
 }

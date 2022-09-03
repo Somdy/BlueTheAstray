@@ -10,6 +10,7 @@ import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ public class B19 extends AstrayProCard {
     }
     
     boolean isFreeMagicalCard(@NotNull AbstractCard c) {
-        return c.hasTag(TACardEnums.MAGICAL) && c instanceof AstrayCard && (c.costForTurn == 0 || c.freeToPlay());
+        return TAUtils.IsMagical(c) && c instanceof AstrayCard && (c.costForTurn == 0 || c.freeToPlay());
     }
     
     @Override

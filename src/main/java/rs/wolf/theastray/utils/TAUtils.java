@@ -18,6 +18,7 @@ import rs.lazymankits.LMDebug;
 import rs.lazymankits.utils.LMGameGeneralUtils;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.core.Leader;
+import rs.wolf.theastray.patches.TACardEnums;
 
 public interface TAUtils extends LMGameGeneralUtils {
     
@@ -83,8 +84,24 @@ public interface TAUtils extends LMGameGeneralUtils {
         return RoomAvailable() && clz.isInstance(AbstractDungeon.getCurrRoom());
     }
     
+    static boolean RoomChecker(AbstractRoom.RoomPhase phase) {
+        return RoomAvailable() && AbstractDungeon.getCurrRoom().phase == phase;
+    }
+    
     static boolean RoomAvailable() {
         return AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null;
+    }
+    
+    static boolean IsTrueMagical(@NotNull AbstractCard card) {
+        return card.hasTag(TACardEnums.MAGICAL) && !card.hasTag(TACardEnums.DE_MAGICAL);
+    }
+    
+    static boolean IsMagical(@NotNull AbstractCard card) {
+        return card.hasTag(TACardEnums.MAGICAL);
+    }
+    
+    static boolean IsDeMagical(@NotNull AbstractCard card) {
+        return card.hasTag(TACardEnums.MAGICAL) && card.hasTag(TACardEnums.DE_MAGICAL);
     }
     
     @NotNull

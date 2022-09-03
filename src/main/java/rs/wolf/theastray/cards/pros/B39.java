@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.utils.TAUtils;
 
 public class B39 extends AstrayProCard {
     public B39() {
@@ -21,7 +22,7 @@ public class B39 extends AstrayProCard {
             public void update() {
                 isDone = true;
                 for (AbstractCard card : DrawCardAction.drawnCards) {
-                    if (card.hasTag(TACardEnums.MAGICAL)) {
+                    if (TAUtils.IsMagical(card)) {
                         card.flash();
                         addToTop(new DrawCardAction(s, getExtraMagic()));
                     }

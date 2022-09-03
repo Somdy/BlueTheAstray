@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import rs.wolf.theastray.cards.AstrayColorlessCard;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.powers.MagicPower;
+import rs.wolf.theastray.utils.TAUtils;
 
 public class C88 extends AstrayColorlessCard {
     private static boolean UpdatedPower = false;
@@ -27,7 +28,7 @@ public class C88 extends AstrayColorlessCard {
     
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        if (c.hasTag(TACardEnums.MAGICAL) && inHand()) {
+        if (TAUtils.IsMagical(c) && inHand()) {
             addToTop(new ExhaustSpecificCardAction(this, cpr().hand));
             if (UpdatedPower && cpr().hasPower(MagicPower.ID)) {
                 cpr().getPower(MagicPower.ID).updateDescription();

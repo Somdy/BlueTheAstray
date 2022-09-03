@@ -35,6 +35,8 @@ public class CardMst {
     private static final List<String> MAGICS = new ArrayList<>();
     private static final List<String> MISC = new ArrayList<>();
     private static final Map<CardData, AstrayCard> CARD_MAP = new HashMap<>();
+    public static final List<AbstractCard> DeMagicPlayedThisTurn = new ArrayList<>();
+    public static final List<AbstractCard> DeMagicPlayedThisCombat = new ArrayList<>();
     
     public static void RegisterCards() {
         new AutoAdd(Leader.MOD_ID)
@@ -71,21 +73,24 @@ public class CardMst {
     private static void addProCard(@NotNull AstrayProCard card) {
         PROS.add(card.data.getInternalID());
         CARD_MAP.put(card.data, card);
-        if (card.hasTag(TACardEnums.MAGICAL)) MAGICS.add(card.data.getInternalID());
+        if (TAUtils.IsMagical(card)) 
+            MAGICS.add(card.data.getInternalID());
         UnlockTracker.unlockCard(card.cardID);
     }
     
     private static void addExtCard(@NotNull AstrayExtCard card) {
         EXTS.add(card.data.getInternalID());
         CARD_MAP.put(card.data, card);
-        if (card.hasTag(TACardEnums.MAGICAL)) MAGICS.add(card.data.getInternalID());
+        if (TAUtils.IsMagical(card)) 
+            MAGICS.add(card.data.getInternalID());
         UnlockTracker.unlockCard(card.cardID);
     }
     
     private static void addMiscCard(@NotNull AstrayCard card) {
         MISC.add(card.data.getInternalID());
         CARD_MAP.put(card.data, card);
-        if (card.hasTag(TACardEnums.MAGICAL)) MAGICS.add(card.data.getInternalID());
+        if (TAUtils.IsMagical(card)) 
+            MAGICS.add(card.data.getInternalID());
         UnlockTracker.unlockCard(card.cardID);
     }
     
@@ -139,7 +144,7 @@ public class CardMst {
     }
     
     public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean extIncluded, Predicate<AbstractCard> expt) {
-        List<AstrayCard> tmp = GetAllCards((d, c) -> c.hasTag(TACardEnums.MAGICAL) 
+        List<AstrayCard> tmp = GetAllCards((d, c) -> TAUtils.IsMagical(c) && c.rarity != AbstractCard.CardRarity.BASIC
                 && ((extIncluded && c.canSpawnInCombat()) || !EXTS.contains(d.getInternalID())));
         tmp.removeIf(c -> !expt.test(c));
         if (tmp.isEmpty()) return new Madness();
@@ -151,13 +156,17 @@ public class CardMst {
         return ReturnRndMagicInCombat(LMSK.CardRandomRng(), true, expt);
     }
     
+    public static AbstractCard ReturnRndMagicInCombat() {
+        return ReturnRndMagicInCombat(LMSK.CardRandomRng(), true, c -> true);
+    }
+    
     public static void RegisterColors() {
-        BaseMod.addColor(TACardEnums.TA_CardColor, Leader.TAColor,
+        BaseMod.addColor(TACardEnums.TA_CardColor, Leader.TAColor.cpy(),
                 cardui("bg_attack_512"), cardui("bg_skill_512"), cardui("bg_power_512"),
                 cardui("card_cost"),
                 cardui("bg_attack_1024"), cardui("bg_skill_1024"), cardui("bg_power_1024"),
                 cardui("card_orb"), cardui("energy_icon"));
-        BaseMod.addColor(TACardEnums.TAE_CardColor, Leader.TAColor,
+        BaseMod.addColor(TACardEnums.TAE_CardColor, Leader.TAColor.cpy(),
                 cardui("bg_attack_512"), cardui("bg_skill_512"), cardui("bg_power_512"),
                 cardui("card_cost"),
                 cardui("bg_attack_1024"), cardui("bg_skill_1024"), cardui("bg_power_1024"),

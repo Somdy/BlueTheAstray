@@ -157,4 +157,6 @@ public abstract class AstrayPower extends LMCustomPower implements TAUtils {
     public float onPlayerLosingBlock(float block) {
         return block;
     }
+    
+    public void onManaLost(int lostAmt) {}
 }

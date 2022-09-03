@@ -43,7 +43,7 @@ public class FrostPower extends AstrayPower {
         boolean useMagic = !(info instanceof CustomDmgInfo);
         if (info != null && info instanceof CustomDmgInfo && info.owner == source) {
             AbstractCard sourceCard = ((CustomDmgInfo) info).source.getCardFrom();
-            if (sourceCard != null && sourceCard.hasTag(TACardEnums.MAGICAL)) {
+            if (sourceCard != null && TAUtils.IsMagical(sourceCard)) {
                 useMagic = true;
             }
         }

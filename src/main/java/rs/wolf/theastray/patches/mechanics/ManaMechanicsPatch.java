@@ -77,7 +77,7 @@ public class ManaMechanicsPatch {
     
     @SpirePatch(clz = AbstractPlayer.class, method = "useCard")
     public static class PlayerUseCardPatch {
-        @SpireInsertPatch(locator = StorageLocator.class)
+        @SpireInsertPatch(locator = ManaLocator.class)
         public static void UseMana(AbstractPlayer _inst, AbstractCard c, AbstractMonster m, int e) {
             if (c instanceof AstrayCard && ((AstrayCard) c).isMagical()) {
                 int manaCost = ((AstrayCard) c).getManaOnUse();
@@ -95,7 +95,7 @@ public class ManaMechanicsPatch {
         public static void StorageCheck(AbstractPlayer _inst, AbstractCard c, AbstractMonster m, int e) {
             if (c.hasTag(TACardEnums.STORAGE)) {
                 boolean energy = EnergyPanel.getCurrentEnergy() <= 0;
-                boolean mana = GlobalManaMst.HasMana();
+                boolean mana = !GlobalManaMst.HasMana();
                 LMSK.AddToBot(new TriggerStorageAction(energy, mana, c));
             }
         }

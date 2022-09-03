@@ -8,10 +8,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbActivateEffect;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
+import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
 
@@ -105,7 +107,8 @@ public class ManaMst implements TAUtils {
     }
     
     public void loseMana(int amt) {
-        if (currMana < amt || amt < 0) return;
+        if (amt < 0) return;
+        if (currMana < amt) amt = currMana;
         currMana -= amt;
         selfLoseMana(amt);
     }
@@ -115,7 +118,16 @@ public class ManaMst implements TAUtils {
             removeList.add(orbs.get(i));
             if (i >= orbs.size()) break;
         }
+        triggerGearsOnManaLost(amt);
         reorganizeManaOrbs();
+    }
+    
+    private void triggerGearsOnManaLost(int amount) {
+        AbstractPlayer player = LMSK.Player();
+        for (AbstractPower p : player.powers) {
+            if (p instanceof AstrayPower)
+                ((AstrayPower) p).onManaLost(amount);
+        }
     }
     
     public int getCurrMana() {
@@ -141,7 +153,7 @@ public class ManaMst implements TAUtils {
     public void useMana(int amt) {
         if (amt > currMana) {
             TAUtils.Log(this, "current mana is less than [" + amt + "]");
-            return;
+            amt = currMana;
         }
         for (int i = 0; i < amt; i++) {
             Mana mana = orbs.get(i);
@@ -202,6 +214,12 @@ public class ManaMst implements TAUtils {
             Mana mana = new Mana(getManaPosition(i, totalLen));
             orbs.add(mana);
         }
+    }
+    
+    public void clearPostBattle() {
+        ballHb.move(-10F, -10F);
+        orbs.clear();
+        currMana = 0;
     }
     
     @NotNull

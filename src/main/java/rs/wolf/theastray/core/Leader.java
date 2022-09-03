@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.utils.LMSK;
@@ -28,7 +29,9 @@ import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.localizations.TALocalLoader;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.relics.Relic1;
+import rs.wolf.theastray.utils.GlobalManaMst;
 import rs.wolf.theastray.utils.MsgLogger;
+import rs.wolf.theastray.utils.TAImageMst;
 import rs.wolf.theastray.utils.TAUtils;
 import rs.wolf.theastray.variables.TAExtNeed;
 import rs.wolf.theastray.variables.TAExtraMagic;
@@ -40,7 +43,7 @@ import java.nio.charset.StandardCharsets;
 @SuppressWarnings("unused")
 public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
         PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber, 
-        OnPlayerLoseBlockSubscriber {
+        OnPlayerLoseBlockSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
@@ -104,6 +107,7 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     
     @Override
     public void receivePostInitialize() {
+        TAImageMst.Initialize();
         ConsoleCommand.addCommand("bluemana", ManaCMD.class);
         ConsoleCommand.addCommand("bluecheat", CheatCMD.class);
         MsgLogger.Log();
@@ -177,5 +181,22 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         if (tmp < 0) tmp = 0F;
         block = MathUtils.floor(tmp);
         return block;
+    }
+    
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        CardMst.DeMagicPlayedThisTurn.clear();
+    }
+    
+    @Override
+    public void receivePostBattle(AbstractRoom r) {
+        AbstractPlayer p = LMSK.Player();
+        for (AbstractCard card : p.masterDeck.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onVictory();
+        }
+        
+        CardMst.DeMagicPlayedThisCombat.clear();
+        GlobalManaMst.ClearPostBattle();
     }
 }

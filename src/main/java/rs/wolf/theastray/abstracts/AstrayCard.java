@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
@@ -19,11 +20,14 @@ import rs.lazymankits.actions.common.BetterDamageAllEnemiesAction;
 import rs.lazymankits.actions.common.NullableSrcDamageAction;
 import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
+import rs.lazymankits.interfaces.cards.SensitiveTriggerOnUseCard;
 import rs.lazymankits.interfaces.cards.SwappableUpgBranchCard;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.commands.Cheat;
+import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.data.CardData;
+import rs.wolf.theastray.interfaces.DeMagicSensitiveGear;
 import rs.wolf.theastray.interfaces.MagicModifier;
 import rs.wolf.theastray.localizations.TACardLocals;
 import rs.wolf.theastray.localizations.TALocalLoader;
@@ -38,7 +42,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public abstract class AstrayCard extends LMCustomCard implements TAUtils, BranchableUpgradeCard, SwappableUpgBranchCard {
+public abstract class AstrayCard extends LMCustomCard implements TAUtils, BranchableUpgradeCard, SwappableUpgBranchCard, 
+        SensitiveTriggerOnUseCard {
     
     private int baseExtraMagic; // 基础的额外数值
     private int extraMagic; // 额外数值
@@ -339,11 +344,6 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     @Override
-    public boolean canUpgrade() {
-        return super.canUpgrade() && (!canEnlighten() || readyToEnlighten());
-    }
-    
-    @Override
     public final void upgrade() {
         if (canUpgrade())
             selfUpgrade();
@@ -355,7 +355,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * 以选定的分支升级
      */
     protected void branchingUpgrade() {
-        upgradeWithTheCorrectBranch();
+        upgradeAndCorrectBranch();
     }
     
     /**
@@ -373,7 +373,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      */
     protected void upgradeTexts(int branchIndex) {
         upgradeName();
-        setLocalBranch(branchIndex);
+        if (isEnlightenCard())
+            setLocalBranch(branchIndex);
         if (UPGRADED_DESC != null) {
             if (branchIndex >= UPGRADED_DESC.length) {
                 log("has no [" + branchIndex + "] upgraded description");
@@ -573,6 +574,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      */
     public final void setMagicalDerivative(boolean magicalDerivative) {
         isMagicalDerivative = magicalDerivative;
+        if (magicalDerivative)
+            addTags(TACardEnums.DE_MAGICAL);
         setMagical(magicalDerivative, 0);
     }
     
@@ -607,17 +610,13 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * 判断该牌是否为启迪牌。包含两个条件 {@link #isBranchable()} 和 {@link #isSwappable()}
      * @return 当且仅当 {@link #isBranchable()} 和 {@link #isSwappable()} 均为 true 时，返回 true，否则返回 false
      */
-    public boolean canEnlighten() {
+    public boolean isEnlightenCard() {
         return isBranchable() && isSwappable();
-    }
-    
-    public boolean readyToEnlighten() {
-        return canEnlighten() && !upgraded;
     }
     
     @Override
     public final boolean canBranch() {
-        return canEnlighten();
+        return isEnlightenCard();
     }
     
     /**
@@ -632,9 +631,13 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         return !TAUtils.RoomAvailable();
     }
     
+    protected final boolean inSinglePopupView() {
+        return CardCrawlGame.cardPopup != null && CardCrawlGame.cardPopup.isOpen;
+    }
+    
     @Override
     public final boolean canSwap() {
-        return canEnlighten();
+        return isEnlightenCard();
     }
     
     @Override
@@ -643,7 +646,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     /**
-     * 返回该牌可用的升级分支，仅对 {@link #canEnlighten()} 为 true 的牌生效。
+     * 返回该牌可用的升级分支，仅对 {@link #isEnlightenCard()} 为 true 的牌生效。
      * 当 {@link #inRestroom()} 为 true，即在火堆升级，该方法返回所有可用的升级分支
      * 当 {@link #inRestroom()} 为 false，即不在火堆处升级，
      * 该方法通过 {@link com.megacrit.cardcrawl.dungeons.AbstractDungeon#cardRandomRng} 随机返回一个可用分支
@@ -651,15 +654,21 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      */
     @Override
     public List<UpgradeBranch> getPossibleBranches() {
-        if (canEnlighten()) {
-            if (inRestroom() || outOfDungeon() || Cheat.IsCheating(Cheat.IEL)) return possibleBranches();
+        if (isEnlightenCard()) {
+            if (inRestroom() || outOfDungeon() || inSinglePopupView() || Cheat.IsCheating(Cheat.IEL))
+                return possibleBranches();
             Random copy = LMSK.CardRandomRng().copy();
             int index = copy.random(branches().size() - 1);
             return new ArrayList<UpgradeBranch>() {{
                 add(branches().get(index));
             }};
         }
-        return null;
+        return new ArrayList<>();
+    }
+    
+    @Override
+    public int getBranchForRandomUpgrading(int msg) {
+        return LMSK.CardRandomRng().random(branches().size() - 1);
     }
     
     @Override
@@ -673,6 +682,33 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      */
     protected List<UpgradeBranch> branches() {
         return null;
+    }
+    
+    @Override
+    public final boolean isSensitive() {
+        return isMagicalDerivative();
+    }
+    
+    @Override
+    public final boolean canTriggerOnGear(Object o, String s) {
+        if (!(o instanceof DeMagicSensitiveGear))
+            log(o.getClass().getSimpleName() + " is not de-magic sensitive");
+        return o instanceof DeMagicSensitiveGear;
+    }
+    
+    @Override
+    public boolean countInCombatHistory() {
+        return false;
+    }
+    
+    @Override
+    public void doSelfCombatRecord() {
+        CardMst.DeMagicPlayedThisCombat.add(this);
+    }
+    
+    @Override
+    public void doSelfTurnRecord() {
+        CardMst.DeMagicPlayedThisTurn.add(this);
     }
     
     protected void log(Object what) {
@@ -810,4 +846,6 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     public void onStorageTriggered(boolean energy, boolean mana) {}
     
     public void onNeitherStorageTriggers() {}
+    
+    public void onVictory() {}
 }

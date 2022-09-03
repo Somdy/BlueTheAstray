@@ -62,8 +62,9 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     @Override
     public ArrayList<String> getStartingDeck() {
         return listFromRepeatableObjs(GlobalIDMst.CardID("打击"), GlobalIDMst.CardID("打击"), 
-                GlobalIDMst.CardID("打击"), GlobalIDMst.CardID("防御"), GlobalIDMst.CardID("防御"),
-                GlobalIDMst.CardID(3), GlobalIDMst.CardID(3));
+                GlobalIDMst.CardID("打击"), GlobalIDMst.CardID("打击"), GlobalIDMst.CardID("防御"), 
+                GlobalIDMst.CardID("防御"), GlobalIDMst.CardID("防御"), GlobalIDMst.CardID("防御"), 
+                GlobalIDMst.CardID("魔法飞弹"), GlobalIDMst.CardID("魔力释放"));
     }
     
     @Override
