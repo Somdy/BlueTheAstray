@@ -1,6 +1,8 @@
 package rs.wolf.theastray.abstracts;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import rs.lazymankits.abstracts.LMCustomPower;
@@ -159,4 +161,8 @@ public abstract class AstrayPower extends LMCustomPower implements TAUtils {
     }
     
     public void onManaLost(int lostAmt) {}
+    
+    public void onShuffle() {}
+    
+    public void onMakingCardInCombat(AbstractCard card, CardGroup destination) {}
 }

@@ -2,6 +2,7 @@ package rs.wolf.theastray.cards.pros;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import rs.wolf.theastray.actions.uniques.MagicMissilesAction;
 import rs.wolf.theastray.cards.AstrayProCard;
 
@@ -25,6 +26,16 @@ public class B28 extends AstrayProCard {
         super.applyPowers();
         setDamageValue(damage, true);
         applyMagicalPowers();
+        baseDamage = realBase;
+        isDamageModified = baseDamage != damage;
+    }
+    
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        int realBase = baseDamage;
+        super.calculateCardDamage(mo);
+        setDamageValue(damage, true);
+        calculateMagicalCardDamage(mo);
         baseDamage = realBase;
         isDamageModified = baseDamage != damage;
     }

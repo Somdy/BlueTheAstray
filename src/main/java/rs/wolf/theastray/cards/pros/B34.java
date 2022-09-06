@@ -2,12 +2,14 @@ package rs.wolf.theastray.cards.pros;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import rs.wolf.theastray.cards.AstrayProCard;
+import rs.wolf.theastray.utils.TAUtils;
 
 public class B34 extends AstrayProCard {
     public B34() {
         super(34, 1, CardTarget.NONE);
-        setMagicValue(2, true);
+        setMagicValue(3, true);
     }
     
     @Override
@@ -27,6 +29,7 @@ public class B34 extends AstrayProCard {
     }
     
     private boolean noAttackingEnemies() {
-        return !outOfDungeon() && getAllLivingMstrs().stream().noneMatch(m -> m.getIntentBaseDmg() > 0);
+        return !outOfDungeon() && TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)
+                && getAllLivingMstrs().stream().noneMatch(m -> m.getIntentBaseDmg() > 0);
     }
 }

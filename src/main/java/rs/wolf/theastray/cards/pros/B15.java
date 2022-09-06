@@ -20,7 +20,7 @@ public class B15 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(new GainBlockAction(s, block));
-        atbTmpAction(() -> upgradeBaseCost(cost));
+        setCostValue(1, true);
     }
     
     @Override

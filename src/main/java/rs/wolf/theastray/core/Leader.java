@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -18,6 +19,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
+import rs.lazymankits.interfaces.OnMakingCardInCombatSubscriber;
+import rs.lazymankits.interfaces.OnShuffleSubscriber;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayPower;
@@ -43,7 +46,8 @@ import java.nio.charset.StandardCharsets;
 @SuppressWarnings("unused")
 public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
         PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber, 
-        OnPlayerLoseBlockSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber {
+        OnPlayerLoseBlockSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber, OnStartBattleSubscriber, 
+        OnShuffleSubscriber, OnMakingCardInCombatSubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
@@ -198,5 +202,32 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         
         CardMst.DeMagicPlayedThisCombat.clear();
         GlobalManaMst.ClearPostBattle();
+    }
+    
+    @Override
+    public void receiveOnBattleStart(AbstractRoom r) {
+        AbstractPlayer p = LMSK.Player();
+        for (AbstractCard card : p.masterDeck.group) {
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).onBattleStart();
+        }
+    }
+    
+    @Override
+    public void receiveOnShuffle() {
+        AbstractPlayer p = LMSK.Player();
+        for (AbstractPower power : p.powers) {
+            if (power instanceof AstrayPower)
+                ((AstrayPower) power).onShuffle();
+        }
+    }
+    
+    @Override
+    public void receiveOnMakingCardInCombat(AbstractCard card, CardGroup destination) {
+        AbstractPlayer p = LMSK.Player();
+        for (AbstractPower power : p.powers) {
+            if (power instanceof AstrayPower)
+                ((AstrayPower) power).onMakingCardInCombat(card, destination);
+        }
     }
 }

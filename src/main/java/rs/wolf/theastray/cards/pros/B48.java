@@ -32,14 +32,14 @@ public class B48 extends AstrayProCard {
                     if (card.hasTag(TACardEnums.MAGICAL)) {
                         addToTop(new ModifyManaAction(1));
                     } else {
-                        if (!upgraded || finalBranch() == 0) {
-                            addToTop(new DiscardAction(s, s, 1, false));
-                        }
                         addToTop(new GainEnergyAction(1));
                     }
                 }
             }
         }));
+        if (!upgraded || finalBranch() == 0) {
+            addToTop(new DiscardAction(s, s, upgraded ? 2 : 1, false));
+        }
     }
     
     @Override

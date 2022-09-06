@@ -57,8 +57,10 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
         int base = 0;
         if (card instanceof AstrayCard && !hasC88InHand()) {
             base += amount;
-            if (((AstrayCard) card).getPromos() > 0)
-                base *= ((AstrayCard) card).getPromos();
+            if (((AstrayCard) card).getPromos() > 0) {
+                int promos = ((AstrayCard) card).getPromos();
+                base += base * promos;
+            }
         }
         return base;
     }

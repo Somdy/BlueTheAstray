@@ -8,6 +8,7 @@ public class StrikeTA extends AstrayProCard {
     public StrikeTA() {
         super(1, 1, CardTarget.ENEMY);
         setDamageValue(6, true);
+        addTags(CardTags.STARTER_STRIKE, CardTags.STRIKE);
     }
     
     @Override

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import rs.wolf.theastray.actions.commons.ModifyManaAction;
 import rs.wolf.theastray.cards.AstrayProCard;
 
 public class B30 extends AstrayProCard {
@@ -16,6 +17,7 @@ public class B30 extends AstrayProCard {
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
+        addToBot(new ModifyManaAction(-getManaOnUse()));
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         addToBot(ApplyPower(t, s, new WeakPower(t, magicNumber, false)));
     }

@@ -13,6 +13,7 @@ public class B52 extends AstrayProCard {
         setMagicValue(1, true);
         setMagical(true);
         setStorage(true);
+        exhaust = true;
     }
     
     @Override
@@ -28,5 +29,6 @@ public class B52 extends AstrayProCard {
     public void selfUpgrade() {
         upgradeTexts();
         upgradeDamage(3);
+        upgradeMagicNumber(1);
     }
 }

@@ -7,11 +7,11 @@ import rs.wolf.theastray.cards.AstrayProCard;
 
 public class B50 extends AstrayProCard {
     public B50() {
-        super(50, 2, CardTarget.SELF_AND_ENEMY);
+        super(50, 1, CardTarget.SELF_AND_ENEMY);
         setDamageValue(3, true);
         setBlockValue(3, true);
         setPromosValue(0, true);
-        setMagical(true);
+        setMagicalDerivative(true);
         setStorage(true);
     }
     
@@ -36,7 +36,7 @@ public class B50 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeName();
-        upgradeBaseCost(1);
+        upgradeBaseCost(0);
     }
     
     @Override

@@ -10,6 +10,7 @@ public class B10 extends AstrayProCard {
         super(10, 1, CardTarget.SELF);
         setMagicValue(2, true);
         exhaust = true;
+        addTags(CardTags.HEALING);
     }
     
     @Override

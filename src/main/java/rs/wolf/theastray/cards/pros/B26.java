@@ -45,9 +45,11 @@ public class B26 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
            add(() -> {
                upgradeTexts();
+               setMagicalDerivative(true);
            });
            add(() -> {
                upgradeTexts(1);
+               setMagicalDerivative(true);
            });
         }};
     }

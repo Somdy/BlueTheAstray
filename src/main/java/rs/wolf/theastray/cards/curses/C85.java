@@ -3,9 +3,11 @@ package rs.wolf.theastray.cards.curses;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import rs.wolf.theastray.cards.AstrayCurseCard;
 import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.utils.TAUtils;
 
 public class C85 extends AstrayCurseCard {
     public C85() {
@@ -15,17 +17,19 @@ public class C85 extends AstrayCurseCard {
     }
     
     @Override
-    public boolean canPlay(AbstractCard card) {
-        int count = 0;
-        for (AbstractCard c : cpr().hand.group) {
-            if (c.hasTag(TACardEnums.ILLUSION))
-                count++;
-            if (count >= 3) break;
+    public void applyPowers() {
+        super.applyPowers();
+        if (!outOfDungeon() && TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)) {
+            int count = 0;
+            for (AbstractCard c : cpr().hand.group) {
+                if (c.hasTag(TACardEnums.ILLUSION))
+                    count++;
+                if (count >= 3) break;
+            }
+            if (count >= 3) {
+                addToTop(new PressEndTurnButtonAction());
+            }
         }
-        if (count >= 3) {
-            addToTop(new PressEndTurnButtonAction());
-        }
-        return super.canPlay(card);
     }
     
     @Override

@@ -128,18 +128,24 @@ public class CardMst {
     }
     
     @NotNull
-    public static List<AstrayCard> ReturnAllCardsInCombat(Predicate<AstrayCard> expt) {
-        return GetAllCards(c -> c.canSpawnInCombat() && expt.test(c));
+    public static List<AstrayCard> ReturnAllCardsInCombat(Predicate<AstrayCard> expt, boolean forced) {
+        return GetAllCards(c -> (forced || c.canSpawnInCombat()) && expt.test(c));
     }
     
     @NotNull
     public static List<AstrayCard> ReturnAllCardsInCombat() {
-        return ReturnAllCardsInCombat(AstrayCard::canSpawnInCombat);
+        return ReturnAllCardsInCombat(AstrayCard::canSpawnInCombat, false);
+    }
+    
+    @NotNull
+    public static AstrayCard ReturnRndCardInCombat(Predicate<AstrayCard> expt, boolean forced) {
+        List<AstrayCard> tmp = ReturnAllCardsInCombat(expt, forced);
+        return tmp.get(LMSK.CardRandomRng().random(tmp.size() - 1));
     }
     
     @NotNull
     public static AstrayCard ReturnRndCardInCombat(Predicate<AstrayCard> expt) {
-        List<AstrayCard> tmp = ReturnAllCardsInCombat(expt);
+        List<AstrayCard> tmp = ReturnAllCardsInCombat(expt, false);
         return tmp.get(LMSK.CardRandomRng().random(tmp.size() - 1));
     }
     

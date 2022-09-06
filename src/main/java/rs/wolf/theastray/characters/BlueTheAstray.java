@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbGreen;
+import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.ui.manalayout.ManaMst;
@@ -38,8 +39,8 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public static final String corpse = "AstrayAssets/images/char/corpse.png";
     public static final String SK_ALT = "AstrayAssets/images/char/anim/skeleton.atlas";
     public static final String SK_JSON = "AstrayAssets/images/char/anim/skeleton.json";
-    public static final int STARTING_HP = 60;
-    public static final int MAX_HP = 60;
+    public static final int STARTING_HP = 75;
+    public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
     public static final int ORB_SLOTS = 0;
     public static final int DRAW_PER_TURN = 5;
@@ -118,7 +119,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Madness();
+        return CardMst.GetCard("魔力释放");
     }
     
     @Override

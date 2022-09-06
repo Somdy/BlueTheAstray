@@ -8,6 +8,7 @@ public class DefendTA extends AstrayProCard {
     public DefendTA() {
         super(2, 1, CardTarget.SELF);
         setBlockValue(5, true);
+        addTags(CardTags.STARTER_DEFEND);
     }
     
     @Override

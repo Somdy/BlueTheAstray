@@ -12,26 +12,25 @@ public class ManaTempoPower extends AstrayPower {
     
     public ManaTempoPower(int perMana, int energyGain) {
         super(ID, "echo", PowerType.BUFF, AbstractDungeon.player);
-        setValues(perMana, energyGain);
-        stackable = false;
+        setValues(energyGain, perMana);
         preloadString(s -> {
-            setAmtValue(0, amount);
-            setAmtValue(1, extraAmt);
+            setAmtValue(0, extraAmt);
+            setAmtValue(1, amount);
         });
         updateDescription();
     }
     
     @Override
     public void onManaLost(int lostAmt) {
-        if (extraAmt > 0 && lostAmt > 0) {
+        if (amount > 0 && lostAmt > 0) {
             flash();
-            int gain = extraAmt * lostAmt;
+            int gain = amount * lostAmt;
             addToBot(new GainEnergyAction(gain));
         }
     }
     
     @Override
     public AbstractPower makeCopy() {
-        return new ManaTempoPower(amount, extraAmt);
+        return new ManaTempoPower(extraAmt, amount);
     }
 }

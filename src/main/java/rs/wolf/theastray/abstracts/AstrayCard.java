@@ -404,6 +404,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     public void upgradeExtraMagic(int num) {
         baseExtraMagic += num;
+        extraMagic = baseExtraMagic;
         setUpgradedExtraMagic(true);
     }
     
@@ -668,7 +669,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     public int getBranchForRandomUpgrading(int msg) {
-        return LMSK.CardRandomRng().random(branches().size() - 1);
+        return isEnlightenCard() ? LMSK.CardRandomRng().random(branches().size() - 1) : defaultBranch();
     }
     
     @Override
@@ -793,6 +794,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         return DamageAllEnemiesAction(s, damageTypeForTurn, effect, func);
     }
     
+    protected BetterDamageAllEnemiesAction DamageAllEnemiesAction(AbstractCreature s, DamageInfo.DamageType type, 
+                                                                  AbstractGameAction.AttackEffect effect) {
+        return DamageAllEnemiesAction(s, type, effect, null);
+    }
+    
     protected BetterDamageAllEnemiesAction DamageAllEnemiesAction(AbstractCreature s, AbstractGameAction.AttackEffect effect) {
         return DamageAllEnemiesAction(s, damageTypeForTurn, effect, null);
     }
@@ -848,4 +854,6 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     public void onNeitherStorageTriggers() {}
     
     public void onVictory() {}
+    
+    public void onBattleStart() {}
 }

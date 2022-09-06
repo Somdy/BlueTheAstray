@@ -19,15 +19,11 @@ public class WizardFieldPower extends AstrayPower {
     
     @Override
     public float onPlayerLosingBlock(float block) {
-        if (amount > 0 && block > amount) {
+        if (amount > 0) {
             block -= amount;
+            if (block < 0) block = 0;
         }
         return super.onPlayerLosingBlock(block);
-    }
-    
-    @Override
-    public void atStartOfTurnPostDraw() {
-        addToTop(new RemoveSpecificPowerAction(owner, owner, this));
     }
     
     @Override

@@ -54,6 +54,11 @@ public class B46 extends AstrayProCard {
     }
     
     @Override
+    public void onBattleStart() {
+        playedOnceInCombat = false;
+    }
+    
+    @Override
     public void selfUpgrade() {
         if (!fake) {
             upgradeTexts();

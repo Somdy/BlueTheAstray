@@ -71,7 +71,7 @@
   "astray:ManaTempoPower": {
     "NAME": "法力律动",
     "DESCRIPTIONS": [
-      "每当失去 #b[amt_0] #y法力 ，获得 #b[amt_1] [E]."
+      "每当失去 #b[amt_0] #y法力 ，获得 #b[amt_1] [E] ."
     ]
   },
   "astray:ManaFieldPower": {
@@ -96,6 +96,54 @@
     "NAME": "次序列",
     "DESCRIPTIONS": [
       "在你打出 #b1 张 #y衍生魔法 后，将 #b[amt_0] 张随机 #y魔法牌 置入手牌。"
+    ]
+  },
+  "astray:AmendmentPower": {
+    "NAME": "修正",
+    "DESCRIPTIONS": [
+      "未 #y升级 的牌打出后在本场战斗中 #y升级 ，若其将进入弃牌堆则改为洗入抽牌堆。"
+    ]
+  },
+  "astray:CoordinationPower": {
+    "NAME": "协调",
+    "DESCRIPTIONS": [
+      "每次洗牌后获得 #b[amt_0] #y法力 。"
+    ]
+  },
+  "astray:ImbalancePower": {
+    "NAME": "失衡",
+    "DESCRIPTIONS": [
+      "你的回合开始时，抽 #b[amt_0] 张牌，然后随机弃 #b[amt_1] 张牌。"
+    ]
+  },
+  "astray:MasteryPower": {
+    "NAME": "掌控",
+    "DESCRIPTIONS": [
+      "战斗中临时加入的牌在本场战斗中耗能减少 #b[amt_0] 点。"
+    ]
+  },
+  "astray:CreationPower": {
+    "NAME": "造物",
+    "DESCRIPTIONS": [
+      "每当你将一张不属于你卡组的牌加入任意牌堆或手牌，获得 #b[amt_0] 点 #y格挡 。"
+    ]
+  },
+  "astray:PhosphorusPower": {
+    "NAME": "纸磷花",
+    "DESCRIPTIONS": [
+      "你的回合开始后，随机 #y消耗 抽牌堆、手牌与弃牌堆中各 #b1 张牌，获得 #b[amt_0] #y魔力 。"
+    ]
+  },
+  "astray:EvilMouthPower": {
+    "NAME": "邪口",
+    "DESCRIPTIONS": [
+      "本回合你打出的下 #b[amt_0] 张 #y魔法牌 会被打出 #b[amt_1] 次。"
+    ]
+  },
+  "astray:EvilWordPower": {
+    "NAME": "邪言",
+    "DESCRIPTIONS": [
+      "你打出的下 #b[amt_0] 张 #y魔法牌 会被打出 #b[amt_1] 次。"
     ]
   }
 }

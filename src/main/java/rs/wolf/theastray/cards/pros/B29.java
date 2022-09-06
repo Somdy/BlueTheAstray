@@ -10,7 +10,7 @@ public class B29 extends AstrayProCard {
     public B29() {
         super(29, 1, CardTarget.ENEMY);
         setDamageValue(6, true);
-        setMagicValue(3, true);
+        setMagicValue(6, true);
         cardsToPreview = new Burn();
     }
     

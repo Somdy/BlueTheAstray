@@ -1,26 +1,28 @@
 package rs.wolf.theastray.cards.pros;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
+import rs.wolf.theastray.powers.unique.EvilMouthPower;
+import rs.wolf.theastray.powers.unique.EvilWordPower;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class B14 extends AstrayProCard {
-    public B14() {
-        super(14, 1, CardTarget.ENEMY);
-        setDamageValue(10, true);
-        setPromosValue(2, true);
+public class B71 extends AstrayProCard {
+    public B71() {
+        super(71, 1, CardTarget.SELF);
+        setMagicValue(1, true);
         setCanEnlighten(true);
-        setMagical(true);
-        setStorage(true);
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.FIRE));
+        if (!upgraded || finalBranch() == 0) {
+            addToBot(ApplyPower(s, s, new EvilMouthPower(magicNumber, 1)));
+        } else if (finalBranch() == 1) {
+            addToBot(ApplyPower(s, s, new EvilWordPower(magicNumber, 1)));
+        }
     }
     
     @Override
@@ -30,16 +32,14 @@ public class B14 extends AstrayProCard {
     
     @Override
     protected List<UpgradeBranch> branches() {
-        return new ArrayList<UpgradeBranch>() {{
+        return new ArrayList<UpgradeBranch>(){{
             add(() -> {
                 upgradeTexts();
-                upgradeDamage(5);
-                upgradePromos(2);
+                upgradeMagicNumber(1);
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeDamage(5);
-                setMagicalDerivative(true);
+                upgradeBaseCost(0);
             });
         }};
     }

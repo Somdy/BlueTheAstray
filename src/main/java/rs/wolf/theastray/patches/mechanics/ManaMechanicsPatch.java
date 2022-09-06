@@ -81,13 +81,14 @@ public class ManaMechanicsPatch {
         public static void UseMana(AbstractPlayer _inst, AbstractCard c, AbstractMonster m, int e) {
             if (c instanceof AstrayCard && ((AstrayCard) c).isMagical()) {
                 int manaCost = ((AstrayCard) c).getManaOnUse();
-                GlobalManaMst.UseMana(manaCost);
+                if (manaCost > 0 && !c.isInAutoplay) 
+                    GlobalManaMst.UseMana(manaCost);
             }
         }
         private static class ManaLocator extends SpireInsertLocator {
             @Override
             public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher.MethodCallMatcher matcher = new Matcher.MethodCallMatcher(EnergyManager.class, "use");
+                Matcher.FieldAccessMatcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "cardInUse");
                 return LineFinder.findInOrder(ctBehavior, matcher);
             }
         }
@@ -96,7 +97,7 @@ public class ManaMechanicsPatch {
             if (c.hasTag(TACardEnums.STORAGE)) {
                 boolean energy = EnergyPanel.getCurrentEnergy() <= 0;
                 boolean mana = !GlobalManaMst.HasMana();
-                LMSK.AddToBot(new TriggerStorageAction(energy, mana, c));
+                LMSK.AddToBot(new TriggerStorageAction(mana, energy, c));
             }
         }
         private static class StorageLocator extends SpireInsertLocator {

@@ -37,8 +37,10 @@ public class B19 extends AstrayProCard {
     
     void give() {
         atbTmpAction(() -> {
-            AbstractCard card = CardMst.ReturnRndMagicInCombat(this::isFreeMagicalCard);
-            addToTop(new MakeTempCardInHandAction(card, 1));
+            for (int i = 0; i < magicNumber; i++) {
+                AbstractCard card = CardMst.ReturnRndMagicInCombat(this::isFreeMagicalCard);
+                addToTop(new MakeTempCardInHandAction(card, 1));
+            }
         });
     }
     
