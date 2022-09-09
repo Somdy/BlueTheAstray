@@ -5,7 +5,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import rs.lazymankits.abstracts.LMCustomPower;
+import rs.wolf.theastray.powers.BurntPower;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.Arrays;
@@ -154,6 +156,17 @@ public abstract class AstrayPower extends LMCustomPower implements TAUtils {
     @Override
     protected TextureAtlas getPowerAtlas() {
         return null;
+    }
+    
+    protected int burnt(int originalValue, AbstractCreature target) {
+        if (target instanceof AbstractMonster && ((AbstractMonster) target).getIntentBaseDmg() > 0)
+            originalValue *= 2;
+        if (originalValue < 0) originalValue = 0;
+        return originalValue;
+    }
+    
+    protected BurntPower burntPower(AbstractCreature t, AbstractCreature s, int amount) {
+        return new BurntPower(t, s, burnt(amount, t));
     }
     
     public float onPlayerLosingBlock(float block) {

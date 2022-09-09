@@ -3,7 +3,7 @@
     "name": "Blue The Astray [蓝]",
     "author_list": ["Somdy"],
     "description": "该 Mod 仍在测试阶段！",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "sts_version": "12-22-2020",
     "mts_version": "3.26.0",
     "dependencies": ["basemod", "LazyManKits"]

@@ -12,6 +12,7 @@ public class B27 extends AstrayProCard {
         setMagicValue(3, true);
         setMagical(true);
         isMultiDamage = true;
+        exhaust = true;
     }
     
     @Override

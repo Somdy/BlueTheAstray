@@ -15,8 +15,8 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
     
     public MagicPower(AbstractCreature owner, int amount) {
         super(ID, "focus", PowerType.BUFF, owner);
-        setValues(amount);
         canGoNegative = true;
+        setValues(amount);
         preloadString(s -> {
             s[0] = this.amount > 0 ? DESCRIPTIONS[0] : DESCRIPTIONS[1];
             if (hasC88InHand()) {

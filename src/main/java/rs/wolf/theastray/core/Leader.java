@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
+import rs.lazymankits.LManager;
 import rs.lazymankits.interfaces.OnMakingCardInCombatSubscriber;
 import rs.lazymankits.interfaces.OnShuffleSubscriber;
 import rs.lazymankits.utils.LMSK;
@@ -58,7 +59,9 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     public static boolean SHOW_OVERDRAWN_CARDS = true;
     
     public static void initialize() {
-        BaseMod.subscribe(new Leader());
+        Leader instance = new Leader();
+        BaseMod.subscribe(instance);
+        LManager.Sub(instance);
     }
     
     public Leader() {

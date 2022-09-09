@@ -378,9 +378,9 @@
   {
     "ID": "B50",
     "NAME": "渐升仪式",
-    "DESCRIPTION": "astray:衍生魔法 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 不消耗 astray:法力 。 NL 每次打出后 astray:晋升 。",
+    "DESCRIPTION": "astray:衍生魔法 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
     "UPDATED_DESC": [
-      "astray:衍生魔法 ， astray:储能 NL astray:晋升 !astray:promos! NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 不消耗 astray:法力 。 NL 每次打出后 astray:晋升 。"
+      "astray:衍生魔法 ， astray:储能 NL astray:晋升 !astray:promos! NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。"
     ]
   },
   {
@@ -429,7 +429,7 @@
   {
     "ID": "B57",
     "NAME": "协调",
-    "DESCRIPTION": "获得1 astray法力 。 NL 每次洗牌后获得1 astray:法力 。"
+    "DESCRIPTION": "获得1 astray:法力 。 NL 每次洗牌后获得1 astray:法力 。"
   },
   {
     "ID": "B58",
@@ -441,13 +441,27 @@
     "NAME": "掌控",
     "DESCRIPTION": "战斗中临时加入的牌在战斗中耗能减少1点。"
   },
-
+  {
+    "ID": "B60",
+    "NAME": "无知者之序",
+    "DESCRIPTION": "每当你打出攻击牌，给予所有敌人获得 !M! 层 astray:余烬 。",
+    "UPGRADED_DESC": [
+      "每当你打出一张牌，给予所有敌人获得 !M! 层 astray:余烬 。"
+    ]
+  },
   {
     "ID": "B61",
     "NAME": "造物",
-    "DESCRIPTION": "每当你将一张不属于你卡组的牌加入任意牌堆或手牌，获得 !M! 点 格挡 。"
+    "DESCRIPTION": "每当一张不属于你卡组的牌加入任意牌堆或手牌，你获得 !M! 点 格挡 。"
   },
-  
+  {
+    "ID": "B62",
+    "NAME": "绽放形态",
+    "DESCRIPTION": "你的回合开始后， NL 回合内每当获得或者失去 [E] ， NL 抽 !M! 张牌。",
+    "UPGRADED_DESC": [
+      "固有 NL 你的回合开始后， NL 回合内每当获得或者失去 [E] ， NL 抽 !M! 张牌。"
+    ]
+  },
   {
     "ID": "B63",
     "NAME": "魔力躯体",
@@ -456,12 +470,16 @@
   {
     "ID": "B64",
     "NAME": "纸磷花",
-    "DESCRIPTION": "你的回合开始后， NL 随机 消耗 抽牌堆、手牌与弃牌堆中各1张牌， NL 获得1 astray:魔力 。",
+    "DESCRIPTION": "你的回合开始后， NL 随机 消耗 抽牌堆、 NL 手牌与弃牌堆中 NL 各1张牌， NL 获得1 astray:魔力 。",
     "UPGRADED_DESC": [
-      "固有 NL 你的回合开始后， NL 随机 消耗 抽牌堆、手牌与弃牌堆中各1张牌， NL 获得1 astray:魔力 。"
+      "固有 NL 你的回合开始后， NL 随机 消耗 抽牌堆、 NL 手牌与弃牌堆中 NL 各1张牌， NL 获得1 astray:魔力 。"
     ]
   },
-  
+  {
+    "ID": "B65",
+    "NAME": "余烬之前",
+    "DESCRIPTION": "在你打出已 升级 的 NL astray:启迪 牌后， NL 将它的另一个分支的 !M! 张复制置入手牌。"
+  },
   {
     "ID": "B66",
     "NAME": "破碎晶体",
@@ -479,7 +497,19 @@
       "将所有未 消耗 的 astray:魔法牌 变化为 升级 的随机 *魔法牌 。 NL 消耗"
     ]
   },
-
+  {
+    "ID": "B68",
+    "NAME": "陨石召唤",
+    "DESCRIPTION": "下回合结束时：对随机敌人造成 !D! 点伤害，给予所有敌人获得 !M! 层 astray:余烬 。 NL 以其它方式打出立即生效。"
+  },
+  {
+    "ID": "B69",
+    "NAME": "置换魔力",
+    "DESCRIPTION": "当前每点 astray:法力 获得 [E] . NL 获得 X *法力 ，溢出的 *法力 转化为 astray:魔力 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "当前每点 astray:法力 获得 [E] . NL 获得 X *法力 ，溢出的 *法力 转化为 astray:魔力 。 NL 抽X张牌。 NL 消耗"
+    ]
+  },
   {
     "ID": "B70",
     "NAME": "爆裂流星",

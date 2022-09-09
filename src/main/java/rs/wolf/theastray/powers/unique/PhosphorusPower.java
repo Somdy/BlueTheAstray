@@ -25,16 +25,16 @@ public class PhosphorusPower extends AstrayPower {
         if (amount > 0) {
             flash();
             addToBot(new QuickAction(() -> {
-                AbstractCard draw = cpr().drawPile.getRandomCard(cardRandomRng());
-                AbstractCard hand = cpr().hand.getRandomCard(cardRandomRng());
-                AbstractCard discard = cpr().discardPile.getRandomCard(cardRandomRng());
-                if (draw != null) {
+                if (!cpr().drawPile.isEmpty()) {
+                    AbstractCard draw = cpr().drawPile.getRandomCard(cardRandomRng());
                     addToTop(new ExhaustSpecificCardAction(draw, cpr().drawPile));
                 }
-                if (hand != null) {
+                if (!cpr().hand.isEmpty()) {
+                    AbstractCard hand = cpr().hand.getRandomCard(cardRandomRng());
                     addToTop(new ExhaustSpecificCardAction(hand, cpr().hand));
                 }
-                if (discard != null) {
+                if (!cpr().discardPile.isEmpty()) {
+                    AbstractCard discard = cpr().discardPile.getRandomCard(cardRandomRng());
                     addToTop(new ExhaustSpecificCardAction(discard, cpr().discardPile));
                 }
                 addToTop(new ApplyPowerAction(cpr(), cpr(), new MagicPower(cpr(), amount)));

@@ -125,7 +125,7 @@
   "astray:CreationPower": {
     "NAME": "造物",
     "DESCRIPTIONS": [
-      "每当你将一张不属于你卡组的牌加入任意牌堆或手牌，获得 #b[amt_0] 点 #y格挡 。"
+      "每当一张不属于你卡组的牌加入任意牌堆或手牌， #y[owner] 获得 #b[amt_0] 点 #y格挡 。"
     ]
   },
   "astray:PhosphorusPower": {
@@ -144,6 +144,37 @@
     "NAME": "邪言",
     "DESCRIPTIONS": [
       "你打出的下 #b[amt_0] 张 #y魔法牌 会被打出 #b[amt_1] 次。"
+    ]
+  },
+  "astray:BlossomPower": {
+    "NAME": "绽放",
+    "DESCRIPTIONS": [
+      "回合内，每当你获得或失去 [E] 时，抽 #b[amt_0] 张牌。"
+    ]
+  },
+  "astray:AshPower": {
+    "NAME": "余烬之前",
+    "DESCRIPTIONS": [
+      "在你打出已 #y升级 的 #y启迪 牌后，将它的另一个分支的 #b[amt_0] 张复制置入手牌。"
+    ]
+  },
+  "astray:IgnorancePower": {
+    "NAME": "无知者之序",
+    "DESCRIPTIONS": [
+      "在你打出一张攻击牌后，给予所有敌人 #b[amt_0] 层 #y余烬 。"
+    ]
+  },
+  "astray:IgnorantOnePower": {
+    "NAME": "无知者之序",
+    "DESCRIPTIONS": [
+      "在你打出一张牌后，给予所有敌人 #b[amt_0] 层 #y余烬 。"
+    ]
+  },
+  "astray:MeteoritePower": {
+    "NAME": "召唤陨石",
+    "DESCRIPTIONS": [
+      "在你下回合结束时，对一名随机敌人造成 #b[amt_0] 点伤害，给予所有敌人 #b[amt_1] 层 #y余烬 。",
+      "回合结束时，对一名随机敌人造成 #b[amt_0] 点伤害，给予所有敌人 #b[amt_1] 层 #y余烬 。"
     ]
   }
 }

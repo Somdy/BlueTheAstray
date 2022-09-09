@@ -22,8 +22,8 @@ public class EvilWordPower extends AstrayPower {
         super(ID, "burst", PowerType.BUFF, AbstractDungeon.player);
         setValues(cards, times);
         preloadString(s -> {
-            setAmtValue(0, cards);
-            setAmtValue(1, times);
+            setAmtValue(0, amount);
+            setAmtValue(1, extraAmt);
         });
         updateDescription();
         magics = new ArrayList<>();

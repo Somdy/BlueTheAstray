@@ -9,7 +9,7 @@ import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.utils.TAUtils;
 
 public class CreationPower extends AstrayPower {
-    public static final String ID = TAUtils.MakeID("MasteryPower");
+    public static final String ID = TAUtils.MakeID("CreationPower");
     
     public CreationPower(int blocks) {
         super(ID, "rushdown", PowerType.BUFF, AbstractDungeon.player);
