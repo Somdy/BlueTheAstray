@@ -24,7 +24,7 @@ public class B69 extends AstrayProCard {
                         addToTop(new DrawCardAction(s, e));
                     }
                     int currMana = GlobalManaMst.CurrentMana();
-                    int overflow = GlobalManaMst.MaxMana() - (currMana + e);
+                    int overflow = (currMana + e) - GlobalManaMst.MaxMana();
                     if (overflow > 0) {
                         addToTop(ApplyPower(s, s, new MagicPower(s, overflow)));
                     }

@@ -38,7 +38,7 @@ public class B48 extends AstrayProCard {
             }
         }));
         if (!upgraded || finalBranch() == 0) {
-            addToTop(new DiscardAction(s, s, upgraded ? 2 : 1, false));
+            addToBot(new DiscardAction(s, s, upgraded ? 2 : 1, false));
         }
     }
     

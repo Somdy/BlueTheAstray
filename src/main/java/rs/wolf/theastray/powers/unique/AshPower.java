@@ -11,10 +11,11 @@ import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class AshPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("AshPower");
-    private static final List<AbstractCard> cardList = new ArrayList<>();
+    private static final List<UUID> cardList = new ArrayList<>();
     
     public AshPower(int amount) {
         super(ID, "cExplosion", PowerType.BUFF, AbstractDungeon.player);
@@ -25,14 +26,16 @@ public class AshPower extends AstrayPower {
     
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if (card instanceof AstrayCard && ((AstrayCard) card).isEnlightenCard() && !cardList.contains(card)) {
+        if (card instanceof AstrayCard && ((AstrayCard) card).isEnlightenCard() && !cardList.contains(card.uuid)) {
             if (card.upgraded) {
                 int branch = ((AstrayCard) card).finalBranch();
                 AstrayCard other = (AstrayCard) card.makeCopy();
                 other.setChosenBranch(1 - branch);
                 other.upgrade();
-                addToBot(new MakeTempCardInHandAction(other, amount));
-                cardList.add(other);
+                for (int i = 0; i < amount; i++) {
+                    addToBot(new MakeTempCardInHandAction(other, true, true));
+                }
+                cardList.add(other.uuid);
             }
         }
     }

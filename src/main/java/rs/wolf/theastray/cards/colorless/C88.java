@@ -38,6 +38,13 @@ public class C88 extends AstrayColorlessCard {
     }
     
     @Override
+    public void onMoveToDiscard() {
+        if (cpr().hasPower(MagicPower.ID)) {
+            cpr().getPower(MagicPower.ID).updateDescription();
+        }
+    }
+    
+    @Override
     public void play(AbstractCreature s, AbstractCreature t) {}
     
     @Override

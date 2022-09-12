@@ -71,7 +71,7 @@
 	{"id":"B70", "localname":"爆裂流星", "type":"Skill", "rarity":"Rare"},
 	{"id":"B71", "localname":"邪口", "type":"Skill", "rarity":"Rare"},
 	{"id":"B72", "localname":"流星雨", "type":"Attack", "rarity":"Rare"},
-	{"id":"B73", "localname":"思维绽放", "type":"Skill", "rarity":"Rare"},
+	{"id":"B73", "localname":"思维绽放", "type":"Power", "rarity":"Rare"},
 	{"id":"B74", "localname":"断裂记忆", "type":"Skill", "rarity":"Rare"},
 	{"id":"B75", "localname":"永升之月", "type":"Skill", "rarity":"Rare"},
 	{"id":"B76", "localname":"星线", "type":"Attack", "rarity":"Rare"},

@@ -61,6 +61,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     private boolean branchable; // 是否可分支
     private boolean swappable; // 是否可互换分支
+    private boolean fakeRestroom;
     
     public final CardData data;
     protected TACardLocals cardLocals;
@@ -308,7 +309,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         int thisManaCost = getManaOnUse();
         boolean hasMana = GlobalManaMst.HasMana();
         boolean hasEnoughMana = GlobalManaMst.HasEnoughMana(thisManaCost);
-        if (isMagicalDerivative() && hasMana) return true;
+        if (isMagicalDerivative()) return true;
         if (hasEnoughMana && hasMana) return true;
         cantUseMessage = U_MSG[0];
         return false;
@@ -347,6 +348,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     public final void upgrade() {
         if (canUpgrade())
             selfUpgrade();
+        if (fakeRestroom)
+            setFakeRestroom(false);
     }
     
     public abstract void selfUpgrade();
@@ -625,7 +628,11 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @return 当玩家在火堆，返回 true，否则 false
      */
     protected final boolean inRestroom() {
-        return TAUtils.RoomChecker(RestRoom.class, AbstractRoom.RoomPhase.INCOMPLETE);
+        return TAUtils.RoomChecker(RestRoom.class, AbstractRoom.RoomPhase.INCOMPLETE) || fakeRestroom;
+    }
+    
+    public final void setFakeRestroom(boolean fakeRestroom) {
+        this.fakeRestroom = fakeRestroom;
     }
     
     protected final boolean outOfDungeon() {

@@ -30,7 +30,7 @@ public class AmendmentPower extends AstrayPower {
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (!card.upgraded && !cardList.contains(card)) {
             if (card.canUpgrade()) {
-                if (card instanceof BranchableUpgradeCard) {
+                if (card instanceof BranchableUpgradeCard && ((BranchableUpgradeCard) card).canBranch()) {
                     int branch = ((BranchableUpgradeCard) card).getBranchForRandomUpgrading(RUM.ARMAMENTS);
                     ((BranchableUpgradeCard) card).setChosenBranch(branch);
                 }
