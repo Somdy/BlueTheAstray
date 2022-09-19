@@ -37,7 +37,11 @@ public class B4 extends AstrayProCard {
     
     @Override
     public void triggerOnGlowCheck() {
-        glowColor = GlobalManaMst.CurrentMana() >= 2 ? AbstractCard.GOLD_BORDER_GLOW_COLOR : AbstractCard.BLUE_BORDER_GLOW_COLOR;
+        if (!upgraded || finalBranch() == 0) {
+            glowColor = GlobalManaMst.CurrentMana() >= 2 ? GOLD_BORDER_GLOW_COLOR : BLUE_BORDER_GLOW_COLOR;
+        } else {
+            glowColor = BLUE_BORDER_GLOW_COLOR;
+        }
     }
     
     @Override

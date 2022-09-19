@@ -172,6 +172,9 @@
     "UPGRADED_DESC": [
       "astray:魔法 ， astray:启迪 NL 将 !M! 张耗能为0的随机 *魔法牌 置入手牌。 NL 消耗",
       "astray:魔法 ， astray:启迪 NL 抽 !M! 张耗能为0的 *魔法牌 。 NL 消耗"
+    ],
+    "MSG": [
+      "抽牌堆中没有0费魔法牌。"
     ]
   },
   {
@@ -219,7 +222,7 @@
     "ID": "B27",
     "NAME": "震荡",
     "DESCRIPTION": "astray:魔法 NL 对所有敌人造成 !D! 点伤害， NL 每有一名敌人多造成 !M! 点伤害。 NL 消耗",
-    "MSG": [" NL （造成 %d 点伤害）"]
+    "MSG": [" NL （造成%d点伤害）"]
   },
   {
     "ID": "B28",
@@ -668,5 +671,35 @@
       "缓冲",
       "抵挡下次受到的伤害。"
     ]
+  },
+  {
+    "ID": "E92",
+    "NAME": "闪电箭",
+    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 打出手牌中所有 *闪电箭 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 打出手牌中所有 *闪电箭 。",
+      "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 打出所有未 消耗 的 *闪电箭 。"
+    ]
+  },
+  {
+    "ID": "E93",
+    "NAME": "风压",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 被 格挡 时给予 !M! 层 虚弱 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 被 格挡 时给予 !M! 层 虚弱 !astray:extras! 次。"
+    ]
+  },
+  {
+    "ID": "E94",
+    "NAME": "风刃",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL造成 !D! 点伤害。 NL 每点 astray:法力 再造成 !M! 次伤害。",
+    "MSG": [
+      " NL （造成%d点伤害%d次）"
+    ]
+  },
+  {
+    "ID": "E95",
+    "NAME": "爆裂箭矢",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 若 astray:法力 为满，额外造成 !M! 点伤害。"
   }
 ]

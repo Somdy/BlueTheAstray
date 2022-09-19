@@ -72,6 +72,12 @@ public class GlobalManaMst {
         return mst.hasMana();
     }
     
+    public static boolean FullMana() {
+        AbstractPlayer p = LMSK.Player();
+        ManaMst mst = GetPlayerManaMst(p);
+        return mst.getCurrMana() >= mst.getMaxMana();
+    }
+    
     public static int CurrentMana() {
         AbstractPlayer p = LMSK.Player();
         ManaMst mst = GetPlayerManaMst(p);

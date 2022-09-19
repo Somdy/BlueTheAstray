@@ -20,6 +20,7 @@ import rs.wolf.theastray.cards.pros.StrikeTA;
 import rs.wolf.theastray.data.CardData;
 import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.utils.MsgLogger;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class CardMst {
     public static final List<AbstractCard> DeMagicPlayedThisCombat = new ArrayList<>();
     
     public static void RegisterCards() {
+        MsgLogger.PreLoad("CARDS LOADED");
         new AutoAdd(Leader.MOD_ID)
                 .packageFilter(StrikeTA.class)
                 .any(AstrayProCard.class, (i, c) -> {
@@ -63,11 +65,12 @@ public class CardMst {
                     addMiscCard(c);
                     registerCard(c);
                 });
+        MsgLogger.End();
     }
     
-    private static void registerCard(@NotNull AbstractCard card) {
+    private static void registerCard(@NotNull AstrayCard card) {
         BaseMod.addCard(card.makeCopy());
-        TAUtils.Log("[" + card.name + "] added");
+        MsgLogger.Append(card.data.getInternalID().substring(1));
     }
     
     private static void addProCard(@NotNull AstrayProCard card) {

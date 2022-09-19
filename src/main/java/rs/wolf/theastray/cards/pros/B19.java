@@ -1,5 +1,6 @@
 package rs.wolf.theastray.cards.pros;
 
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -45,7 +46,11 @@ public class B19 extends AstrayProCard {
     }
     
     void draw() {
-        addToBot(new DrawExptCardAction(magicNumber, this::isFreeMagicalCard).discardPileNotIncluded());
+        if (cpr().drawPile.group.stream().noneMatch(this::isFreeMagicalCard)) {
+            addToBot(new TalkAction(cpr(), MSG[0], 1F, 1F));
+        } else {
+            addToBot(new DrawExptCardAction(magicNumber, this::isFreeMagicalCard).discardPileNotIncluded());
+        }
     }
     
     boolean isFreeMagicalCard(@NotNull AbstractCard c) {
