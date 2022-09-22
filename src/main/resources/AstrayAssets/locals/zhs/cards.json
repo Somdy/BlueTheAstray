@@ -692,7 +692,7 @@
   {
     "ID": "E94",
     "NAME": "风刃",
-    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL造成 !D! 点伤害。 NL 每点 astray:法力 再造成 !M! 次伤害。",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 造成 !D! 点伤害。 NL 每点 astray:法力 再造成 !M! 次伤害。",
     "MSG": [
       " NL （造成%d点伤害%d次）"
     ]
@@ -701,5 +701,38 @@
     "ID": "E95",
     "NAME": "爆裂箭矢",
     "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 若 astray:法力 为满，额外造成 !M! 点伤害。"
+  },
+  {
+    "ID": "E96",
+    "NAME": "多重构筑",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 翻倍 *金属化 层数。 NL 将 *多层护甲 转化为等量 *金属化 。 NL 获得 !M! 层 *多层护甲 。"
+  },
+  {
+    "ID": "E97",
+    "NAME": "梦醒时分",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 将 !M! 张 *发现 置入手牌。 NL 该 *发现 在下次打出前耗能为0. NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:衍生魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 将 !M! 张 *发现+ 置入手牌。 NL 该 *发现+ 在下次打出前耗能为0. NL 消耗",
+      "astray:衍生魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 将 !M! 张 *发现 置入手牌。 NL 该 *发现 在下次打出前耗能为0. NL 消耗"
+    ]
+  },
+
+  {
+    "ID": "E99",
+    "NAME": "滑雪场",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有没有 astray:冰霜 的敌人获得 !M! 层 *冰霜 。 NL 消耗"
+  },
+  {
+    "ID": "E100",
+    "NAME": "飞弹风暴",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 消耗所有 astray:法力 ，每点 *法力 打出 !M! 张 *魔法飞弹 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 消耗所有 astray:法力 ，每点 *法力 打出 !M! 张随机分支的 *魔法飞弹+ 。"
+    ]
+  },
+  {
+    "ID": "E101",
+    "NAME": "冰刺",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:冰霜 。 NL 对具有 *冰霜 的目标效果翻倍。"
   }
 ]

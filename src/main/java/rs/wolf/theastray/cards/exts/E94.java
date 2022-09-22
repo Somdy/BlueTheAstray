@@ -9,6 +9,7 @@ public class E94 extends AstrayExtCard {
     public E94() {
         super(94, 1, 2, CardTarget.ENEMY);
         setDamageValue(3, true);
+        setMagicValue(1, true);
         setMagical(true);
     }
     
