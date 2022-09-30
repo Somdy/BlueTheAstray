@@ -9,5 +9,5 @@
 	{"id":"Relic8", "localname":"历练者徽章", "tier":"UNCOMMON", "sfx":"CLINK"},
 	{"id":"Relic9", "localname":"爆裂冰袋", "tier":"COMMON", "sfx":"HEAVY"},
 	{"id":"Relic10", "localname":"奇迹魔杖", "tier":"SHOP", "sfx":"MAGICAL"},
-	{"id":"Relic11", "localname":"扭曲符文", "tier":"SPECIAL", "sfx":"MAGICAL"}
+	{"id":"Relic11", "localname":"扭曲符文", "tier":"SPECIAL", "sfx":"SOLID"}
 ]

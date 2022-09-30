@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.LManager;
@@ -139,6 +140,7 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
                 .packageFilter(Relic1.class)
                 .any(AstrayRelic.class, (i, r) -> {
                     BaseMod.addRelicToCustomPool(r.makeCopy(), TACardEnums.TA_CardColor);
+                    UnlockTracker.markRelicAsSeen(r.relicId);
                     TAUtils.Log("[" + r.name + "] added");
                 });
     }

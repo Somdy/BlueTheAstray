@@ -734,5 +734,18 @@
     "ID": "E101",
     "NAME": "冰刺",
     "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:冰霜 。 NL 对具有 *冰霜 的目标效果翻倍。"
+  },
+  {
+    "ID": "E102",
+    "NAME": "神奇徽印",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 抽 !M! 张牌。没有剩余 [E] 时才能打出。"
+  },
+  {
+    "ID": "E103",
+    "NAME": "寄",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 随机消灭 !M! 个 *爪牙 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 消灭所有 *爪牙。 NL 消耗"
+    ]
   }
 ]

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.colorless.Madness;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.jetbrains.annotations.NotNull;
+import rs.lazymankits.LManager;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.cards.AstrayColorlessCard;
@@ -86,6 +87,7 @@ public class CardMst {
         CARD_MAP.put(card.data, card);
         if (TAUtils.IsMagical(card)) 
             MAGICS.add(card.data.getInternalID());
+        LManager.AddAdditionalSpawnCard(card.makeCopy());
         UnlockTracker.unlockCard(card.cardID);
     }
     

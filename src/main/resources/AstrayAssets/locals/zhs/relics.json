@@ -26,5 +26,54 @@
     "DESCRIPTIONS": [
       "拾起时失去 #b50% 最大生命。每场战斗的第 #b1 回合，额外抽 #b2 张牌，打出卡牌不会消耗 [E] 。"
     ]
+  },
+  "astray:Relic5": {
+    "NAME": "星轮之书",
+    "FLAVOR": "这本书你还没看过就顺手带走了，慢慢研究吧。",
+    "DESCRIPTIONS": [
+      "每回合 #b1 次，你的手牌满时，获得 #b1 #yastray:法力 和 [E] ."
+    ]
+  },
+  "astray:Relic6": {
+    "NAME": "饕餮的胃袋",
+    "FLAVOR": "血肉炼金魔法的产物，最好不要和它的制作者扯上关系。",
+    "DESCRIPTIONS": [
+      "精英房间战斗结束时，回复 #b24 点生命值。"
+    ]
+  },
+  "astray:Relic7": {
+    "NAME": "旅行者套装",
+    "FLAVOR": "这里面居然没有食物！！？",
+    "DESCRIPTIONS": [
+      "进入休息处时，如果你的生命值大于 #b%d%% ，可以同时 #y升级 #b2 张牌。"
+    ]
+  },
+  "astray:Relic8": {
+    "NAME": "历练者徽章",
+    "FLAVOR": "这是你从你成为法师的地方带走的，现在你也配的上它了。",
+    "DESCRIPTIONS": [
+      "战斗奖励中至少有 #b2 张牌已 #y升级 ，Boss战开始时 #r失效 。"
+    ]
+  },
+  "astray:Relic9": {
+    "NAME": "爆裂冰袋",
+    "FLAVOR": "主要用来制造冰雾方便你逃跑。",
+    "DESCRIPTIONS": [
+      "每场战斗的前 #b3 回合开始时，给予所有敌人 #b1 #yastray:冰霜 。"
+    ]
+  },
+  "astray:Relic10": {
+    "NAME": "奇迹魔杖",
+    "FLAVOR": "“奇迹就是未能理解的智慧”",
+    "DESCRIPTIONS": [
+      "你下 #b%d 次进入休息处时，随机 #y升级 #b1 张非 #yastray:启迪 牌。"
+    ]
+  },
+  "astray:Relic11": {
+    "NAME": "扭曲符文",
+    "FLAVOR": "符文学不是你的长项……那个都不是……",
+    "DESCRIPTIONS": [
+      "回合结束时，给予意图为攻击的敌人 #b3 层 #yastray:冰霜 ，并受到 #b1 点伤害。"
+    ]
   }
 }

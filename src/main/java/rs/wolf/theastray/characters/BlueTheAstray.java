@@ -39,6 +39,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public static final String corpse = "AstrayAssets/images/char/corpse.png";
     public static final String SK_ALT = "AstrayAssets/images/char/anim/skeleton.atlas";
     public static final String SK_JSON = "AstrayAssets/images/char/anim/skeleton.json";
+    public static final String CHAR_IMAGE = "AstrayAssets/images/char/char_image.png";
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
@@ -49,13 +50,13 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     public BlueTheAstray() {
         super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbBlue(), null, null);
-        initializeClass(null, Shoulder_2, Shoulder_1, corpse, getLoadout(), 20F, -10F,
-                300F, 370F, new EnergyManager(3));
+        initializeClass(CHAR_IMAGE, Shoulder_2, Shoulder_1, corpse, getLoadout(), 20F, -10F,
+                220F, 335F, new EnergyManager(3));
         manaMst = new ManaMst(this, 10, 0, ManaMst.Layout.REVOLUTION);
-        loadAnimation(SK_ALT, SK_JSON, 1.25F);
-        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
-        e.setTimeScale(0.8F);
+//        loadAnimation(SK_ALT, SK_JSON, 1.25F);
+//        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+//        e.setTime(e.getEndTime() * MathUtils.random());
+//        e.setTimeScale(0.8F);
         dialogX = drawX + scale(1.5F);
         dialogY = drawY + scale(220F);
     }
