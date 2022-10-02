@@ -25,13 +25,13 @@ public class B72 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         atbTmpAction(() -> {
+            AbstractCard[] cards = new AbstractCard[]{CardMst.GetCard("星星"), CardMst.GetCard("陨石召唤")};
             for (int i = 0; i < magicNumber; i++) {
-                AbstractCard card;
+                int index = 0;
                 if ((!upgraded || finalBranch() == 0) && cardRandomRng().randomBoolean(getExtraMagic() / 100F)) {
-                    card = CardMst.GetCard("陨石召唤");
-                } else {
-                    card = CardMst.GetCard("星星");
+                    index = 1;
                 }
+                AbstractCard card = cards[index].makeCopy();
                 card.purgeOnUse = true;
                 addToTop(new NewQueueCardAction(card, true, true, true));
             }

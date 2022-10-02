@@ -11,7 +11,7 @@ public class E103 extends AstrayExtCard {
     private boolean hasAnyMinion;
     
     public E103() {
-        super(103, 1, 4, CardTarget.ALL_ENEMY);
+        super(103, 0, 4, CardTarget.ALL_ENEMY);
         setMagicValue(1, true);
         setMagicalDerivative(true);
         exhaust = true;

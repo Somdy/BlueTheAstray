@@ -6,8 +6,8 @@ import rs.wolf.theastray.cards.AstrayProCard;
 
 public class B20 extends AstrayProCard {
     public B20() {
-        super(20, 1, CardTarget.ALL_ENEMY);
-        setDamageValue(8, true);
+        super(20, 0, CardTarget.ALL_ENEMY);
+        setDamageValue(6, true);
         setMagicValue(4, true);
         setMagical(true);
         isMultiDamage = true;

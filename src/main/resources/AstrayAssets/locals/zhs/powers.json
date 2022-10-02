@@ -182,5 +182,29 @@
     "DESCRIPTIONS": [
       "本场战斗中， #y升级 所有 #y启迪 牌。"
     ]
+  },
+  "astray:InfWisdomPower": {
+    "NAME": "无限的智慧",
+    "DESCRIPTIONS": [
+      "战斗奖励中增加 #b[amt_0] 张其它颜色的牌。"
+    ]
+  },
+  "astray:RemainPower": {
+    "NAME": "停留",
+    "DESCRIPTIONS": [
+      "下回合开始时获得 #b[amt_0] 点 #y格挡 然后结束下回合。"
+    ]
+  },
+  "astray:StrandedPower": {
+    "NAME": "滞留",
+    "DESCRIPTIONS": [
+      "下回合开始时获得 #b[amt_0] 点 #y格挡 。"
+    ]
+  },
+  "astray:DroughtPower": {
+    "NAME": "枯竭",
+    "DESCRIPTIONS": [
+      "无法获得 [E] ."
+    ]
   }
 }

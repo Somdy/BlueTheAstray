@@ -212,7 +212,7 @@
   {
     "ID": "B26",
     "NAME": "回路",
-    "DESCRIPTION": "astray:魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
     "UPGRADED_DESC": [
       "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
       "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
@@ -564,16 +564,16 @@
   {
     "ID": "B75",
     "NAME": "永升之月",
-    "DESCRIPTION": "astray:启迪 NL 消耗 手牌中所有 astray:魔法牌 ，获得等量的 astray:法力 。 NL 消耗",
+    "DESCRIPTION": "astray:启迪 NL 消耗 手牌中所有 astray:魔法牌 ，获得等量的 astray:法力 。 消耗",
     "UPGRADED_DESC": [
-      "astray:启迪 NL 消耗 所有手牌，获得等量的 astray:法力 。 NL 消耗",
-      "astray:启迪 NL 消耗 手牌中所有 astray:魔法牌 ，获得等量的 astray:法力 。 NL 抽 !M! 张牌。 NL 消耗"
+      "astray:启迪 NL 消耗 所有手牌，获得等量的 astray:法力 。 消耗",
+      "astray:启迪 NL 消耗 手牌中所有 astray:魔法牌 ，获得等量的 astray:法力 。 NL 抽 !M! 张牌。 消耗"
     ]
   },
   {
     "ID": "B76",
     "NAME": "星线",
-    "DESCRIPTION": "astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
+    "DESCRIPTION": "astray:启迪 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
     "UPGRADED_DESC": [
       "astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
       "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 对所有敌人造成 !D! 点伤害。"
@@ -641,9 +641,14 @@
     "DESCRIPTION": "不能被打出 NL 抽到时将该牌的一张复制置入手牌。 NL 如果手中有至少三张 *幻象牌 ，结束你的回合。"
   },
   {
+    "ID": "C86",
+    "NAME": "枯竭",
+    "DESCRIPTION": "不能被打出 ， 虚无 NL 抽到这张牌后， NL 本回合内无法获得 [E] ."
+  },
+  {
     "ID": "C87",
     "NAME": "魔网断开",
-    "DESCRIPTION": "不能被打出 NL 虚无 NL 该牌在手中时， NL 无法获得 astray:法力 。"
+    "DESCRIPTION": "不能被打出 ， 虚无 NL 该牌在手中时， NL 无法获得 astray:法力 。"
   },
   {
     "ID": "C88",
@@ -716,7 +721,15 @@
       "astray:衍生魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 将 !M! 张 *发现 置入手牌。 NL 该 *发现 在下次打出前耗能为0. NL 消耗"
     ]
   },
-
+  {
+    "ID": "E98",
+    "NAME": "停留",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 下回合开始时获得两倍于当前 格挡 的 格挡 。 NL 跳过你的下个回合。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 获得 !M! 层 *残影 。 NL 下回合开始时获得两倍于当前 格挡 的 格挡 。 NL 跳过你的下个回合。",
+      "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 下回合开始时获得两倍于当前 格挡 的 格挡 。 NL 结束你的回合。"
+    ]
+  },
   {
     "ID": "E99",
     "NAME": "滑雪场",
@@ -747,5 +760,25 @@
     "UPGRADED_DESC": [
       "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 消灭所有 *爪牙。 NL 消耗"
     ]
+  },
+  {
+    "ID": "E104",
+    "NAME": "受罚者",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 受到 !D! 点伤害。 NL 回复 !D! 点生命。 NL 消耗"
+  },
+  {
+    "ID": "E105",
+    "NAME": "绝味鸭脖",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 无法被 升级 。 NL 回复 !M! 点生命值。 NL astray:发现 !M! 张牌。 NL 消耗"
+  },
+  {
+    "ID": "E106",
+    "NAME": "无限的智慧",
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 无法被 升级 。 NL 战斗奖励中增加一张其它颜色的牌。"
+  },
+  {
+    "ID": "E107",
+    "NAME": "执行",
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 无法被 升级 。 NL 获得 !M! astray:魔力 。 NL 将 !astray:extras! 张随机牌加入手牌。"
   }
 ]

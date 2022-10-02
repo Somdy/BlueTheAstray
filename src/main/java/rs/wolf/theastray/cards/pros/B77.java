@@ -9,7 +9,7 @@ import rs.wolf.theastray.core.CardMst;
 
 public class B77 extends AstrayProCard {
     public B77() {
-        super(77, 1, CardTarget.NONE);
+        super(77, 0, CardTarget.NONE);
         setMagicValue(0, true);
         setMagical(true);
         exhaust = true;

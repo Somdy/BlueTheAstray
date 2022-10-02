@@ -13,7 +13,7 @@ import java.util.List;
 
 public class E90 extends AstrayExtCard {
     public E90() {
-        super(90, 2, 4, CardTarget.ALL_ENEMY);
+        super(90, 1, 4, CardTarget.ALL_ENEMY);
         setMagical(true);
         setStorage(true);
     }
