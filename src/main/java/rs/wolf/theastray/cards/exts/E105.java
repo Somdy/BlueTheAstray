@@ -16,7 +16,9 @@ public class E105 extends AstrayExtCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(new HealAction(s, s, magicNumber));
-        addToBot(new DiscoverAction(DiscoverAction.Generate(3, c -> true)));
+        for (int i = 0; i < magicNumber; i++) {
+            addToBot(new DiscoverAction(DiscoverAction.Generate(3, c -> true)));
+        }
     }
     
     @Override

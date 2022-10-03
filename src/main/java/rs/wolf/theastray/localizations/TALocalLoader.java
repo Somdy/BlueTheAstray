@@ -21,6 +21,7 @@ public class TALocalLoader {
         TACardLocals[] cardLocals = gson.fromJson(cardJson, TACardLocals[].class);
         assert cardLocals != null;
         for (TACardLocals local : cardLocals) {
+            if (local.DEPRECATED) continue;
             CardLocalMap.put(local.ID, local);
         }
     }

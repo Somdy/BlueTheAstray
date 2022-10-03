@@ -1,5 +1,6 @@
 package rs.wolf.theastray.cards.pros;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,6 +15,7 @@ import java.util.List;
 public class B75 extends AstrayProCard {
     public B75() {
         super(75, 1, CardTarget.NONE);
+        setMagicValue(2, true);
         setCanEnlighten(true);
         exhaust = true;
     }
@@ -22,6 +24,7 @@ public class B75 extends AstrayProCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         if (!upgraded || finalBranch() == 1) {
             atbTmpAction(() -> {
+                addToTop(new DrawCardAction(s, magicNumber));
                 int count = 0;
                 List<AbstractCard> tmp = new ArrayList<>();
                 for (AbstractCard card : cpr().hand.group) {

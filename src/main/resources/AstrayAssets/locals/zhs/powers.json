@@ -137,13 +137,13 @@
   "astray:EvilMouthPower": {
     "NAME": "邪口",
     "DESCRIPTIONS": [
-      "本回合你打出的下 #b[amt_0] 张 #y魔法牌 会被打出 #b[amt_1] 次。"
+      "本回合你打出的下 #b[amt_0] 张 #y魔法牌 会被额外打出 #b[amt_1] 次。"
     ]
   },
   "astray:EvilWordPower": {
     "NAME": "邪言",
     "DESCRIPTIONS": [
-      "你打出的下 #b[amt_0] 张 #y魔法牌 会被打出 #b[amt_1] 次。"
+      "你打出的下 #b[amt_0] 张 #y魔法牌 会被额外打出 #b[amt_1] 次。"
     ]
   },
   "astray:BlossomPower": {

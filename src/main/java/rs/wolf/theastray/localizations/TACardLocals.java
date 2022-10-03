@@ -3,6 +3,7 @@ package rs.wolf.theastray.localizations;
 import org.jetbrains.annotations.NotNull;
 
 public class TACardLocals {
+    protected boolean DEPRECATED = false;
     public String ID;
     public String NAME;
     public String DESCRIPTION;

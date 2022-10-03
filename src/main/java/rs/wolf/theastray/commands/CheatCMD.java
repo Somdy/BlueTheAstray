@@ -12,9 +12,18 @@ public class CheatCMD extends ConsoleCommand {
         }
         if (tokens[1].equalsIgnoreCase("Enlightened") && tokens.length > 2) {
             boolean enabled = Boolean.parseBoolean(tokens[2]);
-            Cheat.CHEATS[Cheat.IEL] = enabled;
-            DevConsole.log("Enlightened: " + Cheat.IsCheating(Cheat.IEL));
-        } else {
+            Cheat.SetCheat(Cheat.IEL, enabled);
+            DevConsole.log("enlightened: " + Cheat.IsCheating(Cheat.IEL));
+        } else if (tokens[1].equalsIgnoreCase("ManaFree") && tokens.length > 2) {
+            boolean enabled = Boolean.parseBoolean(tokens[2]);
+            Cheat.SetCheat(Cheat.IMC, enabled);
+            DevConsole.log("mana free: " + Cheat.IsCheating(Cheat.IMC));
+        } else if (tokens[1].equalsIgnoreCase("ShowSecretDetails") && tokens.length > 2) {
+            boolean enable = Boolean.parseBoolean(tokens[2]);
+            Cheat.SetCheat(Cheat.SSD, enable);
+            DevConsole.log("show card details: " + Cheat.IsCheating(Cheat.SSD));
+        }
+        else {
             cmdEnergyHelp();
         }
     }

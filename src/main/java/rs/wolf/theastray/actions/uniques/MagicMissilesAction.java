@@ -8,8 +8,11 @@ import rs.lazymankits.actions.CustomDmgInfo;
 import rs.lazymankits.actions.DamageSource;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayGameAction;
+import rs.wolf.theastray.commands.Cheat;
+import rs.wolf.theastray.core.Leader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MagicMissilesAction extends AstrayGameAction {
@@ -38,18 +41,27 @@ public class MagicMissilesAction extends AstrayGameAction {
         if (calculating) {
             monsterList = getAllLivingMstrs();
             monsterInfo = new int[monsterList.size()];
+            Arrays.fill(monsterInfo, 0);
             List<AbstractMonster> tmp = new ArrayList<>(monsterList);
             for (int i = 0; i < times; i++) {
-                int slot = cardRandomRng().random(monsterList.size() - 1);
-                AbstractMonster m = monsterList.get(slot);
-                if (tmp.contains(m))
-                    monsterInfo[slot]++;
-                if (monsterInfo[slot] >= threshold)
+                AbstractMonster m = tmp.get(cardRandomRng().random(tmp.size() - 1));
+                int slot = monsterList.indexOf(m);
+                monsterInfo[slot]++;
+                if (monsterInfo[slot] >= threshold) {
                     tmp.remove(m);
+                }
                 if (tmp.isEmpty()) break;
             }
             tmp.clear();
             calculating = false;
+            if (Cheat.IsCheating(Cheat.SSD)) {
+                Leader.devLog("DISPLAYING [" + card.name + "] CALCULATED RESULT:");
+                monsterList.forEach(m -> {
+                    int index = monsterList.indexOf(m);
+                    int attackTimes = monsterInfo[index];
+                    Leader.devLog("attacking [" + index + "] {" + m.name + "} [" + attackTimes + "] times");
+                });
+            }
         } else if (monsterInfo != null && !monsterList.isEmpty()) {
             for (int i = 0; i < monsterList.size(); i++) {
                 AbstractMonster m = monsterList.get(i);

@@ -8,7 +8,7 @@ import rs.wolf.theastray.powers.unique.IgnorantOnePower;
 public class B60 extends AstrayProCard {
     public B60() {
         super(60, 1, CardTarget.SELF);
-        setMagicValue(2, true);
+        setMagicValue(1, true);
     }
     
     @Override

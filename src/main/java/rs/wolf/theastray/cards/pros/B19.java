@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.actions.common.DrawExptCardAction;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
+import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.core.CardMst;
@@ -15,64 +16,70 @@ import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class B19 extends AstrayProCard {
     public B19() {
         super(19, 1, CardTarget.NONE);
-        setMagicValue(1, true);
+        setMagicValue(2, true);
+        setExtraMagicValue(1, true);
         setCanEnlighten(true);
         exhaust = true;
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        if (!upgraded) {
-            if (cardRandomRng().randomBoolean()) draw();
-            else give();
-        } else if (finalBranch() == 0) {
-            give();
-        } else if (finalBranch() == 1) {
-            draw();
-        }
-    }
-    
-    void give() {
         atbTmpAction(() -> {
             for (int i = 0; i < magicNumber; i++) {
-                AbstractCard card = CardMst.ReturnRndMagicInCombat(this::isFreeMagicalCard);
-                addToTop(new MakeTempCardInHandAction(card, 1));
+                Optional<AbstractCard> opt = LMSK.ReturnTrulyRndCardInCombat(c -> !isCardTypeOf(c, CardType.POWER));
+                opt.ifPresent(c -> addToTop(new MakeTempCardInHandAction(c, 1)));
+            }
+            for (int i = 0; i < getExtraMagic(); i++) {
+                AbstractCard magic = CardMst.ReturnRndMagicInCombat();
+                addToTop(new MakeTempCardInHandAction(magic, 1));
             }
         });
     }
     
-    void draw() {
-        if (cpr().drawPile.group.stream().noneMatch(this::isFreeMagicalCard)) {
-            addToBot(new TalkAction(cpr(), MSG[0], 1F, 1F));
-        } else {
-            addToBot(new DrawExptCardAction(magicNumber, this::isFreeMagicalCard).discardPileNotIncluded());
-        }
-    }
+//    void give() {
+//        atbTmpAction(() -> {
+//            for (int i = 0; i < magicNumber; i++) {
+//                AbstractCard card = CardMst.ReturnRndMagicInCombat(this::isFreeMagicalCard);
+//                addToTop(new MakeTempCardInHandAction(card, 1));
+//            }
+//        });
+//    }
+//    
+//    void draw() {
+//        if (cpr().drawPile.group.stream().noneMatch(this::isFreeMagicalCard)) {
+//            addToBot(new TalkAction(cpr(), MSG[0], 1F, 1F));
+//        } else {
+//            addToBot(new DrawExptCardAction(magicNumber, this::isFreeMagicalCard).discardPileNotIncluded());
+//        }
+//    }
     
-    boolean isFreeMagicalCard(@NotNull AbstractCard c) {
-        return TAUtils.IsMagical(c) && c instanceof AstrayCard && (c.costForTurn == 0 || c.freeToPlay());
-    }
+//    boolean isFreeMagicalCard(@NotNull AbstractCard c) {
+//        return TAUtils.IsMagical(c) && c instanceof AstrayCard && (c.costForTurn == 0 || c.freeToPlay());
+//    }
     
     @Override
     public void selfUpgrade() {
-        branchingUpgrade();
+        upgradeTexts();
+        upgradeBaseCost(0);
+//        branchingUpgrade();
     }
     
-    @Override
-    protected List<UpgradeBranch> branches() {
-        return new ArrayList<UpgradeBranch>() {{
-            add(() -> {
-                upgradeTexts();
-                setMagical(true);
-            });
-            add(() -> {
-                upgradeTexts(1);
-                setMagical(true);
-            });
-        }};
-    }
+//    @Override
+//    protected List<UpgradeBranch> branches() {
+//        return new ArrayList<UpgradeBranch>() {{
+//            add(() -> {
+//                upgradeTexts();
+//                setMagical(true);
+//            });
+//            add(() -> {
+//                upgradeTexts(1);
+//                setMagical(true);
+//            });
+//        }};
+//    }
 }

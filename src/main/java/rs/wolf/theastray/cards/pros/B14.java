@@ -11,7 +11,7 @@ import java.util.List;
 public class B14 extends AstrayProCard {
     public B14() {
         super(14, 1, CardTarget.ENEMY);
-        setDamageValue(10, true);
+        setDamageValue(12, true);
         setPromosValue(2, true);
         setCanEnlighten(true);
         setMagical(true);

@@ -15,6 +15,7 @@ import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.actions.utilities.TriggerStorageAction;
 import rs.wolf.theastray.characters.BlueTheAstray;
+import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.ui.manalayout.ManaMst;
 import rs.wolf.theastray.utils.GlobalManaMst;
@@ -97,6 +98,7 @@ public class ManaMechanicsPatch {
             if (c.hasTag(TACardEnums.STORAGE)) {
                 boolean energy = EnergyPanel.getCurrentEnergy() <= 0;
                 boolean mana = !GlobalManaMst.HasMana();
+                Leader.devLog("STORAGE MAY TRIGGER BY [" + c.name + "]");
                 LMSK.AddToBot(new TriggerStorageAction(mana, energy, c));
             }
         }

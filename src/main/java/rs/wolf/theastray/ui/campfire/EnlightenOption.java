@@ -6,6 +6,7 @@ import rs.lazymankits.utils.LMSK;
 import rs.lazymankits.vfx.utils.SwapUpgBranchEffect;
 import rs.wolf.theastray.utils.TAImageMst;
 import rs.wolf.theastray.utils.TAUtils;
+import rs.wolf.theastray.vfx.campfire.SwapEnlightenBranchEffect;
 
 public class EnlightenOption extends AbstractCampfireOption implements TAUtils {
     private static final UIStrings uiStrings = TAUtils.UIStrings("EnlightenOption");
@@ -21,7 +22,7 @@ public class EnlightenOption extends AbstractCampfireOption implements TAUtils {
     @Override
     public void useOption() {
         if (usable) {
-            effectToList(new SwapUpgBranchEffect(LMSK.Player().masterDeck.group).setMsg(TEXT[3]));
+            effectToList(new SwapEnlightenBranchEffect(this, LMSK.Player().masterDeck.group, TEXT[3]));
         }
     }
 }

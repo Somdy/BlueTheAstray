@@ -51,7 +51,7 @@ public interface TAUtils extends LMGameGeneralUtils {
         }
     }
     
-    static void Log(Object what) {
+    static void Log(String what) {
         Leader.Log(what);
     }
     

@@ -39,16 +39,6 @@ public class B51 extends AstrayProCard {
                 }
             }
         });
-        atbTmpAction(() -> {
-            List<AbstractMonster> monsters = getAllExptMstrs(m -> !m.isDeadOrEscaped()
-                    && (m.hasPower(BurntPower.ID) || m.hasPower(FrostPower.ID)));
-            for (AbstractMonster m : monsters) {
-                addToTop(ApplyPower(m, s, burntPower(m, s, getExtraMagic())));
-                if (upgraded) {
-                    addToTop(ApplyPower(m, s, frostPower(m, s, getExtraMagic())));
-                }
-            }
-        });
     }
     
     @Override

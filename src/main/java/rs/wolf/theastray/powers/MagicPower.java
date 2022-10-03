@@ -19,12 +19,12 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
         setValues(amount);
         preloadString(s -> {
             s[0] = this.amount > 0 ? DESCRIPTIONS[0] : DESCRIPTIONS[1];
-            if (hasC88InHand()) {
-                cpr().hand.group.stream()
-                        .filter(c -> c.cardID.equals(GlobalIDMst.CardID("短路")))
-                        .findFirst()
-                        .ifPresent(c -> s[0] = String.format(DESCRIPTIONS[2], c.name));
-            }
+//            if (hasC88InHand()) {
+//                cpr().hand.group.stream()
+//                        .filter(c -> c.cardID.equals(GlobalIDMst.CardID("短路")))
+//                        .findFirst()
+//                        .ifPresent(c -> s[0] = String.format(DESCRIPTIONS[2], c.name));
+//            }
             setAmtValue(0, Math.abs(this.amount));
         });
         updateDescription();

@@ -305,7 +305,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     protected boolean hasEnoughMana() {
 //        if (!isMagical() && !isMagicalDerivative()) return true;
-        if (isInAutoplay) return true;
+        if (isInAutoplay || Cheat.IsCheating(Cheat.IMC)) return true;
         int thisManaCost = getManaOnUse();
         boolean hasMana = GlobalManaMst.HasMana();
         boolean hasEnoughMana = GlobalManaMst.HasEnoughMana(thisManaCost);
@@ -365,7 +365,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * 更新文本描述
      * @param newDescription 新的文本描述
      */
-    protected void updateDescription(String newDescription) {
+    public void updateDescription(String newDescription) {
         rawDescription = newDescription;
         initializeDescription();
     }

@@ -3,48 +3,44 @@ package rs.wolf.theastray.cards.exts;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlyingDaggerEffect;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import rs.wolf.theastray.cards.AstrayExtCard;
+import rs.wolf.theastray.powers.BurntPower;
 import rs.wolf.theastray.utils.GlobalManaMst;
 
 public class E95 extends AstrayExtCard {
     public E95() {
         super(95, 1, 2, CardTarget.ENEMY);
-        setDamageValue(9, true);
-        setMagicValue(40, true);
+        setDamageValue(0, true);
+        setMagicValue(3, true);
         setMagical(true);
         setStorage(true);
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        if (GlobalManaMst.FullMana()) {
-            addToBot(new VFXAction(new WeightyImpactEffect(t.hb.cX, t.hb.cY, Color.ORANGE.cpy())));
-        } else {
+        for (int i = 0; i < damage / magicNumber; i++) {
             addToBot(new VFXAction(new FlyingDaggerEffect(t.hb.cX, t.hb.cY, 0F, AbstractDungeon.getMonsters().shouldFlipVfx())));
         }
         addToBot(DamageAction(t, s, damage, AbstractGameAction.AttackEffect.NONE));
-    }
-    
-    @Override
-    public void applyPowers() {
-        int real = baseDamage;
-        if (GlobalManaMst.FullMana())
-            baseDamage += magicNumber;
-        super.applyPowers();
-        baseDamage = real;
-        isDamageModified = baseDamage != damage;
+        if (!upgraded) {
+            addToBot(new RemoveSpecificPowerAction(t, s, BurntPower.ID));
+        }
     }
     
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int real = baseDamage;
-        if (GlobalManaMst.FullMana())
-            baseDamage += magicNumber;
+        if (mo.hasPower(BurntPower.ID)) {
+            AbstractPower p = mo.getPower(BurntPower.ID);
+            if (p != null) baseDamage += p.amount * magicNumber;
+        }
         super.calculateCardDamage(mo);
         baseDamage = real;
         isDamageModified = baseDamage != damage;

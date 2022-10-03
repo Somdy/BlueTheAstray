@@ -14,7 +14,6 @@ public class B79 extends AstrayProCard {
     public B79() {
         super(79, 1, CardTarget.ALL_ENEMY);
         setDamageValue(14, true);
-        setMagicValue(1, true);
         setMagical(true);
         setStorage(true);
         addTip(ILLUSION_CARD);
@@ -26,11 +25,7 @@ public class B79 extends AstrayProCard {
         addToBot(DamageAllEnemiesAction(s, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, m -> {
             AbstractCard card = CardMst.ReturnRndCardInCombat(c -> c.hasTag(TACardEnums.ILLUSION)
                     && !isCardTypeOf(c, CardType.CURSE), true);
-            if (!upgraded) {
-                addToTop(new MakeTempCardInDrawPileAction(card, magicNumber, true, true));
-            } else {
-                addToTop(new MakeTempCardInHandAction(card, magicNumber));
-            }
+            addToTop(new MakeTempCardInDrawPileAction(card, 1, true, true));
         }));
     }
     

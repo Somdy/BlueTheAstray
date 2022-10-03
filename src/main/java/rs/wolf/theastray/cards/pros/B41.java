@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
+import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.combat.ViolentAttackEffect;
@@ -22,6 +23,7 @@ public class B41 extends AstrayProCard {
         addToBot(new RemoveAllBlockAction(t, s));
         addToBot(new VFXAction(new ViolentAttackEffect(t.hb.cX, t.hb.cY, Color.ROYAL.cpy())));
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new LoseEnergyAction(EnergyPanel.totalCount));
         updateDescription(DESCRIPTION);
     }
     

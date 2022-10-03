@@ -2,6 +2,7 @@ package rs.wolf.theastray.core;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -28,6 +29,7 @@ import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.abstracts.AstrayRelic;
 import rs.wolf.theastray.characters.BlueTheAstray;
+import rs.wolf.theastray.commands.Cheat;
 import rs.wolf.theastray.commands.CheatCMD;
 import rs.wolf.theastray.commands.ManaCMD;
 import rs.wolf.theastray.data.DataMst;
@@ -69,11 +71,20 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         CardMst.RegisterColors();
     }
     
-    public static void Log(Object what) {
+    public static void Log(String what) {
         LMDebug.deLog(Leader.class, "THE ASTRAY-[LOG]> " + what);
     }
     
-    public static void PatchLog(Object what) {
+    public static void devLog(String what) {
+        if (Cheat.IsCheating(Cheat.SSD)) {
+            if (!DevConsole.visible)
+                DevConsole.visible = true;
+            DevConsole.log(what);
+            Log(what);
+        }
+    }
+    
+    public static void PatchLog(String what) {
         LMDebug.deLog(Leader.class, "THE ASTRAY-[LOG]> " + what);
     }
     

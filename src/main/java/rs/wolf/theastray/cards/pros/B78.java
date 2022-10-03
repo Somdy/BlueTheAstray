@@ -14,6 +14,7 @@ public class B78 extends AstrayProCard {
         super(78, 0, CardTarget.SELF);
         setMagicValue(1, true);
         setCanEnlighten(true);
+        isInnate = true;
     }
     
     @Override
