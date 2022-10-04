@@ -2,6 +2,7 @@ package rs.wolf.theastray.cards.pros;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.cards.colorless.C87;
 import rs.wolf.theastray.core.CardMst;
@@ -18,13 +19,22 @@ public class B43 extends AstrayProCard {
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        addToBot(ApplyPower(s, s, new StoneFleshPower(s, (magicNumber / 100F))));
+        atbTmpAction(() -> {
+            if (!s.hasPower(StoneFleshPower.ID)) {
+                addToTop(ApplyPower(s, s, new StoneFleshPower(s, (magicNumber / 100F))));
+            } else {
+                AbstractPower p = s.getPower(StoneFleshPower.ID);
+                if (p instanceof StoneFleshPower) {
+                    ((StoneFleshPower) p).upgrade(magicNumber / 100F);
+                }
+            }
+        });
         addToBot(new MakeTempCardInHandAction(CardMst.GetCard("魔网断开"), 1));
     }
     
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        exhaust = false;
+        upgradeMagicNumber(10);
     }
 }

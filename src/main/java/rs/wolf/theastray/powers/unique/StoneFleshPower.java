@@ -9,7 +9,7 @@ import rs.wolf.theastray.utils.TAUtils;
 
 public class StoneFleshPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("StoneFleshPower");
-    private final float percent;
+    private float percent;
     
     public StoneFleshPower(AbstractCreature owner, float percent) {
         super(ID, "juggernaut", PowerType.BUFF, owner);
@@ -17,6 +17,14 @@ public class StoneFleshPower extends AstrayPower {
         setValues(-1);
         preloadString(s -> setAmtValue(0, SciPercent(this.percent)));
         updateDescription();
+    }
+    
+    public void upgrade(float newBasePercent) {
+        if (newBasePercent > percent) {
+            percent = newBasePercent;
+            flash();
+            updateDescription();
+        }
     }
     
     @Override

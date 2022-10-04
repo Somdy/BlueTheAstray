@@ -11,7 +11,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B30 extends AstrayProCard {
     public B30() {
         super(30, 1, CardTarget.ENEMY);
-        setDamageValue(12, true);
+        setDamageValue(14, true);
         setMagicValue(2, true);
     }
     
@@ -36,6 +36,5 @@ public class B30 extends AstrayProCard {
     public void selfUpgrade() {
         upgradeTexts();
         upgradeDamage(4);
-        upgradeMagicNumber(1);
     }
 }

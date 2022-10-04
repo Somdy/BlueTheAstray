@@ -12,7 +12,7 @@ import rs.wolf.theastray.utils.GlobalManaMst;
 public class E94 extends AstrayExtCard {
     public E94() {
         super(94, 1, 2, CardTarget.ENEMY);
-        setDamageValue(3, true);
+        setDamageValue(5, true);
         setMagicValue(1, true);
         setMagical(true);
     }
@@ -37,6 +37,6 @@ public class E94 extends AstrayExtCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeDamage(1);
+        upgradeDamage(3);
     }
 }

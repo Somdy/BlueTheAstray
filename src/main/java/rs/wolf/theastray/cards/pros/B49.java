@@ -12,8 +12,8 @@ public class B49 extends AstrayProCard {
     
     public B49() {
         super(49, 1, CardTarget.SELF_AND_ENEMY);
-        setDamageValue(6, true);
-        setMagicValue(1, true);
+        setDamageValue(12, true);
+        setMagicValue(2, true);
         diff = baseDamage - baseMagicNumber;
         exhaust = true;
     }
@@ -22,7 +22,7 @@ public class B49 extends AstrayProCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         if (!upgraded) {
             atbTmpAction(() -> {
-                int golds = cardRandomRng().random(1, 6);
+                int golds = cardRandomRng().random(2, 12);
                 addToTop(DamageAction(t, s, golds, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
                 addToTop(new GainGoldAction(golds));
             });

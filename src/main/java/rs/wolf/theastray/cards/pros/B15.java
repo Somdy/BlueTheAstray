@@ -11,7 +11,7 @@ import java.util.List;
 public class B15 extends AstrayProCard {
     public B15() {
         super(15, 1, CardTarget.SELF);
-        setBlockValue(6, true);
+        setBlockValue(7, true);
         setCanEnlighten(true);
         selfRetain = true;
         returnToHand = true;
@@ -37,7 +37,8 @@ public class B15 extends AstrayProCard {
             });
             add(() -> {
                 upgradeTexts(1);
-                setMagical(true);
+                setPromosValue(1, true);
+                setMagicalDerivative(true);
             });
         }};
     }

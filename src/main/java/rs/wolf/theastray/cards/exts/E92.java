@@ -16,6 +16,7 @@ public class E92 extends AstrayExtCard {
     public E92() {
         super(92, 1, 1, CardTarget.ENEMY);
         setDamageValue(8, true);
+        setMagicValue(2, true);
         setCanEnlighten(true);
         setMagical(true);
         setStorage(true);
@@ -25,6 +26,7 @@ public class E92 extends AstrayExtCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(new VFXAction(new LightningEffect(t.hb.cX, t.hb.cY)));
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.NONE));
+        addToBot(ApplyPower(t, s, burntPower(t, s, magicNumber)));
         atbTmpAction(() -> {
             if (!cpr().hand.isEmpty()) {
                 for (AbstractCard card : cpr().hand.group) {

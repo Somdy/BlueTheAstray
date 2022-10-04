@@ -6,7 +6,7 @@ import rs.wolf.theastray.powers.unique.InfWisdomPower;
 
 public class E106 extends AstrayExtCard {
     public E106() {
-        super(106, 1, 17, CardTarget.SELF);
+        super(106, 1, 15, CardTarget.SELF);
     }
     
     @Override

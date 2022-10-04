@@ -9,22 +9,21 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B24 extends AstrayProCard {
     public B24() {
         super(24, 1, CardTarget.ALL_ENEMY);
-        setDamageValue(5, true);
-        setMagicValue(1, true);
+        setMagicValue(5, true);
+        setExtraMagicValue(1, true);
         setMagical(true);
-        setStorage(true);
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         atbTmpAction(() -> {
-            int multi = magicNumber;
+            int multi = getExtraMagic();
             int mSize = getAllLivingMstrs().size();
             multi *= mSize;
             for (int i = 0; i < multi; i++) {
                 AbstractMonster m = AbstractDungeon.getRandomMonster();
                 if (m != null) {
-                    addToTop(DamageAction(m, s, AbstractGameAction.AttackEffect.FIRE));
+                    addToTop(ApplyPower(m, s, burntPower(m, s, magicNumber)));
                 }
             }
             updateDescription(DESCRIPTION);
@@ -34,15 +33,15 @@ public class B24 extends AstrayProCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        int multi = magicNumber;
+        int multi = getExtraMagic();
         int mSize = getAllLivingMstrs().size();
         multi *= mSize;
-        updateDescription(DESCRIPTION + String.format(MSG[0], damage, multi));
+        updateDescription(DESCRIPTION + String.format(MSG[0], magicNumber, multi));
     }
     
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeDamage(3);
+        upgradeMagicNumber(3);
     }
 }

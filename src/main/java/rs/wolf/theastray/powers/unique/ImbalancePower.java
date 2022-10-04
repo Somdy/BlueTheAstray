@@ -13,6 +13,7 @@ public final class ImbalancePower extends AstrayPower {
         super(ID, "carddraw", PowerType.BUFF, AbstractDungeon.player);
         setValues(drawAmt, discardAmt);
         preloadString(s -> {
+            s[0] = extraAmt > 0 ? DESCRIPTIONS[0] : DESCRIPTIONS[1];
             setAmtValue(0, amount);
             setAmtValue(1, extraAmt);
         });
@@ -22,8 +23,15 @@ public final class ImbalancePower extends AstrayPower {
     }
     
     public void upgrade(int newDiscardAmt) {
-        if (extraAmt != newDiscardAmt) {
+        if (extraAmt >= newDiscardAmt) {
             extraAmt = newDiscardAmt;
+            updateDescription();
+        }
+    }
+    
+    public void advance() {
+        if (extraAmt > 0) {
+            extraAmt--;
             updateDescription();
         }
     }

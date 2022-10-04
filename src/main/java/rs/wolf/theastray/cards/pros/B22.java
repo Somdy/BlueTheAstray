@@ -8,7 +8,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B22 extends AstrayProCard {
     public B22() {
         super(22, 0, CardTarget.ENEMY);
-        setDamageValue(8, true);
+        setDamageValue(9, true);
         setMagical(true);
         returnToHand = true;
         isEthereal = true;

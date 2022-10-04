@@ -8,7 +8,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B27 extends AstrayProCard {
     public B27() {
         super(27, 0, CardTarget.ALL_ENEMY);
-        setDamageValue(4, true);
+        setDamageValue(6, true);
         setMagicValue(3, true);
         setMagical(true);
         isMultiDamage = true;
@@ -43,6 +43,6 @@ public class B27 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeDamage(2);
+        upgradeDamage(3);
     }
 }

@@ -139,24 +139,18 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         if (cpr().relics.stream().anyMatch(r -> r instanceof MagicModifier)) {
             for (AbstractRelic r : cpr().relics) {
                 if (r instanceof MagicModifier) 
-                    tmp += ((MagicModifier) r).modifyValue(this);
+                    tmp += ((MagicModifier) r).modifyDamageValue(this);
             }
         }
         boolean hasPower = cpr().powers.stream().anyMatch(p -> p instanceof MagicModifier);
         if (hasPower) {
             for (AbstractPower p : cpr().powers) {
                 if (p instanceof MagicModifier)
-                    tmp += ((MagicModifier) p).modifyValue(this);
+                    tmp += ((MagicModifier) p).modifyDamageValue(this);
             }
         }
         if (cpr().stance instanceof MagicModifier)
-            tmp += ((MagicModifier) cpr().stance).modifyValue(this);
-        if (hasPower) {
-            for (AbstractPower p : cpr().powers) {
-                if (p instanceof MagicModifier)
-                    tmp += ((MagicModifier) p).modifyValueLast(this);
-            }
-        }
+            tmp += ((MagicModifier) cpr().stance).modifyDamageValue(this);
         if (tmp < 0F) tmp = 0F;
         return tmp;
     }
@@ -200,36 +194,24 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         if (cpr().relics.stream().anyMatch(r -> r instanceof MagicModifier)) {
             for (AbstractRelic r : cpr().relics) {
                 if (r instanceof MagicModifier)
-                    tmp += ((MagicModifier) r).modifyValue(this);
+                    tmp += ((MagicModifier) r).modifyDamageValue(this);
             }
         }
         boolean hasPower = cpr().powers.stream().anyMatch(p -> p instanceof MagicModifier);
         if (hasPower) {
             for (AbstractPower p : cpr().powers) {
                 if (p instanceof MagicModifier)
-                    tmp += ((MagicModifier) p).modifyValue(this);
+                    tmp += ((MagicModifier) p).modifyDamageValue(this);
             }
         }
         if (cpr().stance instanceof MagicModifier)
-            tmp += ((MagicModifier) cpr().stance).modifyValue(this);
+            tmp += ((MagicModifier) cpr().stance).modifyDamageValue(this);
         boolean hasMonsterPower = mo != null && !mo.isDeadOrEscaped()
                 && mo.powers.stream().anyMatch(p -> p instanceof MagicModifier);
         if (hasMonsterPower) {
             for (AbstractPower p : mo.powers) {
                 if (p instanceof MagicModifier)
-                    tmp += ((MagicModifier) p).modifyValue(this);
-            }
-        }
-        if (hasPower) {
-            for (AbstractPower p : cpr().powers) {
-                if (p instanceof MagicModifier)
-                    tmp += ((MagicModifier) p).modifyValueLast(this);
-            }
-        }
-        if (hasMonsterPower) {
-            for (AbstractPower p : mo.powers) {
-                if (p instanceof MagicModifier)
-                    tmp += ((MagicModifier) p).modifyValueLast(this);
+                    tmp += ((MagicModifier) p).modifyDamageValue(this);
             }
         }
         if (tmp < 0F) tmp = 0F;
@@ -251,8 +233,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         if (cpr().powers.stream().anyMatch(p -> p instanceof MagicModifier)) {
             for (AbstractPower p : cpr().powers) {
                 if (p instanceof MagicModifier) {
-                    tmp += ((MagicModifier) p).modifyValue(this);
-                    tmp += ((MagicModifier) p).modifyValueLast(this);
+                    tmp += ((MagicModifier) p).modifyBlockValue(this);
                 }
             }
         }
@@ -269,8 +250,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
             if (cpr().powers.stream().anyMatch(p -> p instanceof MagicModifier)) {
                 for (AbstractPower p : cpr().powers) {
                     if (p instanceof MagicModifier) {
-                        tmp += ((MagicModifier) p).modifyValue(this);
-                        tmp += ((MagicModifier) p).modifyValueLast(this);
+                        tmp += ((MagicModifier) p).modifyMagicValue(this);
                     }
                 }
             }
@@ -285,8 +265,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
             if (cpr().powers.stream().anyMatch(p -> p instanceof MagicModifier)) {
                 for (AbstractPower p : cpr().powers) {
                     if (p instanceof MagicModifier) {
-                        tmp += ((MagicModifier) p).modifyValue(this);
-                        tmp += ((MagicModifier) p).modifyValueLast(this);
+                        tmp += ((MagicModifier) p).modifyMagicValue(this);
                     }
                 }
             }
@@ -325,6 +304,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     public final void use(AbstractPlayer p, AbstractMonster m) {
+        beforePlaying(p, m);
         play(p, m);
     }
     
@@ -334,6 +314,8 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @param t 目标，即玩家指向的目标，无指向的牌会接收 null
      */
     public abstract void play(AbstractCreature s, AbstractCreature t);
+    
+    protected void beforePlaying(AbstractCreature s, AbstractCreature t) {}
     
     @Override
     public void displayUpgrades() {

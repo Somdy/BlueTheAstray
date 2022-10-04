@@ -15,9 +15,17 @@ import java.util.List;
 public class B4 extends AstrayProCard {
     public B4() {
         super(4, 1, CardTarget.SELF);
+        setBlockValue(8, true);
         setMagicValue(1, true);
         setCanEnlighten(true);
-        exhaust = true;
+    }
+    
+    @Override
+    protected void beforePlaying(AbstractCreature s, AbstractCreature t) {
+        if (!upgraded || finalBranch() == 0) {
+            if (GlobalManaMst.CurrentMana() >= 2)
+                exhaustOnUseOnce = true;
+        }
     }
     
     @Override
@@ -54,14 +62,13 @@ public class B4 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                setMagical(true);
+                setMagicalDerivative(true);
             });
             add(() -> {
                 upgradeTexts(1);
+                upgradeBaseCost(0);
                 setMagicValue(0, true);
-                setBlockValue(8, true);
                 setMagicalDerivative(true);
-                exhaust = false;
             });
         }};
     }

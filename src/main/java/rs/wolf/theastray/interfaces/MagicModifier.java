@@ -3,11 +3,13 @@ package rs.wolf.theastray.interfaces;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public interface MagicModifier {
-    default int modifyValue(AbstractCard card) {
+    default int modifyMagicValue(AbstractCard card) {
         return 0;
     }
-    
-    default int modifyValueLast(AbstractCard card) {
-        return 0;
+    default int modifyDamageValue(AbstractCard card) {
+        return modifyMagicValue(card);
+    }
+    default int modifyBlockValue(AbstractCard card) {
+        return modifyMagicValue(card);
     }
 }

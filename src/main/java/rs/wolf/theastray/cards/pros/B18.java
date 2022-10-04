@@ -8,7 +8,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B18 extends AstrayProCard {
     public B18() {
         super(18, 2, CardTarget.ENEMY);
-        setDamageValue(18, true);
+        setDamageValue(20, true);
         setMagical(true);
         setStorage(true);
     }

@@ -20,7 +20,14 @@ public class B58 extends AstrayProCard {
                 s.powers.stream().filter(p -> p instanceof ImbalancePower)
                         .findFirst()
                         .map(p -> (ImbalancePower) p)
-                        .ifPresent(p -> p.upgrade(getExtraMagic()));
+                        .ifPresent(p -> {
+                            int discards = p.extraAmt;
+                            if (discards > getExtraMagic()) {
+                                p.upgrade(getExtraMagic());
+                            } else {
+                                p.advance();
+                            }
+                        });
             }
         });
     }
@@ -28,6 +35,6 @@ public class B58 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeExtraMagic(-2);
+        upgradeExtraMagic(-1);
     }
 }

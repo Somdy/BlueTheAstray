@@ -9,7 +9,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B28 extends AstrayProCard {
     public B28() {
         super(28, 1, CardTarget.ALL_ENEMY);
-        setDamageValue(6, true);
+        setDamageValue(8, true);
         setMagicValue(4, true);
         setExtraMagicValue(1, true);
     }

@@ -12,7 +12,7 @@ import java.util.List;
 public class B3 extends AstrayProCard {
     public B3() {
         super(3, 1, CardTarget.ENEMY);
-        setDamageValue(9, true);
+        setDamageValue(10, true);
         setCanEnlighten(true); // 将该牌设为启迪牌
         setMagical(true); // 将该牌设为魔法牌
     }
@@ -20,9 +20,10 @@ public class B3 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.FIRE));
-        if (finalBranch() == 1) { // 用 finalBranch 来判断真正的分支
+        if (upgraded && finalBranch() == 1) { // 用 finalBranch 来判断真正的分支
             // 用 burntPower(target, source, amount) 来获取余烬效果
             addToBot(ApplyPower(t, s, burntPower(t, s, magicNumber)));
+            addToBot(ApplyPower(t, s, frostPower(t, s, getExtraMagic())));
         }
     }
     
@@ -36,12 +37,16 @@ public class B3 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                upgradeDamage(6);
+                upgradeDamage(5);
+                setPromosValue(3, true);
             });
             add(() -> {
                 upgradeTexts(1);
                 setMagicValue(2, true);
+                setExtraMagicValue(1, true);
                 setPromosValue(1, true);
+                setStorage(true);
+                setMagicalDerivative(true);
             });
         }};
     }

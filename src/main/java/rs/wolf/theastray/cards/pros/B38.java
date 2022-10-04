@@ -12,7 +12,7 @@ public class B38 extends AstrayProCard {
         super(38, 1, CardTarget.ENEMY);
         setDamageValue(9, true);
         setMagicValue(6, true);
-        setPromosValue(1, true);
+        setPromosValue(3, true);
         setMagical(true);
     }
     

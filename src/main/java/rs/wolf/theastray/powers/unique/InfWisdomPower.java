@@ -45,6 +45,7 @@ public class InfWisdomPower extends AstrayPower {
                     for (int i = 0; i < extras; i++) {
                         AbstractCard.CardRarity rarity = AbstractDungeon.rollRarity();
                         another = getAnyOtherColorCard(rarity, (another != null ? another.cardID : null));
+                        another.upgrade();
                         __result.add(another);
                     }
                 }

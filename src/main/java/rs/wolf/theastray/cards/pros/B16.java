@@ -11,7 +11,7 @@ import rs.wolf.theastray.powers.FrostPower;
 public class B16 extends AstrayProCard {
     public B16() {
         super(16, 1, CardTarget.ALL);
-        setBlockValue(6, true);
+        setBlockValue(7, true);
         setMagicValue(1, true);
         setExtraMagicValue(1, true);
     }
@@ -31,5 +31,6 @@ public class B16 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
+        upgradeBlock(1);
     }
 }

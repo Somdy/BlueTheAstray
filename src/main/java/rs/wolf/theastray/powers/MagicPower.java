@@ -53,7 +53,7 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
     }
     
     @Override
-    public int modifyValue(AbstractCard card) {
+    public int modifyMagicValue(AbstractCard card) {
         int base = 0;
         if (card instanceof AstrayCard && !hasC88InHand()) {
             base += amount;

@@ -14,6 +14,7 @@ import java.util.List;
 public class E98 extends AstrayExtCard {
     public E98() {
         super(98, 2, 6, CardTarget.SELF);
+        setMagicValue(2, true);
         setMagical(true);
         setCanEnlighten(true);
         setStorage(true);
@@ -23,11 +24,11 @@ public class E98 extends AstrayExtCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         atbTmpAction(() -> {
-            int blocks = s.currentBlock * 2;
+            int blocks = s.currentBlock * magicNumber;
             if (!upgraded || finalBranch() == 0) {
                 addToTop(ApplyPower(s, s, new RemainPower(s, blocks)));
                 if (upgraded) {
-                    addToTop(ApplyPower(s, s, new BlurPower(s, magicNumber)));
+                    addToTop(ApplyPower(s, s, new BlurPower(s, getExtraMagic())));
                 }
             } else if (finalBranch() == 1) {
                 addToTop(ApplyPower(s, s, new StrandedPower(s, blocks)));
@@ -46,7 +47,7 @@ public class E98 extends AstrayExtCard {
         return new ArrayList<UpgradeBranch>(){{
             add(() -> {
                 upgradeTexts();
-                setMagicValue(1, true);
+                setExtraMagicValue(1, true);
             });
             add(() -> upgradeTexts(1));
         }};
