@@ -9,7 +9,7 @@ import rs.wolf.theastray.patches.TACardEnums;
 public class E84 extends AstrayExtCard {
     public E84() {
         super(84, 0, 14, CardTarget.SELF);
-        setBlockValue(25, true);
+        setBlockValue(30, true);
         setMagicValue(1, true);
         setMagicalDerivative(true);
         exhaust = true;
@@ -25,6 +25,6 @@ public class E84 extends AstrayExtCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeBlock(7);
+        upgradeBlock(10);
     }
 }

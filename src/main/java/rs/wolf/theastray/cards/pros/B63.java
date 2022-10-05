@@ -6,7 +6,7 @@ import rs.wolf.theastray.powers.unique.MagicalBodyPower;
 
 public class B63 extends AstrayProCard {
     public B63() {
-        super(63, 3, CardTarget.SELF);
+        super(63, 2, CardTarget.SELF);
         setBlockValue(5, true);
     }
     
@@ -18,6 +18,6 @@ public class B63 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeBaseCost(2);
+        upgradeBaseCost(1);
     }
 }

@@ -30,15 +30,13 @@ public class B4 extends AstrayProCard {
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
+        addToBot(new GainBlockAction(s, block));
         if (!upgraded || finalBranch() == 0) {
             atbTmpAction(() -> {
                 if (GlobalManaMst.CurrentMana() >= 2)
                     addToTop(ApplyPower(s, s, new MagicPower(s, magicNumber)));
             });
-            return;
-        }
-        if (finalBranch() == 1) {
-            addToBot(new GainBlockAction(s, block));
+        } else if (finalBranch() == 1) {
             addToBot(new DrawCardAction(s, magicNumber));
         }
     }

@@ -12,7 +12,7 @@ import rs.wolf.theastray.utils.GlobalManaMst;
 public class E80 extends AstrayExtCard {
     public E80() {
         super(80, 2, 14, CardTarget.SELF);
-        setBlockValue(5, true);
+        setBlockValue(8, true);
         setMagicValue(1, true);
         setMagicalDerivative(true);
         exhaust = true;

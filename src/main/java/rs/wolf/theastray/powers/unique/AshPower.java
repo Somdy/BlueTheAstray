@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayPower;
+import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
@@ -32,9 +33,11 @@ public class AshPower extends AstrayPower {
                 AstrayCard other = (AstrayCard) card.makeCopy();
                 other.setChosenBranch(1 - branch);
                 other.upgrade();
+                Leader.devLog("RETURNING OTHER BRANCH");
                 for (int i = 0; i < amount; i++) {
                     addToBot(new MakeTempCardInHandAction(other, true, true));
                 }
+                Leader.devLog("branch [" + other.name + "] of [" + card.name + "] returned to hand");
                 cardList.add(other.uuid);
             }
         }

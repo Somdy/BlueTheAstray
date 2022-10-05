@@ -1,8 +1,10 @@
 package rs.wolf.theastray.relics;
 
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import rs.wolf.theastray.abstracts.AstrayRelic;
 import rs.wolf.theastray.actions.commons.ModifyManaAction;
+import rs.wolf.theastray.core.Leader;
 
 public class Relic1 extends AstrayRelic {
     public Relic1() {

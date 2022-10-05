@@ -21,6 +21,14 @@ public class Relic5 extends AstrayRelic {
     }
     
     @Override
+    public void atTurnStart() {
+        if (!onPulse) {
+            onPulse = true;
+            beginLongPulse();
+        }
+    }
+    
+    @Override
     public void onTrigger() {
         onPulse = false;
         stopPulse();

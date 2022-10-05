@@ -14,7 +14,7 @@ import rs.wolf.theastray.powers.unique.MeteoritePower;
 public class B68 extends AstrayProCard {
     public B68() {
         super(68, 5, CardTarget.ALL_ENEMY);
-        setDamageValue(60, true);
+        setDamageValue(50, true);
         setMagicValue(14, true);
     }
     
@@ -39,7 +39,6 @@ public class B68 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeDamage(15);
-        upgradeMagicNumber(7);
+        upgradeDamage(10);
     }
 }

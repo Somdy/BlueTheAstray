@@ -377,9 +377,9 @@
   {
     "ID": "B43",
     "NAME": "石肤术",
-    "DESCRIPTION": "astray:魔法 NL 在失去生命值前，受到的伤害减少 !M! %. NL 将 *魔网断开 置入手牌 NL 消耗",
+    "DESCRIPTION": "astray:魔法 NL 在失去生命值前，受到的伤害减少 !M! %. NL 将 *魔网断开 置入手牌 。 NL 消耗",
     "UPGRADED_DESC": [
-      "astray:魔法 NL 在失去生命值前，受到的伤害减少 !M! %. NL 将 *魔网断开 置入手牌"
+      "astray:魔法 NL 在失去生命值前，受到的伤害减少 !M! %. NL 将 *魔网断开 置入手牌。 NL 消耗"
     ]
   },
   {

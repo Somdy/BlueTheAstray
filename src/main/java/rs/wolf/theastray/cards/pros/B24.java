@@ -1,6 +1,5 @@
 package rs.wolf.theastray.cards.pros;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -9,7 +8,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B24 extends AstrayProCard {
     public B24() {
         super(24, 1, CardTarget.ALL_ENEMY);
-        setMagicValue(5, true);
+        setMagicValue(4, true);
         setExtraMagicValue(1, true);
         setMagical(true);
     }
@@ -26,17 +25,17 @@ public class B24 extends AstrayProCard {
                     addToTop(ApplyPower(m, s, burntPower(m, s, magicNumber)));
                 }
             }
-            updateDescription(DESCRIPTION);
+//            updateDescription(DESCRIPTION);
         });
     }
     
     @Override
     public void applyPowers() {
         super.applyPowers();
-        int multi = getExtraMagic();
-        int mSize = getAllLivingMstrs().size();
-        multi *= mSize;
-        updateDescription(DESCRIPTION + String.format(MSG[0], magicNumber, multi));
+//        int multi = getExtraMagic();
+//        int mSize = getAllLivingMstrs().size();
+//        multi *= mSize;
+//        updateDescription(DESCRIPTION + String.format(MSG[0], magicNumber, multi));
     }
     
     @Override

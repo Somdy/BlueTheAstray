@@ -10,12 +10,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.wolf.theastray.abstracts.AstrayPower;
+import rs.wolf.theastray.interfaces.DeMagicSensitiveGear;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EvilMouthPower extends AstrayPower {
+public class EvilMouthPower extends AstrayPower implements DeMagicSensitiveGear {
     public static final String ID = TAUtils.MakeID("EvilMouthPower");
     private List<AbstractCard> magics;
     

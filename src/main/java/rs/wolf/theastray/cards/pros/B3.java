@@ -12,7 +12,7 @@ import java.util.List;
 public class B3 extends AstrayProCard {
     public B3() {
         super(3, 1, CardTarget.ENEMY);
-        setDamageValue(10, true);
+        setDamageValue(11, true);
         setCanEnlighten(true); // 将该牌设为启迪牌
         setMagical(true); // 将该牌设为魔法牌
     }
@@ -37,7 +37,7 @@ public class B3 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                upgradeDamage(5);
+                upgradeDamage(7);
                 setPromosValue(3, true);
             });
             add(() -> {
