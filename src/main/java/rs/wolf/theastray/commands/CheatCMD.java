@@ -12,6 +12,7 @@ import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.actions.commons.ModifyManaAction;
 import rs.wolf.theastray.core.CardMst;
+import rs.wolf.theastray.utils.GlobalManaMst;
 import rs.wolf.theastray.utils.TAUtils;
 
 public class CheatCMD extends ConsoleCommand {
@@ -35,13 +36,14 @@ public class CheatCMD extends ConsoleCommand {
             DevConsole.log("show secret details: " + Cheat.IsCheating(Cheat.SSD));
         } else if (tokens[1].equalsIgnoreCase("presettest")) {
             if (TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)) {
-                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("造物"), 2));
-                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("回路"), 1));
+                Cheat.SetCheat(Cheat.IEL, true);
+                Cheat.SetCheat(Cheat.SSD, true);
+                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("余烬之前"), 2));
                 LMSK.AddToBot(new ModifyManaAction(10));
-                AstrayCard card = (AstrayCard) CardMst.GetCard("流星雨");
+                AstrayCard card = (AstrayCard) CardMst.GetCard("闪电箭");
                 card.setChosenBranch(1);
                 card.upgrade();
-                LMSK.AddToBot(new MakeTempCardInHandAction(card, 2));
+                LMSK.AddToBot(new MakeTempCardInHandAction(card, 1));
             }
         }
         else {

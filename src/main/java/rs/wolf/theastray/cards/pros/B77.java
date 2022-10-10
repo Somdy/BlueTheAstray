@@ -11,7 +11,7 @@ public class B77 extends AstrayProCard {
     public B77() {
         super(77, 0, CardTarget.NONE);
         setMagicValue(0, true);
-        setMagical(true);
+        setMagicalDerivative(true);
         exhaust = true;
     }
     
@@ -30,6 +30,6 @@ public class B77 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeBaseCost(0);
+        exhaust = false;
     }
 }

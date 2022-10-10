@@ -31,7 +31,9 @@ public class E100 extends AstrayExtCard {
                         card.setChosenBranch(branch);
                         card.upgrade();
                     }
-                    addToTop(new NewQueueCardAction(card, true, true, true));
+                    for (int j = 0; j < magicNumber; j++) {
+                        addToTop(new NewQueueCardAction(card, true, true, true));
+                    }
                 }
             });
         }

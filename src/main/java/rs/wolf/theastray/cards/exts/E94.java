@@ -19,7 +19,7 @@ public class E94 extends AstrayExtCard {
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        int times = 1 + GlobalManaMst.CurrentMana();
+        int times = magicNumber + GlobalManaMst.CurrentMana();
         for (int i = 0; i < times; i++) {
             addToBot(DamageAction(t, s, getRandom(listFromObjs(AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
                     AbstractGameAction.AttackEffect.SLASH_HORIZONTAL)).orElse(AbstractGameAction.AttackEffect.SLASH_VERTICAL)));
@@ -30,7 +30,7 @@ public class E94 extends AstrayExtCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        int times = 1 + GlobalManaMst.CurrentMana();
+        int times = magicNumber + GlobalManaMst.CurrentMana();
         updateDescription(DESCRIPTION + String.format(MSG[0], damage, times));
     }
     

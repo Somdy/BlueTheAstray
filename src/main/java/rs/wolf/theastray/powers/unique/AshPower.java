@@ -37,7 +37,7 @@ public class AshPower extends AstrayPower {
                 for (int i = 0; i < amount; i++) {
                     addToBot(new MakeTempCardInHandAction(other, true, true));
                 }
-                Leader.devLog("branch [" + other.name + "] of [" + card.name + "] returned to hand");
+                Leader.devLog("branch [" + other.uuid + "] of [" + card.uuid + "] returned to hand");
                 cardList.add(other.uuid);
             }
         }

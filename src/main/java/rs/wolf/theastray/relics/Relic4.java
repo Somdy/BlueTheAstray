@@ -88,6 +88,10 @@ public class Relic4 extends AstrayRelic {
         return false;
     }
     
+    public static boolean ModifyXCost(AbstractCard card) {
+        return (card.cost == -1 || card.costForTurn == -1) && Contains(card);
+    }
+    
     public static void Func() {
         if (!Activated()) return;
         AbstractRelic r = LMSK.Player().getRelic(GlobalIDMst.RelicID(4));
@@ -116,7 +120,19 @@ public class Relic4 extends AstrayRelic {
     @SpirePatch2(clz = AbstractPlayer.class, method = "useCard")
     public static class UseEnergyPatch {
         @SpireInstrumentPatch
-        public static ExprEditor Instrument() {
+        public static ExprEditor Instrument1() {
+            return new ExprEditor(){
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getMethodName().equals("use") && m.getClassName().equals(AbstractCard.class.getName())) {
+                        m.replace("{if(" + Relic4.class.getName() + ".ModifyXCost(c)){c.freeToPlayOnce=true;}" +
+                                "$_=$proceed($$);}");
+                    }
+                }
+            };
+        }
+        @SpireInstrumentPatch
+        public static ExprEditor Instrument2() {
             return new ExprEditor(){
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {

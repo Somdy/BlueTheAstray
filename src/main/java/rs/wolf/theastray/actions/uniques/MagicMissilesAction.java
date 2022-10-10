@@ -40,6 +40,10 @@ public class MagicMissilesAction extends AstrayGameAction {
     public void update() {
         if (calculating) {
             monsterList = getAllLivingMstrs();
+            if (monsterList.isEmpty()) {
+                isDone = true;
+                return;
+            }
             monsterInfo = new int[monsterList.size()];
             Arrays.fill(monsterInfo, 0);
             List<AbstractMonster> tmp = new ArrayList<>(monsterList);

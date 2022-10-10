@@ -15,7 +15,7 @@ import java.util.List;
 public class B72 extends AstrayProCard {
     public B72() {
         super(72, 1, CardTarget.ALL_ENEMY);
-        setMagicValue(3, true);
+        setMagicValue(2, true);
         setExtraMagicValue(4, true);
         setCanEnlighten(true);
         setMagical(true);
@@ -52,7 +52,7 @@ public class B72 extends AstrayProCard {
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeMagicNumber(2);
+                upgradeMagicNumber(3);
                 MultiCardPreview.clear(B72.this);
                 cardsToPreview = CardMst.GetCard("星星");
             });

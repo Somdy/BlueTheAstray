@@ -1,5 +1,6 @@
 package rs.wolf.theastray.powers;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -20,13 +21,10 @@ public final class TurnMagicPower extends AstrayPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (owner.hasPower(MagicPower.ID)) {
-            AbstractPower p = owner.getPower(MagicPower.ID);
-            if (p != null) {
-                flash();
-                int loseAmt = Math.min(p.amount, amount);
-                addToTop(new RemoveSpecificPowerAction(owner, owner, this));
-                addToTop(new ReducePowerAction(owner, owner, p, loseAmt));
-            }
+            flash();
+            int loseAmt = -amount;
+            addToTop(new RemoveSpecificPowerAction(owner, owner, this));
+            addToTop(new ApplyPowerAction(owner, owner, new MagicPower(owner, loseAmt), loseAmt));
         }
     }
     

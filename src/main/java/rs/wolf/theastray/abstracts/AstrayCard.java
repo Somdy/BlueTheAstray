@@ -658,7 +658,15 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     public int getBranchForRandomUpgrading(int msg) {
-        return isEnlightenCard() ? LMSK.CardRandomRng().random(branches().size() - 1) : defaultBranch();
+        if (isEnlightenCard()) {
+            List<UpgradeBranch> branches = branches();
+            if (branches != null) {
+                return LMSK.CardRandomRng().random(branches.size() - 1);
+            } else {
+                log("branchable but has no branches");
+            }
+        }
+        return defaultBranch();
     }
     
     @Override

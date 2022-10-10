@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.core.Leader;
 
-public class PatchToStopStsLibUnreasonablyCallingNonEssentialMethodAndPrintingSPAMLogsWhenViewingUpgrades {
+public class PatchToStopStsLibUnreasonablyCallingUnessentialMethodAndPrintingSPAMLogsWhenViewingUpgrades {
     @SpirePatch(cls = "com.evacipated.cardcrawl.mod.stslib.patches.FlavorText$FlavorIntoCardStrings",
             method = "postfix", optional = true)
     public static class StopCallingGetCardStringMethodPatch {
