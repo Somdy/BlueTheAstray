@@ -1,21 +1,12 @@
 package rs.wolf.theastray.cards.pros;
 
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import org.jetbrains.annotations.NotNull;
-import rs.lazymankits.actions.common.DrawExptCardAction;
-import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.lazymankits.utils.LMSK;
-import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.core.CardMst;
-import rs.wolf.theastray.patches.TACardEnums;
-import rs.wolf.theastray.utils.TAUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class B19 extends AstrayProCard {
@@ -23,7 +14,7 @@ public class B19 extends AstrayProCard {
         super(19, 1, CardTarget.NONE);
         setMagicValue(2, true);
         setExtraMagicValue(1, true);
-        setCanEnlighten(true);
+//        setCanEnlighten(true);
         exhaust = true;
     }
     

@@ -1,6 +1,5 @@
 package rs.wolf.theastray.relics;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import rs.wolf.theastray.abstracts.AstrayRelic;
@@ -19,6 +18,11 @@ public class Relic3 extends AstrayRelic {
     @Override
     public void onPlayerEndTurn() {
         flash();
+        counter = 0;
+    }
+    
+    @Override
+    public void onVictory() {
         counter = 0;
     }
     

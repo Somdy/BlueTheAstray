@@ -1,9 +1,6 @@
 package rs.wolf.theastray.cards.pros;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.actions.common.DiscoverAction;
@@ -14,7 +11,6 @@ import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.patches.TACardEnums;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class B32 extends AstrayProCard {
