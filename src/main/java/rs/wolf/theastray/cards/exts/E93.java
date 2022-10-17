@@ -8,7 +8,7 @@ import rs.wolf.theastray.cards.AstrayExtCard;
 
 public class E93 extends AstrayExtCard {
     public E93() {
-        super(93, 1, 1, CardTarget.ENEMY);
+        super(93, 1, 3, CardTarget.ENEMY);
         setDamageValue(7, true);
         setMagicValue(2, true);
     }

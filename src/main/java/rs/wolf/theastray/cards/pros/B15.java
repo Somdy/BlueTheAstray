@@ -37,7 +37,6 @@ public class B15 extends AstrayProCard {
             });
             add(() -> {
                 upgradeTexts(1);
-                setPromosValue(1, true);
                 setMagicalDerivative(true);
             });
         }};

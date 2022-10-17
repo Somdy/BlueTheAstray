@@ -8,7 +8,7 @@ public class B17 extends AstrayProCard {
     public B17() {
         super(17, 1, CardTarget.ENEMY);
         setDamageValue(6, true);
-        setMagicValue(3, true);
+        setMagicValue(2, true);
         setMagical(true);
     }
     

@@ -19,8 +19,8 @@ import java.util.List;
 public class B9 extends AstrayProCard {
     public B9() {
         super(9, 1, CardTarget.ALL_ENEMY);
-        setMagicValue(2, true);
-        setExtraMagicValue(2, true);
+        setMagicValue(3, true);
+        setExtraMagicValue(1, true);
         setCanEnlighten(true);
     }
     

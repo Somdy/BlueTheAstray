@@ -44,7 +44,6 @@ public class B3 extends AstrayProCard {
                 upgradeTexts(1);
                 setMagicValue(2, true);
                 setExtraMagicValue(1, true);
-                setPromosValue(1, true);
                 setStorage(true);
                 setMagicalDerivative(true);
             });

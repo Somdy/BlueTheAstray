@@ -1,6 +1,5 @@
 package rs.wolf.theastray.cards.exts;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -9,14 +8,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlyingDaggerEffect;
-import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.powers.BurntPower;
 import rs.wolf.theastray.utils.GlobalManaMst;
 
 public class E95 extends AstrayExtCard {
     public E95() {
-        super(95, 1, 2, CardTarget.ENEMY);
+        super(95, 1, 6, CardTarget.ENEMY);
         setDamageValue(0, true);
         setMagicValue(3, true);
         setMagical(true);

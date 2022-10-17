@@ -8,8 +8,8 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B50 extends AstrayProCard {
     public B50() {
         super(50, 1, CardTarget.SELF_AND_ENEMY);
-        setDamageValue(3, true);
-        setBlockValue(3, true);
+        setDamageValue(5, true);
+        setBlockValue(5, true);
         setPromosValue(0, true);
         setMagicalDerivative(true);
         setStorage(true);

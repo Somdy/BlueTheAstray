@@ -1,20 +1,21 @@
-package rs.wolf.theastray.cards.pros;
+package rs.wolf.theastray.cards.exts;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
+import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.cards.AstrayProCard;
-import rs.wolf.theastray.cards.exts.E89;
+import rs.wolf.theastray.cards.pros.B68;
 import rs.wolf.theastray.core.CardMst;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class B72 extends AstrayProCard {
+public class B72 extends AstrayExtCard {
     public B72() {
-        super(72, 1, CardTarget.ALL_ENEMY);
+        super(72, 1, 12, CardTarget.ALL_ENEMY);
         setMagicValue(2, true);
         setExtraMagicValue(4, true);
         setCanEnlighten(true);

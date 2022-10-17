@@ -9,9 +9,9 @@ import rs.wolf.theastray.powers.MagicPower;
 
 public class E107 extends AstrayExtCard {
     public E107() {
-        super(107, 1, 7, CardTarget.SELF);
+        super(107, 1, 8, CardTarget.SELF);
         setMagicValue(1, true);
-        setExtraMagicValue(3, true);
+        setExtraMagicValue(2, true);
     }
     
     @Override

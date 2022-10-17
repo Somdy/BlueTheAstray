@@ -41,6 +41,6 @@ public class B24 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeMagicNumber(3);
+        upgradeMagicNumber(1);
     }
 }

@@ -1,15 +1,16 @@
-package rs.wolf.theastray.cards.pros;
+package rs.wolf.theastray.cards.exts;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.actions.utility.DamageCallbackBuilder;
+import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.powers.MagicPower;
 
-public class B38 extends AstrayProCard {
+public class B38 extends AstrayExtCard {
     public B38() {
-        super(38, 1, CardTarget.ENEMY);
+        super(38, 1, 9, CardTarget.ENEMY);
         setDamageValue(9, true);
         setMagicValue(6, true);
         setPromosValue(3, true);

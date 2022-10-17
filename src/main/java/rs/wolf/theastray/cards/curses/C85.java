@@ -10,6 +10,8 @@ import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.utils.TAUtils;
 
 public class C85 extends AstrayCurseCard {
+    private static boolean EndingTurn = false;
+    
     public C85() {
         super(85);
         addTip(ILLUSION_CARD);
@@ -19,7 +21,7 @@ public class C85 extends AstrayCurseCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        if (!outOfDungeon() && TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)) {
+        if (!outOfDungeon() && TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT) && !EndingTurn) {
             int count = 0;
             for (AbstractCard c : cpr().hand.group) {
                 if (c.hasTag(TACardEnums.ILLUSION))
@@ -27,9 +29,15 @@ public class C85 extends AstrayCurseCard {
                 if (count >= 3) break;
             }
             if (count >= 3) {
+                EndingTurn = true;
                 addToTop(new PressEndTurnButtonAction());
             }
         }
+    }
+    
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        EndingTurn = false;
     }
     
     @Override

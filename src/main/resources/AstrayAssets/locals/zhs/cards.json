@@ -36,7 +36,7 @@
     "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 造成 !D! 伤害",
     "UPGRADED_DESC": [
       "astray:魔法 NL astray:晋升 !astray:promos! ， astray:启迪 NL 造成 !D! 伤害",
-      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:储能 ， astray:启迪 NL 造成 !D! 伤害 。 NL 给予 !M! 层 astray:余烬 NL 和 !astray:extras! 层 astray:冰霜 。"
+      "astray:衍生魔法 NL astray:储能 ， astray:启迪 NL 造成 !D! 伤害 。 NL 给予 !M! 层 astray:余烬 NL 和 !astray:extras! 层 astray:冰霜 。"
     ]
   },
   {
@@ -159,8 +159,8 @@
     "NAME": "立场堆叠",
     "DESCRIPTION": "astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。",
     "UPGRADED_DESC": [
-      "astray:启迪 ， 保留 。 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。",
-      "astray:衍生魔法 ， astray:启迪 NL astray:晋升 !astray:promos! ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。"
+      "astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。",
+      "astray:衍生魔法 NL astray:启迪 ， 保留 NL 获得 !B! 格挡 。 NL 打出后重置费用 NL 并回到手牌。"
     ]
   },
   {
@@ -250,7 +250,7 @@
   {
     "ID": "B27",
     "NAME": "震荡",
-    "DESCRIPTION": "astray:魔法 NL 对所有敌人造成 !D! 点伤害， NL 每有一名敌人多造成 !M! 点伤害。 NL 消耗",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:晋升 !astray:promos! NL 对所有敌人造成 !D! 点伤害， NL 每有一名敌人多造成 !M! 点伤害。 消耗",
     "MSG": [" NL （造成%d点伤害）"]
   },
   {
@@ -330,9 +330,9 @@
   {
     "ID": "B38",
     "NAME": "即死飞弹",
-    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL 造成 !D! 点伤害。 NL 若目标生命值低于你 !M! 倍 astray:魔力 则将其消灭。",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:晋升 !astray:promos! NL 造成 !D! 点伤害。 NL 若目标生命值低于你 !M! 倍 astray:魔力 则将其消灭。",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:晋升 !astray:promos! NL 对所有敌人造成 !D! 点伤害，直接击杀生命值低于你 !M! 倍 astray:魔力 的目标。"
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:晋升 !astray:promos! NL 对所有敌人造成 !D! 点伤害，直接击杀生命值低于你 !M! 倍 astray:魔力 的目标。"
     ]
   },
   {
@@ -344,9 +344,9 @@
   {
     "ID": "B39",
     "NAME": "魔术检索",
-    "DESCRIPTION": "抽 !M! 张 astray:魔法牌 。",
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 抽 !M! 张 astray:魔法牌 。 NL 抽到的 *魔法牌 在本场战斗中变成 astray:衍生魔法 。",
     "UPGRADED_DESC": [
-      "抽 !M! 张 astray:魔法牌 。 NL 抽到的 *魔法牌 在本场战斗中变成 astray:衍生魔法 。"
+      "astray:扩展 ( !astray:ext! ) NL 抽 !M! 张 astray:魔法牌 。 NL 抽到的 *魔法牌 在本场战斗中变成 astray:衍生魔法 。"
     ]
   },
   {
@@ -597,10 +597,10 @@
   {
     "ID": "B72",
     "NAME": "流星雨",
-    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 随机打出 *星星 或 *陨石召唤 共 !M! 张。 NL 打出 *陨石召唤 的概率为 !astray:extras! %.",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:启迪 NL 随机打出 *星星 或 *陨石召唤 共 !M! 张。 NL 打出 *陨石召唤 的概率为 !astray:extras! %.",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:启迪 NL 随机打出 *星星 或 *陨石召唤 共 !M! 张。 NL 打出 *陨石召唤 的概率为 !astray:extras! %.",
-      "astray:魔法 ， astray:启迪 NL 打出 !M! 张 *星星 。"
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:启迪 NL 随机打出 *星星 或 *陨石召唤 共 !M! 张。 NL 打出 *陨石召唤 的概率为 !astray:extras! %.",
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:启迪 NL 打出 !M! 张 *星星 。"
     ]
   },
   {
@@ -708,7 +708,7 @@
   {
     "ID": "C86",
     "NAME": "枯竭",
-    "DESCRIPTION": "不能被打出 ， 虚无 NL 抽到这张牌后， NL 本回合内无法获得 [E] ."
+    "DESCRIPTION": "不能被打出 NL 抽到这张牌后， NL 本回合内无法获得 [E] ."
   },
   {
     "ID": "C87",
@@ -745,10 +745,13 @@
   {
     "ID": "E92",
     "NAME": "闪电箭",
-    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。 NL 打出手牌中所有 *闪电箭 。",
+    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。 NL 变为 astray:衍生魔法 。",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。 NL 打出手牌中所有 *闪电箭 。",
-      "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。 NL 打出所有未 消耗 的 *闪电箭 。"
+      "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。 NL 变为 astray:衍生魔法 。",
+      "astray:魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。 NL 将所有未 消耗 的 *闪电箭 移入手牌。"
+    ],
+    "UPDATED_DESC": [
+      "astray:衍生魔法 ， astray:启迪 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:余烬 。"
     ]
   },
   {
@@ -825,7 +828,7 @@
   {
     "ID": "E102",
     "NAME": "神奇徽印",
-    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 抽 !M! 张牌。没有剩余 [E] 时才能打出。"
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 抽 !M! 张牌。没有剩余 [E] 时才能打出。"
   },
   {
     "ID": "E103",

@@ -9,7 +9,7 @@ import rs.wolf.theastray.cards.AstrayExtCard;
 
 public class E91 extends AstrayExtCard {
     public E91() {
-        super(91, 3, 6, CardTarget.ALL);
+        super(91, 3, 9, CardTarget.ALL);
         setMagicValue(1, true);
         setExtraMagicValue(1, true);
         setMagical(true);

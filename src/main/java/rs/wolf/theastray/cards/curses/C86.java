@@ -6,7 +6,6 @@ import rs.wolf.theastray.powers.unique.DroughtPower;
 public class C86 extends AstrayCurseCard {
     public C86() {
         super(86);
-        isEthereal = true;
     }
     
     @Override
