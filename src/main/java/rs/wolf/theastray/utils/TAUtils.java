@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -131,5 +132,11 @@ public interface TAUtils extends LMGameGeneralUtils {
         if (!id.startsWith(GetPrefix()))
             id = MakeID(id);
         return CardCrawlGame.languagePack.getPowerStrings(id);
+    }
+    
+    static MonsterStrings MonsterStrings(@NotNull String id) {
+        if (!id.startsWith(GetPrefix()))
+            id = MakeID(id);
+        return CardCrawlGame.languagePack.getMonsterStrings(id);
     }
 }

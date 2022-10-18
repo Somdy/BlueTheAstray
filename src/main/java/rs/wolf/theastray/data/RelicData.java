@@ -44,7 +44,7 @@ public class RelicData {
     }
     
     @NotNull
-    public static RelicData MockingData() {
-        return new RelicData("MISSING", "MISSING", AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.FLAT);
+    public static RelicData MockingData(String ID) {
+        return new RelicData(ID, ID, AbstractRelic.RelicTier.SPECIAL, AbstractRelic.LandingSound.FLAT);
     }
 }

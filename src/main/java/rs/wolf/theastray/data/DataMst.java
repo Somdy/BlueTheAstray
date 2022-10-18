@@ -94,7 +94,7 @@ public class DataMst {
     public static RelicData GetRelicData(int index) {
         if (RelicDataIndexMap.containsKey(index)) return RelicDataIndexMap.get(index);
         TAUtils.Log("UNDEFINED RELIC INDEX: [" + index + "]");
-        return RelicData.MockingData();
+        return RelicData.MockingData("Relic" + index);
     }
     
     public static RelicData GetRelicData(String localname) {
@@ -102,6 +102,6 @@ public class DataMst {
             return RelicDataIndexMap.get(RelicDataNameMap.get(localname));
         }
         TAUtils.Log("UNDEFINED RELIC LOCAL NAME: [" + localname + "]");
-        return RelicData.MockingData();
+        return RelicData.MockingData(localname);
     }
 }

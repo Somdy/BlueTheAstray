@@ -225,5 +225,17 @@
     "DESCRIPTIONS": [
       "回合结束时，给予所有敌人 #b[amt_0] 层 #y冰霜 ，持续 #b[amt_1] 回合。"
     ]
+  },
+  "astray:FocusedEyesPower": {
+    "NAME": "阵眼",
+    "DESCRIPTIONS": [
+      "你再打出 #b[amt_0] 张牌， #y[owner] 获得 #b[amt_1] 层 #y坚不可摧 。"
+    ]
+  },
+  "astray:MasteryBossPower": {
+    "NAME": "掌控",
+    "DESCRIPTIONS": [
+      "你再打出 #b[amt_0] 张牌， #y[owner] 获得 #b[amt_1] 层 #y死亡律动 。"
+    ]
   }
 }

@@ -75,5 +75,13 @@
     "DESCRIPTIONS": [
       "回合结束时，给予意图为攻击的敌人 #b3 层 #yastray:冰霜 ，并受到 #b1 点伤害。"
     ]
+  },
+
+  "RelicTest1": {
+    "NAME": "测试用遗物",
+    "FLAVOR": "你本不该看到此物。",
+    "DESCRIPTIONS": [
+      "替换腐化之心。"
+    ]
   }
 }

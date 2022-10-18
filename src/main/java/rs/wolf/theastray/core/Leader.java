@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -34,6 +36,7 @@ import rs.wolf.theastray.commands.CheatCMD;
 import rs.wolf.theastray.commands.ManaCMD;
 import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.localizations.TALocalLoader;
+import rs.wolf.theastray.monsters.BlueTheBoss;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.relics.Relic1;
 import rs.wolf.theastray.utils.GlobalManaMst;
@@ -97,6 +100,7 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         BaseMod.loadCustomStringsFile(PowerStrings.class, "AstrayAssets/locals/" + lang + "/powers.json");
         BaseMod.loadCustomStringsFile(RelicStrings.class, "AstrayAssets/locals/" + lang + "/relics.json");
         BaseMod.loadCustomStringsFile(UIStrings.class, "AstrayAssets/locals/" + lang + "/ui.json");
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, "AstrayAssets/locals/" + lang + "/monsters.json");
     }
     
     @Override
@@ -129,6 +133,9 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         TAImageMst.Initialize();
         ConsoleCommand.addCommand("bluemana", ManaCMD.class);
         ConsoleCommand.addCommand("bluecheat", CheatCMD.class);
+        BaseMod.addMonster("BlueTheBoss", () -> new MonsterGroup(new AbstractMonster[]{
+                new BlueTheBoss(0F, 0F)
+        }));
         MsgLogger.Log();
     }
     
