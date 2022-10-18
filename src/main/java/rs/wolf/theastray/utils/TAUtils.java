@@ -106,17 +106,17 @@ public interface TAUtils extends LMGameGeneralUtils {
     }
     
     @NotNull
-    static String CardImage(int index) {
+    static String CardImage(String index) {
         return "AstrayAssets/images/cardports/" + index + ".png";
     }
     
-    static Texture RelicImage(int index) {
+    static Texture RelicImage(String index) {
         if (Gdx.files.internal("AstrayAssets/images/relics/" + index + ".png").exists())
             return ImageMaster.loadImage("AstrayAssets/images/relics/" + index + ".png");
         return ImageMaster.loadImage("AstrayAssets/images/relics/test.png");
     }
     
-    static Texture RelicOutlineImage(int index) {
+    static Texture RelicOutlineImage(String index) {
         if (Gdx.files.internal("AstrayAssets/images/relics/outline/" + index + ".png").exists())
             return ImageMaster.loadImage("AstrayAssets/images/relics/outline/" + index + ".png");
         return ImageMaster.loadImage("AstrayAssets/images/relics/test.png");

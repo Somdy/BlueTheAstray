@@ -13,9 +13,10 @@ import rs.wolf.theastray.powers.FrostPower;
 import rs.wolf.theastray.utils.TAUtils;
 
 public abstract class AstrayRelic extends LMCustomRelic {
+    
     private AstrayRelic(@NotNull RelicData data) {
-        super(data.getRelicID(), TAUtils.RelicImage(Integer.parseInt(data.getInternalID().substring(5))), 
-                TAUtils.RelicOutlineImage(Integer.parseInt(data.getInternalID().substring(5))), data.getTier(), data.getSfx());
+        super(data.getRelicID(), TAUtils.RelicImage(data.getInternalID().substring(5)), 
+                TAUtils.RelicOutlineImage(data.getInternalID().substring(5)), data.getTier(), data.getSfx());
     }
     
     public AstrayRelic(int index) {

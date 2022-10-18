@@ -71,7 +71,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     @Override
     public ArrayList<String> getStartingRelics() {
-        return listFromObjs(GlobalIDMst.RelicID(1));
+        return listFromObjs(GlobalIDMst.RelicID(1), "astray:RelicTest1");
     }
     
     @Override

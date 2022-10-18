@@ -77,7 +77,7 @@
     ]
   },
 
-  "RelicTest1": {
+  "astray:RelicTest1": {
     "NAME": "测试用遗物",
     "FLAVOR": "你本不该看到此物。",
     "DESCRIPTIONS": [

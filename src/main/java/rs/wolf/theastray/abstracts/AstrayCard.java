@@ -76,7 +76,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     protected final TooltipInfo ILLUSION_CARD = new TooltipInfo(U_MSG[1], U_MSG[2]);
     
     public AstrayCard(@NotNull CardData data, int cost, CardColor color, CardTarget target) {
-        super(data.getCardID(), "uninitialized", TAUtils.CardImage(Integer.parseInt(data.getInternalID().substring(1))), 
+        super(data.getCardID(), "uninitialized", TAUtils.CardImage(data.getInternalID().substring(1)), 
                 cost, "uninitialized", data.getType(), color, data.getRarity(), target);
         this.data = data;
         setCanEnlighten(false);
