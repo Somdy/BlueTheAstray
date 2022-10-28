@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.interfaces.MagicModifier;
+import rs.wolf.theastray.relics.Relic11;
 import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
 
@@ -32,6 +33,11 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
     
     boolean hasC88InHand() {
         return cpr().hand.group.stream().anyMatch(c -> c.cardID.equals(GlobalIDMst.CardID("短路")));
+    }
+    
+    @Override
+    public int getMaxAmount() {
+        return Relic11.GetMaxAmount(super.getMaxAmount());
     }
     
     @Override

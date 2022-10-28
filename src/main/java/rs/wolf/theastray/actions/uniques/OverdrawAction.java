@@ -1,12 +1,16 @@
 package rs.wolf.theastray.actions.uniques;
 
 import com.badlogic.gdx.Gdx;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.defect.SeekAction;
+import com.megacrit.cardcrawl.actions.unique.AttackFromDeckToHandAction;
+import com.megacrit.cardcrawl.actions.unique.SkillFromDeckToHandAction;
+import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -17,9 +21,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CannotCompileException;
+import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 import org.jetbrains.annotations.NotNull;
+import rs.lazymankits.actions.common.DrawExptCardAction;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayGameAction;
 import rs.wolf.theastray.powers.unique.MagicalBodyPower;
@@ -139,7 +145,7 @@ public abstract class OverdrawAction extends AstrayGameAction {
         endWithFollowup();
     }
     
-    public static class OverdrawActionPatch {
+    public static class DrawCardActionPatch {
         public static int originAmount;
         @SpirePatch(clz = DrawCardAction.class, method = SpirePatch.CONSTRUCTOR,
                 paramtypez = {AbstractCreature.class, int.class, boolean.class})
@@ -158,8 +164,8 @@ public abstract class OverdrawAction extends AstrayGameAction {
                     public void edit(MethodCall m) throws CannotCompileException {
                         if (m.getMethodName().equals("createHandIsFullDialog") && m.getLineNumber() < 113) {
                             TAUtils.Log("Hand Is Already Full.");
-                            m.replace("if(" + OverdrawActionPatch.class.getName() + ".CanOverdraw($0)){"
-                                    + OverdrawActionPatch.class.getName() + ".FullHandOverdraw(this.amount,this.followUpAction);" +
+                            m.replace("if(" + DrawCardActionPatch.class.getName() + ".CanOverdraw($0)){"
+                                    + DrawCardActionPatch.class.getName() + ".FullHandOverdraw(this.amount,this.followUpAction);" +
                                     "this.isDone=true;return;}else{$_ = $proceed($$);}");
                         }
                     }
@@ -172,10 +178,10 @@ public abstract class OverdrawAction extends AstrayGameAction {
                     public void edit(MethodCall m) throws CannotCompileException {
                         if (m.getMethodName().equals("createHandIsFullDialog") && m.getLineNumber() > 113) {
                             TAUtils.Log("Hand Is Half Full.");
-                            m.replace("if(" + OverdrawActionPatch.class.getName() + ".CanOverdraw($0)){"
-                                    + OverdrawActionPatch.class.getName() + ".HalfHandOverdraw(" +
+                            m.replace("if(" + DrawCardActionPatch.class.getName() + ".CanOverdraw($0)){"
+                                    + DrawCardActionPatch.class.getName() + ".HalfHandOverdraw(" +
                                     Math.class.getName() + ".abs(handSizeAndDraw),this.followUpAction);"
-                                    + OverdrawActionPatch.class.getName() + ".originAmount=0;" + "}else{$_ = $proceed($$);}");
+                                    + DrawCardActionPatch.class.getName() + ".originAmount=0;" + "}else{$_ = $proceed($$);}");
                         }
                     }
                 };
@@ -194,6 +200,54 @@ public abstract class OverdrawAction extends AstrayGameAction {
         
         public static boolean CanOverdraw(@NotNull AbstractPlayer p) {
             return p.powers.stream().anyMatch(po -> po instanceof MagicalBodyPower);
+        }
+    }
+    
+    @SpirePatch2(clz = MakeTempCardInHandAction.class, method = "addToDiscard")
+    public static class MakeTempCardInHandActionPatch {
+        @SpirePostfixPatch
+        public static void Postfix(int discardAmt) {
+            if (discardAmt > 0) {
+                for (AbstractPower p : LMSK.Player().powers) {
+                    if (p instanceof MagicalBodyPower)
+                        ((MagicalBodyPower) p).function(discardAmt);
+                }
+            }
+        }
+    }
+    
+    @SpirePatches2({
+            @SpirePatch2(clz = BetterDrawPileToHandAction.class, method = "update"),
+            @SpirePatch2(clz = SeekAction.class, method = "update"),
+            @SpirePatch2(clz = AttackFromDeckToHandAction.class, method = "update"),
+            @SpirePatch2(clz = SkillFromDeckToHandAction.class, method = "update"),
+            @SpirePatch2(clz = DrawPileToHandAction.class, method = "update")
+    })
+    public static class AnywayToHandActionPatch {
+        @SpireInsertPatch(locator = Locator.class)
+        public static void Insert() {
+            for (AbstractPower p : LMSK.Player().powers) {
+                if (p instanceof MagicalBodyPower)
+                    ((MagicalBodyPower) p).function(1);
+            }
+        }
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher.MethodCallMatcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, 
+                        "createHandIsFullDialog");
+                return LineFinder.findAllInOrder(ctBehavior, matcher);
+            }
+        }
+    }
+    
+    @SpirePatch2(clz = DrawExptCardAction.class, method = "update")
+    public static class DrawExptCardActionPatch {
+        @SpirePrefixPatch
+        public static void Prefix(DrawExptCardAction __instance) {
+            if (LMSK.Player().powers.stream().anyMatch(p -> p instanceof MagicalBodyPower)) {
+                __instance.ignoreFullHand(true);
+            }
         }
     }
 }

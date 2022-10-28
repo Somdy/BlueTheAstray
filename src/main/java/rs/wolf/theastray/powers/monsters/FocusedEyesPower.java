@@ -13,7 +13,7 @@ import rs.wolf.theastray.utils.TAUtils;
 
 public class FocusedEyesPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("FocusedEyesPower");
-    private int baseCardsNeed;
+    private final int baseCardsNeed;
     
     public FocusedEyesPower(BlueTheBoss owner, int cardsNeed, int invAmt) {
         super(ID, "mantra", PowerType.BUFF, owner);

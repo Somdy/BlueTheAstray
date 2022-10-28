@@ -50,11 +50,9 @@ public class B9 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                upgradeMagicNumber(1);
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeMagicNumber(1);
             });
         }};
     }

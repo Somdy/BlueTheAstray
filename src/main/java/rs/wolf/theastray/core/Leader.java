@@ -4,6 +4,7 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -48,13 +49,14 @@ import rs.wolf.theastray.variables.TAExtraMagic;
 import rs.wolf.theastray.variables.TAPromotion;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 @SpireInitializer
 @SuppressWarnings("unused")
 public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
         PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber, 
         OnPlayerLoseBlockSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber, OnStartBattleSubscriber, 
-        OnShuffleSubscriber, OnMakingCardInCombatSubscriber {
+        OnShuffleSubscriber, OnMakingCardInCombatSubscriber, PostCreateStartingRelicsSubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
@@ -157,7 +159,7 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         new AutoAdd(MOD_ID)
                 .packageFilter(Relic1.class)
                 .any(AstrayRelic.class, (i, r) -> {
-                    BaseMod.addRelicToCustomPool(r.makeCopy(), TACardEnums.TA_CardColor);
+                    BaseMod.addRelic(r.makeCopy(), RelicType.SHARED);
                     UnlockTracker.markRelicAsSeen(r.relicId);
                     TAUtils.Log("[" + r.name + "] added");
                 });
@@ -252,5 +254,10 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
             if (power instanceof AstrayPower)
                 ((AstrayPower) power).onMakingCardInCombat(card, destination);
         }
+    }
+    
+    @Override
+    public void receivePostCreateStartingRelics(AbstractPlayer.PlayerClass playerClass, ArrayList<String> relicList) {
+        relicList.add("astray:RelicTest1");
     }
 }

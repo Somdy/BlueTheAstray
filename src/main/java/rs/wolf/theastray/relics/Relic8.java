@@ -1,65 +1,55 @@
 package rs.wolf.theastray.relics;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
-import rs.lazymankits.utils.LMSK;
+import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
+import rs.lazymankits.interfaces.cards.RUM;
 import rs.wolf.theastray.abstracts.AstrayRelic;
-import rs.wolf.theastray.utils.GlobalIDMst;
-import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Relic8 extends AstrayRelic {
+    private static final AbstractCard.CardRarity[] RARITIES = {AbstractCard.CardRarity.BASIC, AbstractCard.CardRarity.SPECIAL, 
+            AbstractCard.CardRarity.COMMON, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardRarity.RARE};
     public Relic8() {
         super(8);
     }
     
     @Override
-    public void onEnterRoom(AbstractRoom room) {
-        if (TAUtils.RoomChecker(MonsterRoomBoss.class)) {
-            usedUp();
-            counter = -10;
-        }
-    }
-    
-    protected boolean shouldCheckReward() {
-        return !usedUp && counter == -10;
-    }
-    
-    public static void RewardCheck(ArrayList<AbstractCard> cardList) {
-        int least = 2;
-        if (!cardList.isEmpty()) {
-            least = Math.min(least, cardList.size());
-            int count = 0;
-            for (AbstractCard card : cardList) {
-                if (card.upgraded) count++;
-                if (count >= least) break;
+    public void onObtainCard(AbstractCard card) {
+        if (!cpr().masterDeck.isEmpty()) {
+            List<AbstractCard> cards = new ArrayList<>();
+            int rarity = 0;
+            while (cards.isEmpty()) {
+                collectCards(cards, rarity);
+                rarity++;
+                if (rarity >= RARITIES.length) break;
             }
-            int diff = least - count;
-            if (diff > 0) {
-                LMSK.Player().getRelic(GlobalIDMst.RelicID(8)).flash();
-                for (int i = 0; i < diff; i++) {
-                    Optional<AbstractCard> opt = LMSK.GetRandom(cardList, LMSK.CardRandomRng());
-                    opt.ifPresent(AbstractCard::upgrade);
-                }
+            if (!cards.isEmpty()) {
+                flash();
+                getRandom(cards, cardRandomRng())
+                        .ifPresent(c -> {
+                            if (c instanceof BranchableUpgradeCard && ((BranchableUpgradeCard) c).canBranch()) {
+                                int branch = ((BranchableUpgradeCard) c).getBranchForRandomUpgrading(RUM.LESSONS_LEARNT);
+                                ((BranchableUpgradeCard) c).setChosenBranch(branch);
+                            }
+                            c.upgrade();
+                            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
+                            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(), 
+                                    Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
+                        });
             }
         }
     }
     
-    @SpirePatch2(clz = AbstractDungeon.class, method = "getRewardCards")
-    public static class BadgePatch {
-        @SpirePostfixPatch
-        public static void Postfix(ArrayList<AbstractCard> __result) {
-            if (LMSK.Player().hasRelic(GlobalIDMst.RelicID(8))) {
-                Relic8 r = (Relic8) LMSK.Player().getRelic(GlobalIDMst.RelicID(8));
-                if (r.shouldCheckReward()) 
-                    Relic8.RewardCheck(__result);
-            }
-        }
+    private void collectCards(List<AbstractCard> cards, int index) {
+        cards.addAll(cpr().masterDeck.group.stream()
+                .filter(c -> isCardRarityOf(c, RARITIES[index]))
+                .collect(Collectors.toList()));
     }
 }

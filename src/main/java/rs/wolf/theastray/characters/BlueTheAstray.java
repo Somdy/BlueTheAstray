@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.cards.colorless.Madness;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -20,14 +21,18 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbGreen;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.core.Leader;
+import rs.wolf.theastray.monsters.BlueTheBoss;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.ui.manalayout.ManaMst;
 import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
+import rs.wolf.theastray.vfx.misc.StarsInNightEffect;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public static final String ID = TAUtils.MakeID("TheAstray");
@@ -47,6 +52,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public static final int DRAW_PER_TURN = 5;
     public static final Color TAColor = Leader.TAColor;
     public ManaMst manaMst;
+    private final StarsInNightEffect starsEffect;
     
     public BlueTheAstray() {
         super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbBlue(), null, null);
@@ -59,6 +65,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
 //        e.setTimeScale(0.8F);
         dialogX = drawX + scale(1.5F);
         dialogY = drawY + scale(220F);
+        starsEffect = new StarsInNightEffect(6, 4);
     }
     
     @Override
@@ -71,7 +78,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     @Override
     public ArrayList<String> getStartingRelics() {
-        return listFromObjs(GlobalIDMst.RelicID(1), "astray:RelicTest1");
+        return listFromObjs(GlobalIDMst.RelicID(1));
     }
     
     @Override
@@ -139,9 +146,26 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     }
     
     @Override
-    public void doCharSelectScreenSelectEffect() {
-        
+    public List<CutscenePanel> getCutscenePanels() {
+        if (BlueTheBoss.AsFinal) {
+            return super.getCutscenePanels();
+        } else {
+            List<CutscenePanel> panels = new ArrayList<>();
+            panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_1.png", "ATTACK_FIRE"));
+            panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_2.png"));
+            panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_3.png"));
+            return panels;
+        }
     }
+    
+    @Override
+    public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
+        if (!effects.contains(starsEffect))
+            effects.add(starsEffect);
+    }
+    
+    @Override
+    public void doCharSelectScreenSelectEffect() {}
     
     @Override
     public String getCustomModeCharacterButtonSoundKey() {

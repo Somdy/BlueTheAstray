@@ -39,6 +39,6 @@ public class SpawnLunarBossesPatches {
     }
     
     private static boolean SpawnNewtForHeart() {
-        return LMSK.Player().relics.stream().anyMatch(r -> r instanceof RelicTest1);
+        return LMSK.Player().relics.stream().anyMatch(r -> r instanceof RelicTest1 && r.counter == -1);
     }
 }

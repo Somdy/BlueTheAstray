@@ -16,11 +16,6 @@ public abstract class AstrayCurseCard extends AstrayCard {
     }
     
     @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
-    
-    @Override
     public void play(AbstractCreature s, AbstractCreature t) {}
     
     @Override

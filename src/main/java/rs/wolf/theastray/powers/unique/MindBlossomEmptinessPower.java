@@ -1,21 +1,22 @@
 package rs.wolf.theastray.powers.unique;
 
+import basemod.cardmods.EtherealMod;
+import basemod.helpers.CardModifierManager;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
 import rs.lazymankits.interfaces.cards.RUM;
-import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.utils.TAUtils;
 
-public class MindBlossomPower extends AstrayPower {
-    public static final String ID = TAUtils.MakeID("MindBlossomPower");
+public class MindBlossomEmptinessPower extends AstrayPower {
+    public static final String ID = TAUtils.MakeID("MindBlossomEmptinessPower");
     
-    public MindBlossomPower() {
+    public MindBlossomEmptinessPower() {
         super(ID, "panache", PowerType.BUFF, AbstractDungeon.player);
         stackable = false;
         updateDescription();
@@ -23,17 +24,19 @@ public class MindBlossomPower extends AstrayPower {
     
     @Override
     public void onMakingCardInCombat(AbstractCard card, CardGroup destination) {
-        if (!card.upgraded && (TAUtils.IsMagical(card) || card instanceof AstrayExtCard)) {
-            if (card instanceof BranchableUpgradeCard && ((BranchableUpgradeCard) card).canBranch()) {
-                int index = ((BranchableUpgradeCard) card).getBranchForRandomUpgrading(RUM.MASTER_REALITY);
-                ((BranchableUpgradeCard) card).setChosenBranch(index);
-            }
-            card.upgrade();
+        if (card instanceof AstrayExtCard) {
+            CardModifierManager.addModifier(card, new EtherealMod());
         }
     }
     
     @Override
+    public void onInitialApplication() {
+        cpr().powers.stream().filter(p -> p instanceof MindBlossomPower)
+                .forEach(p -> addToTop(new RemoveSpecificPowerAction(cpr(), cpr(), p)));
+    }
+    
+    @Override
     public AbstractPower makeCopy() {
-        return new MindBlossomPower();
+        return new MindBlossomEmptinessPower();
     }
 }

@@ -165,10 +165,17 @@
       "回合内，每当你获得或失去 #b1 [E] ，抽 #b[amt_0] 张牌。"
     ]
   },
-  "astray:AshPower": {
+  "DEPRECATED astray:AshPower": {
     "NAME": "余烬之前",
     "DESCRIPTIONS": [
       "在你打出已 #y升级 的 #y启迪 牌后，将它的另一个分支的 #b[amt_0] 张复制置入手牌。"
+    ]
+  },
+  "astray:AshPower": {
+    "NAME": "余烬之前",
+    "DESCRIPTIONS": [
+      "给予 #y余烬 时获得等量的 #y格挡 。再 #y消耗 #b[amt_0] 张牌后该能力失效。",
+      "这个能力已经失效了。"
     ]
   },
   "astray:IgnorancePower": {
@@ -193,7 +200,20 @@
   "astray:MindBlossomPower": {
     "NAME": "思维绽放",
     "DESCRIPTIONS": [
-      "本场战斗中， #y升级 所有 #y启迪 牌。"
+      "#y升级 战斗中临时获得的 #y魔法牌 和 #y扩展牌 。"
+    ]
+  },
+  "astray:MindBlossomMasteryPower": {
+    "NAME": "思维绽放-掌控",
+    "DESCRIPTIONS": [
+      "#y升级 战斗中临时获得的 #y魔法牌 和 #y扩展牌 ， #y升级 #y启迪 牌时选择分支。",
+      "为 %s 选择分支"
+    ]
+  },
+  "astray:MindBlossomEmptinessPower": {
+    "NAME": "思维绽放-空想",
+    "DESCRIPTIONS": [
+      "战斗中临时获得的 #y扩展牌 获得 #y虚无 。"
     ]
   },
   "astray:InfWisdomPower": {
@@ -235,7 +255,13 @@
   "astray:MasteryBossPower": {
     "NAME": "掌控",
     "DESCRIPTIONS": [
-      "你再打出 #b[amt_0] 张牌， #y[owner] 获得 #b[amt_1] 层 #y死亡律动 。"
+      "你再打出 #b[amt_0] 张牌， #y[owner] 获得 #b[amt_1] 层 #y死亡律动 和 #y深蓝同化 。"
+    ]
+  },
+  "astray:AssimilationPower": {
+    "NAME": "深蓝同化",
+    "DESCRIPTIONS": [
+      "你每打出 #b[amt_0] 张牌， #y[owner] 获得 #b[amt_1] 点 #y格挡 。"
     ]
   }
 }

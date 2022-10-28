@@ -31,6 +31,9 @@ public class MasteryBossPower extends AstrayPower {
             if (amount <= 0) {
                 flash();
                 addToBot(new ApplyPowerAction(owner, owner, new BeatOfDeathPower(owner, extraAmt)));
+                if (owner instanceof BlueTheBoss) {
+                    addToBot(new ApplyPowerAction(owner, owner, new AssimilationPower((BlueTheBoss) owner, 1, 1)));
+                }
                 amount = baseCardsNeed;
             }
             updateDescription();

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.lazymankits.actions.CustomDmgInfo;
 import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.relics.Relic11;
 import rs.wolf.theastray.utils.TAUtils;
 
 public class BurntPower extends AstrayPower {
@@ -31,6 +32,11 @@ public class BurntPower extends AstrayPower {
             extraAmt *= 2;
         }
         setAmtValue(1, extraAmt);
+    }
+    
+    @Override
+    public int getMaxAmount() {
+        return Relic11.GetMaxAmount(super.getMaxAmount());
     }
     
     @Override

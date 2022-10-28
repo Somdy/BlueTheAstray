@@ -14,7 +14,6 @@ public class B79 extends AstrayProCard {
     public B79() {
         super(79, 1, CardTarget.ALL_ENEMY);
         setDamageValue(14, true);
-        setMagical(true);
         setStorage(true);
         addTip(ILLUSION_CARD);
         exhaust = true;
@@ -32,5 +31,6 @@ public class B79 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
+        setMagical(true);
     }
 }
