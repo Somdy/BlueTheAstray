@@ -20,7 +20,7 @@ public class B77 extends AstrayProCard {
         atbTmpAction(() -> {
             int amount = BaseMod.MAX_HAND_SIZE - cpr().hand.size();
             for (int i = 0; i < amount; i++) {
-                AbstractCard copy = CardMst.ReturnRndMagicInCombat();
+                AbstractCard copy = CardMst.ReturnRndMagicInCombat(false);
                 copy.setCostForTurn(copy.costForTurn - magicNumber);
                 addToTop(new MakeTempCardInHandAction(copy, 1));
             }

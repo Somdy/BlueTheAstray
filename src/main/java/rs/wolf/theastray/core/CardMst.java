@@ -154,21 +154,21 @@ public class CardMst {
         return tmp.get(LMSK.CardRandomRng().random(tmp.size() - 1));
     }
     
-    public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean extIncluded, Predicate<AbstractCard> expt) {
-        List<AstrayCard> tmp = GetAllCards((d, c) -> TAUtils.IsMagical(c) && c.rarity != AbstractCard.CardRarity.BASIC
-                && ((extIncluded && c.canSpawnInCombat()) || !EXTS.contains(d.getInternalID())));
-        tmp.removeIf(c -> !expt.test(c));
+    public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean deMagicIncluded, boolean extIncluded, Predicate<AbstractCard> expt) {
+        List<AstrayCard> tmp = GetAllCards((d, c) -> (TAUtils.IsMagical(c) || deMagicIncluded && TAUtils.IsDeMagical(c))
+                && c.rarity != AbstractCard.CardRarity.BASIC 
+                && ((extIncluded && c.canSpawnInCombat()) || !EXTS.contains(d.getInternalID())) && expt.test(c));
         if (tmp.isEmpty()) return new Madness();
         int index = rng.random(tmp.size() - 1);
         return tmp.get(index);
     }
     
-    public static AbstractCard ReturnRndMagicInCombat(Predicate<AbstractCard> expt) {
-        return ReturnRndMagicInCombat(LMSK.CardRandomRng(), true, expt);
+    public static AbstractCard ReturnRndMagicInCombat(boolean deMagicIncluded, Predicate<AbstractCard> expt) {
+        return ReturnRndMagicInCombat(LMSK.CardRandomRng(), deMagicIncluded, true, expt);
     }
     
-    public static AbstractCard ReturnRndMagicInCombat() {
-        return ReturnRndMagicInCombat(LMSK.CardRandomRng(), true, c -> true);
+    public static AbstractCard ReturnRndMagicInCombat(boolean deMagicIncluded) {
+        return ReturnRndMagicInCombat(LMSK.CardRandomRng(), deMagicIncluded, true, c -> true);
     }
     
     public static void RegisterColors() {

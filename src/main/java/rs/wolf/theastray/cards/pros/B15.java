@@ -11,7 +11,7 @@ import java.util.List;
 public class B15 extends AstrayProCard {
     public B15() {
         super(15, 1, CardTarget.SELF);
-        setBlockValue(7, true);
+        setBlockValue(6, true);
         setCanEnlighten(true);
         selfRetain = true;
         returnToHand = true;

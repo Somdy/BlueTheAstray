@@ -22,7 +22,7 @@ public class SequenceExhaustPower extends AstrayPower {
     public void onExhaust(AbstractCard card) {
         if (TAUtils.IsMagical(card) && amount > 0) {
             for (int i = 0; i < amount; i++) {
-                AbstractCard copy = CardMst.ReturnRndMagicInCombat();
+                AbstractCard copy = CardMst.ReturnRndMagicInCombat(false);
                 addToBot(new MakeTempCardInHandAction(copy, 1));
             }
         }

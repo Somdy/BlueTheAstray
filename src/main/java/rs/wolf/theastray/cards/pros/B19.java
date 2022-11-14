@@ -26,7 +26,7 @@ public class B19 extends AstrayProCard {
                 opt.ifPresent(c -> addToTop(new MakeTempCardInHandAction(c, 1)));
             }
             for (int i = 0; i < getExtraMagic(); i++) {
-                AbstractCard magic = CardMst.ReturnRndMagicInCombat();
+                AbstractCard magic = CardMst.ReturnRndMagicInCombat(false);
                 addToTop(new MakeTempCardInHandAction(magic, 1));
             }
         });

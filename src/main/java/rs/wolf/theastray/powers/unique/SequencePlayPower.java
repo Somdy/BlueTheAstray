@@ -1,7 +1,6 @@
 package rs.wolf.theastray.powers.unique;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -21,10 +20,10 @@ public class SequencePlayPower extends AstrayPower implements DeMagicSensitiveGe
     }
     
     @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+    public void onExhaust(AbstractCard card) {
         if (TAUtils.IsDeMagical(card) && amount > 0) {
             for (int i = 0; i < amount; i++) {
-                AbstractCard copy = CardMst.ReturnRndMagicInCombat();
+                AbstractCard copy = CardMst.ReturnRndMagicInCombat(true);
                 addToBot(new MakeTempCardInHandAction(copy, 1));
             }
         }

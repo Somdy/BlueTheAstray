@@ -54,7 +54,10 @@ public class B48 extends AstrayProCard {
                 upgradeTexts();
                 upgradeMagicNumber(1);
             });
-            add(() -> upgradeTexts(1));
+            add(() -> {
+                upgradeTexts(1);
+                upgradeBaseCost(0);
+            });
         }};
     }
 }

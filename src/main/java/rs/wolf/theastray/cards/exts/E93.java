@@ -11,6 +11,7 @@ public class E93 extends AstrayExtCard {
         super(93, 1, 3, CardTarget.ENEMY);
         setDamageValue(7, true);
         setMagicValue(2, true);
+        setMagical(true);
     }
     
     @Override

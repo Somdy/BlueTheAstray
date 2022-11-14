@@ -59,10 +59,9 @@ public class SwapEnlightenBranchEffect extends LMCustomGameEffect implements TAU
             isDone = true;
             if (CampfireUI.hidden) {
                 AbstractRoom.waitTimer = 0F;
-                AbstractRoom currRoom = AbstractDungeon.getCurrRoom();
                 currRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
                 CampfireUI.hidden = false;
-                ((RestRoom) currRoom).campfireUI.somethingSelected = false;
+                ((RestRoom) currRoom()).campfireUI.somethingSelected = false;
             }
         }
         if (!AbstractDungeon.isScreenUp) {

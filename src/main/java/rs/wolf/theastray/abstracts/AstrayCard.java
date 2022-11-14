@@ -4,6 +4,7 @@ import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -330,8 +331,6 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     public final void upgrade() {
         if (canUpgrade())
             selfUpgrade();
-        if (fakeRestroom)
-            setFakeRestroom(false);
     }
     
     public abstract void selfUpgrade();
@@ -549,7 +548,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @return 当该牌为衍生魔法牌时，返回 true，否则返回 false
      */
     public final boolean isMagicalDerivative() {
-        return isMagicalDerivative && isMagical();
+        return isMagicalDerivative;
     }
     
     /**
@@ -560,9 +559,12 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      */
     public final void setMagicalDerivative(boolean magicalDerivative) {
         isMagicalDerivative = magicalDerivative;
-        if (magicalDerivative)
+        if (magicalDerivative) {
+            setManaCost(0);
             addTags(TACardEnums.DE_MAGICAL);
-        setMagical(magicalDerivative, 0);
+        } else {
+            tags.remove(TACardEnums.DE_MAGICAL);
+        }
     }
     
     public final boolean isBranchable() {
@@ -610,7 +612,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @return 当玩家在火堆，返回 true，否则 false
      */
     protected final boolean inRestroom() {
-        return TAUtils.RoomChecker(RestRoom.class, AbstractRoom.RoomPhase.INCOMPLETE) || fakeRestroom;
+        return TAUtils.RoomChecker(RestRoom.class) || fakeRestroom;
     }
     
     public final void setFakeRestroom(boolean fakeRestroom) {
@@ -683,14 +685,22 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     }
     
     @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard card = super.makeStatEquivalentCopy();
+        if (card instanceof AstrayCard) {
+            ((AstrayCard) card).setFakeRestroom(this.fakeRestroom);
+            ((AstrayCard) card).setPromosValue(this.getBasePromos(), true);
+        }
+        return card;
+    }
+    
+    @Override
     public final boolean isSensitive() {
         return isMagicalDerivative();
     }
     
     @Override
     public final boolean canTriggerOnGear(Object o, String s) {
-        if (!(o instanceof DeMagicSensitiveGear))
-            log(o.getClass().getSimpleName() + " is not de-magic sensitive");
         return o instanceof DeMagicSensitiveGear;
     }
     

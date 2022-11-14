@@ -14,6 +14,7 @@ public class B36 extends AstrayProCard {
         setBlockValue(14, true);
         setMagical(true);
         setStorage(true);
+        exhaust = true;
     }
     
     @Override

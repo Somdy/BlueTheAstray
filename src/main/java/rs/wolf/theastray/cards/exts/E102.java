@@ -17,7 +17,9 @@ public class E102 extends AstrayExtCard {
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        addToBot(new DrawCardAction(s, magicNumber));
+        if (EnergyPanel.getCurrentEnergy() <= 0) {
+            addToBot(new DrawCardAction(s, magicNumber));
+        }
     }
     
     @Override
@@ -27,7 +29,7 @@ public class E102 extends AstrayExtCard {
     }
     
     @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return super.canUse(p, m) && EnergyPanel.getCurrentEnergy() <= 0;
+    public void triggerOnGlowCheck() {
+        glowColor = EnergyPanel.getCurrentEnergy() <= 0 ? GOLD_BORDER_GLOW_COLOR.cpy() : BLUE_BORDER_GLOW_COLOR.cpy();
     }
 }

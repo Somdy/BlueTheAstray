@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
+import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
+import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayGameAction;
 
 public class ChooseBranchForEnlightenCardAction extends AstrayGameAction {
@@ -15,6 +17,8 @@ public class ChooseBranchForEnlightenCardAction extends AstrayGameAction {
     
     public ChooseBranchForEnlightenCardAction(AbstractCard card, String msg) {
         this.card = card;
+        if (this.card instanceof AstrayCard)
+            ((AstrayCard) this.card).setFakeRestroom(true);
         this.msg = msg;
         actionType = ActionType.CARD_MANIPULATION;
         duration = startDuration = Settings.ACTION_DUR_XFAST;
@@ -39,6 +43,8 @@ public class ChooseBranchForEnlightenCardAction extends AstrayGameAction {
                 card.upgrade();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
+            if (card instanceof AstrayCard)
+                ((AstrayCard) card).setFakeRestroom(false);
             isDone = true;
         }
     }

@@ -24,7 +24,6 @@ public class B75 extends AstrayProCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         if (!upgraded || finalBranch() == 1) {
             atbTmpAction(() -> {
-                addToTop(new DrawCardAction(s, magicNumber));
                 int count = 0;
                 List<AbstractCard> tmp = new ArrayList<>();
                 for (AbstractCard card : cpr().hand.group) {
@@ -40,6 +39,7 @@ public class B75 extends AstrayProCard {
             });
         } else if (finalBranch() == 0) {
             atbTmpAction(() -> {
+                addToTop(new DrawCardAction(s, magicNumber));
                 int size = cpr().hand.size();
                 addToTop(new ModifyManaAction(size));
                 for (AbstractCard card : cpr().hand.group) {

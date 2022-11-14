@@ -26,8 +26,6 @@ public class MindBlossomMasteryPower extends AstrayPower {
     public void onMakingCardInCombat(AbstractCard card, CardGroup destination) {
         if (!card.upgraded && (TAUtils.IsMagical(card) || card instanceof AstrayExtCard)) {
             if (card instanceof BranchableUpgradeCard && ((BranchableUpgradeCard) card).canBranch()) {
-                if (card instanceof AstrayCard)
-                    ((AstrayCard) card).setFakeRestroom(true);
                 addToTop(new ChooseBranchForEnlightenCardAction(card, String.format(DESCRIPTIONS[1], card.name)));
             } else {
                 card.upgrade();

@@ -19,7 +19,7 @@ import java.util.List;
 public class B9 extends AstrayProCard {
     public B9() {
         super(9, 1, CardTarget.ALL_ENEMY);
-        setMagicValue(3, true);
+        setMagicValue(2, true);
         setExtraMagicValue(1, true);
         setCanEnlighten(true);
     }
@@ -50,9 +50,11 @@ public class B9 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
+                upgradeMagicNumber(1);
             });
             add(() -> {
                 upgradeTexts(1);
+                upgradeMagicNumber(1);
             });
         }};
     }

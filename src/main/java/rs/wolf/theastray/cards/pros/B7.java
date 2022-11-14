@@ -64,7 +64,10 @@ public class B7 extends AstrayProCard {
                 upgradeTexts();
                 exhaust = false;
             });
-            add(() -> upgradeTexts(1));
+            add(() -> {
+                upgradeTexts(1);
+                upgradeBaseCost(0);
+            });
         }};
     }
 }

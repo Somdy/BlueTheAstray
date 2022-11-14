@@ -7,7 +7,7 @@ import rs.wolf.theastray.powers.unique.DeathPower;
 public class E83 extends AstrayExtCard {
     public E83() {
         super(83, 1, 14, CardTarget.SELF);
-        setMagicValue(6, true);
+        setMagicValue(9, true);
         setMagical(true);
         exhaust = true;
     }

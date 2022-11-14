@@ -1,5 +1,6 @@
 package rs.wolf.theastray.monsters;
 
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -104,6 +105,7 @@ public class BlueTheBoss extends AstrayMonster {
                     AbstractPower p = getPower(InvinciblePower.POWER_ID);
                     if (p != null) {
                         p.amount = 0;
+                        ReflectionHacks.setPrivate(p, InvinciblePower.class, "maxAmt", 0);
                         p.updateDescription();
                     } else {
                         addToTop(new ApplyPowerAction(this, this, new InvinciblePower(this, invincibleAmt)));

@@ -3,6 +3,7 @@ package rs.wolf.theastray.abstracts;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -190,4 +191,10 @@ public abstract class AstrayPower extends LMCustomPower implements TAUtils {
     public void onShuffle() {}
     
     public void onMakingCardInCombat(AbstractCard card, CardGroup destination) {}
+    
+    /**
+     * calls when owner is taking damage before on attacked methods and block is decreased
+     * @param info the damage info received
+     */
+    public void preModifyDamage(DamageInfo info) {}
 }

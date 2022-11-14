@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -163,6 +164,12 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
                     UnlockTracker.markRelicAsSeen(r.relicId);
                     TAUtils.Log("[" + r.name + "] added");
                 });
+    }
+    
+    public static void PreOnCreatureDamage(AbstractCreature target, DamageInfo info) {
+        for (AbstractPower p : target.powers) {
+            
+        }
     }
 
     @Override

@@ -101,7 +101,7 @@
   "astray:SequencePlayPower": {
     "NAME": "次序列",
     "DESCRIPTIONS": [
-      "在你打出 #b1 张 #y衍生魔法 后，将 #b[amt_0] 张随机 #y魔法牌 置入手牌。"
+      "在你 #y消耗 #b1 张 #y衍生魔法 后，将 #b[amt_0] 张随机 #y魔法牌 置入手牌。"
     ]
   },
   "astray:AmendmentPower": {
@@ -144,7 +144,7 @@
   "astray:PhosphorusPower": {
     "NAME": "纸磷花",
     "DESCRIPTIONS": [
-      "你的回合开始后，随机 #y消耗 抽牌堆、手牌与弃牌堆中各 #b1 张牌，获得 #b[amt_0] #y魔力 。"
+      "你的回合开始后，随机 #y消耗 抽牌堆、手牌与弃牌堆中各 #b[amt_0] 张牌，获得 #b[amt_0] 点 #y魔力 。"
     ]
   },
   "astray:EvilMouthPower": {
@@ -219,7 +219,7 @@
   "astray:InfWisdomPower": {
     "NAME": "无限的智慧",
     "DESCRIPTIONS": [
-      "战斗奖励中增加 #b[amt_0] 张 #y升级 的其它颜色的牌。"
+      "战斗奖励中增加 #b[amt_0] 组其它颜色的卡牌奖励。"
     ]
   },
   "astray:RemainPower": {

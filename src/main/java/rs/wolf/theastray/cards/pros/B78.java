@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
+import rs.wolf.theastray.actions.commons.ModifyManaAction;
 import rs.wolf.theastray.cards.AstrayProCard;
 
 import java.util.ArrayList;
@@ -15,16 +16,20 @@ public class B78 extends AstrayProCard {
         setMagicValue(1, true);
         setCanEnlighten(true);
         isInnate = true;
+        exhaust = true;
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        if (!upgraded || finalBranch() == 0) {
+        if (!upgraded) {
             atbTmpAction(() -> {
                 int count = cpr().drawPile.getPowers().size();
-                if (upgraded)
-                    count += cpr().discardPile.getPowers().size();
                 addToTop(new GainEnergyAction(count));
+            });
+        } else if (finalBranch() == 0) {
+            atbTmpAction(() -> {
+                int count = cpr().drawPile.getPowers().size();
+                addToTop(new ModifyManaAction(count));
             });
         } else if (finalBranch() == 1) {
             atbTmpAction(() -> {

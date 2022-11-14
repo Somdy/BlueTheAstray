@@ -16,7 +16,7 @@ import rs.wolf.theastray.utils.TAUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EvilMouthPower extends AstrayPower implements DeMagicSensitiveGear {
+public class EvilMouthPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("EvilMouthPower");
     private List<AbstractCard> magics;
     

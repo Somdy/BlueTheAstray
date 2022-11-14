@@ -3,13 +3,17 @@ package rs.wolf.theastray.cards.pros;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class B50 extends AstrayProCard {
     public B50() {
         super(50, 1, CardTarget.SELF_AND_ENEMY);
-        setDamageValue(5, true);
-        setBlockValue(5, true);
+        setDamageValue(3, true);
+        setBlockValue(3, true);
         setPromosValue(0, true);
         setMagicalDerivative(true);
         setStorage(true);
@@ -22,7 +26,7 @@ public class B50 extends AstrayProCard {
         addToBot(new GainBlockAction(s, block));
         atbTmpAction(() -> {
             upgradePromos(1);
-            updateDescription(UPDATED_DESC[0]);
+            updateDescription(UPDATED_DESC[finalBranch()]);
         });
     }
     
@@ -30,13 +34,27 @@ public class B50 extends AstrayProCard {
     public void applyPowers() {
         super.applyPowers();
         if (getPromos() > 0)
-            updateDescription(UPDATED_DESC[0]);
+            updateDescription(UPDATED_DESC[finalBranch()]);
     }
     
     @Override
     public void selfUpgrade() {
-        upgradeName();
-        upgradeBaseCost(0);
+        branchingUpgrade();
+    }
+    
+    @Override
+    protected List<UpgradeBranch> branches() {
+        return new ArrayList<UpgradeBranch>(){{
+           add(() -> {
+               upgradeTexts();
+               upgradeBaseCost(0);
+           }); 
+           add(() -> {
+               upgradeTexts(1);
+               setMagicalDerivative(false);
+               setMagical(true);
+           });
+        }};
     }
     
     @Override

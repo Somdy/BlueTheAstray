@@ -1,5 +1,6 @@
 package rs.wolf.theastray.cards.pros;
 
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,20 +10,23 @@ import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.actions.utility.SimpleHandCardSelectBuilder;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
+import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class B8 extends AstrayProCard {
     public B8() {
         super(8, 1, CardTarget.NONE);
-        setMagicValue(1, true);
+        setMagicValue(4, true);
         setCanEnlighten(true);
         exhaust = true;
     }
     
-    @Override
-    public void play(AbstractCreature s, AbstractCreature t) {
+    @Deprecated
+    public void _play(AbstractCreature s, AbstractCreature t) {
         addToBot(new SimpleHandCardSelectBuilder(c -> true)
                 .setAmount(1).setMsg(MSG[0])
                 .setAnyNumber(false).setCanPickZero(false)
@@ -47,6 +51,51 @@ public class B8 extends AstrayProCard {
     }
     
     @Override
+    public void play(AbstractCreature s, AbstractCreature t) {
+        if (!upgraded || finalBranch() == 1) {
+            atbTmpAction(() -> {
+                List<AbstractCard> cards = cpr().hand.group.stream().filter(c -> upgraded != TAUtils.IsMagical(c)).collect(Collectors.toList());
+                if (cards.size() > 0) {
+                    int count = cards.size();
+                    for (AbstractCard c : cards) {
+                        if (cpr().hand.contains(c)) {
+                            cpr().hand.moveToDiscardPile(c);
+                            GameActionManager.incrementDiscard(false);
+                            c.triggerOnManualDiscard();
+                        }
+                    }
+                    addToTop(new DrawCardAction(s, count));
+                }
+            });
+        } else if (finalBranch() == 0) {
+            atbTmpAction(() -> {
+                List<AbstractCard> cards = new ArrayList<>();
+                atbTmpAction(() -> {
+                    if (cards.size() > 0) {
+                        int count = Math.min(cards.size(), magicNumber);
+                        for (AbstractCard c : cards) {
+                            if (cpr().hand.contains(c)) {
+                                cpr().hand.moveToDiscardPile(c);
+                                GameActionManager.incrementDiscard(false);
+                                c.triggerOnManualDiscard();
+                            }
+                        }
+                        addToTop(new DrawCardAction(s, count));
+                    }
+                });
+                addToTop(new SimpleHandCardSelectBuilder(c -> true).setAmount(cpr().hand.size()).setMsg(MSG[0])
+                        .setAnyNumber(true).setCanPickZero(true).setManipulator(new HandCardManipulator() {
+                            @Override
+                            public boolean manipulate(AbstractCard card, int i) {
+                                cards.add(card);
+                                return true;
+                            }
+                        }));
+            });
+        }
+    }
+    
+    @Override
     public void selfUpgrade() {
         branchingUpgrade();
     }
@@ -54,14 +103,8 @@ public class B8 extends AstrayProCard {
     @Override
     protected List<UpgradeBranch> branches() {
         return new ArrayList<UpgradeBranch>() {{
-            add(() -> {
-                upgradeTexts();
-                upgradeBaseCost(0);
-            });
-            add(() -> {
-                upgradeTexts(1);
-                exhaust = false;
-            });
+            add(() -> upgradeTexts());
+            add(() -> upgradeTexts(1));
         }};
     }
 }

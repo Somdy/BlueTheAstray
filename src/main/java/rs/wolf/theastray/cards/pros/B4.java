@@ -65,7 +65,7 @@ public class B4 extends AstrayProCard {
             add(() -> {
                 upgradeTexts(1);
                 upgradeBaseCost(0);
-                setMagicValue(0, true);
+                upgradeBlock(1);
                 setMagicalDerivative(true);
             });
         }};

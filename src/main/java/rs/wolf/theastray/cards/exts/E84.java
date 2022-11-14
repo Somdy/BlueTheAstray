@@ -13,6 +13,7 @@ public class E84 extends AstrayExtCard {
         setMagicValue(1, true);
         setMagicalDerivative(true);
         exhaust = true;
+        selfRetain = true;
         addTags(TACardEnums.ILLUSION);
     }
     

@@ -18,6 +18,7 @@ public class B6 extends AstrayProCard {
         int totalBlock = block + GlobalManaMst.CurrentMana() * magicNumber;
         addToBot(new GainBlockAction(s, totalBlock));
         updateDescription(DESCRIPTION);
+        
     }
     
     @Override

@@ -48,7 +48,7 @@ public class B67 extends AstrayProCard {
     }
     
     AbstractCard getRndMagic() {
-        AbstractCard card = CardMst.ReturnRndMagicInCombat(c -> true);
+        AbstractCard card = CardMst.ReturnRndMagicInCombat(false, c -> true);
         if (upgraded) card.upgrade();
         card.applyPowers();
         return card;

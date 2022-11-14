@@ -25,17 +25,19 @@ public class PhosphorusPower extends AstrayPower {
         if (amount > 0) {
             flash();
             addToBot(new QuickAction(() -> {
-                if (!cpr().drawPile.isEmpty()) {
-                    AbstractCard draw = cpr().drawPile.getRandomCard(cardRandomRng());
-                    addToTop(new ExhaustSpecificCardAction(draw, cpr().drawPile));
-                }
-                if (!cpr().hand.isEmpty()) {
-                    AbstractCard hand = cpr().hand.getRandomCard(cardRandomRng());
-                    addToTop(new ExhaustSpecificCardAction(hand, cpr().hand));
-                }
-                if (!cpr().discardPile.isEmpty()) {
-                    AbstractCard discard = cpr().discardPile.getRandomCard(cardRandomRng());
-                    addToTop(new ExhaustSpecificCardAction(discard, cpr().discardPile));
+                for (int i = 0; i < amount; i++) {
+                    if (!cpr().drawPile.isEmpty()) {
+                        AbstractCard draw = cpr().drawPile.getRandomCard(cardRandomRng());
+                        addToTop(new ExhaustSpecificCardAction(draw, cpr().drawPile));
+                    }
+                    if (!cpr().hand.isEmpty()) {
+                        AbstractCard hand = cpr().hand.getRandomCard(cardRandomRng());
+                        addToTop(new ExhaustSpecificCardAction(hand, cpr().hand));
+                    }
+                    if (!cpr().discardPile.isEmpty()) {
+                        AbstractCard discard = cpr().discardPile.getRandomCard(cardRandomRng());
+                        addToTop(new ExhaustSpecificCardAction(discard, cpr().discardPile));
+                    }
                 }
                 addToTop(new ApplyPowerAction(cpr(), cpr(), new MagicPower(cpr(), amount)));
             }));

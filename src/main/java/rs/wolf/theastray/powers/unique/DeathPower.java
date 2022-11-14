@@ -18,12 +18,12 @@ public class DeathPower extends AstrayPower {
     }
     
     @Override
-    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
-        if (amount > damageAmount) {
+    public void preModifyDamage(DamageInfo info) {
+        if (info.output < amount) {
             flashWithoutSound();
-            damageAmount = 0;
+            info.output = 0;
+            info.isModified = info.base != info.output;
         }
-        return super.onAttackedToChangeDamage(info, damageAmount);
     }
     
     @Override
