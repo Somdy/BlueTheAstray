@@ -61,6 +61,7 @@ public class B75 extends AstrayProCard {
            add(() -> {
                upgradeTexts(1);
                setMagicValue(2, true);
+               exhaust = false;
            });
         }};
     }

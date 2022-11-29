@@ -22,6 +22,7 @@ public class AmendmentPower extends AstrayPower {
         updateDescription();
     }
     
+    @Deprecated
     public static boolean BackToDrawPile(AbstractCard card) {
         return cardList.remove(card);
     }

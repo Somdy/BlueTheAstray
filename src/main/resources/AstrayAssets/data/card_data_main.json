@@ -9,7 +9,7 @@
 	{"id":"B8", "localname":"战术变更", "type":"Skill", "rarity":"Common"},
 	{"id":"B9", "localname":"占卜魔法", "type":"Skill", "rarity":"Common"},
 	{"id":"B10", "localname":"生命碎片", "type":"Skill", "rarity":"Common"},
-	{"id":"B11", "localname":"藏刃在手", "type":"Attack", "rarity":"Common"},
+	{"id":"B11", "localname":"空明刃", "type":"Attack", "rarity":"Common"},
 	{"id":"B12", "localname":"净化咒语", "type":"Skill", "rarity":"Common"},
 	{"id":"B13", "localname":"魔石碎片", "type":"Skill", "rarity":"Common"},
 	{"id":"B14", "localname":"奥术飞弹", "type":"Attack", "rarity":"Common"},

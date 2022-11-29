@@ -155,7 +155,7 @@ public class CardMst {
     }
     
     public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean deMagicIncluded, boolean extIncluded, Predicate<AbstractCard> expt) {
-        List<AstrayCard> tmp = GetAllCards((d, c) -> (TAUtils.IsMagical(c) || deMagicIncluded && TAUtils.IsDeMagical(c))
+        List<AstrayCard> tmp = GetAllCards((d, c) -> (TAUtils.IsTrueMagical(c) || deMagicIncluded && TAUtils.IsDeMagical(c))
                 && c.rarity != AbstractCard.CardRarity.BASIC 
                 && ((extIncluded && c.canSpawnInCombat()) || !EXTS.contains(d.getInternalID())) && expt.test(c));
         if (tmp.isEmpty()) return new Madness();

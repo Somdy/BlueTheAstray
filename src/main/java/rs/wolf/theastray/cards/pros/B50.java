@@ -16,6 +16,7 @@ public class B50 extends AstrayProCard {
         setBlockValue(3, true);
         setPromosValue(0, true);
         setMagicalDerivative(true);
+        setCanEnlighten(true);
         setStorage(true);
     }
     

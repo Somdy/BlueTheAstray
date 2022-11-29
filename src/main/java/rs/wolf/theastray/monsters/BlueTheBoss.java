@@ -52,9 +52,9 @@ public class BlueTheBoss extends AstrayMonster {
         sliceMult = hardTime(4) ? 4 : 3;
         turnCount = 0;
         damage.add(0, new DamageInfo(this, sliceDmg));
-        addPower(new FocusedEyesPower(this, 12, hardTime(19) ? 25 : 50));
+        addPower(new FocusedEyesPower(this, 12, 50));
         addPower(new InvinciblePower(this, invincibleAmt));
-        addPower(new MasteryBossPower(this, 12, 1));
+        addPower(new MasteryBossPower(this, 12, hardTime(19) ? 2 : 1));
     }
     
     @Override
@@ -97,10 +97,10 @@ public class BlueTheBoss extends AstrayMonster {
                         addToTop(new ApplyPowerAction(this, this, new AssimilationPower(this, 1, 1)));
                     }
                     if (!hasPower(FocusedEyesPower.ID)) {
-                        addToTop(new ApplyPowerAction(this, this, new FocusedEyesPower(this, 12, hardTime(19) ? 25 : 50)));
+                        addToTop(new ApplyPowerAction(this, this, new FocusedEyesPower(this, 12, 50)));
                     }
                     if (!hasPower(MasteryBossPower.ID)) {
-                        addToTop(new ApplyPowerAction(this, this, new MasteryBossPower(this, 12, 1)));
+                        addToTop(new ApplyPowerAction(this, this, new MasteryBossPower(this, 12, hardTime(19) ? 2 : 1)));
                     }
                     AbstractPower p = getPower(InvinciblePower.POWER_ID);
                     if (p != null) {

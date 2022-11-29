@@ -12,7 +12,7 @@ import java.util.List;
 
 public class B47 extends AstrayProCard {
     public B47() {
-        super(47, 2, CardTarget.SELF);
+        super(47, 1, CardTarget.SELF);
         setMagicValue(4, true);
         setBlockValue(6, true);
         setCanEnlighten(true);

@@ -1,4 +1,4 @@
-package rs.wolf.theastray.cards.pros;
+package rs.wolf.theastray.cards.exts;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -8,12 +8,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
 import rs.lazymankits.actions.utility.QuickAction;
+import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.powers.unique.MeteoritePower;
 
-public class B68 extends AstrayProCard {
+public class B68 extends AstrayExtCard {
     public B68() {
-        super(68, 5, CardTarget.ALL_ENEMY);
+        super(68, 5, 99, CardTarget.ALL_ENEMY);
         setDamageValue(50, true);
         setMagicValue(14, true);
     }

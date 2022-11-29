@@ -1,6 +1,5 @@
 package rs.wolf.theastray.relics;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
@@ -16,7 +15,7 @@ public class Relic10 extends AstrayRelic {
     
     @Override
     public String getUpdatedDescription() {
-        return String.format(DESCRIPTIONS[0], counter);
+        return DESCRIPTIONS[0];
     }
     
     @Override

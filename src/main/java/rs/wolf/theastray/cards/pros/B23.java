@@ -10,7 +10,7 @@ import rs.wolf.theastray.powers.MagicPower;
 public class B23 extends AstrayProCard {
     public B23() {
         super(23, 2, CardTarget.SELF_AND_ENEMY);
-        setDamageValue(24, true);
+        setDamageValue(28, true);
         setMagicValue(1, true);
         setPromosValue(2, true);
         setMagical(true);

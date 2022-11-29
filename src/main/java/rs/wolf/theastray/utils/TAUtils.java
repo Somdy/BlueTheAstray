@@ -93,13 +93,12 @@ public interface TAUtils extends LMGameGeneralUtils {
         return AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom() != null;
     }
     
-    @Deprecated
     static boolean IsTrueMagical(@NotNull AbstractCard card) {
         return card.hasTag(TACardEnums.MAGICAL) && !card.hasTag(TACardEnums.DE_MAGICAL);
     }
     
     static boolean IsMagical(@NotNull AbstractCard card) {
-        return card.hasTag(TACardEnums.MAGICAL);
+        return card.hasTag(TACardEnums.MAGICAL) || card.hasTag(TACardEnums.DE_MAGICAL);
     }
     
     static boolean IsDeMagical(@NotNull AbstractCard card) {

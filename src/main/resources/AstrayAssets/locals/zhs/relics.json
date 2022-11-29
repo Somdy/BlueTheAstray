@@ -66,7 +66,7 @@
     "NAME": "奇迹魔杖",
     "FLAVOR": "“奇迹就是未能理解的智慧”",
     "DESCRIPTIONS": [
-      "你下 #b%d 次进入休息处时，随机 #y升级 #b1 张非 #yastray:启迪 牌。"
+      "每次进入休息处时，随机 #y升级 #b1 张非 #yastray:启迪 牌。"
     ]
   },
   "astray:Relic11": {
