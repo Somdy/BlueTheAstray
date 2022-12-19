@@ -10,11 +10,15 @@ import rs.wolf.theastray.actions.commons.ModifyManaAction;
 import rs.wolf.theastray.cards.AstrayProCard;
 
 public class B74 extends AstrayProCard {
+    private static final int maxCounter = 5;
+    private int counter;
+    
     public B74() {
         super(74, -2, CardTarget.SELF);
         setMagicValue(1, true);
         setExtraMagicValue(1, true);
-        
+        addTip(MSG[0], String.format(MSG[1], maxCounter));
+        counter = maxCounter;
     }
     
     @Override
@@ -23,6 +27,7 @@ public class B74 extends AstrayProCard {
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
+        if (counter <= 0) return;
         if (!upgraded) {
             if (cardRandomRng().randomBoolean())
                 addToTop(new ModifyManaAction(magicNumber));
@@ -34,6 +39,14 @@ public class B74 extends AstrayProCard {
         }
         addToTop(new DrawExptCardAction(getExtraMagic(), c -> !(c instanceof B74)));
         addToTop(new DiscardSpecificCardAction(this));
+        counter--;
+        replaceTip(MSG[0], String.format(MSG[counter > 0 ? 2 : 3], counter));
+    }
+    
+    @Override
+    public void onPlayerTurnStart() {
+        counter = maxCounter;
+        replaceTip(MSG[0], String.format(MSG[2], counter));
     }
     
     @Override

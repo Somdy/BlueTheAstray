@@ -31,7 +31,7 @@ public class B72 extends AstrayProCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         if (!upgraded || finalBranch() == 1) {
             int handSize = cpr().hand.size();
-            int left = BaseMod.MAX_HAND_SIZE - handSize;
+            int left = BaseMod.MAX_HAND_SIZE - handSize + 1;
             for (int i = 0; i < magicNumber; i++) {
                 if (finalBranch() == 1 && left <= 0) {
                     addToTop(new NewQueueCardAction(CardMst.GetCard("星星"), true, true, true));
@@ -67,7 +67,7 @@ public class B72 extends AstrayProCard {
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeMagicNumber(5);
+                upgradeMagicNumber(2);
                 MultiCardPreview.clear(B72.this);
                 cardsToPreview = CardMst.GetCard("星星");
             });

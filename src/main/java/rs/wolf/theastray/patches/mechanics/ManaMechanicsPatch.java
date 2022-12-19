@@ -39,7 +39,6 @@ public class ManaMechanicsPatch {
     public static class UpdatePlayerManaPatch {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer _inst) {
-            if (_inst instanceof BlueTheAstray) return;
             GlobalManaMst.GetPlayerManaMst(_inst).update();
         }
     }
@@ -48,7 +47,6 @@ public class ManaMechanicsPatch {
     public static class PreInitPlayerManaPatch {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer _inst) {
-            if (_inst instanceof BlueTheAstray) return;
             GlobalManaMst.GetPlayerManaMst(_inst).initPreBattle();
         }
     }
@@ -62,7 +60,6 @@ public class ManaMechanicsPatch {
     public static class RenderOldPlayerManaPatch {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer _inst, SpriteBatch sb, boolean enabled, float current_x, float current_y) {
-            if (_inst instanceof BlueTheAstray) return;
             GlobalManaMst.GetPlayerManaMst(_inst).render(sb);
         }
     }
@@ -71,8 +68,15 @@ public class ManaMechanicsPatch {
     public static class RenderModPlayerManaPatch {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer _inst, SpriteBatch sb, boolean enabled, float current_x, float current_y) {
-            if (_inst instanceof BlueTheAstray) return;
             GlobalManaMst.GetPlayerManaMst(_inst).render(sb);
+        }
+    }
+    
+    @SpirePatch(clz = AbstractPlayer.class, method = "applyStartOfTurnPreDrawCards")
+    public static class StartTurnManaPatch {
+        @SpirePostfixPatch
+        public static void Postfix(AbstractPlayer _inst) {
+            GlobalManaMst.GetPlayerManaMst(_inst).atTurnStart();
         }
     }
     

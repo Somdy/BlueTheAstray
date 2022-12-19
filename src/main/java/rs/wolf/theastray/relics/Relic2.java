@@ -17,8 +17,8 @@ public class Relic2 extends AstrayRelic {
         super.atBattleStart();
         if (!usedUp) {
             addToBot(new RelicAboveCreatureAction(cpr(), this));
-            addToBot(new ModifyManaAction(10));
-            addToBot(new GainEnergyAction(1));
+            addToBot(new ModifyManaAction(6));
+            addToBot(new GainEnergyAction(2));
             addToBot(new DrawCardAction(cpr(), 1));
             usedUp();
         }

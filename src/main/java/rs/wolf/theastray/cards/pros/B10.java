@@ -34,6 +34,14 @@ public class B10 extends AstrayProCard {
     }
     
     @Override
+    protected void upgradeName() {
+        timesUpgraded++;
+        upgraded = true;
+        name = NAME + timesUpgraded;
+        initializeTitle();
+    }
+    
+    @Override
     public boolean canUpgrade() {
         return outOfDungeon() || currRoom().phase != AbstractRoom.RoomPhase.COMBAT;
     }

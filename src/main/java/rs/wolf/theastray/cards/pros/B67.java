@@ -40,7 +40,7 @@ public class B67 extends AstrayProCard {
                 }
             }
             for (int i = 0; i < count; i++) {
-                AbstractCard card = CardMst.ReturnRndCardInCombat(AstrayCard::isExtension, true);
+                AbstractCard card = CardMst.ReturnRndCardInCombat(AstrayCard::isExtension, false);
                 if (upgraded) card.upgrade();
                 addToBot(new MakeTempCardInHandAction(card, 1));
             }

@@ -39,6 +39,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     public static final String NAME = charStrings.NAMES[0];
     public static final String DESCRIPTION = charStrings.TEXT[0];
+    public static final String SENSORY_MEMORY = charStrings.TEXT[4];
     public static final String Shoulder_1 = "AstrayAssets/images/char/shoulder.png";
     public static final String Shoulder_2 = "AstrayAssets/images/char/shoulder2.png";
     public static final String corpse = "AstrayAssets/images/char/corpse.png";
@@ -58,7 +59,8 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
         super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbBlue(), null, null);
         initializeClass(CHAR_IMAGE, Shoulder_2, Shoulder_1, corpse, getLoadout(), 20F, -10F,
                 220F, 335F, new EnergyManager(3));
-        manaMst = new ManaMst(this, 10, 0, ManaMst.Layout.REVOLUTION);
+        manaMst = new ManaMst(this, 10, 1, 0.5F, ManaMst.Layout.REVOLUTION)
+                .addTip(ManaMst.TEXT[0], charStrings.TEXT[3]);
 //        loadAnimation(SK_ALT, SK_JSON, 1.25F);
 //        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
 //        e.setTime(e.getEndTime() * MathUtils.random());
@@ -82,26 +84,8 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     }
     
     @Override
-    public void update() {
-        super.update();
-        manaMst.update();
-    }
-    
-    @Override
-    public void preBattlePrep() {
-        manaMst.initPreBattle();
-        super.preBattlePrep();
-    }
-    
-    @Override
     public Texture getEnergyImage() {
         return ImageMaster.BLUE_ORB_FLASH_VFX;
-    }
-    
-    @Override
-    public void renderOrb(SpriteBatch sb, boolean enabled, float current_x, float current_y) {
-        super.renderOrb(sb, enabled, current_x, current_y);
-        manaMst.render(sb);
     }
     
     @Override
@@ -165,11 +149,13 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     }
     
     @Override
-    public void doCharSelectScreenSelectEffect() {}
+    public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playA("CARD_POWER_IMPACT", MathUtils.random(-0.2F, 0.2F));
+    }
     
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_MAGIC_BEAM_SHORT";
+        return "CARD_POWER_IMPACT";
     }
     
     @Override

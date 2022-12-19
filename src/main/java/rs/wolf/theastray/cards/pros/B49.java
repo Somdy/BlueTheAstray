@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import rs.lazymankits.actions.utility.DamageCallbackBuilder;
 import rs.wolf.theastray.cards.AstrayProCard;
 
@@ -28,7 +29,7 @@ public class B49 extends AstrayProCard {
             });
         } else {
             atbTmpAction(() -> {
-                int dmg = magicNumber != damage ? cardRandomRng().random(magicNumber, damage) : damage;
+                int dmg = magicNumber <= damage ? cardRandomRng().random(magicNumber, damage) : damage;
                 addToTop(new DamageCallbackBuilder(t, crtDmgInfo(s, dmg, damageTypeForTurn), 
                         AbstractGameAction.AttackEffect.BLUNT_LIGHT, c -> {
                     if (c.lastDamageTaken > 0)
@@ -42,6 +43,16 @@ public class B49 extends AstrayProCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
+        int gap = Math.abs(damage - magicNumber) - diff;
+        magicNumber += gap;
+        if (magicNumber < 0)
+            magicNumber = 0;
+        isMagicNumberModified = magicNumber != baseMagicNumber;
+    }
+    
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
         int gap = Math.abs(damage - magicNumber) - diff;
         magicNumber += gap;
         if (magicNumber < 0)

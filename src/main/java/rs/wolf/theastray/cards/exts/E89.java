@@ -1,13 +1,12 @@
 package rs.wolf.theastray.cards.exts;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import rs.lazymankits.actions.common.ApplyPowerToEnemiesAction;
-import rs.lazymankits.enums.ApplyPowerParam;
 import rs.wolf.theastray.cards.AstrayExtCard;
+import rs.wolf.theastray.vfx.combat.FallingStarEffect;
 
 public class E89 extends AstrayExtCard {
     public E89() {
@@ -22,6 +21,7 @@ public class E89 extends AstrayExtCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         attTmpAction(() -> {
             AbstractMonster m = AbstractDungeon.getRandomMonster();
+            addToBot(new VFXAction(new FallingStarEffect(m)));
             addToBot(DamageAction(m, s, AbstractGameAction.AttackEffect.FIRE));
         });
     }

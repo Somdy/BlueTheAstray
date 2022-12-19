@@ -19,6 +19,8 @@ public class B66 extends AstrayProCard {
         addTip(MSG[0], MSG[1]);
         selfRetain = true;
         counter = 0;
+        damageType = DamageInfo.DamageType.THORNS;
+        isMultiDamage = true;
     }
     
     @Override

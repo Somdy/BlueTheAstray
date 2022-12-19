@@ -10,7 +10,7 @@ import rs.wolf.theastray.powers.MagicPower;
 
 public class B38 extends AstrayExtCard {
     public B38() {
-        super(38, 1, 9, CardTarget.ENEMY);
+        super(38, 1, 11, CardTarget.ENEMY);
         setDamageValue(9, true);
         setMagicValue(6, true);
         setPromosValue(3, true);

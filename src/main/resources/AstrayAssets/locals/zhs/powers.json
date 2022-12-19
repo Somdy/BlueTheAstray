@@ -53,7 +53,7 @@
   "astray:DeathPower": {
     "NAME": "死神幻像",
     "DESCRIPTIONS": [
-      "#y[owner] 在下回合开始前，免疫 #b[amt_0] 以下的伤害。"
+      "在 #b[amt_1] 个回合内，免疫 #b[amt_0] 以下的伤害。"
     ]
   },
   "astray:FrostShieldPower": {
@@ -262,6 +262,12 @@
     "NAME": "深蓝同化",
     "DESCRIPTIONS": [
       "你每打出 #b[amt_0] 张牌， #y[owner] 获得 #b[amt_1] 点 #y格挡 。"
+    ]
+  },
+  "astray:GiantPower": {
+    "NAME": "巨人幻象",
+    "DESCRIPTIONS": [
+      "每回合开始和结束时，获得 #b[amt_0] 层 #y易伤 和 #b[amt_1] 点 格挡 。"
     ]
   }
 }

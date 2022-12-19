@@ -10,10 +10,13 @@ import rs.wolf.theastray.utils.TAUtils;
 public class DeathPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("DeathPower");
     
-    public DeathPower(AbstractCreature owner, int immunity) {
+    public DeathPower(AbstractCreature owner, int immunity, int turns) {
         super(ID, "phantasmal", PowerType.BUFF, owner);
-        setValues(immunity);
-        preloadString(s -> setAmtValue(0, this.amount));
+        setValues(immunity, turns);
+        preloadString(s -> {
+            setAmtValue(0, this.amount);
+            setAmtValue(1, extraAmt);
+        });
         updateDescription();
     }
     
@@ -28,11 +31,15 @@ public class DeathPower extends AstrayPower {
     
     @Override
     public void atStartOfTurn() {
-        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+        if (extraAmt > 1) {
+            extraAmt--;
+        } else {
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+        }
     }
     
     @Override
     public AbstractPower makeCopy() {
-        return new DeathPower(owner, amount);
+        return new DeathPower(owner, amount, extraAmt);
     }
 }

@@ -53,6 +53,5 @@ public class E95 extends AstrayExtCard {
     public void selfUpgrade() {
         upgradeTexts();
         upgradeDamage(4);
-        upgradeMagicNumber(10);
     }
 }

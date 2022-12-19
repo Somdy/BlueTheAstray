@@ -1,5 +1,6 @@
 package rs.wolf.theastray.cards.pros;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.unique.RemoveAllPowersAction;
@@ -40,7 +41,7 @@ public class B12 extends AstrayProCard {
     public void onPlayerReceivePower(AbstractPower power, AbstractCreature source) {
         super.onPlayerReceivePower(power, source);
         if (inHand()) return;
-        if (isPowerTypeOf(power, AbstractPower.PowerType.DEBUFF)) {
+        if (isPowerTypeOf(power, AbstractPower.PowerType.DEBUFF) && cpr().hand.size() < BaseMod.MAX_HAND_SIZE) {
             attTmpAction(() -> {
                 findCardGroupWhereCardIs(this).moveToHand(this);
                 applyPowers();

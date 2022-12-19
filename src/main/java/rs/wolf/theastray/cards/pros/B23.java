@@ -12,8 +12,6 @@ public class B23 extends AstrayProCard {
         super(23, 2, CardTarget.SELF_AND_ENEMY);
         setDamageValue(28, true);
         setMagicValue(1, true);
-        setPromosValue(2, true);
-        setMagical(true);
         setStorage(true);
     }
     

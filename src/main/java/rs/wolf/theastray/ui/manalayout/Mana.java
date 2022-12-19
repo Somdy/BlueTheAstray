@@ -2,14 +2,13 @@ package rs.wolf.theastray.ui.manalayout;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
 import org.jetbrains.annotations.NotNull;
@@ -27,8 +26,8 @@ public class Mana extends AbstractOrb implements TAUtils {
     private float animSpeed;
     
     public Mana(@NotNull Vector2 pos) {
-        cX = tX = pos.x;
-        cY = tY = pos.y;
+        cX = tX = animX = pos.x;
+        cY = tY = animY = pos.y;
         hb.move(pos.x, pos.y);
         angle = MathUtils.random(360F);
         img = TAImageMst.MANA;
@@ -44,21 +43,20 @@ public class Mana extends AbstractOrb implements TAUtils {
     @Override
     public void onEvoke() {}
     
-    public Mana transAnim(float diffX, float diffY, float speed) {
+    public void transAnim(float diffX, float diffY, float speed) {
         animX = tX + diffX;
         animY = tY + diffY;
         animSpeed = speed;
-        return this;
     }
     
-    public Mana transAnim(float tX, float tY) {
+    public void transAnim(float tX, float tY) {
         tX -= this.tX;
         tY -= this.tY;
-        return transAnim(tX, tY, 6F);
+        transAnim(tX, tY, 6F);
     }
     
-    public Mana transAnim(@NotNull Vector2 target) {
-        return transAnim(target.x, target.y);
+    public void transAnim(@NotNull Vector2 target) {
+        transAnim(target.x, target.y);
     }
     
     protected Mana move(@NotNull Vector2 target) {
@@ -71,7 +69,7 @@ public class Mana extends AbstractOrb implements TAUtils {
     @Override
     public void update() {
         hb.move(tX, tY);
-        super.update();
+        hb.update();
         bobEffect.update();
         cX = MathHelper.orbLerpSnap(cX, tX);
         cY = MathHelper.orbLerpSnap(cY, tY);

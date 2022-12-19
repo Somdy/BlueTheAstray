@@ -1,31 +1,26 @@
 package rs.wolf.theastray.cards.exts;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import rs.wolf.theastray.cards.AstrayExtCard;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.powers.unique.GiantPower;
 
 public class E84 extends AstrayExtCard {
     public E84() {
         super(84, 0, 14, CardTarget.SELF);
-        setBlockValue(30, true);
         setMagicValue(1, true);
-        setMagicalDerivative(true);
-        exhaust = true;
-        selfRetain = true;
+        setExtraMagicValue(15, true);
         addTags(TACardEnums.ILLUSION);
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        addToBot(ApplyPower(s, s, new VulnerablePower(s, magicNumber, false)));
-        addToBot(new GainBlockAction(s, block));
+        addToBot(ApplyPower(s, s, new GiantPower(s, magicNumber, getExtraMagic())));
     }
     
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeBlock(10);
+        upgradeExtraMagic(5);
     }
 }

@@ -17,6 +17,7 @@ public class B79 extends AstrayProCard {
         setStorage(true);
         addTip(ILLUSION_CARD);
         exhaust = true;
+        isMultiDamage = true;
     }
     
     @Override

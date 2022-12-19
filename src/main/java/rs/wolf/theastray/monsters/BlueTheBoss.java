@@ -69,6 +69,7 @@ public class BlueTheBoss extends AstrayMonster {
     protected void selfTakeTurn() {
         switch (nextMove) {
             case CONVERGE:
+                turnCount++;
                 addToBot(new VFXAction(new BlueConvergeEffect(MathUtils.random(10, 12), hb.cX, hb.cY, 
                         15F * Settings.scale)));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strAmt)));
@@ -77,6 +78,7 @@ public class BlueTheBoss extends AstrayMonster {
                 addToBot(new ApplyPowerAction(cpr(), this, new FrailPower(cpr(), weakAmt, true)));
                 break;
             case SLICE:
+                turnCount++;
                 for (int i = 0; i < sliceMult; i++) {
                     addToBot(new VFXAction(new ViceCrushEffect(cpr().hb.cX, cpr().hb.cY), 0.5F));
                     addToBot(DamageAction(cpr(), damage.get(0), AbstractGameAction.AttackEffect.NONE));
@@ -113,7 +115,6 @@ public class BlueTheBoss extends AstrayMonster {
                 }));
                 break;
         }
-        turnCount++;
         addToBot(new RollMoveAction(this));
     }
     

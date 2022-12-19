@@ -95,4 +95,10 @@ public class GlobalManaMst {
         ManaMst mst = GetPlayerManaMst(p);
         return mst.getStartingMana();
     }
+    
+    public static void ChangeLayout(ManaMst.Layout layout) {
+        AbstractPlayer p = LMSK.Player();
+        ManaMst mst = GetPlayerManaMst(p);
+        mst.changeLayout(layout);
+    }
 }

@@ -1,10 +1,12 @@
 package rs.wolf.theastray.relics;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.Madness;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
 import rs.lazymankits.interfaces.cards.RUM;
 import rs.wolf.theastray.abstracts.AstrayRelic;
@@ -39,17 +41,17 @@ public class Relic8 extends AstrayRelic {
                                 ((BranchableUpgradeCard) c).setChosenBranch(branch);
                             }
                             c.upgrade();
-                            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
-                            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(), 
-                                    Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
+                            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(Settings.WIDTH * 0.25F, Settings.HEIGHT / 2F));
+                            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(),
+                                    Settings.WIDTH * 0.25F, Settings.HEIGHT  / 2F));
                         });
             }
         }
     }
     
-    private void collectCards(List<AbstractCard> cards, int index) {
+    private void collectCards(@NotNull List<AbstractCard> cards, int index) {
         cards.addAll(cpr().masterDeck.group.stream()
-                .filter(c -> isCardRarityOf(c, RARITIES[index]))
+                .filter(c -> isCardRarityOf(c, RARITIES[index]) && c.canUpgrade())
                 .collect(Collectors.toList()));
     }
 }

@@ -14,7 +14,7 @@ import rs.wolf.theastray.utils.TAUtils;
 public class B39 extends AstrayExtCard {
     public B39() {
         super(39, 1, 6, CardTarget.NONE);
-        setMagicValue(2, true);
+        setMagicValue(3, true);
 //        setExtraMagicValue(1, true);
     }
     

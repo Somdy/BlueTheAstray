@@ -10,7 +10,8 @@ public class B22 extends AstrayProCard {
         super(22, 0, CardTarget.ENEMY);
         setDamageValue(8, true);
         setMagical(true);
-        returnToHand = true;
+//        returnToHand = true;
+        setReturnToHand(true);
         isEthereal = true;
     }
     

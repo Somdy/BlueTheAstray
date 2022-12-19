@@ -104,7 +104,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     public void applyPowers() {
-        if (isMagical() || isMagicalDerivative()) {
+        if (isMagical()) {
             applyMagicalPowers();
         } else {
             super.applyPowers();
@@ -158,7 +158,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        if (isMagical() || isMagicalDerivative()) {
+        if (isMagical()) {
             calculateMagicalCardDamage(mo);
         } else {
             super.calculateCardDamage(mo);
@@ -221,7 +221,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     protected void applyPowersToBlock() {
-        if (isMagical() || isMagicalDerivative()) {
+        if (isMagical()) {
             applyMagicalBlock();
         } else {
             super.applyPowersToBlock();
@@ -279,7 +279,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     
     @Override
     public boolean hasEnoughEnergy() {
-        boolean hasEnoughMana = !isMagical() && !isMagicalDerivative() || hasEnoughMana();
+        boolean hasEnoughMana = !isMagical() || hasEnoughMana();
         return super.hasEnoughEnergy() && hasEnoughMana;
     }
     
@@ -512,7 +512,7 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
      * @return 当该牌为魔法牌时，返回 true，否则返回 false
      */
     public final boolean isMagical() {
-        return isMagical;
+        return isMagical || isMagicalDerivative;
     }
     
     /**
@@ -560,11 +560,18 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     public final void setMagicalDerivative(boolean magicalDerivative) {
         isMagicalDerivative = magicalDerivative;
         if (magicalDerivative) {
-            setManaCost(0);
+            setMagical(true, 0);
             addTags(TACardEnums.DE_MAGICAL);
         } else {
             tags.remove(TACardEnums.DE_MAGICAL);
         }
+    }
+    
+    public final void setReturnToHand(boolean returnToHand) {
+        if (returnToHand) 
+            addTags(TACardEnums.RETURN_TO_HAND);
+        else 
+            tags.remove(TACardEnums.RETURN_TO_HAND);
     }
     
     public final boolean isBranchable() {
@@ -863,4 +870,6 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
     public void onVictory() {}
     
     public void onBattleStart() {}
+    
+    public void onPlayerTurnStart() {}
 }

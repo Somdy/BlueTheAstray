@@ -1,5 +1,6 @@
 package rs.wolf.theastray.cards.pros;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.wolf.theastray.actions.commons.ModifyManaAction;
@@ -21,7 +22,8 @@ public class B18 extends AstrayProCard {
     @Override
     public void onNeitherStorageTriggers() {
         atbTmpAction(() -> {
-            cpr().discardPile.moveToHand(this);
+            if (cpr().hand.size() < BaseMod.MAX_HAND_SIZE && !purgeOnUse)
+                cpr().discardPile.moveToHand(this);
             addToTop(new ModifyManaAction(getManaOnUse()));
         });
     }

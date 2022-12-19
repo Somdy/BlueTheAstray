@@ -8,13 +8,14 @@ public class E83 extends AstrayExtCard {
     public E83() {
         super(83, 1, 14, CardTarget.SELF);
         setMagicValue(9, true);
+        setExtraMagicValue(1, true);
         setMagical(true);
         exhaust = true;
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        addToBot(ApplyPower(s, s, new DeathPower(s, magicNumber)));
+        addToBot(ApplyPower(s, s, new DeathPower(s, magicNumber, getExtraMagic())));
     }
     
     @Override

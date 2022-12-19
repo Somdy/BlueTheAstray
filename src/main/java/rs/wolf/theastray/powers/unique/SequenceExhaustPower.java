@@ -13,15 +13,15 @@ public class SequenceExhaustPower extends AstrayPower {
     
     public SequenceExhaustPower(int cardsToGain) {
         super(ID, "heatsink", PowerType.BUFF, AbstractDungeon.player);
-        setValues(cardsToGain);
-        preloadString(s -> setAmtValue(0, amount));
+        setValues(-1, cardsToGain);
+        preloadString(s -> setAmtValue(0, extraAmt));
         updateDescription();
     }
     
     @Override
     public void onExhaust(AbstractCard card) {
-        if (TAUtils.IsMagical(card) && amount > 0) {
-            for (int i = 0; i < amount; i++) {
+        if (TAUtils.IsTrueMagical(card) && extraAmt > 0) {
+            for (int i = 0; i < extraAmt; i++) {
                 AbstractCard copy = CardMst.ReturnRndMagicInCombat(false);
                 addToBot(new MakeTempCardInHandAction(copy, 1));
             }
@@ -30,6 +30,6 @@ public class SequenceExhaustPower extends AstrayPower {
     
     @Override
     public AbstractPower makeCopy() {
-        return new SequenceExhaustPower(amount);
+        return new SequenceExhaustPower(extraAmt);
     }
 }

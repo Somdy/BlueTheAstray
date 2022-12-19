@@ -14,15 +14,15 @@ public class SequencePlayPower extends AstrayPower implements DeMagicSensitiveGe
     
     public SequencePlayPower(int cardsToGain) {
         super(ID, "heatsink", PowerType.BUFF, AbstractDungeon.player);
-        setValues(cardsToGain);
-        preloadString(s -> setAmtValue(0, amount));
+        setValues(-1, cardsToGain);
+        preloadString(s -> setAmtValue(0, extraAmt));
         updateDescription();
     }
     
     @Override
     public void onExhaust(AbstractCard card) {
-        if (TAUtils.IsDeMagical(card) && amount > 0) {
-            for (int i = 0; i < amount; i++) {
+        if (TAUtils.IsDeMagical(card) && extraAmt > 0) {
+            for (int i = 0; i < extraAmt; i++) {
                 AbstractCard copy = CardMst.ReturnRndMagicInCombat(true);
                 addToBot(new MakeTempCardInHandAction(copy, 1));
             }
@@ -31,6 +31,6 @@ public class SequencePlayPower extends AstrayPower implements DeMagicSensitiveGe
     
     @Override
     public AbstractPower makeCopy() {
-        return new SequencePlayPower(amount);
+        return new SequencePlayPower(extraAmt);
     }
 }

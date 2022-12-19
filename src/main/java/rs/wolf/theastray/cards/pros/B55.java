@@ -9,6 +9,7 @@ public class B55 extends AstrayProCard {
     public B55() {
         super(55, 2, CardTarget.SELF);
         setMagicValue(1, true);
+        addTip(MSG[0], String.format(MSG[1], magicNumber));
     }
     
     @Override
@@ -22,5 +23,6 @@ public class B55 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
+        addTip(MSG[2], String.format(MSG[3], magicNumber));
     }
 }

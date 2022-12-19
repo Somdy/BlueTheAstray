@@ -3,6 +3,7 @@ package rs.wolf.theastray.core;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.DevConsole;
+import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -37,6 +39,7 @@ import rs.wolf.theastray.commands.Cheat;
 import rs.wolf.theastray.commands.CheatCMD;
 import rs.wolf.theastray.commands.ManaCMD;
 import rs.wolf.theastray.data.DataMst;
+import rs.wolf.theastray.data.saveData.DataObject;
 import rs.wolf.theastray.localizations.TALocalLoader;
 import rs.wolf.theastray.monsters.BlueTheBoss;
 import rs.wolf.theastray.patches.TACardEnums;
@@ -54,10 +57,10 @@ import java.util.ArrayList;
 
 @SpireInitializer
 @SuppressWarnings("unused")
-public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
+public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
         PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber, 
         OnPlayerLoseBlockSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber, OnStartBattleSubscriber, 
-        OnShuffleSubscriber, OnMakingCardInCombatSubscriber, PostCreateStartingRelicsSubscriber {
+        OnShuffleSubscriber, OnMakingCardInCombatSubscriber, PostCreateStartingRelicsSubscriber, AddAudioSubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
@@ -65,12 +68,15 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     private static final String TA_BTN = "AstrayAssets/images/char/button.png";
     private static final String TA_PTR = "AstrayAssets/images/char/portrait.jpg";
     
+    public static DataObject SaveData = new DataObject();
+    
     public static boolean SHOW_OVERDRAWN_CARDS = true;
     
     public static void initialize() {
         Leader instance = new Leader();
         BaseMod.subscribe(instance);
         LManager.Sub(instance);
+        BaseMod.addSaveField(MOD_ID, instance);
     }
     
     public Leader() {
@@ -92,6 +98,16 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     
     public static void PatchLog(String what) {
         LMDebug.deLog(Leader.class, "THE ASTRAY-[LOG]> " + what);
+    }
+    
+    @Override
+    public String onSave() {
+        return SaveData.save();
+    }
+    
+    @Override
+    public void onLoad(String s) {
+        SaveData.load(s);
     }
     
     @Override
@@ -139,6 +155,8 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
         BaseMod.addMonster("BlueTheBoss", () -> new MonsterGroup(new AbstractMonster[]{
                 new BlueTheBoss(0F, 0F)
         }));
+        BaseMod.addBoss(TheEnding.ID, BlueTheBoss.ID, "AstrayAssets/images/ui/map/boss/bluetheboss_icon.png", 
+                "AstrayAssets/images/ui/map/boss/bluetheboss_outline.png");
         MsgLogger.Log();
     }
     
@@ -222,6 +240,18 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     @Override
     public void receiveOnPlayerTurnStart() {
         CardMst.DeMagicPlayedThisTurn.clear();
+        for (AbstractCard c : LMSK.Player().hand.group) {
+            if (c instanceof AstrayCard)
+                ((AstrayCard) c).onPlayerTurnStart();
+        }
+        for (AbstractCard c : LMSK.Player().drawPile.group) {
+            if (c instanceof AstrayCard)
+                ((AstrayCard) c).onPlayerTurnStart();
+        }
+        for (AbstractCard c : LMSK.Player().discardPile.group) {
+            if (c instanceof AstrayCard)
+                ((AstrayCard) c).onPlayerTurnStart();
+        }
     }
     
     @Override
@@ -266,5 +296,11 @@ public class Leader implements TAUtils, EditStringsSubscriber, EditKeywordsSubsc
     @Override
     public void receivePostCreateStartingRelics(AbstractPlayer.PlayerClass playerClass, ArrayList<String> relicList) {
         relicList.add("astray:RelicTest1");
+    }
+    
+    @Override
+    public void receiveAddAudio() {
+        BaseMod.addAudio(TAUtils.MakeID("FALLING_STAR"), "AstrayAssets/audio/sfx/FALLING_STAR_SFX.ogg");
+        BaseMod.addAudio(TAUtils.MakeID("FALLING_STAR_ON_HIT"), "AstrayAssets/audio/sfx/FALLING_STAR_ON_HIT_SFX.ogg");
     }
 }

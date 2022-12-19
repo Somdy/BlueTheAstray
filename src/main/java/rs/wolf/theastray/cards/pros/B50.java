@@ -26,7 +26,7 @@ public class B50 extends AstrayProCard {
                 : AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         addToBot(new GainBlockAction(s, block));
         atbTmpAction(() -> {
-            upgradePromos(1);
+            upgradePromos(finalBranch() == 1 ? magicNumber : 1);
             updateDescription(UPDATED_DESC[finalBranch()]);
         });
     }
@@ -54,12 +54,8 @@ public class B50 extends AstrayProCard {
                upgradeTexts(1);
                setMagicalDerivative(false);
                setMagical(true);
+               setMagicValue(1, true);
            });
         }};
-    }
-    
-    @Override
-    protected int selfModifyManaOnUse(int manaCost) {
-        return 0;
     }
 }

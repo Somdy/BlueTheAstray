@@ -22,32 +22,32 @@ public class B4 extends AstrayProCard {
     
     @Override
     protected void beforePlaying(AbstractCreature s, AbstractCreature t) {
-        if (!upgraded || finalBranch() == 0) {
-            if (GlobalManaMst.CurrentMana() >= 2)
-                exhaustOnUseOnce = true;
+        if (!upgraded && GlobalManaMst.CurrentMana() >= 2) {
+            exhaustOnUseOnce = true;
         }
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(new GainBlockAction(s, block));
-        if (!upgraded || finalBranch() == 0) {
+        if (!upgraded || finalBranch() == 1) {
             atbTmpAction(() -> {
                 if (GlobalManaMst.CurrentMana() >= 2)
                     addToTop(ApplyPower(s, s, new MagicPower(s, magicNumber)));
             });
-        } else if (finalBranch() == 1) {
-            addToBot(new DrawCardAction(s, magicNumber));
+        } else if (finalBranch() == 0) {
+            if (GlobalManaMst.CurrentMana() >= 2) {
+                int count = GlobalManaMst.CurrentMana() % 2;
+                for (int i = 0; i < count; i++) {
+                    addToBot(ApplyPower(s, s, new MagicPower(s, magicNumber)));
+                }
+            }
         }
     }
     
     @Override
     public void triggerOnGlowCheck() {
-        if (!upgraded || finalBranch() == 0) {
-            glowColor = GlobalManaMst.CurrentMana() >= 2 ? GOLD_BORDER_GLOW_COLOR : BLUE_BORDER_GLOW_COLOR;
-        } else {
-            glowColor = BLUE_BORDER_GLOW_COLOR;
-        }
+        glowColor = GlobalManaMst.CurrentMana() >= 2 ? GOLD_BORDER_GLOW_COLOR : BLUE_BORDER_GLOW_COLOR;
     }
     
     @Override
@@ -60,13 +60,10 @@ public class B4 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                setMagicalDerivative(true);
+                exhaust = true;
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeBaseCost(0);
-                upgradeBlock(1);
-                setMagicalDerivative(true);
             });
         }};
     }

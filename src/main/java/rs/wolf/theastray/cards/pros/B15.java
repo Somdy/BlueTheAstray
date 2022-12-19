@@ -14,7 +14,8 @@ public class B15 extends AstrayProCard {
         setBlockValue(6, true);
         setCanEnlighten(true);
         selfRetain = true;
-        returnToHand = true;
+//        returnToHand = true;
+        setReturnToHand(true);
     }
     
     @Override
