@@ -14,7 +14,6 @@ public class E97 extends AstrayExtCard {
         super(97, 1, 8, CardTarget.NONE);
         setMagicValue(1, true);
         setMagicalDerivative(true);
-        setCanEnlighten(true);
         setStorage(true);
         exhaust = true;
         cardsToPreview = new Discovery();
@@ -24,8 +23,6 @@ public class E97 extends AstrayExtCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         atbTmpAction(() -> {
             Discovery card = new Discovery();
-            if (upgraded && finalBranch() == 0)
-                card.upgrade();
             card.freeToPlayOnce = true;
             addToTop(new MakeTempCardInHandAction(card, magicNumber));
         });
@@ -33,21 +30,7 @@ public class E97 extends AstrayExtCard {
     
     @Override
     public void selfUpgrade() {
-        branchingUpgrade();
-    }
-    
-    @Override
-    protected List<UpgradeBranch> branches() {
-        return new ArrayList<UpgradeBranch>(){{
-            add(() -> {
-                upgradeTexts();
-                if (cardsToPreview != null)
-                    cardsToPreview.upgrade();
-            });
-            add(() -> {
-                upgradeTexts(1);
-                upgradeBaseCost(0);
-            });
-        }};
+        upgradeTexts(1);
+        upgradeBaseCost(0);
     }
 }

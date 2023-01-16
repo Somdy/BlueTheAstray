@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.lazymankits.actions.CustomDmgInfo;
 import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.powers.unique.FrostShieldPower;
 import rs.wolf.theastray.relics.Relic11;
 import rs.wolf.theastray.utils.TAUtils;
 
@@ -39,7 +40,7 @@ public class FrostPower extends AstrayPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        if (amount > 0) {
+        if (amount > 0 && canReduce()) {
             addToBot(new ReducePowerAction(owner, owner, this, MathUtils.ceil(amount / 2F)));
         }
     }
@@ -53,9 +54,20 @@ public class FrostPower extends AstrayPower {
                 useMagic = true;
             }
         }
-        if (!useMagic)
+        if (!useMagic && canReduce())
             addToTop(new ReducePowerAction(owner, owner, this, 1));
         return super.onAttacked(info, damageAmount);
+    }
+    
+    private boolean canReduce() {
+        if (source != null) {
+            AbstractPower p = source.getPower(FrostShieldPower.ID);
+            if (p != null && p.amount > 0) {
+                p.flash();
+                return false;
+            }
+        }
+        return true;
     }
     
     @Override

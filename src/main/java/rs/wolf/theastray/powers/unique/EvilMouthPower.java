@@ -52,7 +52,7 @@ public class EvilMouthPower extends AstrayPower {
             }
             copy.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(copy, m, card.energyOnUse, 
-                    true, true), true);
+                    true, true), false);
             amount--;
             if (amount == 0) {
                 addToTop(new RemoveSpecificPowerAction(owner, owner, this));

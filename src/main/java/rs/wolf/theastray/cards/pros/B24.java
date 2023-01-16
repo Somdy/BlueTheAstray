@@ -16,8 +16,8 @@ public class B24 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         atbTmpAction(() -> {
-            int multi = getExtraMagic();
-            int mSize = getAllLivingMstrs().size();
+            int multi = 1;
+            int mSize = getAllLivingMstrs().size() + 1;
             multi *= mSize;
             for (int i = 0; i < multi; i++) {
                 AbstractMonster m = AbstractDungeon.getRandomMonster();
@@ -41,6 +41,6 @@ public class B24 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(2);
     }
 }

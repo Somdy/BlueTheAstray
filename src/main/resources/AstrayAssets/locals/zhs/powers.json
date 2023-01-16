@@ -56,10 +56,16 @@
       "在 #b[amt_1] 个回合内，免疫 #b[amt_0] 以下的伤害。"
     ]
   },
-  "astray:FrostShieldPower": {
+  "DEPRECATED astray:FrostShieldPower": {
     "NAME": "臻冰之盾",
     "DESCRIPTIONS": [
       "下回合开始时，将一张 #y%s 置入你的手牌。"
+    ]
+  },
+  "astray:FrostShieldPower": {
+    "NAME": "臻冰之盾",
+    "DESCRIPTIONS": [
+      "所有敌人的 #y冰霜 在 #b%d 回合内不会下降。"
     ]
   },
   "astray:WizardFieldPower": {
@@ -268,6 +274,12 @@
     "NAME": "巨人幻象",
     "DESCRIPTIONS": [
       "每回合开始和结束时，获得 #b[amt_0] 层 #y易伤 和 #b[amt_1] 点 格挡 。"
+    ]
+  },
+  "astray:AntiMagicPower": {
+    "NAME": "魔力释放",
+    "DESCRIPTIONS": [
+      "本场战斗中无法再获得 #y魔力 。"
     ]
   }
 }

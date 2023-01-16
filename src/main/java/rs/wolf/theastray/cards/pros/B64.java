@@ -1,8 +1,10 @@
 package rs.wolf.theastray.cards.pros;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.powers.unique.PhosphorusPower;
+import rs.wolf.theastray.utils.GlobalIDMst;
 
 public class B64 extends AstrayProCard {
     public B64() {

@@ -17,7 +17,6 @@ public class E82 extends AstrayExtCard {
     public E82() {
         super(82, 1, 14, CardTarget.NONE);
         setMagical(true);
-        setCanEnlighten(true);
         cardsToPreview = new E89();
         addTags(TACardEnums.ILLUSION);
     }
@@ -27,7 +26,7 @@ public class E82 extends AstrayExtCard {
         atbTmpAction(() -> {
             int size = calculateSize();
             if (size <= 0) return;
-            if (upgraded && finalBranch() == 1) size *= magicNumber;
+            if (upgraded) size *= magicNumber;
             for (int i = 0; i < size; i++) {
                 addToTop(new NewQueueCardAction(cardsToPreview.makeCopy(), true, true, true));
             }
@@ -36,37 +35,19 @@ public class E82 extends AstrayExtCard {
     
     private int calculateSize() {
         int size = 0;
-        if (!upgraded || finalBranch() == 0) {
-            if (cpr().exhaustPile.isEmpty()) return size;
-            if (!upgraded) {
-                size = countSpecificCards(cpr().exhaustPile, c -> GlobalIDMst.CardID("星星").equals(c.cardID));
-                cpr().exhaustPile.group.removeIf(c -> GlobalIDMst.CardID("星星").equals(c.cardID));
-            } else {
-                size = cpr().exhaustPile.size();
-                cpr().exhaustPile.clear();
-            }
-        } else if (finalBranch() == 1) {
-            for (AbstractCard c : cardsPlayedThisCombat()) {
-                if (TAUtils.IsTrueMagical(c)) size++;
-            }
-            size += CardMst.DeMagicPlayedThisCombat.size();
+        if (cpr().exhaustPile.isEmpty()) return size;
+        if (!upgraded) {
+            size = countSpecificCards(cpr().exhaustPile, c -> GlobalIDMst.CardID("星星").equals(c.cardID));
+            cpr().exhaustPile.group.removeIf(c -> GlobalIDMst.CardID("星星").equals(c.cardID));
+        } else {
+            size = cpr().exhaustPile.size();
+            cpr().exhaustPile.clear();
         }
         return size;
     }
     
     @Override
     public void selfUpgrade() {
-        branchingUpgrade();
-    }
-    
-    @Override
-    protected List<UpgradeBranch> branches() {
-        return new ArrayList<UpgradeBranch>() {{
-            add(() -> upgradeTexts());
-            add(() -> {
-                upgradeTexts(1);
-                setMagicValue(1, true);
-            });
-        }};
+        upgradeTexts();
     }
 }

@@ -1,5 +1,7 @@
 package rs.wolf.theastray.utils;
 
+import basemod.BaseMod;
+import basemod.abstracts.CustomUnlockBundle;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,6 +15,8 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.AbstractUnlock;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
@@ -38,6 +42,34 @@ public interface TAUtils extends LMGameGeneralUtils {
         if (p.exhaustPile.contains(target))
             return p.exhaustPile;
         return null;
+    }
+    
+    static void AddUnlockBundle(AbstractUnlock.UnlockType type, AbstractPlayer.PlayerClass c, int level, @NotNull String... unlocks) {
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(type, unlocks[0], unlocks[1], unlocks[2]), c, level);
+        if (type == AbstractUnlock.UnlockType.CARD) {
+            for (String unlock : unlocks) {
+                Log("add unlock of [" + unlock + "]");
+                UnlockTracker.addCard(unlock);
+            }
+        }
+        if (UnlockTracker.unlockProgress.getInteger(c.toString() + "UnlockLevel") > level + 1) {
+            if (type == AbstractUnlock.UnlockType.CARD) {
+                for (String unlock : unlocks) {
+                    UnlockTracker.unlockCard(unlock);
+                }
+            } else if (type == AbstractUnlock.UnlockType.RELIC) {
+                for (String unlock : unlocks) {
+                    UnlockTracker.lockedRelics.remove(unlock);
+                    UnlockTracker.markRelicAsSeen(unlock);
+                }
+            } else {
+                TAUtils.Log("UNDEFINED UNLOCK TYPE: [" + type + "]");
+            }
+        }
+    }
+    
+    static void AddUnlockBundle(AbstractPlayer.PlayerClass c, int level, @NotNull String... unlocks) {
+        AddUnlockBundle(AbstractUnlock.UnlockType.CARD, c, level, unlocks);
     }
     
     @NotNull

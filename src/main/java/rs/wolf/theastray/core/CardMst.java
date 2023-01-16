@@ -2,6 +2,7 @@ package rs.wolf.theastray.core;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.abstracts.CustomUnlockBundle;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Madness;
 import com.megacrit.cardcrawl.random.Random;
@@ -21,6 +22,7 @@ import rs.wolf.theastray.cards.pros.StrikeTA;
 import rs.wolf.theastray.data.CardData;
 import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.MsgLogger;
 import rs.wolf.theastray.utils.TAUtils;
 
@@ -79,7 +81,7 @@ public class CardMst {
         CARD_MAP.put(card.data, card);
         if (TAUtils.IsMagical(card)) 
             MAGICS.add(card.data.getInternalID());
-        UnlockTracker.unlockCard(card.cardID);
+//        UnlockTracker.unlockCard(card.cardID);
     }
     
     private static void addExtCard(@NotNull AstrayExtCard card) {
@@ -88,7 +90,7 @@ public class CardMst {
         if (TAUtils.IsMagical(card)) 
             MAGICS.add(card.data.getInternalID());
         LManager.AddAdditionalSpawnCard(card.makeCopy());
-        UnlockTracker.unlockCard(card.cardID);
+//        UnlockTracker.unlockCard(card.cardID);
     }
     
     private static void addMiscCard(@NotNull AstrayCard card) {
@@ -96,7 +98,7 @@ public class CardMst {
         CARD_MAP.put(card.data, card);
         if (TAUtils.IsMagical(card)) 
             MAGICS.add(card.data.getInternalID());
-        UnlockTracker.unlockCard(card.cardID);
+//        UnlockTracker.unlockCard(card.cardID);
     }
     
     @NotNull

@@ -26,13 +26,9 @@ public class B44 extends AstrayProCard {
             AbstractPower p = cardRandomRng().randomBoolean() ? new StrengthPower(s, magicNumber)
                     : new DexterityPower(s, getExtraMagic());
             addToBot(ApplyPower(s, s, p));
-        } else if (finalBranch() == 0) {
+        } else if (finalBranch() == 0 || finalBranch() == 1) {
             addToBot(ApplyPower(s, s, new StrengthPower(s, magicNumber)));
             addToBot(ApplyPower(s, s, new DexterityPower(s, magicNumber)));
-        } else if (finalBranch() == 1) {
-            AbstractPower p = cardRandomRng().randomBoolean() ? new StrengthPower(s, magicNumber)
-                    : new DexterityPower(s, magicNumber);
-            addToBot(ApplyPower(s, s, p));
         }
     }
     
@@ -46,12 +42,11 @@ public class B44 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                upgradeMagicNumber(-1);
-                upgradeExtraMagic(-1);
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeMagicNumber(1);
+                upgradeMagicNumber(-1);
+                upgradeExtraMagic(-1);
                 shuffleBackIntoDrawPile = true;
             });
         }};

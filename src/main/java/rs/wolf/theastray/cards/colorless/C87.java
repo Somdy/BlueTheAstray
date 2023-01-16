@@ -12,11 +12,6 @@ public class C87 extends AstrayColorlessCard {
     }
     
     @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
-    
-    @Override
     public void play(AbstractCreature s, AbstractCreature t) {}
     
     @Override

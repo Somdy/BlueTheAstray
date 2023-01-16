@@ -7,9 +7,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.interfaces.MagicModifier;
+import rs.wolf.theastray.powers.unique.AntiMagicPower;
 import rs.wolf.theastray.relics.Relic11;
 import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
+
+import java.util.Optional;
 
 public final class MagicPower extends AstrayPower implements MagicModifier {
     public static final String ID = TAUtils.MakeID("MagicPower");
@@ -29,6 +32,7 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
             setAmtValue(0, Math.abs(this.amount));
         });
         updateDescription();
+        type = amount > 0 ? PowerType.BUFF : PowerType.DEBUFF;
     }
     
     boolean hasC88InHand() {

@@ -12,9 +12,8 @@ import java.util.List;
 public class B76 extends AstrayProCard {
     public B76() {
         super(76, 1, CardTarget.ALL_ENEMY);
-        setDamageValue(24, true);
+        setDamageValue(18, true);
         setCanEnlighten(true);
-        setStorage(true);
     }
     
     @Override
@@ -47,7 +46,7 @@ public class B76 extends AstrayProCard {
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeDamage(-3);
+                upgradeDamage(-6);
                 setPromosValue(4, true);
                 setMagical(true);
                 isMultiDamage = true;

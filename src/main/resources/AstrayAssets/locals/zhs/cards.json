@@ -44,8 +44,8 @@
     "NAME": "魔力释放",
     "DESCRIPTION": "astray:启迪 NL 获得 !B! 点 格挡 。 NL 如果有2 astray:法力 ，获得 !M! 点 astray:魔力 并 消耗 。",
     "UPGRADED_DESC": [
-      "astray:启迪 NL 获得 !B! 点 格挡 。 NL 每有2 astray:法力 ，获得 !M! 点 astray:魔力 。 NL 消耗 ",
-      "astray:启迪 NL 获得 !B! 点 格挡 。 NL 如果有2 astray:法力 ，获得 !M! 点 astray:魔力 。"
+      "astray:启迪 NL 获得 !B! 点 格挡 。 NL 如果有2 astray:法力 ，获得 !M! 点 astray:魔力 并 消耗 。 NL 至少有4 *法力 时不 消耗 。",
+      "astray:启迪 NL 获得 !B! 点 格挡 。 NL 如果有3 astray:法力 ，获得 !M! 点 astray:魔力 并 消耗 ，且本场战斗中无法再获得 *魔力 。"
     ]
   },
   {
@@ -250,7 +250,7 @@
   {
     "ID": "B24",
     "NAME": "跳跃火花",
-    "DESCRIPTION": "astray:魔法 NL 给予随机敌人 !M! 层 astray:余烬 。 NL 每有一名敌人重复 !astray:extras! 次。",
+    "DESCRIPTION": "astray:魔法 NL 给予随机敌人 !M! 层 astray:余烬 。 NL 重复场上所有单位总数次。",
     "MSG": [" NL （给予%d层 *余烬 %d次）"]
   },
   {
@@ -334,12 +334,18 @@
     "DESCRIPTION": "astray:魔法 ， astray:储能 NL 获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 astray:冰霜 。"
   },
   {
+    "DEPRECATED": true,
     "ID": "B36",
     "NAME": "臻冰之盾",
     "DESCRIPTION": "astray:魔法 ， astray:储能 NL 获得 !B! +所有敌人 astray:冰霜 总层数的 格挡 。 NL 消耗",
     "UPGRADED_DESC": [
       "astray:魔法 ， astray:储能 NL 获得 !B! +所有敌人 astray:冰霜 总层数的 格挡 。 NL 下回合将一张该牌未 升级 的复制置入手牌。 NL 消耗"
     ]
+  },
+  {
+    "ID": "B36",
+    "NAME": "臻冰之盾",
+    "DESCRIPTION": "astray:魔法 NL 获得 !B! 点 格挡 。 NL 本回合内所有敌人 astray:冰霜 层数不会下降。 NL 消耗"
   },
   {
     "ID": "B37",
@@ -411,7 +417,7 @@
     "DESCRIPTION": "astray:启迪 NL 失去1点 astray:魔力 ， NL 随机获得 !M! 点 力量 或者 !astray:extras! 点 敏捷 。",
     "UPGRADED_DESC": [
       "astray:启迪 NL 失去1点 astray:魔力 ， NL 获得 !M! 点 力量 和 !astray:extras! 点 敏捷 。",
-      "astray:启迪 NL 失去1点 astray:魔力 ， NL 随机获得 !M! 点 力量 或 敏捷 。 NL 将该牌洗入抽牌堆。"
+      "astray:启迪 NL 失去1点 astray:魔力 ， NL 获得 !M! 点 力量 和 !astray:extras! 点 敏捷 。 NL 将该牌洗入抽牌堆。"
     ]
   },
   {
@@ -447,9 +453,9 @@
   {
     "ID": "B49",
     "NAME": "幸运骰子",
-    "DESCRIPTION": "随机获得2~12 *金币 ， NL 造成等量伤害。 NL 抽1张牌。 NL 消耗",
+    "DESCRIPTION": "随机获得3~18 *金币 ， NL 造成等量伤害。 NL 消耗",
     "UPGRADED_DESC": [
-      "随机造成 !M! ~ !D! 点伤害 NL 获得等量 *金币 。 NL 抽1张牌。 NL 消耗"
+      "随机造成 !M! ~ !D! 点伤害 NL 获得等量 *金币 。 NL 消耗"
     ]
   },
   {
@@ -458,11 +464,11 @@
     "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
     "UPGRADED_DESC": [
       "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
-      "astray:魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 !M! 。"
+      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。"
     ],
     "UPDATED_DESC": [
       "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
-      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 !M! 。"
+      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 !M! 。"
     ]
   },
   {
@@ -575,7 +581,7 @@
   {
     "ID": "B65",
     "NAME": "余烬之前",
-    "DESCRIPTION": "你在给予 astray:余烬 时获得等量的 格挡 。 NL 消耗 !M! 张牌后这个能力失效。"
+    "DESCRIPTION": "虚无 NL 你在给予 astray:余烬 时获得等量的 格挡 。 NL 消耗 !M! 张牌后这个能力失效。"
   },
   {
     "ID": "B66",
@@ -619,9 +625,9 @@
   {
     "ID": "B70",
     "NAME": "爆裂流星",
-    "DESCRIPTION": "随机打出X-1张攻击 astray:魔法牌 。 NL 消耗",
+    "DESCRIPTION": "随机打出X张攻击 astray:魔法牌 。 NL 消耗",
     "UPGRADED_DESC": [
-      "随机打出X-1张攻击 astray:魔法牌 。 NL 获得X astray:法力 。 NL 消耗",
+      "随机打出X张攻击 astray:魔法牌 。 NL 获得X astray:法力 。 NL 消耗",
       ""
     ]
   },
@@ -718,9 +724,9 @@
   {
     "ID": "B79",
     "NAME": "折镜迷宫",
-    "DESCRIPTION": "astray:储能 NL 对所有敌人造成 !D! 伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗",
+    "DESCRIPTION": "astray:储能 NL 对所有敌人 NL 造成 !D! 伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:储能 NL 对所有敌人造成 !D! 伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗"
+      "astray:魔法 ， astray:储能 NL 对所有敌人 NL 造成 !D! 伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗"
     ]
   },
   {
@@ -750,10 +756,9 @@
   {
     "ID": "E82",
     "NAME": "星穹幻象",
-    "DESCRIPTION": "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 打出等同于消耗堆中 *星星 数量的 *星星 。",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 打出等同于消耗堆中 *星星 数量的 *星星 。",
     "UPGRADED_DESC": [
-      "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 打出等量的 *星星 。",
-      "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 你在本场战斗中每 NL 打出过一张魔法牌或 astray:衍生魔法 ， NL 就打出 !M! 张 *星星 。"
+      "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 打出等量的 *星星 。"
     ]
   },
   {
@@ -770,7 +775,7 @@
   {
     "ID": "E84",
     "NAME": "巨人幻象",
-    "DESCRIPTION": "你的每个回合开始与结束时，获得 !M! 层 易伤 和 !astray:extras! 点 格挡 。"
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 你的每个回合开始与结束时，获得 !M! 层 易伤 和 !astray:extras! 点 格挡 。"
   },
   {
     "ID": "C85",
@@ -795,7 +800,7 @@
   {
     "ID": "E89",
     "NAME": "星星",
-    "DESCRIPTION": "astray:衍生魔法 ， astray:晋升 !astray:promos! NL 随机敌人受到 !D! 伤害。 NL 消耗"
+    "DESCRIPTION": "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:扩展 ( !astray:ext! ) NL 随机敌人受到 !D! 伤害。 NL 消耗"
   },
   {
     "ID": "E90",
@@ -827,12 +832,18 @@
     ]
   },
   {
+    "DEPRECATED": true,
     "ID": "E93",
-    "NAME": "风压",
+    "NAME": "台风",
     "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 被 格挡 时给予 !M! 层 虚弱 。",
     "UPGRADED_DESC": [
       "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 被 格挡 时给予 !M! 层 虚弱 !astray:extras! 次。"
     ]
+  },
+  {
+    "ID": "E93",
+    "NAME": "台风",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL 对所有敌人造成 !D! 点伤害。 NL 被完全 格挡 时给予目标 !M! 层 虚弱 和 !astray:extras! 层 易伤 。"
   },
   {
     "ID": "E94",
@@ -860,7 +871,6 @@
     "NAME": "梦醒时分",
     "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 将 !M! 张 *发现 置入手牌。 NL 该 *发现 在下次打出前耗能为0. NL 消耗",
     "UPGRADED_DESC": [
-      "astray:衍生魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 将 !M! 张 *发现+ 置入手牌。 NL 该 *发现+ 在下次打出前耗能为0. NL 消耗",
       "astray:衍生魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 将 !M! 张 *发现 置入手牌。 NL 该 *发现 在下次打出前耗能为0. NL 消耗"
     ]
   },
@@ -900,15 +910,12 @@
   {
     "ID": "E102",
     "NAME": "神奇徽印",
-    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 没有剩余 [E] 时， NL 抽 !M! 张牌。"
+    "DESCRIPTION": "astray:衍生魔法 ， astray:扩展 ( !astray:ext! ) NL 抽 !M! 张牌。 NL 每张超出手牌上限的牌获得 [E] . NL 消耗"
   },
   {
     "ID": "E103",
     "NAME": "寄",
-    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 随机消灭 !M! 个 *爪牙 。 NL 消耗",
-    "UPGRADED_DESC": [
-      "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 消灭所有 *爪牙。 NL 消耗"
-    ]
+    "DESCRIPTION": "astray:衍生魔法 NL astray:扩展 ( !astray:ext! ) NL 对所有敌人造成 !D! 点伤害，直接杀死 *爪牙 。 NL 消耗"
   },
   {
     "ID": "E104",

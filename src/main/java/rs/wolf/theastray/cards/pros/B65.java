@@ -9,6 +9,7 @@ public class B65 extends AstrayProCard {
     public B65() {
         super(65, 0, CardTarget.SELF);
         setMagicValue(12, true);
+        isEthereal = true;
     }
     
     @Override

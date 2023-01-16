@@ -38,12 +38,12 @@ public class CheatCMD extends ConsoleCommand {
             if (TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)) {
                 Cheat.SetCheat(Cheat.IEL, true);
                 Cheat.SetCheat(Cheat.SSD, true);
-                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("余烬之前"), 2));
+                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("邪口"), 1));
                 LMSK.AddToBot(new ModifyManaAction(10));
-                AstrayCard card = (AstrayCard) CardMst.GetCard("闪电箭");
+                AstrayCard card = (AstrayCard) CardMst.GetCard("流星雨");
                 card.setChosenBranch(1);
                 card.upgrade();
-                LMSK.AddToBot(new MakeTempCardInHandAction(card, 1));
+                LMSK.AddToBot(new MakeTempCardInHandAction(card, 3));
             }
         }
         else {

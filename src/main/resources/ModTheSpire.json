@@ -1,10 +1,11 @@
 {
     "modid": "BlueTheAstray",
     "name": "Blue The Astray [蓝]",
-    "author_list": ["Somdy"],
-    "description": "该 Mod 仍在测试阶段！",
-    "version": "0.2.16",
+    "author_list": ["Little wolf影幽"],
+    "description": "添加了一位原创角色：迷途者-蓝，一名寻求晋升的“法师”。他带来了75+32张卡牌与10件新的遗物。",
+    "version": "1.0.0",
     "sts_version": "12-22-2020",
-    "mts_version": "3.29.0",
-    "dependencies": ["basemod", "LazyManKits"]
+    "mts_version": "3.30.0",
+    "dependencies": ["basemod", "LazyManKits"],
+    "credits": "设计/策划: Little wolf影幽\n代码: Somdy\n美术: GM_Whitose\n音乐和音效: Temple9"
 }

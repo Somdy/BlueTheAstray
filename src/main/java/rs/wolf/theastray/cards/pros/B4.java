@@ -1,12 +1,11 @@
 package rs.wolf.theastray.cards.pros;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.powers.MagicPower;
+import rs.wolf.theastray.powers.unique.AntiMagicPower;
 import rs.wolf.theastray.utils.GlobalManaMst;
 
 import java.util.ArrayList;
@@ -22,32 +21,49 @@ public class B4 extends AstrayProCard {
     
     @Override
     protected void beforePlaying(AbstractCreature s, AbstractCreature t) {
-        if (!upgraded && GlobalManaMst.CurrentMana() >= 2) {
-            exhaustOnUseOnce = true;
+        exhaustOnUseOnce = goExhaust();
+    }
+    
+    private boolean goExhaust() {
+        if (canTrigger()) {
+            if (!upgraded || finalBranch() == 1) {
+                log("go exhaust");
+                return true;
+            }
+            if (finalBranch() == 0 && GlobalManaMst.CurrentMana() <= 3) {
+                log("no enough mana, go exhaust");
+                return true;
+            }
         }
+        return false;
     }
     
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(new GainBlockAction(s, block));
-        if (!upgraded || finalBranch() == 1) {
+        if (!upgraded || finalBranch() == 0) {
             atbTmpAction(() -> {
                 if (GlobalManaMst.CurrentMana() >= 2)
                     addToTop(ApplyPower(s, s, new MagicPower(s, magicNumber)));
             });
-        } else if (finalBranch() == 0) {
-            if (GlobalManaMst.CurrentMana() >= 2) {
-                int count = GlobalManaMst.CurrentMana() % 2;
-                for (int i = 0; i < count; i++) {
-                    addToBot(ApplyPower(s, s, new MagicPower(s, magicNumber)));
+        } else if (finalBranch() == 1) {
+            atbTmpAction(() -> {
+                if (GlobalManaMst.CurrentMana() >= 3) {
+                    addToTop(ApplyPower(s, s, new MagicPower(s, magicNumber)));
+                    addToBot(ApplyPower(s, s, new AntiMagicPower(s)));
                 }
-            }
+            });
         }
+    }
+    
+    private boolean canTrigger() {
+        int cm = GlobalManaMst.CurrentMana();
+        return !upgraded || finalBranch() == 0 ? cm >= 2 : cm >= 3;
     }
     
     @Override
     public void triggerOnGlowCheck() {
-        glowColor = GlobalManaMst.CurrentMana() >= 2 ? GOLD_BORDER_GLOW_COLOR : BLUE_BORDER_GLOW_COLOR;
+        glowColor = canTrigger() ? GOLD_BORDER_GLOW_COLOR : BLUE_BORDER_GLOW_COLOR;
     }
     
     @Override
@@ -60,10 +76,10 @@ public class B4 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                exhaust = true;
             });
             add(() -> {
                 upgradeTexts(1);
+                upgradeMagicNumber(1);
             });
         }};
     }

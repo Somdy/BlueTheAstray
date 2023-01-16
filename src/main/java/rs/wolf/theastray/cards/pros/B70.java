@@ -22,7 +22,7 @@ public class B70 extends AstrayProCard {
                     if (upgraded) {
                         addToTop(new ModifyManaAction(effect));
                     }
-                    for (int i = 0; i < effect - 1; i++) {
+                    for (int i = 0; i < effect; i++) {
                         AbstractCard card = CardMst.ReturnRndMagicInCombat(false, c -> isCardTypeOf(c, CardType.ATTACK));
                         card.purgeOnUse = true;
                         addToTop(new NewQueueCardAction(card, true, true, true));

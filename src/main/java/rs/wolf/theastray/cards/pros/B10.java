@@ -37,7 +37,7 @@ public class B10 extends AstrayProCard {
     protected void upgradeName() {
         timesUpgraded++;
         upgraded = true;
-        name = NAME + timesUpgraded;
+        name = NAME + "+" + timesUpgraded;
         initializeTitle();
     }
     
