@@ -37,7 +37,6 @@ public class B49 extends AstrayProCard {
                 }));
             });
         }
-        addToBot(new DrawCardAction(s, 1));
     }
     
     @Override

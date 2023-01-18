@@ -26,7 +26,7 @@ public class B50 extends AstrayProCard {
                 : AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         addToBot(new GainBlockAction(s, block));
         atbTmpAction(() -> {
-            upgradePromos(finalBranch() == 1 ? magicNumber : 1);
+            upgradePromos(1);
             updateDescription(UPDATED_DESC[finalBranch()]);
         });
     }

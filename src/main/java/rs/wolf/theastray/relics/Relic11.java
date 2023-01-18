@@ -38,6 +38,11 @@ public class Relic11 extends AstrayRelic {
         }
     }
     
+    @Override
+    protected boolean selfCanSpawn() {
+        return false;
+    }
+    
     public static int GetMaxAmount(int defaultValue) {
         if (LMSK.Player().hasRelic(GlobalIDMst.RelicID(11)))
             defaultValue = Integer.MAX_VALUE;

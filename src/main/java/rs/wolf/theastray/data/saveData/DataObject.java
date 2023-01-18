@@ -39,6 +39,7 @@ public class DataObject {
     public boolean getBool(String key) {
         if (dataMap.containsKey(key))
             return Boolean.parseBoolean(dataMap.get(key));
+        Leader.Log("No value associated the key [" + key + "], returning false");
         return false;
     }
     

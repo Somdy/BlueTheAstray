@@ -468,7 +468,7 @@
     ],
     "UPDATED_DESC": [
       "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
-      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 !M! 。"
+      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。"
     ]
   },
   {
@@ -562,7 +562,7 @@
   {
     "ID": "B63",
     "NAME": "魔力躯体",
-    "DESCRIPTION": "手牌满时依然可以抽牌。 NL 因手牌满而进入弃牌堆的每张牌获得 !B! 点 格挡 。"
+    "DESCRIPTION": "手牌满时依然可以抽牌。 NL 因手牌满而进入弃牌堆的每张牌获得 !M! 点 格挡 。"
   },
   {
     "ID": "B64",
@@ -700,8 +700,8 @@
     "NAME": "星线",
     "DESCRIPTION": "astray:启迪 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
     "UPGRADED_DESC": [
-      "astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
-      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 对所有敌人造成 !D! 点伤害。"
+      "astray:启迪 NL 造成 !D! 点伤害， NL 平均分配到所有敌人身上。",
+      "astray:魔法 NL astray:晋升 !astray:promos! ， astray:启迪 NL 对所有敌人造成 !D! 点伤害。"
     ]
   },
   {

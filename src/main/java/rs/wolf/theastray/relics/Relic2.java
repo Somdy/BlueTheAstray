@@ -40,7 +40,7 @@ public class Relic2 extends AstrayRelic {
     }
     
     @Override
-    public boolean canSpawn() {
+    public boolean selfCanSpawn() {
         return cpr().hasRelic(GlobalIDMst.RelicID(1));
     }
 }

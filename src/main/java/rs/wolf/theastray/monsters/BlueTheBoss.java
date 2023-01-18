@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.combat.HeartBuffEffect;
 import com.megacrit.cardcrawl.vfx.combat.ViceCrushEffect;
 import rs.lazymankits.actions.utility.QuickAction;
 import rs.wolf.theastray.abstracts.AstrayMonster;
+import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.powers.monsters.AssimilationPower;
 import rs.wolf.theastray.powers.monsters.FocusedEyesPower;
 import rs.wolf.theastray.powers.monsters.MasteryBossPower;
@@ -63,6 +64,8 @@ public class BlueTheBoss extends AstrayMonster {
         AbstractDungeon.scene.fadeOutAmbiance();
         currRoom().playBgmInstantly("BOSS_ENDING");
         AsFinal = true;
+        TAUtils.Log("Resetting eleven");
+        Leader.SaveData.putValue("eleven", false);
     }
     
     @Override

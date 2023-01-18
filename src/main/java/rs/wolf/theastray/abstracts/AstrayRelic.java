@@ -2,13 +2,16 @@ package rs.wolf.theastray.abstracts;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.abstracts.LMCustomRelic;
 import rs.lazymankits.actions.utility.QuickAction;
+import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.data.RelicData;
+import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.powers.FrostPower;
 import rs.wolf.theastray.utils.TAUtils;
 
@@ -53,5 +56,15 @@ public abstract class AstrayRelic extends LMCustomRelic {
     
     protected void atbTmpAction(Runnable action) {
         addToBot(new QuickAction(action));
+    }
+    
+    @Override
+    public final boolean canSpawn() {
+        boolean canSpawn = Leader.ALLOW_RELICS ? super.canSpawn() : AbstractDungeon.player.chosenClass == TACardEnums.BlueTheAstray;
+        return canSpawn && selfCanSpawn();
+    }
+    
+    protected boolean selfCanSpawn() {
+        return true;
     }
 }

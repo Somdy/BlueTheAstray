@@ -1,8 +1,6 @@
 package rs.wolf.theastray.core;
 
-import basemod.AutoAdd;
-import basemod.BaseMod;
-import basemod.DevConsole;
+import basemod.*;
 import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
@@ -20,6 +18,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheEnding;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -53,6 +52,7 @@ import rs.wolf.theastray.variables.TAPromotion;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Properties;
 
 @SpireInitializer
@@ -63,6 +63,8 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         PostCreateStartingRelicsSubscriber, AddAudioSubscriber, SetUnlocksSubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
+    public static final String[] AUTHORS = {"Little wolf影幽"};
+    public static final String DESCRIPTION = "An original character";
     public static final Color TAColor = LMSK.Color(32, 178, 170);
     
     private static final String TA_BTN = "AstrayAssets/images/char/button.png";
@@ -70,6 +72,9 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     private static final String TA_PTR_AFTER = "AstrayAssets/images/char/portrait_after.jpg";
     
     public static DataObject SaveData = new DataObject();
+    
+    public static boolean ALLOW_RELICS = true;
+    public static boolean ALLOW_EPISODIC_EVENTS = true;
     
     public static boolean DEFEATED_HEART = false;
     
@@ -89,6 +94,8 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     @Nullable
     private static SpireConfig makeConfig() {
         Properties properties = new Properties();
+        properties.setProperty("ALLOW_RELICS", Boolean.toString(ALLOW_RELICS));
+        properties.setProperty("ALLOW_EPISODIC_EVENTS", Boolean.toString(ALLOW_EPISODIC_EVENTS));
         properties.setProperty("DEFEATED_HEART", Boolean.toString(DEFEATED_HEART));
         
         try {
@@ -104,6 +111,8 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
             Log("Missing rs.lunarshop.config file");
             return;
         }
+        ALLOW_RELICS = config.getBool("ALLOW_RELICS");
+        ALLOW_EPISODIC_EVENTS = config.getBool("ALLOW_EPISODIC_EVENTS");
         DEFEATED_HEART = config.getBool("DEFEATED_HEART");
     }
     
@@ -119,6 +128,8 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     public static void SaveConfig() {
         SpireConfig config = makeConfig();
         assert config != null;
+        config.setBool("ALLOW_RELICS", ALLOW_RELICS);
+        config.setBool("ALLOW_EPISODIC_EVENTS", ALLOW_EPISODIC_EVENTS);
         config.setBool("DEFEATED_HEART", DEFEATED_HEART);
         save(config);
     }
@@ -192,12 +203,38 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         TAImageMst.Initialize();
         ConsoleCommand.addCommand("bluemana", ManaCMD.class);
         ConsoleCommand.addCommand("bluecheat", CheatCMD.class);
+        
+        makeModPanels();
+        
         BaseMod.addMonster("BlueTheBoss", () -> new MonsterGroup(new AbstractMonster[]{
                 new BlueTheBoss(0F, 0F)
         }));
         BaseMod.addBoss(TheEnding.ID, BlueTheBoss.ID, "AstrayAssets/images/ui/map/boss/bluetheboss_icon.png", 
                 "AstrayAssets/images/ui/map/boss/bluetheboss_outline.png");
         MsgLogger.Log();
+    }
+    
+    private static void makeModPanels() {
+        ModPanel settings = new ModPanel();
+        ModLabeledToggleButton allowRelics = new ModLabeledToggleButton("允许其他职业遇见蓝新增的遗物",
+                380F, 720F, Color.WHITE.cpy(), FontHelper.charDescFont, ALLOW_RELICS, settings, (l) -> {},
+                (btn) -> {
+                    ALLOW_RELICS = btn.enabled;
+                    SpireConfig config = makeConfig();
+                    config.setBool("ALLOW_RELICS", ALLOW_RELICS);
+                    save(config);
+                });
+        ModLabeledToggleButton allowEvents = new ModLabeledToggleButton("允许其他职业遇见蓝的剧情事件",
+                380F, 680F, Color.WHITE.cpy(), FontHelper.charDescFont, ALLOW_EPISODIC_EVENTS, settings, (l) -> {},
+                (btn) -> {
+                    ALLOW_EPISODIC_EVENTS = btn.enabled;
+                    SpireConfig config = makeConfig();
+                    config.setBool("ALLOW_EPISODIC_EVENTS", ALLOW_EPISODIC_EVENTS);
+                    save(config);
+                });
+        settings.addUIElement(allowRelics);
+//        settings.addUIElement(allowEvents);
+        BaseMod.registerModBadge(TAImageMst.BADGE, MOD_ID, Arrays.toString(AUTHORS), DESCRIPTION, settings);
     }
     
     @Override

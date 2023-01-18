@@ -33,7 +33,7 @@ public class B7 extends AstrayProCard {
         addToBot(new ModifyManaAction(1));
         addToBot(new SimpleGridCardSelectBuilder(TAUtils::IsMagical)
                 .setCardGroup(cpr().drawPile, cpr().hand, cpr().discardPile)
-                .setAmount(1).setMsg(String.format(MSG[0], 1))
+                .setAmount(1).setMsg(String.format(MSG[finalBranch() == 1 ? 1 : 0], 1))
                 .setAnyNumber(false).setCanCancel(false)
                 .setManipulator(new GridCardManipulator() {
                     @Override
