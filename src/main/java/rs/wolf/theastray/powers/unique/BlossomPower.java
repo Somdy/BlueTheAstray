@@ -34,16 +34,14 @@ public class BlossomPower extends AstrayPower {
     }
     
     public void afterEnergyGained(int e) {
-        if (energyRecharged && amount > 0 && e > 0
-                && !AbstractDungeon.actionManager.turnHasEnded) {
+        if (energyRecharged && amount > 0 && e > 0 && !AbstractDungeon.actionManager.turnHasEnded) {
             flash();
             addToBot(new DrawCardAction(owner, amount * e));
         }
     }
     
     public void afterEnergyLost(int e) {
-        if (energyRecharged && amount > 0 && e > 0
-                && !AbstractDungeon.actionManager.turnHasEnded) {
+        if (energyRecharged && amount > 0 && e > 0 && !AbstractDungeon.actionManager.turnHasEnded) {
             flash();
             addToBot(new DrawCardAction(owner, amount * e));
         }

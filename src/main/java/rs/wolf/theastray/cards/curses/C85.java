@@ -30,13 +30,13 @@ public class C85 extends AstrayCurseCard {
             }
             if (count >= 3) {
                 EndingTurn = true;
-                addToTop(new PressEndTurnButtonAction());
+                addToBot(new PressEndTurnButtonAction());
             }
         }
     }
     
     @Override
-    public void triggerOnEndOfPlayerTurn() {
+    public void onPlayerTurnStart() {
         EndingTurn = false;
     }
     

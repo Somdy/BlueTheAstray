@@ -7,7 +7,7 @@ import rs.wolf.theastray.powers.unique.SequencePlayPower;
 
 public class B55 extends AstrayProCard {
     public B55() {
-        super(55, 2, CardTarget.SELF);
+        super(55, 1, CardTarget.SELF);
         setMagicValue(1, true);
         addTip(MSG[0], String.format(MSG[1], magicNumber));
     }

@@ -37,7 +37,8 @@ public class B72 extends AstrayProCard {
                     int index =cardRandomRng().randomBoolean(getExtraMagic() / 100F) ? 1 : 0;
                     AbstractCard card = cards[index].makeCopy();
                     card.purgeOnUse = true;
-                    addToTop(new NewQueueCardAction(card, true, true, true));
+                    card.applyPowers();
+                    addToTop(new NewQueueCardAction(card, true, false, true));
                 }
             });
         }

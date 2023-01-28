@@ -22,7 +22,7 @@ public class B19 extends AstrayProCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         atbTmpAction(() -> {
             for (int i = 0; i < magicNumber; i++) {
-                Optional<AbstractCard> opt = LMSK.ReturnTrulyRndCardInCombat(c -> !isCardTypeOf(c, CardType.POWER));
+                Optional<AbstractCard> opt = LMSK.ReturnTrulyRndCardInCombat(c -> !isCardTypeOf(c, CardType.POWER) && c.color != CardColor.COLORLESS);
                 opt.ifPresent(c -> addToTop(new MakeTempCardInHandAction(c, 1)));
             }
             for (int i = 0; i < getExtraMagic(); i++) {

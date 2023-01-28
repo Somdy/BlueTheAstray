@@ -41,12 +41,16 @@ public class B12 extends AstrayProCard {
     public void onPlayerReceivePower(AbstractPower power, AbstractCreature source) {
         super.onPlayerReceivePower(power, source);
         if (inHand()) return;
-        if (isPowerTypeOf(power, AbstractPower.PowerType.DEBUFF) && cpr().hand.size() < BaseMod.MAX_HAND_SIZE) {
-            attTmpAction(() -> {
-                findCardGroupWhereCardIs(this).moveToHand(this);
-                applyPowers();
-                cpr().hand.refreshHandLayout();
-                cpr().hand.glowCheck();
+        if (isPowerTypeOf(power, AbstractPower.PowerType.DEBUFF)) {
+            atbTmpAction(() -> {
+                if (cpr().hand.size() < BaseMod.MAX_HAND_SIZE) {
+                    attTmpAction(() -> {
+                        findCardGroupWhereCardIs(this).moveToHand(this);
+                        applyPowers();
+                        cpr().hand.refreshHandLayout();
+                        cpr().hand.glowCheck();
+                    });
+                }
             });
         }
     }

@@ -29,7 +29,7 @@ public class B30 extends AstrayProCard {
     
     @Override
     protected int selfModifyManaOnUse(int manaCost) {
-        return 2;
+        return 1;
     }
     
     @Override

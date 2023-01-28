@@ -1,5 +1,6 @@
 package rs.wolf.theastray.cards.pros;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.actions.commons.ModifyManaAction;
@@ -26,10 +27,12 @@ public class B13 extends AstrayProCard {
         super.onManaRunOut();
         if ((!upgraded || finalBranch() == 0) && !inHand()) {
             attTmpAction(() -> {
-                findCardGroupWhereCardIs(this).moveToHand(this);
-                applyPowers();
-                cpr().hand.refreshHandLayout();
-                cpr().hand.glowCheck();
+                if (cpr().hand.size() < BaseMod.MAX_HAND_SIZE) {
+                    findCardGroupWhereCardIs(this).moveToHand(this);
+                    applyPowers();
+                    cpr().hand.refreshHandLayout();
+                    cpr().hand.glowCheck();
+                }
             });
         }
     }

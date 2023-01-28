@@ -16,6 +16,7 @@ public class E90 extends AstrayExtCard {
         super(90, 1, 4, CardTarget.ALL_ENEMY);
         setMagical(true);
         setStorage(true);
+        exhaust = true;
     }
     
     @Override

@@ -8,7 +8,7 @@ public class B58 extends AstrayProCard {
     public B58() {
         super(58, 2, CardTarget.SELF);
         setMagicValue(5, true);
-        setExtraMagicValue(4, true);
+        setExtraMagicValue(3, true);
     }
     
     @Override
@@ -35,6 +35,6 @@ public class B58 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeExtraMagic(-2);
+        upgradeExtraMagic(-1);
     }
 }

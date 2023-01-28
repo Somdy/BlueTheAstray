@@ -22,15 +22,11 @@ public class E101 extends AstrayExtCard {
     
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        int realDamage = baseDamage;
-        int realMagics = baseMagicNumber;
-        if (mo.hasPower(FrostPower.ID)) {
-            baseDamage *= 2;
-            baseMagicNumber *= 2;
-        }
         super.calculateCardDamage(mo);
-        baseDamage = realDamage;
-        baseMagicNumber = realMagics;
+        if (mo.hasPower(FrostPower.ID)) {
+            damage *= 2;
+            magicNumber *= 2;
+        }
         isDamageModified = baseDamage != damage;
         isMagicNumberModified = baseMagicNumber != magicNumber;
     }

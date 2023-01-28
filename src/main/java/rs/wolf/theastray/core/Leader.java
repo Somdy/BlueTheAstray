@@ -209,8 +209,8 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         BaseMod.addMonster("BlueTheBoss", () -> new MonsterGroup(new AbstractMonster[]{
                 new BlueTheBoss(0F, 0F)
         }));
-        BaseMod.addBoss(TheEnding.ID, BlueTheBoss.ID, "AstrayAssets/images/ui/map/boss/bluetheboss_icon.png", 
-                "AstrayAssets/images/ui/map/boss/bluetheboss_outline.png");
+//        BaseMod.addBoss(TheEnding.ID, BlueTheBoss.ID, "AstrayAssets/images/ui/map/boss/bluetheboss_icon.png", 
+//                "AstrayAssets/images/ui/map/boss/bluetheboss_outline.png");
         MsgLogger.Log();
     }
     

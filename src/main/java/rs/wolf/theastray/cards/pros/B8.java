@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 public class B8 extends AstrayProCard {
     public B8() {
-        super(8, 1, CardTarget.NONE);
+        super(8, 0, CardTarget.NONE);
         setMagicValue(4, true);
         setCanEnlighten(true);
         exhaust = true;

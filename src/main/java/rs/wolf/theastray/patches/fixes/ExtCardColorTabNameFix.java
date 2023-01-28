@@ -1,4 +1,4 @@
-package rs.wolf.theastray.patches;
+package rs.wolf.theastray.patches.fixes;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

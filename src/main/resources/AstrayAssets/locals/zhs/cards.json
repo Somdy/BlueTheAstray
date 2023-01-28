@@ -23,20 +23,20 @@
   {
     "ID": "B1",
     "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害。"
   },
   {
     "ID": "B2",
     "NAME": "防御",
-    "DESCRIPTION": "获得 !B! 格挡 。"
+    "DESCRIPTION": "获得 !B! 点格挡 。"
   },
   {
     "ID": "B3",
     "NAME": "魔法飞弹",
-    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 造成 !D! 伤害",
+    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 造成 !D! 点伤害",
     "UPGRADED_DESC": [
-      "astray:魔法 NL astray:晋升 !astray:promos! ， astray:启迪 NL 造成 !D! 伤害",
-      "astray:衍生魔法 NL astray:储能 ， astray:启迪 NL 造成 !D! 伤害 。 NL 给予 !M! 层 astray:余烬 NL 和 !astray:extras! 层 astray:冰霜 。"
+      "astray:魔法 NL astray:晋升 !astray:promos! ， astray:启迪 NL 造成 !D! 点伤害",
+      "astray:衍生魔法 NL astray:储能 ， astray:启迪 NL 造成 !D! 点伤害 。 NL 给予 !M! 层 astray:余烬 NL 和 !astray:extras! 层 astray:冰霜 。"
     ]
   },
   {
@@ -163,10 +163,10 @@
     "DEPRECATED": true,
     "ID": "B14",
     "NAME": "奥术飞弹",
-    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。",
+    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。",
-      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。"
+      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。",
+      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。"
     ]
   },
   {
@@ -194,12 +194,12 @@
   {
     "ID": "B17",
     "NAME": "冰霜飞弹",
-    "DESCRIPTION": "astray:魔法 NL 造成 !D! 伤害。 NL 给予 !M! 层 astray:冰霜 。"
+    "DESCRIPTION": "astray:魔法 NL 造成 !D! 点伤害。 NL 给予 !M! 层 astray:冰霜 。"
   },
   {
     "ID": "B18",
     "NAME": "巫师之手",
-    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 造成 !D! 伤害，未 *储能 时返回手牌并返还 astray:法力 。"
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 造成 !D! 点伤害，未 *储能 时返回手牌并返还 astray:法力 。"
   },
   {
     "DEPRECATED": true,
@@ -233,12 +233,12 @@
   {
     "ID": "B22",
     "NAME": "混乱魔弹",
-    "DESCRIPTION": "astray:魔法 ， 虚无 NL 造成 !D! 伤害。 NL 打出后随机变化耗能并回到手牌。只在 消耗 时消耗 astray:法力 。"
+    "DESCRIPTION": "astray:魔法 ， 虚无 NL 造成 !D! 点伤害。 NL 打出后随机变化耗能并回到手牌。只在 消耗 时消耗 astray:法力 。"
   },
   {
     "ID": "B23",
     "NAME": "超载射线",
-    "DESCRIPTION": "astray:储能 NL 造成 !D! 伤害， NL 失去 !M! 点 astray:魔力 。"
+    "DESCRIPTION": "astray:储能 NL 造成 !D! 点伤害， NL 失去 !M! 点 astray:魔力 。"
   },
   {
     "DEPRECATED": true,
@@ -263,8 +263,8 @@
     "NAME": "回路",
     "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
     "UPGRADED_DESC": [
-      "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
-      "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
+      "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
+      "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
     ]
   },
   {
@@ -286,7 +286,7 @@
   {
     "ID": "B30",
     "NAME": "扰动",
-    "DESCRIPTION": "造成 !D! 点伤害， NL 给予 !M! 层 虚弱 。 NL 需消耗2 astray:法力 。"
+    "DESCRIPTION": "造成 !D! 点伤害， NL 给予 !M! 层 虚弱 。 NL 需消耗1 astray:法力 。"
   },
   {
     "ID": "B31",
@@ -309,7 +309,7 @@
   {
     "ID": "B32",
     "NAME": "幻象描绘",
-    "DESCRIPTION": "astray:启迪 NL astray:发现 !M! 张 *幻象牌 。 NL 将一张 *镜中幻象 NL 洗入抽牌堆 。 NL 消耗",
+    "DESCRIPTION": "astray:启迪 NL astray:发现 !M! 张 *幻象牌 。 NL 消耗",
     "UPGRADED_DESC": [
       "astray:启迪 NL astray:发现 !M! 张 *幻象牌 。 NL 消耗",
       "astray:启迪 NL 将 !M! 张随机 *幻象牌 NL 洗入抽牌堆。 NL 消耗"
@@ -439,15 +439,20 @@
   {
     "ID": "B47",
     "NAME": "失控反应",
-    "DESCRIPTION": "astray:启迪 NL 随机 消耗 !M! 张手牌， NL 每张获得 !B! 格挡 。 NL 消耗"
+    "DESCRIPTION": "astray:启迪 NL 随机 消耗 !M! 张手牌， NL 每张获得 !B! 格挡 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 随机 消耗 !M! 张手牌， NL 每张获得 !B! 格挡 。 NL 消耗",
+      "astray:启迪 NL 消耗 !M! 张手牌， NL 每张获得 !B! 格挡 。 NL 消耗"
+    ],
+    "MSG": ["失控反应"]
   },
   {
     "ID": "B48",
     "NAME": "择运",
     "DESCRIPTION": "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得1 astray:法力 ， NL 否则获得 [E] ，然后弃1张牌。",
     "UPGRADED_DESC": [
-      "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得1 astray:法力 ， NL 否则获得 [E] ，然后弃2张牌。",
-      "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得1 astray:法力 ， NL 否则获得 [E] ."
+      "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得1 astray:法力 ， NL 否则获得 [E] 。然后弃2张牌。",
+      "astray:启迪 ， astray:储能 NL 抽 !M! 张牌， NL 抽到 astray:魔法牌 时获得 [E] ."
     ]
   },
   {
@@ -554,9 +559,9 @@
   {
     "ID": "B62",
     "NAME": "绽放形态",
-    "DESCRIPTION": "你的回合开始后， NL 回合内每当获得或者失去 [E] ， NL 抽 !M! 张牌。",
+    "DESCRIPTION": "回合开始后， NL 每当获得或者失去 [E] ， NL 抽 !M! 张牌。",
     "UPGRADED_DESC": [
-      "固有 NL 你的回合开始后， NL 回合内每当获得或者失去 [E] ， NL 抽 !M! 张牌。"
+      "固有 NL 回合开始后， NL 每当获得或者失去 [E] ， NL 抽 !M! 张牌。"
     ]
   },
   {
@@ -724,9 +729,9 @@
   {
     "ID": "B79",
     "NAME": "折镜迷宫",
-    "DESCRIPTION": "astray:储能 NL 对所有敌人 NL 造成 !D! 伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗",
+    "DESCRIPTION": "astray:储能 NL 对所有敌人 NL 造成 !D! 点伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:储能 NL 对所有敌人 NL 造成 !D! 伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗"
+      "astray:魔法 ， astray:储能 NL 对所有敌人 NL 造成 !D! 点伤害。 NL 将等同于敌人数量的随机 *幻象牌 洗入抽牌堆。 NL 消耗"
     ]
   },
   {
@@ -741,7 +746,7 @@
   {
     "ID": "E81",
     "NAME": "深渊幻象",
-    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 你的回合开始时，所有敌人获得 !M! 层其在上回合拥有过的负面效果。 NL 将 !astray:extras! 张随机 诅咒 洗入弃牌堆。"
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 将 !astray:extras! 张随机 诅咒 洗入弃牌堆。 NL 回合开始时，所有敌人获得 !M! 层其在上回合拥有过的负面状态。"
   },
   {
     "DEPRECATED": true,
@@ -800,14 +805,14 @@
   {
     "ID": "E89",
     "NAME": "星星",
-    "DESCRIPTION": "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:扩展 ( !astray:ext! ) NL 随机敌人受到 !D! 伤害。 NL 消耗"
+    "DESCRIPTION": "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:扩展 ( !astray:ext! ) NL 随机敌人受到 !D! 点伤害。 NL 消耗"
   },
   {
     "ID": "E90",
     "NAME": "渐冻",
-    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有敌人失去 NL 所有 astray:冰霜 ， NL 并失去等量的 力量 。",
+    "DESCRIPTION": "astray:魔法 ， 消耗 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有敌人失去 NL 所有 astray:冰霜 ， NL 并失去等量的 力量 。",
     "UPGRADED_DESC": [
-      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有敌人失去所有 astray:冰霜 ， NL 并失去等量的 力量 ， NL 获得等量的 虚弱 。"
+      "astray:魔法 ， 消耗 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有敌人失去所有 astray:冰霜 ， NL 并失去等量的 力量 ， NL 获得等量的 虚弱 。"
     ]
   },
   {

@@ -18,8 +18,8 @@ import java.util.List;
 public class B42 extends AstrayProCard {
     public B42() {
         super(42, 0, CardTarget.SELF);
-        setMagicValue(8, true);
-        setExtraMagicValue(12, true);
+        setMagicValue(6, true);
+        setExtraMagicValue(9, true);
         setCanEnlighten(true);
         exhaust = true;
     }
@@ -79,7 +79,7 @@ public class B42 extends AstrayProCard {
             add(() -> upgradeTexts());
             add(() -> {
                 upgradeTexts(1);
-                upgradeMagicNumber(-7);
+                upgradeExtraMagic(9);
             });
         }};
     }

@@ -38,7 +38,7 @@ public class SpawnLunarBossesPatches {
         }
     }
     
-    @SpirePatch(clz = MonsterHelper.class, method = "getEncounter")
+//    @SpirePatch(clz = MonsterHelper.class, method = "getEncounter")
     public static class SpawnFinalBossPatch {
         @SpirePrefixPatch
         public static SpireReturn<MonsterGroup> GetLunarBoss(String key) {

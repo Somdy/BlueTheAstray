@@ -11,7 +11,7 @@ import rs.wolf.theastray.powers.unique.AbyssPower;
 public class E81 extends AstrayExtCard {
     public E81() {
         super(81, 1, 14, CardTarget.ALL_ENEMY);
-        setMagicValue(1, true);
+        setMagicValue(2, true);
         setExtraMagicValue(1, true);
         addTags(TACardEnums.ILLUSION);
     }

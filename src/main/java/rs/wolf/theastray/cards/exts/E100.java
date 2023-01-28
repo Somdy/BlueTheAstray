@@ -17,9 +17,11 @@ public class E100 extends AstrayExtCard {
         cardsToPreview = new B3();
     }
     
+    // FIXME: magic number not affected by magic power
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
-        int currentMana = GlobalManaMst.CurrentMana();
+        final int currentMana = GlobalManaMst.CurrentMana();
+        final int count = magicNumber;
         addToBot(new ModifyManaAction(-currentMana));
         if (currentMana > 0) {
             atbTmpAction(() -> {
@@ -31,8 +33,8 @@ public class E100 extends AstrayExtCard {
                         card.setChosenBranch(branch);
                         card.upgrade();
                     }
-                    for (int j = 0; j < magicNumber; j++) {
-                        addToTop(new NewQueueCardAction(card, true, true, true));
+                    for (int j = 0; j < count; j++) {
+                        addToTop(new NewQueueCardAction(card.makeStatEquivalentCopy(), true, true, true));
                     }
                 }
             });

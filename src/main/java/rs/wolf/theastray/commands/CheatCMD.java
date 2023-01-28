@@ -2,6 +2,7 @@ package rs.wolf.theastray.commands;
 
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -11,7 +12,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.actions.commons.ModifyManaAction;
+import rs.wolf.theastray.cards.curses.C85;
+import rs.wolf.theastray.cards.exts.E100;
 import rs.wolf.theastray.core.CardMst;
+import rs.wolf.theastray.powers.MagicPower;
 import rs.wolf.theastray.utils.GlobalManaMst;
 import rs.wolf.theastray.utils.TAUtils;
 
@@ -38,12 +42,8 @@ public class CheatCMD extends ConsoleCommand {
             if (TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)) {
                 Cheat.SetCheat(Cheat.IEL, true);
                 Cheat.SetCheat(Cheat.SSD, true);
-                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("邪口"), 1));
-                LMSK.AddToBot(new ModifyManaAction(10));
-                AstrayCard card = (AstrayCard) CardMst.GetCard("流星雨");
-                card.setChosenBranch(1);
-                card.upgrade();
-                LMSK.AddToBot(new MakeTempCardInHandAction(card, 3));
+                LMSK.AddToBot(new ApplyPowerAction(LMSK.Player(), LMSK.Player(), new MagicPower(LMSK.Player(), 2)));
+                LMSK.AddToBot(new MakeTempCardInHandAction(new E100(), 1));
             }
         }
         else {

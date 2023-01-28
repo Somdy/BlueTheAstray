@@ -30,8 +30,12 @@ public class B48 extends AstrayProCard {
                 isDone = true;
                 for (AbstractCard card : DrawCardAction.drawnCards) {
                     if (card.hasTag(TACardEnums.MAGICAL)) {
-                        addToTop(new ModifyManaAction(1));
-                    } else {
+                        if (!upgraded || finalBranch() == 0) {
+                            addToTop(new ModifyManaAction(1));
+                        } else if (finalBranch() == 1) {
+                            addToTop(new GainEnergyAction(1));
+                        }
+                    } else if (!upgraded || finalBranch() == 0) {
                         addToTop(new GainEnergyAction(1));
                     }
                 }
@@ -56,7 +60,7 @@ public class B48 extends AstrayProCard {
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeBaseCost(0);
+                upgradeMagicNumber(2);
             });
         }};
     }

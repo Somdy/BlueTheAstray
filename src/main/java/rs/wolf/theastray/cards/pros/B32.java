@@ -21,7 +21,6 @@ public class B32 extends AstrayProCard {
         setCanEnlighten(true);
         exhaust = true;
         addTip(ILLUSION_CARD);
-        cardsToPreview = new C85();
     }
     
     @Override
@@ -29,10 +28,6 @@ public class B32 extends AstrayProCard {
         if (!upgraded || finalBranch() == 0) {
             addToBot(new DiscoverAction(DiscoverAction.Generate(3, CardMst
                     .ReturnAllCardsInCombat(c -> c.hasTag(TACardEnums.ILLUSION), true), c -> true)));
-            if (!upgraded) {
-                addToBot(new MakeTempCardInDrawPileAction(CardMst.GetCard("镜中幻象"), 1,
-                        true, true));
-            }
         } else if (finalBranch() == 1) {
             for (int i = 0; i < magicNumber; i++) {
                 AbstractCard card = CardMst.ReturnRndCardInCombat(c -> c.hasTag(TACardEnums.ILLUSION), true);
@@ -51,12 +46,10 @@ public class B32 extends AstrayProCard {
         return new ArrayList<UpgradeBranch>() {{
             add(() -> {
                 upgradeTexts();
-                cardsToPreview = null;
+                upgradeBaseCost(0);
             });
             add(() -> {
                 upgradeTexts(1);
-                upgradeBaseCost(0);
-                cardsToPreview = null;
             });
         }};
     }
