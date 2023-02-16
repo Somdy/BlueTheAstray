@@ -52,8 +52,6 @@ public class B50 extends AstrayProCard {
            }); 
            add(() -> {
                upgradeTexts(1);
-               setMagicalDerivative(false);
-               setMagical(true);
                setMagicValue(1, true);
                upgradePromos(2);
            });

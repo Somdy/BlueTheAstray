@@ -1,8 +1,6 @@
 package rs.wolf.theastray.cards;
 
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.data.DataMst;
 

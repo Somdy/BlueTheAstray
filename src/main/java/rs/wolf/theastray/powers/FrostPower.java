@@ -47,7 +47,7 @@ public class FrostPower extends AstrayPower {
     
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        boolean useMagic = !(info instanceof CustomDmgInfo);
+        boolean useMagic = false;
         if (info != null && info instanceof CustomDmgInfo && info.owner == source) {
             AbstractCard sourceCard = ((CustomDmgInfo) info).source.getCardFrom();
             if (sourceCard != null && TAUtils.IsMagical(sourceCard)) {

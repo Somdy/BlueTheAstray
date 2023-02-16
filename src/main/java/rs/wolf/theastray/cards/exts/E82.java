@@ -26,9 +26,11 @@ public class E82 extends AstrayExtCard {
         atbTmpAction(() -> {
             int size = calculateSize();
             if (size <= 0) return;
-            if (upgraded) size *= magicNumber;
+//            if (upgraded) size *= magicNumber;
             for (int i = 0; i < size; i++) {
-                addToTop(new NewQueueCardAction(cardsToPreview.makeCopy(), true, true, true));
+                AbstractCard copy = cardsToPreview.makeCopy();
+                copy.purgeOnUse = true;
+                addToTop(new NewQueueCardAction(copy, true, true, true));
             }
         });
     }

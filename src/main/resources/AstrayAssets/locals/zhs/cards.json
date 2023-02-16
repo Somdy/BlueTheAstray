@@ -670,7 +670,7 @@
     "DESCRIPTION": "astray:启迪 NL 升级 战斗中临时加入的 astray:魔法牌 与 astray:扩展牌 。",
     "UPGRADED_DESC": [
       "astray:启迪 NL 升级 战斗中临时加入的 astray:魔法牌 与 astray:扩展牌 。 NL 为其中的 *启迪牌 选择方向。",
-      "astray:启迪 NL 战斗中临时获得的 astray:扩展牌 获得 虚无 。"
+      "astray:启迪 NL 战斗中临时获得的牌获得 虚无 。"
     ],
     "MSG": [
       "为 %s 选择升级分支"

@@ -50,6 +50,7 @@ public class B32 extends AstrayProCard {
             });
             add(() -> {
                 upgradeTexts(1);
+                upgradeMagicNumber(1);
             });
         }};
     }

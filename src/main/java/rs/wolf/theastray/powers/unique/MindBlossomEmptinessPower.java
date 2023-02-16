@@ -24,9 +24,7 @@ public class MindBlossomEmptinessPower extends AstrayPower {
     
     @Override
     public void onMakingCardInCombat(AbstractCard card, CardGroup destination) {
-        if (card instanceof AstrayExtCard) {
-            CardModifierManager.addModifier(card, new EtherealMod());
-        }
+        CardModifierManager.addModifier(card, new EtherealMod());
     }
     
     @Override

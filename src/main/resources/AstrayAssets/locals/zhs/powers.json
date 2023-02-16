@@ -219,7 +219,7 @@
   "astray:MindBlossomEmptinessPower": {
     "NAME": "思维绽放-空想",
     "DESCRIPTIONS": [
-      "战斗中临时获得的 #y扩展牌 获得 #y虚无 。"
+      "战斗中临时获得的牌获得 #y虚无 。"
     ]
   },
   "astray:InfWisdomPower": {
