@@ -215,9 +215,22 @@
     ]
   },
   {
+    "DEPRECATED": true,
     "ID": "B19",
     "NAME": "混乱法术",
     "DESCRIPTION": "将 !M! 张随机非能力牌 NL 和 !astray:extras! 张 *魔法牌 NL 置入手牌。 消耗"
+  },
+  {
+    "ID": "B19",
+    "NAME": "混乱法术",
+    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 将 !M! 张随机非能力牌和 !astray:extras! 张 *星星 置入手牌。 NL 它们获得 保留 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:启迪 NL 将 !M! 张随机非能力牌和 !astray:extras! 张 *星星 置入手牌。 NL 它们获得 保留 。",
+      "astray:魔法 ， astray:启迪 NL 将 !astray:extras! 张 *星星 置入手牌。 NL 它们获得 保留 。"
+    ],
+    "MSG": [
+      "抽牌堆中没有0费魔法牌。"
+    ]
   },
   {
     "ID": "B20",
@@ -487,7 +500,7 @@
   {
     "ID": "B52",
     "NAME": "附魔之刃",
-    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 造成 !D! 点伤害， NL 给予 !M! 层 易伤 、 虚弱 、 NL astray:余烬 和 astray:冰霜 。 NL 消耗"
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 造成 !D! 点伤害， NL 给予 !M! 层 易伤 、 虚弱 、 NL astray:余烬 和 astray:冰霜 。"
   },
   {
     "ID": "B53",
@@ -617,7 +630,7 @@
   {
     "ID": "B68",
     "NAME": "陨石召唤",
-    "DESCRIPTION": "astray:扩展  ( !astray:ext! )  NL 下回合结束时：对随机敌人造成 !D! 点伤害，给予所有敌人获得 !M! 层 astray:余烬 。 NL 以其它方式打出立即生效。"
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 下回合结束时：对随机敌人造成 !D! 点伤害，给予所有敌人获得 !M! 层 astray:余烬 。 NL 以其它方式打出立即生效。"
   },
   {
     "ID": "B69",

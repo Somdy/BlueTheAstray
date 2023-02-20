@@ -7,7 +7,7 @@ import rs.wolf.theastray.cards.AstrayExtCard;
 
 public class E102 extends AstrayExtCard {
     public E102() {
-        super(102, 0, 7, CardTarget.NONE);
+        super(102, 0, 4, CardTarget.NONE);
         setMagicValue(3, true);
         setMagicalDerivative(true);
         exhaust = true;

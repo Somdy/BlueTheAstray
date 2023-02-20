@@ -10,7 +10,7 @@ import rs.wolf.theastray.cards.AstrayExtCard;
 
 public class E96 extends AstrayExtCard {
     public E96() {
-        super(96, 3, 4, CardTarget.SELF);
+        super(96, 3, 7, CardTarget.SELF);
         setMagicValue(3, true);
         setMagical(true);
         setStorage(true);
