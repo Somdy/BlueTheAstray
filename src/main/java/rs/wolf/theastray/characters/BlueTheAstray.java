@@ -46,8 +46,9 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public static final String SK_ALT = "AstrayAssets/images/char/anim/skeleton.atlas";
     public static final String SK_JSON = "AstrayAssets/images/char/anim/skeleton.json";
     public static final String CHAR_IMAGE = "AstrayAssets/images/char/char_image.png";
-    public static final int STARTING_HP = 75;
-    public static final int MAX_HP = 75;
+    public static final int STARTING_HP = 65;
+    public static final int MAX_HP = 65;
+    public static final int ASCENSION_HP_LOSS = 5;
     public static final int STARTING_GOLD = 99;
     public static final int ORB_SLOTS = 0;
     public static final int DRAW_PER_TURN = 5;
@@ -121,7 +122,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     @Override
     public int getAscensionMaxHPLoss() {
-        return 5;
+        return ASCENSION_HP_LOSS;
     }
     
     @Override
