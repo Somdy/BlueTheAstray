@@ -20,7 +20,7 @@ public class EvilWordPower extends AstrayPower implements DeMagicSensitiveGear {
     private List<AbstractCard> magics;
     
     public EvilWordPower(int cards, int times) {
-        super(ID, "burst", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "evilmouth", PowerType.BUFF, AbstractDungeon.player);
         setValues(cards, times);
         preloadString(s -> {
             setAmtValue(0, amount);

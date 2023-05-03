@@ -10,7 +10,7 @@ public final class ImbalancePower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("ImbalancePower");
     
     public ImbalancePower(int drawAmt, int discardAmt) {
-        super(ID, "carddraw", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "imbalance", PowerType.BUFF, AbstractDungeon.player);
         setValues(drawAmt, discardAmt);
         preloadString(s -> {
             s[0] = extraAmt > 0 ? DESCRIPTIONS[0] : DESCRIPTIONS[1];

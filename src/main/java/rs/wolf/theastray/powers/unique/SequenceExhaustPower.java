@@ -12,7 +12,7 @@ public class SequenceExhaustPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("SequenceExhaustPower");
     
     public SequenceExhaustPower(int cardsToGain) {
-        super(ID, "heatsink", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "sequence", PowerType.BUFF, AbstractDungeon.player);
         setValues(-1, cardsToGain);
         preloadString(s -> setAmtValue(0, extraAmt));
         updateDescription();

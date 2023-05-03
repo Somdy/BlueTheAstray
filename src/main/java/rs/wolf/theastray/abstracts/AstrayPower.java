@@ -1,5 +1,6 @@
 package rs.wolf.theastray.abstracts;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -157,7 +158,7 @@ public abstract class AstrayPower extends LMCustomPower implements TAUtils {
     
     @Override
     protected TextureAtlas getPowerAtlas() {
-        return null;
+        return new TextureAtlas(Gdx.files.internal("AstrayAssets/images/atlas/powers.atlas"));
     }
     
     protected int burnt(int originalValue, AbstractCreature target) {

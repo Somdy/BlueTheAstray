@@ -12,7 +12,7 @@ public class GiantPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("GiantPower");
     
     public GiantPower(AbstractCreature owner, int vuls, int blocks) {
-        super(ID, "channel", PowerType.BUFF, owner);
+        super(ID, "giant", PowerType.BUFF, owner);
         setValues(vuls, blocks);
         preloadString(s -> {
             setAmtValue(0, amount);

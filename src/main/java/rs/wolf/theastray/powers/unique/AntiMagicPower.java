@@ -12,7 +12,7 @@ public class AntiMagicPower extends AstrayPower {
     private int mplrID;
     
     public AntiMagicPower(AbstractCreature owner) {
-        super(ID, "reactive", PowerType.DEBUFF, owner);
+        super(ID, "antimagic", PowerType.DEBUFF, owner);
         setValues(-1);
         updateDescription();
     }

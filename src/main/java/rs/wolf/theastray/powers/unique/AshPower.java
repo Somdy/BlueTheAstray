@@ -13,7 +13,7 @@ public class AshPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("AshPower");
     
     public AshPower(int exhausts) {
-        super(ID, "cExplosion", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "ashes", PowerType.BUFF, AbstractDungeon.player);
         setValues(0, exhausts);
         preloadString(s -> {
             s[0] = DESCRIPTIONS[amount < extraAmt ? 0 : 1];

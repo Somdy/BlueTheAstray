@@ -17,7 +17,7 @@ public class AmendmentPower extends AstrayPower {
     private static final List<AbstractCard> cardList = new ArrayList<>();
     
     public AmendmentPower() {
-        super(ID, "master_reality", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "amend", PowerType.BUFF, AbstractDungeon.player);
         stackable = false;
         updateDescription();
     }

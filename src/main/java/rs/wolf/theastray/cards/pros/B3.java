@@ -39,6 +39,7 @@ public class B3 extends AstrayProCard {
                 upgradeTexts();
                 upgradeDamage(7);
                 setPromosValue(3, true);
+                setStorage(true);
             });
             add(() -> {
                 upgradeTexts(1);

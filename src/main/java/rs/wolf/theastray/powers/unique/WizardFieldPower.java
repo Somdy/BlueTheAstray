@@ -11,7 +11,7 @@ public class WizardFieldPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("WizardFieldPower");
     
     public WizardFieldPower(AbstractCreature owner, int block) {
-        super(ID, "channel", PowerType.BUFF, owner);
+        super(ID, "wizardfield", PowerType.BUFF, owner);
         setValues(block);
         preloadString(s -> setAmtValue(0, amount));
         updateDescription();

@@ -14,7 +14,7 @@ public class DroughtPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("DroughtPower");
     
     public DroughtPower() {
-        super(ID, "reactive", PowerType.DEBUFF, LMSK.Player());
+        super(ID, "drought", PowerType.DEBUFF, LMSK.Player());
         setValues(-1);
         updateDescription();
     }

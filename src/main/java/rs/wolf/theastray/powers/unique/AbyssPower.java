@@ -18,7 +18,7 @@ public class AbyssPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("AbyssPower");
     
     public AbyssPower(int amount) {
-        super(ID, "nightmare", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "abyss", PowerType.BUFF, AbstractDungeon.player);
         setValues(amount);
         preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();

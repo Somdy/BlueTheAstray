@@ -13,6 +13,7 @@ import rs.wolf.theastray.utils.GlobalManaMst;
 public class B69 extends AstrayProCard {
     public B69() {
         super(69, -1, CardTarget.SELF);
+        setStorage(true);
         exhaust = true;
     }
     

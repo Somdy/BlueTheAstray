@@ -11,7 +11,7 @@ public class DeathPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("DeathPower");
     
     public DeathPower(AbstractCreature owner, int immunity, int turns) {
-        super(ID, "phantasmal", PowerType.BUFF, owner);
+        super(ID, "death", PowerType.BUFF, owner);
         setValues(immunity, turns);
         preloadString(s -> {
             setAmtValue(0, this.amount);

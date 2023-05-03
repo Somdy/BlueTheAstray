@@ -1,15 +1,16 @@
-package rs.wolf.theastray.cards.exts;
+package rs.wolf.theastray.cards.pros;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.wolf.theastray.cards.AstrayExtCard;
+import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.powers.MagicPower;
 
-public class E107 extends AstrayExtCard {
+public class E107 extends AstrayProCard {
     public E107() {
-        super(107, 1, 8, CardTarget.SELF);
+        super(107, 1, CardTarget.SELF);
         setMagicValue(1, true);
         setExtraMagicValue(2, true);
     }

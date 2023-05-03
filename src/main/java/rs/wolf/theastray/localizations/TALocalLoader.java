@@ -2,28 +2,36 @@ package rs.wolf.theastray.localizations;
 
 import com.badlogic.gdx.Gdx;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.jetbrains.annotations.NotNull;
 import rs.wolf.theastray.utils.TAUtils;
 
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TALocalLoader {
     private static final Map<String, TACardLocals> CardLocalMap = new HashMap<>();
+    private static Map<String, String> LegacyLocalMap = new HashMap<>();
     
     public static void Initialize() {
         Gson gson = new Gson();
         String lang = TAUtils.SupLang();
         
-        String cardPath = "AstrayAssets/locals/" + lang + "/cards.json";
-        String cardJson = loadJson(cardPath);
-        TACardLocals[] cardLocals = gson.fromJson(cardJson, TACardLocals[].class);
+        String path = "AstrayAssets/locals/" + lang + "/cards.json";
+        String json = loadJson(path);
+        TACardLocals[] cardLocals = gson.fromJson(json, TACardLocals[].class);
         assert cardLocals != null;
         for (TACardLocals local : cardLocals) {
             if (local.DEPRECATED) continue;
             CardLocalMap.put(local.ID, local);
         }
+        
+        path = "AstrayAssets/locals/" + lang + "/legacies.json";
+        json = loadJson(path);
+        Type stringType = new TypeToken<Object>(){}.getType();
+        LegacyLocalMap = gson.fromJson(json, stringType);
     }
     
     private static String loadJson(String path) {
@@ -40,5 +48,11 @@ public class TALocalLoader {
         if (CardLocalMap.containsKey(trueID))
             return CardLocalMap.get(trueID);
         return TACardLocals.GetMockingLocals(trueID);
+    }
+    
+    public static String LEGACY(String id) {
+        if (id == null || !LegacyLocalMap.containsKey(id))
+            return "No legacy";
+        return LegacyLocalMap.get(id);
     }
 }

@@ -15,6 +15,7 @@ public class E80 extends AstrayExtCard {
         setBlockValue(7, true);
         setMagicValue(1, true);
         setMagicalDerivative(true);
+        setStorage(true);
         exhaust = true;
         addTip(MSG[0], MSG[1]);
         addTags(TACardEnums.ILLUSION);

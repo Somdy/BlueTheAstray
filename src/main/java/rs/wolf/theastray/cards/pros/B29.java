@@ -11,6 +11,7 @@ public class B29 extends AstrayProCard {
         super(29, 1, CardTarget.ENEMY);
         setDamageValue(6, true);
         setMagicValue(6, true);
+        setStorage(true);
         cardsToPreview = new Burn();
     }
     

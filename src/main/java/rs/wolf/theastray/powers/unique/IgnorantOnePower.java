@@ -15,7 +15,7 @@ public class IgnorantOnePower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("IgnorantOnePower");
     
     public IgnorantOnePower(int amount) {
-        super(ID, "regrow", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "ignorance", PowerType.BUFF, AbstractDungeon.player);
         setValues(amount);
         preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();

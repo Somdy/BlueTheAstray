@@ -10,6 +10,7 @@ public class E83 extends AstrayExtCard {
         setMagicValue(9, true);
         setExtraMagicValue(1, true);
         setMagical(true);
+        setStorage(true);
         exhaust = true;
     }
     

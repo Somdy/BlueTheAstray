@@ -8,6 +8,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 public class B33 extends AstrayProCard {
     public B33() {
         super(33, 1, CardTarget.NONE);
+        setStorage(true);
         exhaust = true;
     }
     

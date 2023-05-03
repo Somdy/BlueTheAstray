@@ -13,6 +13,7 @@ public class B30 extends AstrayProCard {
         super(30, 1, CardTarget.ENEMY);
         setDamageValue(14, true);
         setMagicValue(2, true);
+        setStorage(true);
     }
     
     @Override

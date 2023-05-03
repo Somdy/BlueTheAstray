@@ -11,6 +11,7 @@ public class B24 extends AstrayProCard {
         setMagicValue(5, true);
         setExtraMagicValue(1, true);
         setMagical(true);
+        setStorage(true);
     }
     
     @Override

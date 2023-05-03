@@ -14,6 +14,7 @@ public class B67 extends AstrayProCard {
     public B67() {
         super(67, 1, CardTarget.NONE);
         exhaust = true;
+        setStorage(true);
         addTags(TACardEnums.ILLUSION);
     }
     

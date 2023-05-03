@@ -45,13 +45,13 @@
     ]
   },
   "astray:AbyssPower": {
-    "NAME": "深渊幻像",
+    "NAME": "深渊幻象",
     "DESCRIPTIONS": [
       "你的回合开始时，所有敌人获得 #b[amt_0] 层其在你的上回合结束时拥有过的 #r负面效果 。"
     ]
   },
   "astray:DeathPower": {
-    "NAME": "死神幻像",
+    "NAME": "死神幻象",
     "DESCRIPTIONS": [
       "在 #b[amt_1] 个回合内，免疫 #b[amt_0] 以下的伤害。"
     ]
@@ -199,8 +199,8 @@
   "astray:MeteoritePower": {
     "NAME": "召唤陨石",
     "DESCRIPTIONS": [
-      "在你下回合结束时，对一名随机敌人造成 #b[amt_0] 点伤害，给予所有敌人 #b[amt_1] 层 #y余烬 。",
-      "回合结束时，对一名随机敌人造成 #b[amt_0] 点伤害，给予所有敌人 #b[amt_1] 层 #y余烬 。"
+      "#p你居然真的手搓陨石！ NL 在你下回合结束时，对一名随机敌人造成 #b[amt_0] 点伤害，给予所有敌人 #b[amt_1] 层 #y余烬 。",
+      "#p你居然真的手搓陨石！ NL 回合结束时，对一名随机敌人造成 #b[amt_0] 点伤害，给予所有敌人 #b[amt_1] 层 #y余烬 。"
     ]
   },
   "astray:MindBlossomPower": {
@@ -280,6 +280,15 @@
     "NAME": "魔力释放",
     "DESCRIPTIONS": [
       "本场战斗中无法再获得 #y魔力 。"
+    ]
+  },
+  "astray:StoragePower": {
+    "NAME": "储能",
+    "DESCRIPTIONS": [
+      "储能：法力",
+      "储能：能量",
+      "当前已储存 #b[amt_0] 点 #y法力 。",
+      "当前已储存 #b[amt_0] 点 [E] 。"
     ]
   }
 }

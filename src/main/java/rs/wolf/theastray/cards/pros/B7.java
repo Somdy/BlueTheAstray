@@ -63,6 +63,7 @@ public class B7 extends AstrayProCard {
             add(() -> {
                 upgradeTexts();
                 exhaust = false;
+                setStorage(true);
             });
             add(() -> {
                 upgradeTexts(1);

@@ -13,6 +13,7 @@ public class B43 extends AstrayProCard {
         super(43, 1, CardTarget.SELF);
         setMagicValue(25, true);
         setMagical(true);
+        setStorage(true);
         exhaust = true;
         cardsToPreview = new C87();
     }

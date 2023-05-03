@@ -11,7 +11,7 @@ public class BlossomPower extends AstrayPower {
     private boolean energyRecharged;
     
     public BlossomPower(int drawAmt) {
-        super(ID, "fasting", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "blossom", PowerType.BUFF, AbstractDungeon.player);
         setValues(drawAmt);
         preloadString(s -> setAmtValue(0, amount));
         updateDescription();

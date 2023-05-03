@@ -12,7 +12,7 @@ public class StoneFleshPower extends AstrayPower {
     private float percent;
     
     public StoneFleshPower(AbstractCreature owner, float percent) {
-        super(ID, "juggernaut", PowerType.BUFF, owner);
+        super(ID, "stoneflesh", PowerType.BUFF, owner);
         this.percent = percent;
         setValues(-1);
         preloadString(s -> setAmtValue(0, SciPercent(this.percent)));

@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 public class Relic8 extends AstrayRelic {
     private static final AbstractCard.CardRarity[] RARITIES = {AbstractCard.CardRarity.BASIC, AbstractCard.CardRarity.SPECIAL, 
             AbstractCard.CardRarity.COMMON, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardRarity.RARE};
+    
     public Relic8() {
         super(8);
     }
@@ -53,5 +54,10 @@ public class Relic8 extends AstrayRelic {
         cards.addAll(cpr().masterDeck.group.stream()
                 .filter(c -> isCardRarityOf(c, RARITIES[index]) && c.canUpgrade())
                 .collect(Collectors.toList()));
+    }
+    
+    @Override
+    protected boolean selfCanSpawn() {
+        return AbstractDungeon.actNum > 1;
     }
 }

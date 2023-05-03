@@ -14,7 +14,7 @@ public class MasteryBossPower extends AstrayPower {
     private int baseCardsNeed;
     
     public MasteryBossPower(BlueTheBoss owner, int cardsNeed, int beatAmt) {
-        super(ID, "establishment", PowerType.BUFF, owner);
+        super(ID, "掌握", PowerType.BUFF, owner);
         setValues(cardsNeed, beatAmt);
         this.baseCardsNeed = cardsNeed;
         preloadString(s -> {

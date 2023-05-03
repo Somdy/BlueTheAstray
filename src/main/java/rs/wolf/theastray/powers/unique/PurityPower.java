@@ -15,7 +15,7 @@ public class PurityPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("PurityPower");
     
     public PurityPower(AbstractCreature owner, int stack, int block) {
-        super(ID, "master_reality", PowerType.BUFF, owner);
+        super(ID, "purity", PowerType.BUFF, owner);
         setValues(stack, block);
         preloadString(s -> {
             int totalBlock = amount * extraAmt;

@@ -14,6 +14,7 @@ public class B76 extends AstrayProCard {
         super(76, 1, CardTarget.ALL_ENEMY);
         setDamageValue(22, true);
         setCanEnlighten(true);
+        setStorage(true);
     }
     
     @Override

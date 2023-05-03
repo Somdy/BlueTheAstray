@@ -11,7 +11,7 @@ public class ManaTempoPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("ManaTempoPower");
     
     public ManaTempoPower(int perMana, int energyGain) {
-        super(ID, "echo", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "manatempo", PowerType.BUFF, AbstractDungeon.player);
         setValues(energyGain, perMana);
         preloadString(s -> {
             setAmtValue(0, extraAmt);

@@ -14,7 +14,7 @@ public class PhosphorusPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("PhosphorusPower");
     
     public PhosphorusPower(int amount) {
-        super(ID, "reactive", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "phosphorus", PowerType.BUFF, AbstractDungeon.player);
         setValues(amount);
         preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();

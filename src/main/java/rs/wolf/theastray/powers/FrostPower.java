@@ -17,7 +17,7 @@ public class FrostPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("FrostPower");
     
     public FrostPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        super(ID, "int", PowerType.DEBUFF, owner);
+        super(ID, "frost", PowerType.DEBUFF, owner);
         setValues(source, amount);
         preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();

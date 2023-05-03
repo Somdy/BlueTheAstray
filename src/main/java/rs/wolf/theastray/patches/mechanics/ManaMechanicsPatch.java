@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import javassist.CtBehavior;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
+import rs.wolf.theastray.actions.utilities.NewStorageAction;
 import rs.wolf.theastray.actions.utilities.TriggerStorageAction;
 import rs.wolf.theastray.characters.BlueTheAstray;
 import rs.wolf.theastray.core.Leader;
@@ -103,7 +104,8 @@ public class ManaMechanicsPatch {
                 boolean energy = EnergyPanel.getCurrentEnergy() <= 0;
                 boolean mana = !GlobalManaMst.HasMana();
                 Leader.devLog("STORAGE MAY TRIGGER BY [" + c.name + "]");
-                LMSK.AddToBot(new TriggerStorageAction(mana, energy, c));
+//                LMSK.AddToBot(new TriggerStorageAction(mana, energy, c));
+                LMSK.AddToBot(new NewStorageAction(){{card = c;}});
             }
         }
         private static class StorageLocator extends SpireInsertLocator {

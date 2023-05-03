@@ -3,6 +3,7 @@ package rs.wolf.theastray.monsters;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -16,7 +17,9 @@ import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.combat.HeartBuffEffect;
 import com.megacrit.cardcrawl.vfx.combat.ViceCrushEffect;
 import rs.lazymankits.actions.utility.QuickAction;
+import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayMonster;
+import rs.wolf.theastray.characters.BlueTheAstray;
 import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.powers.monsters.AssimilationPower;
 import rs.wolf.theastray.powers.monsters.FocusedEyesPower;
@@ -66,6 +69,9 @@ public class BlueTheBoss extends AstrayMonster {
         AsFinal = true;
         TAUtils.Log("Resetting eleven");
         Leader.SaveData.putValue("eleven", false);
+        if (LMSK.Player() instanceof BlueTheAstray) {
+            addToBot(new TalkAction(this, DIALOG[0], 2F, 2F));
+        }
     }
     
     @Override
@@ -135,6 +141,9 @@ public class BlueTheBoss extends AstrayMonster {
     @Override
     public void die() {
         if (!currRoom().cannotLose) {
+            addToBot(new TalkAction(this, DIALOG[1], 2F, 2F));
+            addToBot(new TalkAction(this, DIALOG[2], 2F, 2F));
+            addToBot(new TalkAction(this, DIALOG[3], 2F, 2F));
             super.die();
             onBossVictoryLogic();
             onFinalBossVictoryLogic();

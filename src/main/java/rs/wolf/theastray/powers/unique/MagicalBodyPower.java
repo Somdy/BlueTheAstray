@@ -10,7 +10,7 @@ public class MagicalBodyPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("MagicalBodyPower");
     
     public MagicalBodyPower(AbstractCreature owner, int block) {
-        super(ID, "establishment", PowerType.BUFF, owner);
+        super(ID, "magicalbody", PowerType.BUFF, owner);
         setValues(block);
         preloadString(s -> setAmtValue(0, amount));
         updateDescription();

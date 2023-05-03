@@ -16,7 +16,7 @@ public class MindBlossomPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("MindBlossomPower");
     
     public MindBlossomPower() {
-        super(ID, "panache", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "mindblossom", PowerType.BUFF, AbstractDungeon.player);
         stackable = false;
         updateDescription();
     }

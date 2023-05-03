@@ -10,7 +10,7 @@ public class CoordinationPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("CoordinationPower");
     
     public CoordinationPower(int amount) {
-        super(ID, "static_discharge", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "coordination", PowerType.BUFF, AbstractDungeon.player);
         setValues(amount);
         preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();

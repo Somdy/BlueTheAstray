@@ -12,7 +12,7 @@ public class RemainPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("RemainPower");
     
     public RemainPower(AbstractCreature owner, int blocks) {
-        super(ID, "barricade", PowerType.BUFF, owner);
+        super(ID, "remain", PowerType.BUFF, owner);
         setValues(blocks);
         preloadString(s -> setAmtValue(0, amount));
         updateDescription();

@@ -10,7 +10,7 @@ public class FrostShieldPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("FrostShieldPower");
     
     public FrostShieldPower(AbstractCreature owner, int turns) {
-        super(ID, "carddraw", PowerType.BUFF, owner);
+        super(ID, "frostshield", PowerType.BUFF, owner);
         setValues(turns);
         preloadString(s -> s[0] = String.format(s[0], amount));
         updateDescription();

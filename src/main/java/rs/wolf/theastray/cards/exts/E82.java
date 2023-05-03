@@ -17,6 +17,7 @@ public class E82 extends AstrayExtCard {
     public E82() {
         super(82, 1, 14, CardTarget.NONE);
         setMagical(true);
+        setStorage(true);
         cardsToPreview = new E89();
         addTags(TACardEnums.ILLUSION);
     }

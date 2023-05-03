@@ -11,7 +11,7 @@ public class MasteryPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("MasteryPower");
     
     public MasteryPower(int amount) {
-        super(ID, "establishment", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "mastery", PowerType.BUFF, AbstractDungeon.player);
         setValues(amount);
         preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();

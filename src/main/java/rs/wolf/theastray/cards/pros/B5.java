@@ -11,6 +11,7 @@ public class B5 extends AstrayProCard {
         super(5, 1, CardTarget.ALL_ENEMY);
         setMagicValue(2, true);
         setExtraMagicValue(2, true);
+        setStorage(true);
         exhaust = true;
     }
     

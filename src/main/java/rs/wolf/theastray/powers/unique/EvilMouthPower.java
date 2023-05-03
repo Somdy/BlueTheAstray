@@ -21,7 +21,7 @@ public class EvilMouthPower extends AstrayPower {
     private List<AbstractCard> magics;
     
     public EvilMouthPower(int cards, int times) {
-        super(ID, "burst", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "evilmouth", PowerType.BUFF, AbstractDungeon.player);
         setValues(cards, times);
         preloadString(s -> {
             setAmtValue(0, cards);

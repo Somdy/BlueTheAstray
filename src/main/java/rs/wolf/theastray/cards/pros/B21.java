@@ -12,6 +12,7 @@ public class B21 extends AstrayProCard {
     public B21() {
         super(21, 1, CardTarget.NONE);
         setMagicValue(3, true);
+        setStorage(true);
     }
     
     @Override

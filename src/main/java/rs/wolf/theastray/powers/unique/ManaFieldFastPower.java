@@ -11,7 +11,7 @@ public class ManaFieldFastPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("ManaFieldFastPower");
     
     public ManaFieldFastPower(int blocks) {
-        super(ID, "skillBurn", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "manafield", PowerType.BUFF, AbstractDungeon.player);
         setValues(blocks);
         preloadString(s -> setAmtValue(0, amount));
         updateDescription();

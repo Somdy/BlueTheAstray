@@ -1,6 +1,7 @@
 {
   "EVENT_UNI_OPTION_1": "[离开]",
   "EVENT_UNI_OPTION_2": "……",
+  "EVENT_ONE_TITLE": "起始",
   "EVENT_ONE_PHASE_A_TEXT_1": "“找到你了，小偷。”，一个奇怪的男人拦住了你，你确定你没见过他，但是他身上散发着熟悉的气息，因为他几乎和你一摸一样！",
   "EVENT_ONE_PHASE_A_TEXT_2": "“别介意，只是借用一下，而且，看起来你遇到了一些麻烦，需要帮忙吗，当然，不是免费的”，他的脸上挂着意味不明的笑。",
   "EVENT_ONE_PHASE_A_OPTION_1": "[接受] #g获得 #b[amt_0]/2 张随机魔法牌。",
@@ -27,6 +28,7 @@
   "EVENT_ONE_PHASE_F_OPTION_2": "[离开] #g恢复 #b[amt_0]% 生命，选择 #y变化 #b[amt_1]/2 张牌。",
   "EVENT_ONE_PHASE_C_TEXT_1": "这样吗？看来我可以省去很多事了” NL “祝你好运，再见”他始终挂着微笑，向你致意道别后，他就在你眼前消失了！ NL 而你感受到了和你一样的魔法力量！怎么可能？",
   "EVENT_ONE_PHASE_G_TEXT_1": "疼痛立刻就停止了，但你感觉到有违和的力量在你脑海里。 NL 而当你回过神来，那个男人已不见踪影 NL 他是谁？我记忆里的是什么？这是怎么回事？",
+  "EVENT_TWO_TITLE": "再会",
   "EVENT_TWO_PHASE_A_TEXT_1": "你刚走过一个拐角，就看见一个篝火和一个熟悉的人，与周围格格不入的样子看起来就像他特意在等你 NL “你好，又见面了，过来休息一下吧”",
   "EVENT_TWO_PHASE_A_OPTION_1": "[坐下] #g恢复 #b[amt_0]% 生命。",
   "EVENT_TWO_PHASE_B_TEXT_1": "“我是蓝星海之人，时弦，代号-影蓝。” NL 他一边烤着手上的肉，一边开始介绍自己的来历 NL “我来这个世界寻找一些特殊的材料用于建设我的……嗯——家园。”",
@@ -45,6 +47,7 @@
   "EVENT_TWO_PHASE_E_OPTION_3": "[都是我的！！！] 战斗。",
   "EVENT_TWO_PHASE_F_TEXT_1": "任由他们争抢吧，你重新上路",
   "EVENT_TWO_PHASE_G_TEXT_1": "你开始有些享受战斗了，去寻找新的战斗吧！",
+  "EVENT_THREE_TITLE": "决择",
   "EVENT_THREE_PHASE_A_TEXT_1": "你可能碰到了一座迷宫，一直在原地打转，无论怎么走最后都会回到出发点，就像攀爬这座高塔一样……",
   "EVENT_THREE_PHASE_A_OPTION_1": "[嗯？]",
   "EVENT_THREE_PHASE_A_TEXT_2": "“你终于有察觉了？” NL 你回过头，那个自称蓝星海之人的人正站在你身后",

@@ -13,7 +13,7 @@ public class CreatorPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("CreatorPower");
     
     public CreatorPower(int blocks) {
-        super(ID, "rushdown", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "creation", PowerType.BUFF, AbstractDungeon.player);
         setValues(blocks);
         preloadString(s -> setAmtValue(0, amount));
         updateDescription();

@@ -10,6 +10,7 @@ public class B20 extends AstrayProCard {
         setDamageValue(4, true);
         setMagicValue(4, true);
         setMagical(true);
+        setStorage(true);
         isMultiDamage = true;
         isInnate = true;
         exhaust = true;

@@ -42,8 +42,9 @@ public class CheatCMD extends ConsoleCommand {
             if (TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)) {
                 Cheat.SetCheat(Cheat.IEL, true);
                 Cheat.SetCheat(Cheat.SSD, true);
-                LMSK.AddToBot(new ApplyPowerAction(LMSK.Player(), LMSK.Player(), new MagicPower(LMSK.Player(), 2)));
-                LMSK.AddToBot(new MakeTempCardInHandAction(new E100(), 1));
+//                LMSK.AddToBot(new ModifyManaAction(2));
+                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("引火"), 2));
+                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("开幕礼花"), 2));
             }
         }
         else {

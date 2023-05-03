@@ -18,7 +18,7 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
     public static final String ID = TAUtils.MakeID("MagicPower");
     
     public MagicPower(AbstractCreature owner, int amount) {
-        super(ID, "focus", PowerType.BUFF, owner);
+        super(ID, "magic", PowerType.BUFF, owner);
         canGoNegative = true;
         setValues(amount);
         preloadString(s -> {

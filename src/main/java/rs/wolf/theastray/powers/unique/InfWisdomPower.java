@@ -30,7 +30,7 @@ public class InfWisdomPower extends AstrayPower {
     protected final ArrayList<RewardItem> rewardItems = new ArrayList<>();
     
     public InfWisdomPower(int amount) {
-        super(ID, "unawakened", PowerType.BUFF, LMSK.Player());
+        super(ID, "无限的智慧", PowerType.BUFF, LMSK.Player());
         setValues(amount);
         preloadString(s -> setAmtValue(0, this.amount));
         updateDescription();

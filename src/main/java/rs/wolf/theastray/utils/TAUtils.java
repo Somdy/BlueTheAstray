@@ -48,7 +48,6 @@ public interface TAUtils extends LMGameGeneralUtils {
         BaseMod.addUnlockBundle(new CustomUnlockBundle(type, unlocks[0], unlocks[1], unlocks[2]), c, level);
         if (type == AbstractUnlock.UnlockType.CARD) {
             for (String unlock : unlocks) {
-                Log("add unlock of [" + unlock + "]");
                 UnlockTracker.addCard(unlock);
             }
         }

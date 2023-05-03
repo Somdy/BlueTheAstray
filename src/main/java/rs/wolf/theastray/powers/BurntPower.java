@@ -19,7 +19,7 @@ public class BurntPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("BurntPower");
     
     public BurntPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        super(ID, "combust", PowerType.DEBUFF, owner);
+        super(ID, "burnt", PowerType.DEBUFF, owner);
         setValues(source, amount);
         preloadString((s) -> checkValues());
         updateDescription();

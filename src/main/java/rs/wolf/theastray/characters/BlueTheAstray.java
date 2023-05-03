@@ -26,6 +26,7 @@ import rs.wolf.theastray.core.CardMst;
 import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.monsters.BlueTheBoss;
 import rs.wolf.theastray.patches.TACardEnums;
+import rs.wolf.theastray.ui.energyOrb.EnergyOrbTheAstray;
 import rs.wolf.theastray.ui.manalayout.ManaMst;
 import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
@@ -57,10 +58,10 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     private final StarsInNightEffect starsEffect;
     
     public BlueTheAstray() {
-        super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbBlue(), null, null);
-        initializeClass(CHAR_IMAGE, Shoulder_2, Shoulder_1, corpse, getLoadout(), 20F, -10F,
+        super("Nightmare", TACardEnums.BlueTheAstray, new EnergyOrbTheAstray(), null, null);
+        initializeClass(CHAR_IMAGE, Shoulder_2, Shoulder_1, corpse, getLoadout(), 20F, -10F, 
                 220F, 335F, new EnergyManager(3));
-        manaMst = new ManaMst(this, 10, 1, 0.5F, ManaMst.Layout.REVOLUTION)
+        manaMst = new ManaMst(this, 10, 1, 1F, ManaMst.Layout.REVOLUTION)
                 .addTip(ManaMst.TEXT[0], charStrings.TEXT[3]);
 //        loadAnimation(SK_ALT, SK_JSON, 1.25F);
 //        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
@@ -76,7 +77,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
         return listFromRepeatableObjs(GlobalIDMst.CardID("打击"), GlobalIDMst.CardID("打击"), 
                 GlobalIDMst.CardID("打击"), GlobalIDMst.CardID("打击"), GlobalIDMst.CardID("防御"), 
                 GlobalIDMst.CardID("防御"), GlobalIDMst.CardID("防御"), GlobalIDMst.CardID("防御"), 
-                GlobalIDMst.CardID("魔法飞弹"), GlobalIDMst.CardID("魔力释放"));
+                GlobalIDMst.CardID("魔法飞弹"), GlobalIDMst.CardID("编撰绘本"));
     }
     
     @Override
