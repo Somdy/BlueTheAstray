@@ -17,6 +17,7 @@ public class StoragePower extends AstrayPower {
         super(ID, "magic", PowerType.BUFF, owner);
         setDefaults(ID + (energy ? "ENERGY" : "MANA"), DESCRIPTIONS[energy ? 1 : 0], PowerType.BUFF);
         setValues(amount);
+        loadImg(energy ? "estorage" : "mstorage");
         this.energy = energy;
         preloadString(s -> {
             s[0] = DESCRIPTIONS[this.energy ? 3 : 2];

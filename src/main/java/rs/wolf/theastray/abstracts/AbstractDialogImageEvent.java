@@ -6,13 +6,14 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.DialogWord;
 import com.megacrit.cardcrawl.ui.buttons.LargeDialogOptionButton;
 import rs.wolf.theastray.localizations.TALocalLoader;
+import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractDialogImageEvent extends AbstractImageEvent {
+public class AbstractDialogImageEvent extends AbstractImageEvent implements TAUtils {
     
-    private final DialogEventBuilding eventBuilding = new DialogEventBuilding();
+    protected final DialogEventBuilding eventBuilding = new DialogEventBuilding();
     
     public AbstractDialogImageEvent(String title, String body, String imgUrl) {
         super(title, body, imgUrl);
@@ -33,10 +34,19 @@ public class AbstractDialogImageEvent extends AbstractImageEvent {
         updateBodyFromBlock(eventBuilding.getCurrBlock());
     }
     
+    protected void insertBlock(int index, DialogEventBlock eventBlock) {
+        eventBuilding.insertBlock(index, eventBlock);
+    }
+    
+    protected void insertNextBlock(int index, DialogEventBlock eventBlock) {
+        eventBuilding.insertBlock(index + 1, eventBlock);
+    }
+    
     protected void updateBodyFromBlock(DialogEventBlock eventBlock) {
         if (eventBlock.title != null && eventBlock.openingText != null) {
             title = eventBlock.title;
             body = eventBlock.openingText;
+            updateImageBodyText(body);
         }
         if (eventBlock.imgPath != null) {
             imageEventText.loadImage(eventBlock.imgPath);
@@ -87,6 +97,10 @@ public class AbstractDialogImageEvent extends AbstractImageEvent {
         imageEventText.clearAllDialogs();
     }
     
+    public void clearRemainingOptions() {
+        imageEventText.clearRemainingOptions();
+    }
+    
     public void updateImageBodyText(String text, DialogWord.AppearEffect ae) {
         imageEventText.updateBodyText(text, ae);
     }
@@ -119,6 +133,11 @@ public class AbstractDialogImageEvent extends AbstractImageEvent {
         }
     }
     
+    @Override
+    public void openMap() {
+        super.openMap();
+    }
+    
     protected String formattedText(String ID, Object... formats) {
         String text = TALocalLoader.LEGACY(ID);
         if (formats != null && formats.length > 0)
@@ -145,10 +164,22 @@ public class AbstractDialogImageEvent extends AbstractImageEvent {
             eventBlocks.add(eventBlock);
         }
         
+        public void insertBlock(int index, DialogEventBlock eventBlock) {
+            if (index > eventBlocks.size()) {
+                addBlock(eventBlock);
+            } else if (index >= 0) {
+                eventBlocks.add(index, eventBlock);
+            }
+        }
+        
         public boolean hasBlock() {
             return eventBlocks.size() > 0;
         }
-        
+    
+        public List<DialogEventBlock> getAllBlocks() {
+            return eventBlocks;
+        }
+    
         public DialogEventBlock getCurrBlock() {
             return eventBlocks.get(0);
         }

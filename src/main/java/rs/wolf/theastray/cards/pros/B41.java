@@ -14,7 +14,7 @@ public class B41 extends AstrayProCard {
     public B41() {
         super(41, -1, CardTarget.ENEMY);
         setDamageValue(8, true);
-        setPromosValue(3, true);
+        setPromosValue(4, true);
         setMagical(true);
     }
     
@@ -38,6 +38,6 @@ public class B41 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradePromos(3);
+        upgradePromos(4);
     }
 }

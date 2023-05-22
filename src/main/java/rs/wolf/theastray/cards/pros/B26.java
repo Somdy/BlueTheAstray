@@ -19,7 +19,7 @@ public class B26 extends AstrayProCard {
         setMagicValue(0, true);
         setMagicalDerivative(true);
         setCanEnlighten(true);
-        setStorage(true);
+//        setStorage(true);
     }
     
     @Override

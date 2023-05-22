@@ -13,7 +13,7 @@ public class SkiingPower extends AstrayPower {
     public static final String ID = TAUtils.MakeID("SkiingPower");
     
     public SkiingPower(int turns, int debuffs) {
-        super(ID, "雪山", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "skiing", PowerType.BUFF, AbstractDungeon.player);
         setValues(turns, debuffs);
         preloadString(s -> {
             setAmtValue(0, extraAmt);

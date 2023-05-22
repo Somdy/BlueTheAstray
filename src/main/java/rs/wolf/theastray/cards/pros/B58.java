@@ -6,7 +6,7 @@ import rs.wolf.theastray.powers.unique.ImbalancePower;
 
 public class B58 extends AstrayProCard {
     public B58() {
-        super(58, 2, CardTarget.SELF);
+        super(58, 1, CardTarget.SELF);
         setMagicValue(5, true);
         setExtraMagicValue(3, true);
     }

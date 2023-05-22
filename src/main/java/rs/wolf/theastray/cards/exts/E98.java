@@ -17,8 +17,8 @@ public class E98 extends AstrayExtCard {
         setMagicValue(2, true);
         setMagical(true);
         setCanEnlighten(true);
-        setStorage(true);
         selfRetain = true;
+        exhaust = true;
     }
     
     @Override
@@ -48,8 +48,12 @@ public class E98 extends AstrayExtCard {
             add(() -> {
                 upgradeTexts();
                 setExtraMagicValue(1, true);
+                setStorage(true);
             });
-            add(() -> upgradeTexts(1));
+            add(() -> {
+                upgradeTexts(1);
+                setStorage(true);
+            });
         }};
     }
 }

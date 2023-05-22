@@ -113,7 +113,7 @@
   "astray:AmendmentPower": {
     "NAME": "修正",
     "DESCRIPTIONS": [
-      "未 #y升级 的牌打出后在本场战斗中 #y升级 ，若其将进入弃牌堆则改为洗入抽牌堆。"
+      "未 #y升级 的牌打出后在本场战斗中 #y升级 。"
     ]
   },
   "astray:CoordinationPower": {

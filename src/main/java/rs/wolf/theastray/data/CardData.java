@@ -1,8 +1,6 @@
 package rs.wolf.theastray.data;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import kotlin.math.MathKt;
 import org.jetbrains.annotations.NotNull;
 import rs.wolf.theastray.utils.TAUtils;
 

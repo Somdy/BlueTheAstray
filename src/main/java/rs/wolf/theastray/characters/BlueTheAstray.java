@@ -113,7 +113,7 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     @Override
     public AbstractCard getStartCardForEvent() {
-        return CardMst.GetCard("魔力释放");
+        return CardMst.GetCard("编撰绘本");
     }
     
     @Override

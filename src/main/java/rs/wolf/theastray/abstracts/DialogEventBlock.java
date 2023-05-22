@@ -1,8 +1,11 @@
 package rs.wolf.theastray.abstracts;
 
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import rs.wolf.theastray.localizations.TALocalLoader;
+import rs.wolf.theastray.utils.TAUtils;
 
-public class DialogEventBlock {
+public class DialogEventBlock implements TAUtils {
     
     AbstractDialogImageEvent mainEvent;
     protected String title;
@@ -40,6 +43,12 @@ public class DialogEventBlock {
         mainEvent.removeCurrBlock();
     }
     
+    protected void insertNextBlock(DialogEventBlock eventBlock) {
+        int curIndex = mainEvent.eventBuilding.getAllBlocks().indexOf(this);
+        if (curIndex >= 0)
+            mainEvent.insertNextBlock(curIndex, eventBlock);
+    }
+    
     protected String formattedText(String ID, Object... formats) {
         String text = TALocalLoader.LEGACY(ID);
         if (formats != null && formats.length > 0)
@@ -57,5 +66,9 @@ public class DialogEventBlock {
     
     protected String leavingText() {
         return text("EVENT_UNI_OPTION_1");
+    }
+    
+    protected AbstractPlayer cpr() {
+        return AbstractDungeon.player;
     }
 }

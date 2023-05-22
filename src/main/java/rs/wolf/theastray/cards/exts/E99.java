@@ -12,7 +12,7 @@ public class E99 extends AstrayExtCard {
         setMagicValue(5, true);
         setExtraMagicValue(1, true);
         setMagical(true);
-        setStorage(true);
+//        setStorage(true);
         exhaust = true;
     }
     

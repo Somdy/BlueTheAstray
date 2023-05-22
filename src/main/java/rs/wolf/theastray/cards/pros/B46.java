@@ -10,8 +10,8 @@ public class B46 extends AstrayProCard {
     private static boolean playedOnceInCombat = false;
     
     public B46() {
-        super(46, 2, CardTarget.SELF);
-        setBlockValue(8, true);
+        super(46, 1, CardTarget.SELF);
+        setBlockValue(11, true);
         setMagicValue(2, true);
         exhaust = true;
         selfRetain = true;
@@ -27,7 +27,7 @@ public class B46 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeBlock(3);
+//        upgradeBlock(3);
         upgradeMagicNumber(1);
     }
 }

@@ -13,7 +13,6 @@ public class B18 extends AstrayProCard {
         super(18, 2, CardTarget.ENEMY);
         setDamageValue(20, true);
         setMagical(true);
-        setStorage(true);
     }
     
     @Override
@@ -31,9 +30,9 @@ public class B18 extends AstrayProCard {
                 ((StoragePower) p).instant();
                 count++;
             }
-            if (count >= 2) {
-                addToTop(new MakeTempCardInHandAction(CardMst.GetCard("短路")));
-            }
+//            if (count >= 2) {
+//                addToTop(new MakeTempCardInHandAction(CardMst.GetCard("短路")));
+//            }
         });
     }
     

@@ -13,7 +13,7 @@ public class SequencePlayPower extends AstrayPower implements DeMagicSensitiveGe
     public static final String ID = TAUtils.MakeID("SequencePlayPower");
     
     public SequencePlayPower(int cardsToGain) {
-        super(ID, "sequence", PowerType.BUFF, AbstractDungeon.player);
+        super(ID, "vsequence", PowerType.BUFF, AbstractDungeon.player);
         setValues(-1, cardsToGain);
         preloadString(s -> setAmtValue(0, extraAmt));
         updateDescription();

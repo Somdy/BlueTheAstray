@@ -1,6 +1,6 @@
 
 powers.png
-size: 1702,392
+size: 1842,392
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -74,394 +74,436 @@ repeat: none
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/evilmouth
+128/estorage
   rotate: false
   xy: 392, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/evilword
+128/evilmouth
   rotate: false
   xy: 522, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/frost
+128/evilword
   rotate: false
   xy: 392, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/frostshield
+128/frost
   rotate: false
   xy: 522, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/giant
+128/frostshield
   rotate: false
   xy: 652, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/ignorance
+128/giant
   rotate: false
   xy: 522, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/imbalance
+128/ignorance
   rotate: false
   xy: 652, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/infwis
+128/imbalance
   rotate: false
   xy: 782, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/magic
+128/infwis
   rotate: false
   xy: 652, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/magicalbody
+128/magic
   rotate: false
   xy: 782, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/manafield
+128/magicalbody
   rotate: false
   xy: 912, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/manatempo
+128/manafield
   rotate: false
   xy: 782, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/mastery
+128/manatempo
   rotate: false
   xy: 912, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/mindblossom
+128/mastery
   rotate: false
   xy: 1042, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/mindemptiness
+128/mindblossom
   rotate: false
   xy: 912, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/mindmastery
+128/mindemptiness
   rotate: false
   xy: 1042, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/phosphorus
+128/mindmastery
   rotate: false
   xy: 1172, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/purity
+128/mstorage
   rotate: false
   xy: 1042, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/remain
+128/phosphorus
   rotate: false
   xy: 1172, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/sequence
+128/purity
   rotate: false
   xy: 1302, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/skiing
+128/remain
   rotate: false
   xy: 1172, 2
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/stoneflesh
+128/sequence
   rotate: false
   xy: 1302, 132
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-128/wizardfield
+128/skiing
   rotate: false
   xy: 1432, 262
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
+128/stoneflesh
+  rotate: false
+  xy: 1302, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+128/vsequence
+  rotate: false
+  xy: 1432, 132
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+128/wizardfield
+  rotate: false
+  xy: 1562, 262
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
 48/abyss
   rotate: false
-  xy: 1302, 82
+  xy: 1432, 82
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/amend
   rotate: false
-  xy: 1432, 212
+  xy: 1562, 212
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/antimagic
   rotate: false
-  xy: 1562, 342
+  xy: 1692, 342
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/ashes
   rotate: false
-  xy: 1302, 32
+  xy: 1432, 32
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/blossom
   rotate: false
-  xy: 1352, 82
+  xy: 1482, 82
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/burnt
   rotate: false
-  xy: 1432, 162
+  xy: 1562, 162
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/coordination
   rotate: false
-  xy: 1482, 212
+  xy: 1612, 212
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/creation
   rotate: false
-  xy: 1562, 292
+  xy: 1692, 292
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/death
   rotate: false
-  xy: 1612, 342
+  xy: 1742, 342
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/drought
   rotate: false
-  xy: 1352, 32
+  xy: 1482, 32
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+48/estorage
+  rotate: false
+  xy: 1612, 162
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/evilmouth
   rotate: false
-  xy: 1482, 162
+  xy: 1742, 292
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/evilword
   rotate: false
-  xy: 1612, 292
+  xy: 1792, 342
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/frost
   rotate: false
-  xy: 1402, 82
+  xy: 1792, 292
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/frostshield
   rotate: false
-  xy: 1402, 32
+  xy: 1532, 82
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/giant
   rotate: false
-  xy: 1532, 212
+  xy: 1532, 32
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/ignorance
   rotate: false
-  xy: 1532, 162
+  xy: 1662, 212
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/imbalance
   rotate: false
-  xy: 1452, 112
+  xy: 1662, 162
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/infwis
   rotate: false
-  xy: 1452, 62
+  xy: 1582, 112
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/magic
   rotate: false
-  xy: 1502, 112
+  xy: 1582, 62
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/magicalbody
   rotate: false
-  xy: 1502, 62
+  xy: 1632, 112
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/manafield
   rotate: false
-  xy: 1452, 12
+  xy: 1632, 62
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/manatempo
   rotate: false
-  xy: 1502, 12
+  xy: 1582, 12
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/mastery
   rotate: false
-  xy: 1552, 112
+  xy: 1632, 12
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/mindblossom
   rotate: false
-  xy: 1552, 62
+  xy: 1682, 112
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/mindemptiness
   rotate: false
-  xy: 1552, 12
+  xy: 1682, 62
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/mindmastery
   rotate: false
-  xy: 1582, 242
+  xy: 1682, 12
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+48/mstorage
+  rotate: false
+  xy: 1712, 242
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/phosphorus
   rotate: false
-  xy: 1582, 192
+  xy: 1712, 192
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/purity
   rotate: false
-  xy: 1632, 242
+  xy: 1762, 242
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/remain
   rotate: false
-  xy: 1632, 192
+  xy: 1762, 192
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/sequence
   rotate: false
-  xy: 1602, 142
+  xy: 1732, 142
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/skiing
   rotate: false
-  xy: 1602, 92
+  xy: 1732, 92
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/stoneflesh
   rotate: false
-  xy: 1602, 42
+  xy: 1732, 42
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+48/vsequence
+  rotate: false
+  xy: 1782, 142
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/wizardfield
   rotate: false
-  xy: 1652, 142
+  xy: 1782, 92
   size: 48, 48
   orig: 48, 48
   offset: 0, 0

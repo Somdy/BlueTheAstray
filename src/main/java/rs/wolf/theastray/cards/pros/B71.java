@@ -14,7 +14,7 @@ public class B71 extends AstrayProCard {
         super(71, 1, CardTarget.SELF);
         setMagicValue(1, true);
         setCanEnlighten(true);
-        setStorage(true);
+//        setStorage(true);
     }
     
     @Override
@@ -37,10 +37,12 @@ public class B71 extends AstrayProCard {
             add(() -> {
                 upgradeTexts();
                 upgradeMagicNumber(1);
+                setStorage(true);
             });
             add(() -> {
                 upgradeTexts(1);
                 upgradeBaseCost(0);
+                setStorage(true);
             });
         }};
     }

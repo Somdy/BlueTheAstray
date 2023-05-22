@@ -36,7 +36,7 @@
     "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 造成 !D! 点伤害",
     "UPGRADED_DESC": [
       "astray:魔法 ， astray:储能 NL astray:晋升 !astray:promos! ， astray:启迪 NL 造成 !D! 点伤害",
-      "astray:衍生魔法 NL astray:储能 ， astray:启迪 NL 造成 !D! 点伤害 。 NL 给予 !M! 层 astray:余烬 NL 和 !astray:extras! 层 astray:冰霜 。"
+      "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害 。 NL 给予 !M! 层 astray:余烬 NL 和 !astray:extras! 层 astray:冰霜 。"
     ]
   },
   {
@@ -274,10 +274,10 @@
   {
     "ID": "B26",
     "NAME": "回路",
-    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
     "UPGRADED_DESC": [
-      "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
-      "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
+      "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
+      "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
     ]
   },
   {
@@ -358,7 +358,10 @@
   {
     "ID": "B36",
     "NAME": "臻冰之盾",
-    "DESCRIPTION": "astray:魔法 NL 获得 !B! 点 格挡 。 NL 本回合内所有敌人 astray:冰霜 层数不会下降。 NL 消耗"
+    "DESCRIPTION": "astray:魔法 NL 获得 !B! 点 格挡 。 NL 本回合内所有敌人 astray:冰霜 层数不会下降。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL 获得 !B! 点 格挡 。 NL 本回合内所有敌人 astray:冰霜 层数不会下降。"
+    ]
   },
   {
     "ID": "B37",
@@ -436,7 +439,7 @@
   {
     "ID": "B45",
     "NAME": "倾泄",
-    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL 消耗所有 astray:法力 ， NL 每个造成 !D! 点伤害。 NL 击杀目标会返还消耗的 *法力 。"
+    "DESCRIPTION": "astray:魔法 NL 消耗所有 astray:法力 ， NL 每个造成 !D! 点伤害。 NL 击杀目标会返还消耗的 *法力 。"
   },
   {
     "DEPRECATED": true,
@@ -485,12 +488,13 @@
   {
     "ID": "B50",
     "NAME": "渐升仪式",
-    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
     "UPGRADED_DESC": [
       "astray:衍生魔法 NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
       "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。"
     ],
     "UPDATED_DESC": [
+      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
       "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。",
       "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害， NL 获得 !B! 点 格挡 。 NL 每次打出后 astray:晋升 。"
     ]
@@ -658,7 +662,7 @@
   {
     "ID": "B71",
     "NAME": "邪口",
-    "DESCRIPTION": "astray:储能 ， astray:启迪 NL 本回合你打出的下 !M! 张 astray:魔法牌 会被打出两次。",
+    "DESCRIPTION": "astray:启迪 NL 本回合你打出的下 !M! 张 astray:魔法牌 会被打出两次。",
     "UPGRADED_DESC": [
       "astray:储能 ， astray:启迪 NL 本回合你打出的下 !M! 张 astray:魔法牌 会被打出两次。",
       "astray:储能 ， astray:启迪 NL 你打出的下 !M! 张 astray:魔法牌 或 astray:衍生魔法 会被打出两次。"
@@ -756,7 +760,7 @@
   {
     "ID": "E80",
     "NAME": "时间幻象",
-    "DESCRIPTION": "astray:衍生魔法 ，astray:储能 NL astray:扩展 ( !astray:ext! ) NL 获得 !M! 层 *残影 。 NL 每点 astray:法力 获得 !B! 点 格挡 。 NL 消耗 弃牌堆中所有牌。 NL 消耗",
+    "DESCRIPTION": "astray:衍生魔法 ， astray:储能 NL astray:扩展 ( !astray:ext! ) NL 获得 !M! 层 *残影 。 NL 每点 astray:法力 获得 !B! 点 格挡 。 NL 消耗 弃牌堆中所有牌。 NL 消耗",
     "MSG": [
       "残影",
       "你的下一回合开始时， #y格挡 不会消失。"
@@ -901,10 +905,10 @@
   {
     "ID": "E98",
     "NAME": "停留",
-    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 下回合开始时获得 !M! 倍于当前 格挡 的 格挡 。 NL 跳过你的下个回合。",
+    "DESCRIPTION": "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， 保留 NL 下回合开始时获得 !M! 倍于当前 格挡 的 格挡 。 NL 跳过你的下个回合。 消耗",
     "UPGRADED_DESC": [
-      "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 获得 !astray:extras! 层 *残影 。 NL 下回合开始时获得 !M! 倍于当前 格挡 的 格挡 。 NL 跳过你的下个回合。",
-      "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 下回合开始时获得 !M! 倍于当前 格挡 的 格挡 。 NL 结束你的回合。"
+      "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 获得 !astray:extras! 层 *残影 。 NL 下回合开始时获得 !M! 倍于当前 格挡 的 格挡 。 NL 跳过你的下个回合。 消耗",
+      "astray:魔法 ， astray:扩展 ( !astray:ext! ) NL astray:启迪 ， astray:储能 ， 保留 NL 下回合开始时获得 !M! 倍于当前 格挡 的 格挡 。 NL 结束你的回合。 消耗"
     ]
   },
   {
@@ -916,7 +920,7 @@
   {
     "ID": "E99",
     "NAME": "滑雪场",
-    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 回合结束时，给予所有敌人 !M! 层 astray:冰霜 ，持续 !astray:extras! 回合。 NL 消耗"
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! ) NL 回合结束时，给予所有敌人 !M! 层 astray:冰霜 ，持续 !astray:extras! 回合。 NL 消耗"
   },
   {
     "ID": "E100",

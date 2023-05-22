@@ -8,7 +8,7 @@ import rs.wolf.theastray.powers.unique.FrostShieldPower;
 public class B36 extends AstrayProCard {
     public B36() {
         super(36, 2, CardTarget.SELF);
-        setBlockValue(13, true);
+        setBlockValue(15, true);
         setMagical(true);
         exhaust = true;
     }
@@ -22,6 +22,7 @@ public class B36 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeBlock(3);
+//        upgradeBlock(3);
+        exhaust = false;
     }
 }

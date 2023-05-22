@@ -13,7 +13,7 @@ public class B45 extends AstrayProCard {
     public B45() {
         super(45, 2, CardTarget.ENEMY);
         setDamageValue(7, true);
-        setPromosValue(1, true);
+//        setPromosValue(1, true);
         setMagical(true);
     }
     

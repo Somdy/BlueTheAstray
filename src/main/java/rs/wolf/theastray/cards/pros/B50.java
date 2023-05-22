@@ -17,7 +17,7 @@ public class B50 extends AstrayProCard {
         setPromosValue(0, true);
         setMagicalDerivative(true);
         setCanEnlighten(true);
-        setStorage(true);
+//        setStorage(true);
     }
     
     @Override
@@ -27,7 +27,7 @@ public class B50 extends AstrayProCard {
         addToBot(new GainBlockAction(s, block));
         atbTmpAction(() -> {
             upgradePromos(1);
-            updateDescription(UPDATED_DESC[finalBranch()]);
+            updateDescription(UPDATED_DESC[upgraded ? finalBranch() : 0]);
         });
     }
     
@@ -35,7 +35,7 @@ public class B50 extends AstrayProCard {
     public void applyPowers() {
         super.applyPowers();
         if (getPromos() > 0)
-            updateDescription(UPDATED_DESC[finalBranch()]);
+            updateDescription(UPDATED_DESC[upgraded ? finalBranch() : 0]);
     }
     
     @Override
@@ -49,11 +49,13 @@ public class B50 extends AstrayProCard {
            add(() -> {
                upgradeTexts();
                upgradeBaseCost(0);
+               setStorage(true);
            }); 
            add(() -> {
                upgradeTexts(1);
                setMagicValue(1, true);
                upgradePromos(2);
+               setStorage(true);
            });
         }};
     }
