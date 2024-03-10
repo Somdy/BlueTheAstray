@@ -63,10 +63,36 @@ public final class MagicPower extends AstrayPower implements MagicModifier {
     }
     
     @Override
-    public int modifyMagicValue(AbstractCard card) {
+    public int modifyDamageValue(AbstractCard card) {
         int base = 0;
         if (card instanceof AstrayCard && !hasC88InHand()) {
             base += amount;
+            if (((AstrayCard) card).getPromos() > 0) {
+                int promos = ((AstrayCard) card).getPromos();
+                base += base * promos;
+            }
+        }
+        return base;
+    }
+    
+    @Override
+    public int modifyBlockValue(AbstractCard card) {
+        int base = 0;
+        if (card instanceof AstrayCard && !hasC88InHand()) {
+            base += amount;
+            if (((AstrayCard) card).getPromos() > 0) {
+                int promos = ((AstrayCard) card).getPromos();
+                base += base * promos;
+            }
+        }
+        return base;
+    }
+    
+    @Override
+    public int modifyMagicValue(AbstractCard card) {
+        int base = 0;
+        if (card instanceof AstrayCard && !hasC88InHand()) {
+            base += (amount / 2);
             if (((AstrayCard) card).getPromos() > 0) {
                 int promos = ((AstrayCard) card).getPromos();
                 base += base * promos;

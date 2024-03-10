@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import rs.lazymankits.actions.CustomDmgInfo;
+import rs.lazymankits.utils.LMDamageInfoHelper;
 import rs.wolf.theastray.abstracts.AstrayPower;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.powers.unique.FrostShieldPower;
@@ -48,10 +49,14 @@ public class FrostPower extends AstrayPower {
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         boolean useMagic = false;
-        if (info != null && info instanceof CustomDmgInfo && info.owner == source) {
-            AbstractCard sourceCard = ((CustomDmgInfo) info).source.getCardFrom();
-            if (sourceCard != null && TAUtils.IsMagical(sourceCard)) {
-                useMagic = true;
+        if (info != null) {
+            if (info instanceof CustomDmgInfo && info.owner == source) {
+                AbstractCard sourceCard = ((CustomDmgInfo) info).source.getCardFrom();
+                if (sourceCard != null && TAUtils.IsMagical(sourceCard)) {
+                    useMagic = true;
+                }
+            } else {
+                useMagic = LMDamageInfoHelper.HasTag(info, TAUtils.MAGICAL_DAMAGE);
             }
         }
         if (!useMagic && canReduce())

@@ -23,7 +23,9 @@ public class B41 extends AstrayProCard {
         addToBot(new RemoveAllBlockAction(t, s));
         addToBot(new VFXAction(new ViolentAttackEffect(t.hb.cX, t.hb.cY, Color.ROYAL.cpy())));
         addToBot(DamageAction(t, s, AbstractGameAction.AttackEffect.NONE));
-        addToBot(new LoseEnergyAction(EnergyPanel.totalCount));
+        if (!freeToPlayOnce && !freeToPlay()) {
+            addToBot(new LoseEnergyAction(EnergyPanel.totalCount));
+        }
         updateDescription(DESCRIPTION);
     }
     

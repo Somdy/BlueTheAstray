@@ -54,4 +54,9 @@ public abstract class AstrayExtCard extends AstrayCard implements AdditionalSpaw
     public boolean canSpawnInCombatAsColorless(ArrayList<AbstractCard> arrayList, Random random, String s, AbstractPlayer.PlayerClass clz) {
         return false;
     }
+    
+    @Override
+    public AbstractCard makeCopy() {
+        return super.makeCopy();
+    }
 }

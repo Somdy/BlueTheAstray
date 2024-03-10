@@ -12,7 +12,7 @@ public class E107 extends AstrayProCard {
     public E107() {
         super(107, 1, CardTarget.SELF);
         setMagicValue(1, true);
-        setExtraMagicValue(2, true);
+        setExtraMagicValue(3, true);
     }
     
     @Override

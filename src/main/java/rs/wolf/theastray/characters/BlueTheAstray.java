@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
@@ -37,6 +38,8 @@ import java.util.List;
 
 public class BlueTheAstray extends CustomPlayer implements TAUtils {
     public static final String ID = TAUtils.MakeID("TheAstray");
+    private static final UIStrings strings = TAUtils.UIStrings("RichPresence");
+    public static final String[] PRESENCE_TEXT = strings.TEXT;
     public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     public static final String NAME = charStrings.NAMES[0];
     public static final String DESCRIPTION = charStrings.TEXT[0];
@@ -192,5 +195,14 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     @Override
     public String getVampireText() {
         return charStrings.TEXT[2];
+    }
+    
+    public String getRichPresenceOverviewDisplay(String displayName, int ascension, int floorNum, int actNum) {
+        String overview = displayName + " - " + charStrings.TEXT[5];
+        return String.format(overview, ascension, floorNum);
+    }
+    
+    public String getRichPresenceDisplayName() {
+        return charStrings.NAMES[1];
     }
 }

@@ -173,6 +173,19 @@ public class CardMst {
         return ReturnRndMagicInCombat(LMSK.CardRandomRng(), deMagicIncluded, true, c -> true);
     }
     
+    public static AbstractCard ReturnRndMagicOutOfCombat(@NotNull Random rng, boolean deMagicIncluded, Predicate<AbstractCard> expt) {
+        List<AstrayCard> tmp = GetAllCards((d, c) -> (TAUtils.IsTrueMagical(c) || deMagicIncluded && TAUtils.IsDeMagical(c))
+                && c.rarity != AbstractCard.CardRarity.BASIC
+                && !EXTS.contains(d.getInternalID()) && expt.test(c));
+        if (tmp.isEmpty()) return new Madness();
+        int index = rng.random(tmp.size() - 1);
+        return tmp.get(index);
+    }
+    
+    public static AbstractCard ReturnRndMagicOutOfCombat(boolean deMagicIncluded) {
+        return ReturnRndMagicOutOfCombat(LMSK.CardRandomRng(), deMagicIncluded, c -> true);
+    }
+    
     public static void RegisterColors() {
         BaseMod.addColor(TACardEnums.TA_CardColor, Leader.TAColor.cpy(),
                 cardui("bg_attack_512"), cardui("bg_skill_512"), cardui("bg_power_512"),

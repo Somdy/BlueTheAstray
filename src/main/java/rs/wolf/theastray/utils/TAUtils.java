@@ -20,12 +20,15 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
+import rs.lazymankits.abstracts.DamageInfoTag;
 import rs.lazymankits.utils.LMGameGeneralUtils;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.patches.TACardEnums;
 
 public interface TAUtils extends LMGameGeneralUtils {
+    
+    DamageInfoTag MAGICAL_DAMAGE = new DamageInfoTag(MakeID("MagicalDamage"));
     
     default String getSupLang() {
         return getSupportedLanguage(Settings.language);

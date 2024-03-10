@@ -11,6 +11,7 @@ public class DialogEventBlock implements TAUtils {
     protected String title;
     protected String openingText;
     protected String imgPath;
+    public OptionSetup osu;
     
     public DialogEventBlock(String title, String openingText, String imgPath, AbstractDialogImageEvent mainEvent) {
         this.title = title;
@@ -43,13 +44,15 @@ public class DialogEventBlock implements TAUtils {
         mainEvent.removeCurrBlock();
     }
     
+    public void onEventUpdate() { }
+    
     protected void insertNextBlock(DialogEventBlock eventBlock) {
         int curIndex = mainEvent.eventBuilding.getAllBlocks().indexOf(this);
         if (curIndex >= 0)
             mainEvent.insertNextBlock(curIndex, eventBlock);
     }
     
-    protected String formattedText(String ID, Object... formats) {
+    protected String text(String ID, Object... formats) {
         String text = TALocalLoader.LEGACY(ID);
         if (formats != null && formats.length > 0)
             text = String.format(text, formats);
@@ -57,7 +60,7 @@ public class DialogEventBlock implements TAUtils {
     }
     
     protected String text(String ID) {
-        return formattedText(ID);
+        return text(ID, (Object) null);
     }
     
     protected String justEllipsis() {
@@ -70,5 +73,25 @@ public class DialogEventBlock implements TAUtils {
     
     protected AbstractPlayer cpr() {
         return AbstractDungeon.player;
+    }
+    
+    protected DialogEventBlock ellipsisBlock(String body) {
+        return new DialogEventBlock(body, mainEvent) {
+            {
+                osu = e -> {
+                    e.setDialogOption(justEllipsis());
+                };
+            }
+    
+            @Override
+            protected void eventButtonEffect(AbstractDialogImageEvent event, int index) {
+                event.clearOptions();
+                removeThisBlock();
+            }
+        };
+    }
+    
+    public interface OptionSetup {
+        void setup(AbstractDialogImageEvent event);
     }
 }

@@ -18,8 +18,7 @@ import rs.wolf.theastray.utils.GlobalIDMst;
 import java.util.function.UnaryOperator;
 
 public class SpawnLunarBossesPatches {
-    // don't spawn newt now
-//    @SpirePatch2(clz = TheEnding.class, method = "initializeBoss")
+    @SpirePatch2(clz = TheEnding.class, method = "initializeBoss")
     public static class ReplaceHeartInEnding {
         @SpirePostfixPatch
         public static void Postfix() {

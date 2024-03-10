@@ -13,7 +13,7 @@ import java.util.List;
 
 public class E98 extends AstrayExtCard {
     public E98() {
-        super(98, 2, 6, CardTarget.SELF);
+        super(98, 0, 12, CardTarget.SELF);
         setMagicValue(2, true);
         setMagical(true);
         setCanEnlighten(true);

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.DialogWord;
 import com.megacrit.cardcrawl.ui.buttons.LargeDialogOptionButton;
+import rs.wolf.theastray.core.Leader;
 import rs.wolf.theastray.localizations.TALocalLoader;
 import rs.wolf.theastray.utils.TAUtils;
 
@@ -24,14 +25,25 @@ public class AbstractDialogImageEvent extends AbstractImageEvent implements TAUt
     }
     
     protected DialogEventBuilding construct(DialogEventBlock eventBlock) {
-        updateBodyFromBlock(eventBlock);
         eventBuilding.addBlock(eventBlock);
+        updateBodyFromBlock(eventBlock);
+        updateOptionsFromBlock(eventBlock);
         return eventBuilding;
+    }
+    
+    public void addBlock(DialogEventBlock... eventBlocks) {
+        if (eventBlocks != null && eventBlocks.length > 0) {
+            for (DialogEventBlock eb : eventBlocks) {
+                TAUtils.Log("Adding new block");
+                eventBuilding.addBlock(eb);
+            }
+        }
     }
     
     protected void removeCurrBlock() {
         eventBuilding.removeCurrBlock();
         updateBodyFromBlock(eventBuilding.getCurrBlock());
+        updateOptionsFromBlock(eventBuilding.getCurrBlock());
     }
     
     protected void insertBlock(int index, DialogEventBlock eventBlock) {
@@ -42,9 +54,15 @@ public class AbstractDialogImageEvent extends AbstractImageEvent implements TAUt
         eventBuilding.insertBlock(index + 1, eventBlock);
     }
     
+    protected void updateOptionsFromBlock(DialogEventBlock eventBlock) {
+        if (eventBlock.osu != null)
+            eventBlock.osu.setup(this);
+    }
+    
     protected void updateBodyFromBlock(DialogEventBlock eventBlock) {
-        if (eventBlock.title != null && eventBlock.openingText != null) {
+        if (eventBlock.title != null) 
             title = eventBlock.title;
+        if (eventBlock.openingText != null) {
             body = eventBlock.openingText;
             updateImageBodyText(body);
         }
@@ -136,6 +154,14 @@ public class AbstractDialogImageEvent extends AbstractImageEvent implements TAUt
     @Override
     public void openMap() {
         super.openMap();
+    }
+    
+    @Override
+    public void update() {
+        super.update();
+        DialogEventBlock block = eventBuilding.getCurrBlock();
+        if (block != null)
+            block.onEventUpdate();
     }
     
     protected String formattedText(String ID, Object... formats) {

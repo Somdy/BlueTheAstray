@@ -148,6 +148,10 @@ public class BlueTheBoss extends AstrayMonster {
             onBossVictoryLogic();
             onFinalBossVictoryLogic();
             CardCrawlGame.stopClock = true;
+            if (ascenLv() >= 20 && !Leader.DEFEATED_THEBLUE_A20) {
+                Leader.DEFEATED_THEBLUE_A20 = true;
+                Leader.SaveConfig();
+            }
         }
     }
 }

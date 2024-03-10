@@ -2,6 +2,7 @@ package rs.wolf.theastray.cards.exts;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -21,8 +22,10 @@ public class E89 extends AstrayExtCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         attTmpAction(() -> {
             AbstractMonster m = AbstractDungeon.getRandomMonster();
-            addToBot(new VFXAction(new FallingStarEffect(m)));
-            addToBot(DamageAction(m, s, AbstractGameAction.AttackEffect.FIRE));
+            if (m != null) {
+                addToBot(new VFXAction(new FallingStarEffect(m)));
+                addToBot(DamageAction(m, s, damage, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            }
         });
     }
     

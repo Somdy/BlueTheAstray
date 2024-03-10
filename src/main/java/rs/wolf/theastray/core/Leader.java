@@ -3,6 +3,9 @@ package rs.wolf.theastray.core;
 import basemod.*;
 import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
+import basemod.eventUtil.util.Condition;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -11,18 +14,24 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.TheEnding;
+import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.monsters.city.Mugger;
+import com.megacrit.cardcrawl.monsters.city.SnakePlant;
+import com.megacrit.cardcrawl.monsters.exordium.FungiBeast;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import org.jetbrains.annotations.NotNull;
@@ -41,10 +50,14 @@ import rs.wolf.theastray.commands.CheatCMD;
 import rs.wolf.theastray.commands.ManaCMD;
 import rs.wolf.theastray.data.DataMst;
 import rs.wolf.theastray.data.saveData.DataObject;
+import rs.wolf.theastray.events.dialogs.beyond.TheAstrayThirdDialogEvent;
+import rs.wolf.theastray.events.dialogs.city.TheAstraySecondDialogEvent;
+import rs.wolf.theastray.events.dialogs.exordium.TheAstrayFirstDialogEvent;
 import rs.wolf.theastray.localizations.TALocalLoader;
 import rs.wolf.theastray.monsters.BlueTheBoss;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.relics.Relic1;
+import rs.wolf.theastray.relics.Relic11;
 import rs.wolf.theastray.utils.*;
 import rs.wolf.theastray.variables.TAExtNeed;
 import rs.wolf.theastray.variables.TAExtraMagic;
@@ -53,6 +66,7 @@ import rs.wolf.theastray.variables.TAPromotion;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 @SpireInitializer
@@ -60,7 +74,8 @@ import java.util.Properties;
 public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscriber, EditKeywordsSubscriber, EditCardsSubscriber,
         PostInitializeSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostPowerApplySubscriber, OnPlayerLoseBlockSubscriber, 
         OnPlayerTurnStartSubscriber, PostBattleSubscriber, OnStartBattleSubscriber, OnShuffleSubscriber, OnMakingCardInCombatSubscriber, 
-        PostCreateStartingRelicsSubscriber, AddAudioSubscriber, SetUnlocksSubscriber {
+        PostCreateStartingRelicsSubscriber, AddAudioSubscriber, SetUnlocksSubscriber, StartGameSubscriber, PostDungeonUpdateSubscriber, 
+        StartActSubscriber {
     public static final String MOD_ID = "BlueTheAstray";
     public static final String PREFIX = "astray";
     public static final String[] AUTHORS = {"Little wolf影幽"};
@@ -73,10 +88,16 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     
     public static DataObject SaveData = new DataObject();
     
+    private static List<AbstractGameAction> actionList = new ArrayList<>();
+    
     public static boolean ALLOW_RELICS = true;
     public static boolean ALLOW_EPISODIC_EVENTS = true;
     
     public static boolean DEFEATED_HEART = false;
+    public static boolean DEFEATED_THEBLUE_A20 = false;
+    
+    public static boolean SCENARIO_TMP_GOES = false;
+    public static boolean SCENARIO_TMP_ENDS = false;
     
     public static void initialize() {
         Leader instance = new Leader();
@@ -96,7 +117,12 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         Properties properties = new Properties();
         properties.setProperty("ALLOW_RELICS", Boolean.toString(ALLOW_RELICS));
         properties.setProperty("ALLOW_EPISODIC_EVENTS", Boolean.toString(ALLOW_EPISODIC_EVENTS));
+        
         properties.setProperty("DEFEATED_HEART", Boolean.toString(DEFEATED_HEART));
+        properties.setProperty("DEFEATED_THEBLUE_A20", Boolean.toString(DEFEATED_THEBLUE_A20));
+        
+//        properties.setProperty("SCENARIO_START", Boolean.toString(SCENARIO_START));
+//        properties.setProperty("SCENARIO_GOES", Boolean.toString(SCENARIO_GOES));
         
         try {
             return new SpireConfig("BlueTheAstray", "BlueTheAstrayConfig", properties);
@@ -113,7 +139,12 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         }
         ALLOW_RELICS = config.getBool("ALLOW_RELICS");
         ALLOW_EPISODIC_EVENTS = config.getBool("ALLOW_EPISODIC_EVENTS");
+        
         DEFEATED_HEART = config.getBool("DEFEATED_HEART");
+        DEFEATED_THEBLUE_A20 = config.getBool("DEFEATED_THEBLUE_A20");
+        
+//        SCENARIO_START = config.getBool("SCENARIO_START");
+//        SCENARIO_GOES = config.getBool("SCENARIO_GOES");
     }
     
     private static void save(SpireConfig config) {
@@ -130,7 +161,12 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         assert config != null;
         config.setBool("ALLOW_RELICS", ALLOW_RELICS);
         config.setBool("ALLOW_EPISODIC_EVENTS", ALLOW_EPISODIC_EVENTS);
+        
         config.setBool("DEFEATED_HEART", DEFEATED_HEART);
+        config.setBool("DEFEATED_THEBLUE_A20", DEFEATED_THEBLUE_A20);
+        
+//        config.setBool("SCENARIO_START", SCENARIO_START);
+//        config.setBool("SCENARIO_GOES", SCENARIO_GOES);
         save(config);
     }
     
@@ -149,6 +185,14 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     
     public static void PatchLog(String what) {
         LMDebug.deLog(Leader.class, "THE ASTRAY-[LOG]> " + what);
+    }
+    
+    public static void addToBot(AbstractGameAction action) {
+        actionList.add(action);
+    }
+    
+    public static void addToTop(AbstractGameAction action) {
+        actionList.add(0, action);
     }
     
     @Override
@@ -199,6 +243,25 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     }
     
     @Override
+    public void receiveStartGame() {
+        if (!CardCrawlGame.loadingSave) {
+            resetOneRunValues();
+            SCENARIO_TMP_GOES = false;
+            SCENARIO_TMP_ENDS = false;
+            SaveData.clear();
+        }
+    }
+    
+    @Override
+    public void receiveStartAct() {
+        
+    }
+    
+    private void resetOneRunValues() {
+        DEFEATED_HEART = false;
+    }
+    
+    @Override
     public void receivePostInitialize() {
         TAImageMst.Initialize();
         ConsoleCommand.addCommand("bluemana", ManaCMD.class);
@@ -206,12 +269,41 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         
         makeModPanels();
         
-        BaseMod.addMonster("BlueTheBoss", () -> new MonsterGroup(new AbstractMonster[]{
+        addMonsters();
+        
+        addEvents();
+        
+        MsgLogger.Log();
+    }
+    
+    private static void addEvents() {
+        BaseMod.addEvent(new AddEventParams.Builder(TheAstrayFirstDialogEvent.ID, TheAstrayFirstDialogEvent.class)
+                .eventType(EventUtils.EventType.NORMAL).playerClass(TACardEnums.BlueTheAstray)
+                .spawnCondition(() -> AbstractDungeon.actNum <= 1).dungeonIDs(Exordium.ID).create());
+        BaseMod.addEvent(new AddEventParams.Builder(TheAstraySecondDialogEvent.ID, TheAstraySecondDialogEvent.class)
+                .eventType(EventUtils.EventType.ONE_TIME).playerClass(TACardEnums.BlueTheAstray)
+                .spawnCondition(() -> SaveData.getBool(TheAstraySecondDialogEvent.CONTINUES)).endsWithRewardsUI(true)
+                .dungeonIDs(TheCity.ID).create());
+        BaseMod.addEvent(new AddEventParams.Builder(TheAstrayThirdDialogEvent.ID, TheAstrayThirdDialogEvent.class)
+                .eventType(EventUtils.EventType.ONE_TIME).playerClass(TACardEnums.BlueTheAstray)
+                .spawnCondition(() -> SaveData.getBool(TheAstrayThirdDialogEvent.CONTINUES)).endsWithRewardsUI(true)
+                .dungeonIDs(TheBeyond.ID).create());
+    }
+    
+    private static void addMonsters() {
+        BaseMod.addMonster(Encounter.SCENARIO_FIGHT, () -> new MonsterGroup(new AbstractMonster[]{
+                new FungiBeast(-480F, 0F), new SnakePlant(-160F, 0F), new Mugger(180F, 0F)
+        }));
+        
+        BaseMod.addMonster(BlueTheBoss.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new BlueTheBoss(0F, 0F)
         }));
-//        BaseMod.addBoss(TheEnding.ID, BlueTheBoss.ID, "AstrayAssets/images/ui/map/boss/bluetheboss_icon.png", 
-//                "AstrayAssets/images/ui/map/boss/bluetheboss_outline.png");
-        MsgLogger.Log();
+        BaseMod.addBoss(TheEnding.ID, BlueTheBoss.ID, "AstrayAssets/images/ui/map/boss/bluetheboss_icon.png", 
+                "AstrayAssets/images/ui/map/boss/bluetheboss_outline.png");
+    }
+    
+    public static class Encounter {
+        public static final String SCENARIO_FIGHT = PREFIX + ":Scenario Fight";
     }
     
     private static void makeModPanels() {
@@ -237,6 +329,30 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         BaseMod.registerModBadge(TAImageMst.BADGE, MOD_ID, Arrays.toString(AUTHORS), DESCRIPTION, settings);
     }
     
+    public static void OnNextRoomTransition() {
+        if (!CardCrawlGame.loadingSave) {
+//            if (SCENARIO_TMP_GOES) {
+//                SaveData.putValue(TheAstrayFirstDialogEvent.GO, false);
+//                SaveData.putValue(TheAstraySecondDialogEvent.GO, true);
+//                SCENARIO_TMP_GOES = false;
+//            }
+//            if (SCENARIO_TMP_ENDS) {
+//                SaveData.putValue(TheAstraySecondDialogEvent.GO, false);
+//                SaveData.putValue(TheAstrayThirdDialogEvent.END, true);
+//                SCENARIO_TMP_ENDS = false;
+//            }
+        }
+    }
+    
+    @Override
+    public void receivePostDungeonUpdate() {
+        if (actionList.size() > 0) {
+            actionList.get(0).update();
+            if (actionList.get(0).isDone)
+                actionList.remove(0);
+        }
+    }
+    
     @Override
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new TAPromotion());
@@ -259,7 +375,12 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         new AutoAdd(MOD_ID)
                 .packageFilter(Relic1.class)
                 .any(AstrayRelic.class, (i, r) -> {
-                    BaseMod.addRelic(r.makeCopy(), RelicType.SHARED);
+                    AbstractRelic copy = r.makeCopy();
+                    if (copy instanceof Relic11 && DEFEATED_THEBLUE_A20) {
+                        if (copy.tier != AbstractRelic.RelicTier.RARE)
+                            copy.tier = AbstractRelic.RelicTier.RARE;
+                    }
+                    BaseMod.addRelic(copy.makeCopy(), RelicType.SHARED);
 //                    UnlockTracker.markRelicAsSeen(r.relicId);
                     TAUtils.Log("[" + r.name + "] added");
                 });

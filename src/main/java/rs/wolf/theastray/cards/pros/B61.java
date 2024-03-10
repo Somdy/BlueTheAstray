@@ -8,7 +8,7 @@ import rs.wolf.theastray.powers.unique.CreatorPower;
 public class B61 extends AstrayProCard {
     public B61() {
         super(61, 1, CardTarget.SELF);
-        setMagicValue(3, true);
+        setMagicValue(2, true);
     }
     
     @Override

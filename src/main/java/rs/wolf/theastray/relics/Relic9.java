@@ -16,7 +16,7 @@ public class Relic9 extends AstrayRelic {
             flash();
             atbTmpAction(() -> {
                 for (AbstractMonster m : getAllLivingMstrs()) {
-                    addToTop(ApplyPower(m, cpr(), frostPower(m, cpr(), 2)));
+                    addToTop(ApplyPower(m, cpr(), frostPower(m, cpr(), 1)));
                 }
             });
             if (counter == 0)

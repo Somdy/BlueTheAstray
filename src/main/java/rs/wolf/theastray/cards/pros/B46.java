@@ -20,14 +20,16 @@ public class B46 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(new GainBlockAction(s, s, block));
-        int amount = Math.min(magicNumber, AbstractDungeon.bossCount);
-        addToBot(ApplyPower(s, s, new MagicPower(s, amount)));
+        int amount = AbstractDungeon.bossCount;
+        if (amount > 0) {
+            addToBot(ApplyPower(s, s, new MagicPower(s, amount)));
+        }
     }
     
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-//        upgradeBlock(3);
+        upgradeBlock(4);
         upgradeMagicNumber(1);
     }
 }
