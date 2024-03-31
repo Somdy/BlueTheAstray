@@ -60,6 +60,7 @@ public class B19 extends AstrayProCard {
                 upgradeBaseCost(0);
                 upgradeExtraMagic(1);
                 setMagicValue(0, true);
+                setPromosValue(2, true);
                 upgradeTexts(1);
             });
         }};

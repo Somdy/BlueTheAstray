@@ -11,6 +11,7 @@ public class E84 extends AstrayExtCard {
         setMagicValue(1, true);
         setExtraMagicValue(15, true);
         addTags(TACardEnums.ILLUSION);
+        exhaust = true;
     }
     
     @Override

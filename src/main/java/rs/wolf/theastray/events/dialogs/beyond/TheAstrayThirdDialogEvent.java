@@ -129,6 +129,8 @@ public class TheAstrayThirdDialogEvent extends AbstractDialogImageEvent {
                 runic = new Relic11();
             } else {
                 runic = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.RARE);
+                // enable BlueTheBoss without giving the runic
+                Leader.SaveData.putValue("eleven", true);
             }
             currRoom().rewards.clear();
             currRoom().addRelicToRewards(runic);

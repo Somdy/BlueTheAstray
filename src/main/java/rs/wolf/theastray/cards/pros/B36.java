@@ -9,6 +9,7 @@ public class B36 extends AstrayProCard {
     public B36() {
         super(36, 1, CardTarget.SELF);
         setBlockValue(6, true);
+        setMagicValue(1, true);
         setMagical(true);
         exhaust = true;
     }

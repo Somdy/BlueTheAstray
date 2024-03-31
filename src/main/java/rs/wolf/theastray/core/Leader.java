@@ -278,14 +278,20 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     
     private static void addEvents() {
         BaseMod.addEvent(new AddEventParams.Builder(TheAstrayFirstDialogEvent.ID, TheAstrayFirstDialogEvent.class)
-                .eventType(EventUtils.EventType.NORMAL).playerClass(TACardEnums.BlueTheAstray)
-                .spawnCondition(() -> AbstractDungeon.actNum <= 1).dungeonIDs(Exordium.ID).create());
+                .eventType(EventUtils.EventType.NORMAL)
+                .spawnCondition(() -> {
+                    boolean cp = AbstractDungeon.player.chosenClass == TACardEnums.BlueTheAstray
+                            || ALLOW_EPISODIC_EVENTS;
+                    return cp && AbstractDungeon.actNum <= 1;
+                }).dungeonIDs(Exordium.ID).create());
         BaseMod.addEvent(new AddEventParams.Builder(TheAstraySecondDialogEvent.ID, TheAstraySecondDialogEvent.class)
-                .eventType(EventUtils.EventType.ONE_TIME).playerClass(TACardEnums.BlueTheAstray)
+                .eventType(EventUtils.EventType.ONE_TIME)
+//                .playerClass(TACardEnums.BlueTheAstray)
                 .spawnCondition(() -> SaveData.getBool(TheAstraySecondDialogEvent.CONTINUES)).endsWithRewardsUI(true)
                 .dungeonIDs(TheCity.ID).create());
         BaseMod.addEvent(new AddEventParams.Builder(TheAstrayThirdDialogEvent.ID, TheAstrayThirdDialogEvent.class)
-                .eventType(EventUtils.EventType.ONE_TIME).playerClass(TACardEnums.BlueTheAstray)
+                .eventType(EventUtils.EventType.ONE_TIME)
+//                .playerClass(TACardEnums.BlueTheAstray)
                 .spawnCondition(() -> SaveData.getBool(TheAstrayThirdDialogEvent.CONTINUES)).endsWithRewardsUI(true)
                 .dungeonIDs(TheBeyond.ID).create());
     }
@@ -325,7 +331,7 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
                     save(config);
                 });
         settings.addUIElement(allowRelics);
-//        settings.addUIElement(allowEvents);
+        settings.addUIElement(allowEvents);
         BaseMod.registerModBadge(TAImageMst.BADGE, MOD_ID, Arrays.toString(AUTHORS), DESCRIPTION, settings);
     }
     

@@ -26,6 +26,6 @@ public class B20 extends AstrayProCard {
     public void selfUpgrade() {
         upgradeTexts();
         upgradeDamage(2);
-        upgradeMagicNumber(4);
+        upgradeMagicNumber(2);
     }
 }

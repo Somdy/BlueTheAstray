@@ -226,7 +226,7 @@
     "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 将 !M! 张随机非能力牌和 !astray:extras! 张 *星星 置入手牌。 NL 它们获得 保留 。",
     "UPGRADED_DESC": [
       "astray:魔法 ， astray:启迪 NL 将 !M! 张随机非能力牌和 !astray:extras! 张 *星星 置入手牌。 NL 它们获得 保留 。",
-      "astray:魔法 ， astray:启迪 NL 将 !astray:extras! 张 *星星 置入手牌。 NL 它们获得 保留 。"
+      "astray:魔法 ， astray:启迪 ， astray:晋升 !astray:promos! NL 将 !astray:extras! 张 *星星 置入手牌。 NL 它们获得 保留 。"
     ],
     "MSG": [
       "抽牌堆中没有0费魔法牌。"
@@ -274,10 +274,10 @@
   {
     "ID": "B26",
     "NAME": "回路",
-    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
+    "DESCRIPTION": "astray:衍生魔法 NL astray:启迪 ， astray:晋升 !astray:promos! NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。",
     "UPGRADED_DESC": [
-      "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
-      "astray:衍生魔法 NL astray:启迪 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
+      "astray:衍生魔法 NL astray:启迪 ， astray:晋升 !astray:promos! NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
+      "astray:衍生魔法 NL astray:启迪 ， astray:晋升 !astray:promos! NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 获得 !M! [E] ."
     ]
   },
   {
@@ -358,9 +358,9 @@
   {
     "ID": "B36",
     "NAME": "臻冰之盾",
-    "DESCRIPTION": "astray:魔法 NL 获得 !B! 点 格挡 。 NL 本回合内所有敌人 astray:冰霜 层数不会下降。 NL 消耗",
+    "DESCRIPTION": "astray:魔法 NL 获得 !B! 点 格挡 。 NL !M! 个回合内所有敌人 astray:冰霜 层数不会下降。 NL 消耗",
     "UPGRADED_DESC": [
-      "astray:魔法 NL 获得 !B! 点 格挡 。 NL 本回合内所有敌人 astray:冰霜 层数不会下降。"
+      "astray:魔法 NL 获得 !B! 点 格挡 。 NL !M! 个回合内所有敌人 astray:冰霜 层数不会下降。"
     ]
   },
   {
@@ -745,7 +745,7 @@
     "NAME": "机械心智",
     "DESCRIPTION": "astray:启迪 ， 固有 NL 抽牌堆每有一张 NL 能力牌，获得 !M! [E] . NL 消耗",
     "UPGRADED_DESC": [
-      "astray:启迪 ， 固有 NL 抽牌堆每有一张能力牌， NL 获得 !M! astray:法力 。 NL 消耗",
+      "astray:启迪 ， 固有 NL 抽牌堆每有一张 NL 能力牌，获得 !M! astray:法力 。 NL 消耗",
       "astray:启迪 ， 固有 NL 抽牌堆每有一张 NL 能力牌，抽 !M! 张牌。 NL 消耗"
     ]
   },
@@ -792,7 +792,7 @@
   {
     "ID": "E83",
     "NAME": "死神幻象",
-    "DESCRIPTION": "astray:魔法 NL astray:储能 ， astray:扩展 ( !astray:ext! ) NL 在 !astray:extras! 个回合内， NL 免疫 !M! 以下的伤害。 NL 消耗"
+    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL astray:储能 ， astray:扩展 ( !astray:ext! ) NL 在 !astray:extras! 个回合内， NL 免疫 !M! 以下的伤害。 NL 消耗"
   },
   {
     "DEPRECATED": true,
@@ -803,7 +803,7 @@
   {
     "ID": "E84",
     "NAME": "巨人幻象",
-    "DESCRIPTION": "astray:扩展 ( !astray:ext! ) NL 你的每个回合开始与结束时，获得 !M! 层 易伤 和 !astray:extras! 点 格挡 。"
+    "DESCRIPTION": "astray:扩展 ( !astray:ext! )， 消耗 NL 你的每个回合开始与结束时，获得 !M! 层 易伤 和 !astray:extras! 点 格挡 。"
   },
   {
     "ID": "C85",

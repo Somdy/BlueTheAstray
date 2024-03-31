@@ -12,7 +12,7 @@ public class B18 extends AstrayProCard {
     public B18() {
         super(18, 2, CardTarget.ENEMY);
         setDamageValue(20, true);
-        setMagical(true);
+//        setMagical(true);
     }
     
     @Override
@@ -39,6 +39,6 @@ public class B18 extends AstrayProCard {
     @Override
     public void selfUpgrade() {
         upgradeTexts();
-        upgradeDamage(4);
+        upgradeDamage(6);
     }
 }

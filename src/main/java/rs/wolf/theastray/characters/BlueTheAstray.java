@@ -136,15 +136,17 @@ public class BlueTheAstray extends CustomPlayer implements TAUtils {
     
     @Override
     public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList<>();
         if (BlueTheBoss.AsFinal) {
-            return super.getCutscenePanels();
+            panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_alt_1.png", "ATTACK_FIRE"));
+            panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_alt_2.png"));
+            panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_alt_3.png"));
         } else {
-            List<CutscenePanel> panels = new ArrayList<>();
             panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_1.png", "ATTACK_FIRE"));
             panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_2.png"));
             panels.add(new CutscenePanel("AstrayAssets/images/cutscenes/part_3.png"));
-            return panels;
         }
+        return panels;
     }
     
     @Override

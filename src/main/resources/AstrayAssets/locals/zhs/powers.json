@@ -20,8 +20,8 @@
   "astray:MagicPower": {
     "NAME": "魔力",
     "DESCRIPTIONS": [
-      "#y[owner] 的 #y魔法牌 的所有数值增加 #b[amt_0] 点。",
-      "#y[owner] 的 #y魔法牌 的所有数值减少 #b[amt_0] 点。",
+      "#y[owner] 的 #y魔法牌 的所有数值增加 #b[amt_0] 点，但对特殊数值效率降低一半。",
+      "#y[owner] 的 #y魔法牌 的所有数值减少 #b[amt_0] 点，但对特殊数值效率降低一半。",
       "被 #y%s 无效了。"
     ]
   },

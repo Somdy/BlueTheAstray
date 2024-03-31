@@ -17,6 +17,7 @@ public class B26 extends AstrayProCard {
         setDamageValue(0, true);
         setBlockValue(0, true);
         setMagicValue(0, true);
+        setPromosValue(1, true);
         setMagicalDerivative(true);
         setCanEnlighten(true);
 //        setStorage(true);

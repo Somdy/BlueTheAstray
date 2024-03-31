@@ -37,6 +37,18 @@ public class SpawnLunarBossesPatches {
         }
     }
     
+    @SpirePatch(clz = AbstractDungeon.class, method = "setBoss")
+    public static class SetBossChecker {
+        @SpirePrefixPatch
+        public static void Prefix(AbstractDungeon _inst, @ByRef String[] k) {
+            boolean spawn = SpawnNewtForHeart();
+            if (BlueTheBoss.ID.equals(k[0]) && !spawn) {
+                Leader.Log("Not allowing BlueTheBoss, returning Heart");
+                k[0] = MonsterHelper.THE_HEART_ENC;
+            }
+        }
+    }
+    
 //    @SpirePatch(clz = MonsterHelper.class, method = "getEncounter")
     public static class SpawnFinalBossPatch {
         @SpirePrefixPatch

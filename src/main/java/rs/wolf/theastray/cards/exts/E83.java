@@ -9,6 +9,7 @@ public class E83 extends AstrayExtCard {
         super(83, 1, 14, CardTarget.SELF);
         setMagicValue(9, true);
         setExtraMagicValue(1, true);
+        setPromosValue(9, true);
         setMagical(true);
         setStorage(true);
         exhaust = true;
