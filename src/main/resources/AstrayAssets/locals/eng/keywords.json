@@ -1,0 +1,81 @@
+[
+  {
+    "NAMES": [
+      "Spell",
+      "spell_card",
+      "spells"
+    ],
+    "DESCRIPTION": "ALL values of Spell cards can be affected by only #yMagic. Playing Spell cards actively cost #b1 #yMana."
+  },
+  {
+    "NAMES": [
+      "Magic"
+    ],
+    "DESCRIPTION": "Magic adds additional amounts to ALL values of a #ySpell #ycard but its efficiency is halved on magical values."
+  },
+  {
+    "NAMES": [
+      "Mana"
+    ],
+    "DESCRIPTION": "Playing #ySpell #ycards actively cost #b1 #yMana . You can't play #ySpell #ycards when you have no Mana."
+  },
+  {
+    "NAMES": [
+      "Enlighten",
+      "enlightened"
+    ],
+    "DESCRIPTION": "Enlighten cards have #btwo different #yUpgrade branches. You can switch to other branch at Rest if #yUpgarded."
+  },
+  {
+    "NAMES": [
+      "Storage"
+    ],
+    "DESCRIPTION": "Playing a #ySpell #ycard store #b1 [E] while playing non-Spell card does #b1 #yMana . You will gain ALL the stored resources at the start of next turn. After a Storage card is played, if you don't have the resource it stores, you will gain ALL the relative resources stored immediately."
+  },
+  {
+    "NAMES": [
+      "Promotion",
+      "promotions",
+      "promote"
+    ],
+    "DESCRIPTION": "Promotions amplify the efficiency of #yMagic . Only a #ySpell #ycard can have promotions."
+  },
+  {
+    "NAMES": [
+      "Frost",
+      "frosts",
+      "frosted"
+    ],
+    "DESCRIPTION": "Frosted creatures deal #b1 less attack damage per Frost. Frost is reduced by some value at the end of owner's turn or after owner takes damage from non-Spell card. Enemies that intend not to attack gain double Frost."
+  },
+  {
+    "NAMES": [
+      "Ember",
+      "embers",
+      "embered"
+    ],
+    "DESCRIPTION": "Embered creatures lose HP and all Embers at the start of their turns. Ember is increased by #b1 after owner takes damage form #ySpell #ycard . Enemies that intend to attack gain double Ember."
+  },
+  {
+    "NAMES": [
+      "Derive Spell",
+      "derive_spell",
+      "derive_spells"
+    ],
+    "DESCRIPTION": "Regarded as #ySpell #ycard but doesn't cost #yMana , and not considered as playing a card when it is played."
+  },
+  {
+    "NAMES": [
+      "Extended(X)",
+      "extended",
+      "extended_card"
+    ],
+    "DESCRIPTION": "Extended card will only appear in combat when you have X or more #yEnlighten cards in deck."
+  },
+  {
+    "NAMES": [
+      "Discover"
+    ],
+    "DESCRIPTION": "Choose #b1 of #b3 random cards and add it to your hand."
+  }
+]

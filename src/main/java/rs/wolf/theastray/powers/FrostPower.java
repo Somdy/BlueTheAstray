@@ -48,17 +48,17 @@ public class FrostPower extends AstrayPower {
     
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        boolean useMagic = false;
-        if (info != null) {
-            if (info instanceof CustomDmgInfo && info.owner == source) {
-                AbstractCard sourceCard = ((CustomDmgInfo) info).source.getCardFrom();
-                if (sourceCard != null && TAUtils.IsMagical(sourceCard)) {
-                    useMagic = true;
-                }
-            } else {
-                useMagic = LMDamageInfoHelper.HasTag(info, TAUtils.MAGICAL_DAMAGE);
-            }
-        }
+        boolean useMagic = TAUtils.IsMagicalDamage(info);
+//        if (info != null) {
+//            if (info instanceof CustomDmgInfo && info.owner == source) {
+//                AbstractCard sourceCard = ((CustomDmgInfo) info).source.getCardFrom();
+//                if (sourceCard != null && TAUtils.IsMagical(sourceCard)) {
+//                    useMagic = true;
+//                }
+//            } else {
+//                useMagic = LMDamageInfoHelper.HasTag(info, TAUtils.MAGICAL_DAMAGE);
+//            }
+//        }
         if (!useMagic && canReduce())
             addToTop(new ReducePowerAction(owner, owner, this, 1));
         return super.onAttacked(info, damageAmount);

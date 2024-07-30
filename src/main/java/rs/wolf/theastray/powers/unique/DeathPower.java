@@ -18,6 +18,23 @@ public class DeathPower extends AstrayPower {
             setAmtValue(1, extraAmt);
         });
         updateDescription();
+        isExtraAmtFixed = false;
+    }
+    
+    @Override
+    public void stackPower(int stackAmount) {
+        if (stackAmount > amount) {
+            fontScale = 8.0F;
+            amount = stackAmount;
+        }
+    }
+    
+    @Override
+    public void stackExtraAmount(int stackAmount) {
+        if (stackAmount > extraAmt) {
+            extraAmtFontScale = 8.0F;
+            extraAmt = stackAmount;
+        }
     }
     
     @Override
@@ -33,6 +50,7 @@ public class DeathPower extends AstrayPower {
     public void atStartOfTurn() {
         if (extraAmt > 1) {
             extraAmt--;
+            updateDescription();
         } else {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         }

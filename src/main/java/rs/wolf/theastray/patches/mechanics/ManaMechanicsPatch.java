@@ -103,7 +103,7 @@ public class ManaMechanicsPatch {
             if (c.hasTag(TACardEnums.STORAGE)) {
                 boolean energy = EnergyPanel.getCurrentEnergy() <= 0;
                 boolean mana = !GlobalManaMst.HasMana();
-                Leader.devLog("STORAGE MAY TRIGGER BY [" + c.name + "]");
+                Leader.devLog("STORAGE MAY TRIGGER BY [" + c.cardID + "]");
 //                LMSK.AddToBot(new TriggerStorageAction(mana, energy, c));
                 LMSK.AddToBot(new NewStorageAction(){{card = c;}});
             }

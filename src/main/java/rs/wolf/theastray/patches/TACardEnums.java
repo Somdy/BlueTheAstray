@@ -1,6 +1,7 @@
 package rs.wolf.theastray.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -29,4 +30,7 @@ public class TACardEnums {
     public static AbstractCard.CardTags ILLUSION;
     @SpireEnum(name = "theastray_return_to_hand_tag")
     public static AbstractCard.CardTags RETURN_TO_HAND;
+    
+    @SpireEnum(name = "theastray_atkeffect_ash_explosion")
+    public static AbstractGameAction.AttackEffect ASH_EXPLOSION;
 }

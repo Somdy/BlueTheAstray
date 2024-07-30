@@ -1,0 +1,17 @@
+{
+  "astray:BlueTheBoss": {
+    "NAME": "Jigen",
+    "MOVES": [
+      "Converge",
+      "Dissever",
+      "Blossom"
+    ],
+    "DIALOG": [
+      "DO NOT HESITATE!",
+      "You made it...!",
+      "It's been a hard journey. Now get some rest...",
+      "I'll take care of the rest...",
+      "This is not your end! We'll meet again. You have my trust."
+    ]
+  }
+}

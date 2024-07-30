@@ -1,4 +1,12 @@
 {
+  "astray:ModConfigSettings": {
+    "TEXT_DICT": {
+      "ALLOW_RELICS": "允许其他职业遇见蓝新增的遗物",
+      "ALLOW_EPISODIC_EVENTS": "允许其他职业遇见蓝的剧情事件",
+      "ASTRAY_CURSOR_AS_GLOBAL": "全局使用蓝法师的专属光标，除非角色有专属光标",
+      "ASTRAY_CURSOR_AS_GLOBAL_TOOLTIP": "(需要其他角色手动兼容，无自动检测)"
+    }
+  },
   "astray:ExtensionCardTab": {
     "TEXT": ["迷途者扩展", "扩展牌"]
   },

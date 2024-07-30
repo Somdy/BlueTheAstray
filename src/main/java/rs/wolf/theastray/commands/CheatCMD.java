@@ -6,15 +6,20 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.FrozenEye;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import rs.lazymankits.actions.common.ApplyPowerToEnemiesAction;
+import rs.lazymankits.enums.ApplyPowerParam;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.actions.commons.ModifyManaAction;
 import rs.wolf.theastray.cards.curses.C85;
 import rs.wolf.theastray.cards.exts.E100;
+import rs.wolf.theastray.cards.exts.E83;
 import rs.wolf.theastray.core.CardMst;
+import rs.wolf.theastray.powers.BurntPower;
 import rs.wolf.theastray.powers.MagicPower;
 import rs.wolf.theastray.utils.GlobalManaMst;
 import rs.wolf.theastray.utils.TAUtils;
@@ -22,7 +27,7 @@ import rs.wolf.theastray.utils.TAUtils;
 public class CheatCMD extends ConsoleCommand {
     @Override
     protected void execute(String[] tokens, int i) {
-        if (tokens.length < 1) {
+        if (true || tokens.length < 1) {
             cmdEnergyHelp();
             return;
         }
@@ -42,9 +47,8 @@ public class CheatCMD extends ConsoleCommand {
             if (TAUtils.RoomChecker(AbstractRoom.RoomPhase.COMBAT)) {
                 Cheat.SetCheat(Cheat.IEL, true);
                 Cheat.SetCheat(Cheat.SSD, true);
-//                LMSK.AddToBot(new ModifyManaAction(2));
-                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("引火"), 2));
-                LMSK.AddToBot(new MakeTempCardInHandAction(CardMst.GetCard("开幕礼花"), 2));
+                LMSK.AddToBot(new ApplyPowerToEnemiesAction(AbstractDungeon.player, BurntPower.class, 
+                        ApplyPowerParam.ANY_OWNER, ApplyPowerParam.ANY_SOURCE, 10));
             }
         }
         else {

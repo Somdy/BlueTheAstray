@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
 import rs.wolf.theastray.cards.AstrayProCard;
-import rs.wolf.theastray.powers.BurntPower;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,15 @@
+{
+  "astray:TheAstray": {
+    "NAMES": [
+      "The Astray", "Blue the Astray ✡"
+    ],
+    "TEXT": [
+      "A travelling mage who has come to the Spire seeking a chance to become a legend.",
+      "NL Energy gathered in your hand and then bursts out.",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~",
+      "#yMana is used to play #ySpell cards. You gain #b1 #yMana at the start of each turn.",
+      "#b~CONFUSED~ NL NL You were abandoned due to the plague and thus wandered for several years. You did not die. You were took in the tower of who named Shadow Blue and you stole his knowledge. NL NL With your magic, survival is no longer a threat unless the master of this tower returns. You don't want to go. NL NL Unease festered in your mind as you carefully cleaned and tidied the tower, pinned the two badges you found in a corner somewhere to your chest, and changed your name to Blue. NL NL It's time to go...",
+      "At Ascension %d, reach floor %d by virture of your intelligence"
+    ]
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "astray:AstrayPower": {
+    "NAME": "Power",
+    "DESCRIPTIONS": [
+      "You"
+    ]
+  },
+  "astray:BurntPower": {
+    "NAME": "Ember",
+    "DESCRIPTIONS": [
+      "Lose #b[amt_0] HP and all #yEmber at the start of the turn. After taking damage from #ySpell cards, #yEmber is increased by #b[amt_1] ."
+    ]
+  },
+  "astray:FrostPower": {
+    "NAME": "Frost",
+    "DESCRIPTIONS": [
+      "Deal #b[amt_0] less damage. At the end of the turn, lose half of #yFrost . After taking damage from #rNon #ySpell cards, #yFrost is decreased by #b1 ."
+    ]
+  },
+  "astray:MagicPower": {
+    "NAME": "Magic",
+    "DESCRIPTIONS": [
+      "Adds #b[amt_0] more to ALL values of #y[owner] 's #ySpell #ycards but its efficiency is halved on magical values.",
+      "Adds #b[amt_0] less to ALL values of #y[owner] 's #ySpell #ycards but its efficiency is halved on magical values.",
+      "Invalidated by #y%s ."
+    ]
+  },
+  "astray:TurnMagicPower": {
+    "NAME": "Magic Down",
+    "DESCRIPTIONS": [
+      "At the end of this turn，lose #b[amt_0] #yMagic ."
+    ]
+  },
+  "astray:MagicalBodyPower": {
+    "NAME": "Magic Body",
+    "DESCRIPTIONS": [
+      "You can draw cards when hand is full. Gain #b[amt_0] #yBlock for each card out of hand whenever it's added to hand."
+    ]
+  },
+  "astray:PurityPower": {
+    "NAME": "Pure",
+    "DESCRIPTIONS": [
+      "At the end of your turn, if you have only played #yPure this turn, gain #b[amt_0] #yBlock ."
+    ]
+  },
+  "astray:AbyssPower": {
+    "NAME": "Abyss Vision",
+    "DESCRIPTIONS": [
+      "At the start of your turn, ALL enemies gain #b[amt_0] #yNegative #yeffects they had at the end of last turn."
+    ]
+  },
+  "astray:DeathPower": {
+    "NAME": "Death Vision",
+    "DESCRIPTIONS": [
+      "Prevent any damage less than #b[amt_0] for #b[amt_1] turns."
+    ]
+  },
+  "DEPRECATED astray:FrostShieldPower": {
+    "NAME": "臻冰之盾",
+    "DESCRIPTIONS": [
+      "下回合开始时，将一张 #y%s 置入你的手牌。"
+    ]
+  },
+  "astray:FrostShieldPower": {
+    "NAME": "Icy Shield",
+    "DESCRIPTIONS": [
+      " ALL enemies won't lose #yFrost for #b%d turns."
+    ]
+  },
+  "astray:WizardFieldPower": {
+    "NAME": "Wizard Field",
+    "DESCRIPTIONS": [
+      "Before losing HP, #y[owner] can retain no more than #b[amt_0] #yBlock to next turn."
+    ]
+  },
+  "astray:StoneFleshPower": {
+    "NAME": "Stone Skin",
+    "DESCRIPTIONS": [
+      "Take #b[amt_0]% less damage until losing HP."
+    ]
+  },
+  "astray:ManaTempoPower": {
+    "NAME": "Mana Rhythm",
+    "DESCRIPTIONS": [
+      "Whenever you lose #b[amt_0] #yMana , gain #b[amt_1] [E] ."
+    ]
+  },
+  "astray:ManaFieldPower": {
+    "NAME": "Surge Field",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b[amt_0] #yBlock for each #yMana you have."
+    ]
+  },
+  "astray:ManaFieldFastPower": {
+    "NAME": "Surge Field",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b[amt_0] #yBlock for each #yMana you have."
+    ]
+  },
+  "astray:SequenceExhaustPower": {
+    "NAME": "Major Sequence",
+    "DESCRIPTIONS": [
+      "Whenever you #yExhaust #b1 #ySpell , add #b[amt_0] random #ySpell into your hand."
+    ]
+  },
+  "astray:SequencePlayPower": {
+    "NAME": "Minor Sequence",
+    "DESCRIPTIONS": [
+      "Whenever you #yExhaust #b1 #yDerive #ySpell ,add #b[amt_0] random #ySpell into your hand."
+    ]
+  },
+  "astray:AmendmentPower": {
+    "NAME": "Amendment",
+    "DESCRIPTIONS": [
+      "When you play an Un-upgraded card, #yUpgrade it in this combat."
+    ]
+  },
+  "astray:CoordinationPower": {
+    "NAME": "Unity",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your draw pile, gain #b[amt_0] #yMana ."
+    ]
+  },
+  "astray:ImbalancePower": {
+    "NAME": "Unbalance",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b[amt_0] cards and then discard #b[amt_1] cards.",
+      "At the start of your turn, draw #b[amt_0] cards."
+    ]
+  },
+  "astray:MasteryPower": {
+    "NAME": "Mastery",
+    "DESCRIPTIONS": [
+      "Cards created during combat cost #b[amt_0] less [E] ."
+    ]
+  },
+  "astray:CreationPower": {
+    "NAME": "Creation",
+    "DESCRIPTIONS": [
+      "Whenever you gain a card not in your deck, gain #b[amt_0] #yBlock ."
+    ]
+  },
+  "astray:CreatorPower": {
+    "NAME": "Architect",
+    "DESCRIPTIONS": [
+      "Whenever you gain or play a card not in your deck, gain #b[amt_0] #yBlock ."
+    ]
+  },
+  "astray:PhosphorusPower": {
+    "NAME": "Paper Flower",
+    "DESCRIPTIONS": [
+      "After the start of your turn, #yExhaust #b[amt_0] cards in each your draw pile, discard pile and your hand at random. Gain #b[amt_0] #yMagic ."
+    ]
+  },
+  "astray:EvilMouthPower": {
+    "NAME": "Evil Mouth",
+    "DESCRIPTIONS": [
+      "This turn, your next #b[amt_0] #ySpell is played #b[amt_1] times."
+    ]
+  },
+  "astray:EvilWordPower": {
+    "NAME": "Evil Words",
+    "DESCRIPTIONS": [
+      "Your next #b[amt_0] #ySpell is played #b[amt_1] times."
+    ]
+  },
+  "astray:BlossomPower": {
+    "NAME": "Blossom",
+    "DESCRIPTIONS": [
+      "During your turn, whenever you gain or lose [E] , draw #b[amt_0] cards."
+    ]
+  },
+  "DEPRECATED astray:AshPower": {
+    "NAME": "余烬之前",
+    "DESCRIPTIONS": [
+      "在你打出已 #y升级 的 #y启迪 牌后，将它的另一个分支的 #b[amt_0] 张复制置入手牌。"
+    ]
+  },
+  "astray:AshPower": {
+    "NAME": "Times Before Ember",
+    "DESCRIPTIONS": [
+      "Whenever you apply #yEmber , gain that many #yBlock . Expire after you #yExhaust #b[amt_0] cards.",
+      "This power has expired."
+    ]
+  },
+  "astray:IgnorancePower": {
+    "NAME": "Ignorance",
+    "DESCRIPTIONS": [
+      "Whenever you play an Attack, apply #b[amt_0] #yEmber to ALL enemies."
+    ]
+  },
+  "astray:IgnorantOnePower": {
+    "NAME": "Ignorance",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, apply #b[amt_0] #yEmber to ALL enemies."
+    ]
+  },
+  "astray:MeteoritePower": {
+    "NAME": "Meteorite Summon",
+    "DESCRIPTIONS": [
+      "#pYou #pshould #pplay #pthe #pMeteorite #pSummon #pmanually! NL At the end of your next turn, deal #b[amt_0] damage to a random enemy and apply #b[amt_1] #yEmber to ALL enemies.",
+      "#pYou #pshould #pplay #pthe #pMeteorite #pSummon #pmanually! NL At the end of your turn, deal #b[amt_0] damage to a random enemy and apply #b[amt_1] #yEmber to ALL enemies."
+    ]
+  },
+  "astray:MindBlossomPower": {
+    "NAME": "Mind Blossom",
+    "DESCRIPTIONS": [
+      "#yUpgrade #ySpell and #yExtended #ycard created during combat."
+    ]
+  },
+  "astray:MindBlossomMasteryPower": {
+    "NAME": "Mind Blossom: Mastery",
+    "DESCRIPTIONS": [
+      "#yUpgrade #ySpell and #yExtended #ycards created during combat. Choose a branch for #yEnlighten #ycards .",
+      "Choose a branch for %s "
+    ]
+  },
+  "astray:MindBlossomEmptinessPower": {
+    "NAME": "Mind Blossom: Fantasy",
+    "DESCRIPTIONS": [
+      "Cards created during combat become #yEthereal ."
+    ]
+  },
+  "astray:InfWisdomPower": {
+    "NAME": "Infinite Wisdom",
+    "DESCRIPTIONS": [
+      "Add #b[amt_0] additional group(s) of card reward of other colors in combat rewards."
+    ]
+  },
+  "astray:RemainPower": {
+    "NAME": "Stay",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, gain #b[amt_0] #yBlock . Skip your next turn."
+    ]
+  },
+  "astray:StrandedPower": {
+    "NAME": "Stranded",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, gain #b[amt_0] #yBlock ."
+    ]
+  },
+  "astray:DroughtPower": {
+    "NAME": "Drought",
+    "DESCRIPTIONS": [
+      "Can't gain [E] ."
+    ]
+  },
+  "astray:SkiingPower": {
+    "NAME": "Skiing",
+    "DESCRIPTIONS": [
+      "At the end of your turn, apply #b[amt_0] #yFrost . This lasts #b[amt_1] turns."
+    ]
+  },
+  "astray:FocusedEyesPower": {
+    "NAME": "Eye of Spell",
+    "DESCRIPTIONS": [
+      "After you play another #b[amt_0] cards, #y[owner] gains #b[amt_1] #yInvincible ."
+    ]
+  },
+  "astray:MasteryBossPower": {
+    "NAME": "Mastery",
+    "DESCRIPTIONS": [
+      "After you play another #b[amt_0] cards, #y[owner] gains #b[amt_1] #yBeat #yof #yDeath and #yBlue #yAssimilation ."
+    ]
+  },
+  "astray:AssimilationPower": {
+    "NAME": "Blue Assimilation",
+    "DESCRIPTIONS": [
+      "Whenever you play #b[amt_0] cards, #y[owner] gain #b[amt_1] #yBlock ."
+    ]
+  },
+  "astray:GiantPower": {
+    "NAME": "Giant's Vision",
+    "DESCRIPTIONS": [
+      "At the start and end of your turn, gain #b[amt_0] #yVulnerable and #b[amt_1] #yBlock ."
+    ]
+  },
+  "astray:AntiMagicPower": {
+    "NAME": "Magic Release",
+    "DESCRIPTIONS": [
+      "You can't gain #yMagic in this combat."
+    ]
+  },
+  "astray:StoragePower": {
+    "NAME": "Storage",
+    "DESCRIPTIONS": [
+      "Storage:Mana",
+      "Storage:Energy",
+      "You have #b[amt_0] #yMana Storages.",
+      "You have #b[amt_0] [E] Storages."
+    ]
+  }
+}

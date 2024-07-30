@@ -13,9 +13,9 @@ public class Relic12 extends AstrayRelic {
     
     @Override
     public void onEnterRoom(AbstractRoom room) {
-        if (!TAUtils.RoomChecker(MonsterRoom.class)) {
+        if (!TAUtils.RoomChecker(room, MonsterRoom.class)) {
             int heal = 6;
-            if (TAUtils.RoomChecker(RestRoom.class)) 
+            if (TAUtils.RoomChecker(room, RestRoom.class)) 
                 heal += 6;
             flash();
             cpr().heal(heal);

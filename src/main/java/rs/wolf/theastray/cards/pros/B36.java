@@ -17,7 +17,7 @@ public class B36 extends AstrayProCard {
     @Override
     public void play(AbstractCreature s, AbstractCreature t) {
         addToBot(new GainBlockAction(s, block));
-        addToBot(ApplyPower(s, s, new FrostShieldPower(s, 1)));
+        addToBot(ApplyPower(s, s, new FrostShieldPower(s, magicNumber)));
     }
     
     @Override

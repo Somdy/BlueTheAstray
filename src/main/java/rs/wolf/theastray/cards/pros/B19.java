@@ -29,9 +29,11 @@ public class B19 extends AstrayProCard {
     public void play(AbstractCreature s, AbstractCreature t) {
         atbTmpAction(() -> {
             List<AbstractCard> tmp = new ArrayList<>();
-            for (int i = 0; i < magicNumber; i++) {
-                Optional<AbstractCard> opt = LMSK.ReturnTrulyRndCardInCombat(c -> !isCardTypeOf(c, CardType.POWER) && c.color != CardColor.COLORLESS);
-                opt.ifPresent(c -> tmp.add(c.makeCopy()));
+            if (!upgraded || finalBranch() == 0) {
+                for (int i = 0; i < magicNumber; i++) {
+                    Optional<AbstractCard> opt = LMSK.ReturnTrulyRndCardInCombat(c -> !isCardTypeOf(c, CardType.POWER) && c.color != CardColor.COLORLESS);
+                    opt.ifPresent(c -> tmp.add(c.makeCopy()));
+                }
             }
             for (int i = 0; i < getExtraMagic(); i++) {
                 AbstractCard magic = CardMst.GetCard("星星");
@@ -59,7 +61,7 @@ public class B19 extends AstrayProCard {
             add(() -> {
                 upgradeBaseCost(0);
                 upgradeExtraMagic(1);
-                setMagicValue(0, true);
+                setMagicValue(-99, true);
                 setPromosValue(2, true);
                 upgradeTexts(1);
             });

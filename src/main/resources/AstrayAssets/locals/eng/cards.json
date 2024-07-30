@@ -1,0 +1,984 @@
+[
+  {
+    "ID": "AstrayCard",
+    "NAME": "Card Name",
+    "DESCRIPTION": "Card Description",
+    "MSG": [
+      "I have no enough Mana!",
+      "Illusion card",
+      "Includes #yStarry #yIllusion , #yTime #yIllusion , #yAbyss #yIllusion , #yCelestial #yIllusion , #yDeath #yIllusion , #yGiant #yIllusion and #yIllusion #yin #yMirror ."
+    ]
+  },
+  {
+    "ID": "卡牌ID = 归属（职业-B，无色-C，扩展-E）+ 卡牌索引",
+    "NAME": "卡牌名称",
+    "DESCRIPTION": "卡牌描述。",
+    "UPGRADED_DESC": [
+      "升级后的文本。启迪牌不可缺少该项。",
+      "启迪牌的另外文本。"
+    ],
+    "UPDATED_DESC": [
+      "更新描述用的文本。"
+    ],
+    "MSG": [
+      "信息文本"
+    ]
+  },
+  {
+    "ID": "B1",
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  {
+    "ID": "B2",
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  {
+    "ID": "B3",
+    "NAME": "Magic Missile",
+    "DESCRIPTION": "astray:Spell , astray:Enlighten NL Deal !D! damage.",
+    "UPGRADED_DESC": [
+      "astray:Spell , astray:Storage NL astray:Promotion !astray:promos! , astray:Enlighten NL Deal !D! damage.",
+      "astray:Derive_Spell, astray:Enlighten NL Deal !D! damage. NL Apply !M! astray:Ember and !astray:extras! astray:Frost."
+    ]
+  },
+  {
+    "ID": "B4",
+    "NAME": "Magic Release",
+    "DESCRIPTION": "astray:Enlighten NL Gain !B! Block. NL If you have at least 2 astray:Mana, gain !M! astray:Magic and Exhaust this card.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Gain !B! Block. NL If you have at least 2 astray:Mana, gain !M! astray:Magic. NL If you have less than 4 *Mana, Exhaust this card.",
+      "astray:Enlighten NL Gain !B! Block. NL If you have at least 3 astray:Mana, gain !M! astray:Magic and Exhaust this card. You can no longer gain *Magic this combat."
+    ]
+  },
+  {
+    "ID": "B5",
+    "NAME": "Mist",
+    "DESCRIPTION": "astray:Storage NL Apply !M! Weak to ALL enemies. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Storage NL ALL enemies gain !M! Weak and lose !astray:extras! Strength. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B6",
+    "NAME": " Mana Shield",
+    "DESCRIPTION": "astray:Spell NL Gain !B! Block . NL Gain !M! additional Block for each Mana you have.",
+    "MSG": [
+      " NL (gain %d Block)"
+    ]
+  },
+  {
+    "ID": "B7",
+    "NAME": "Prepare Spells",
+    "DESCRIPTION": "astray:Enlighten NL Draw !M! cards and gain 1 astray:Mana. Put 1 unexhausted Spell card on the top of draw pile. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Storage，astray:Enlighten NL Draw !M! cards and gain 1 astray:Mana. Put 1 unexhausted Spell card on the top of draw pile.",
+      "astray:Enlighten NL Gain 1 astray:Mana. NL Put 1 unexhausted Spell card into your hand. NL Exhaust."
+    ],
+    "MSG": [
+      "Put %d card on the top of draw pile.",
+      "Put %d card into your hand."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B8",
+    "NAME": "Vary Tactic",
+    "DESCRIPTION": "astray:Enlighten NL Choose a card. NL Discard all cards of same kind, draw that many cards. NL Exhaust .",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Choose a card. NL Discard any cards，draw that many cards but no more than !M! . NL 消耗 。",
+      "astray:Enlighten NL Choose a card. NL Discard all cards of same kind, then draw that many cards."
+    ],
+    "MSG": [
+      "Vary Tactic"
+    ]
+  },
+  {
+    "ID": "B8",
+    "NAME": "Tactical Change",
+    "DESCRIPTION": "astray:Enlighten NL Discard ALL astray:Spell cards from hand. NL Draw that many cards. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Discard any number of cards in hand. NL Draw that many cards but no more than !M!. NL Exhaust.",
+      "astray:Enlighten NL Discard ALL non-astray:Spell cards from hand. NL Draw that many cards. NL Exhaust."
+    ],
+    "MSG": [
+      "Tactically Change"
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B9",
+    "NAME": "占卜魔法",
+    "DESCRIPTION": "astray:魔法 ， astray:启迪 NL 给予所有将要攻击的敌人 !M! 层 虚弱 ， NL 其他敌人 !astray:extras! 层 易伤 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:启迪 NL 给予所有敌人 !M! 层 易伤 和 虚弱 。 NL 消耗 。",
+      "astray:魔法 ， astray:启迪 NL 给予所有将要攻击的敌人 !M! 层 虚弱 ， NL 其他敌人 !astray:extras! 层 易伤 。 NL 消耗 "
+    ]
+  },
+  {
+    "ID": "B9",
+    "NAME": "Divination",
+    "DESCRIPTION": "astray:Enlighten NL Draw !M! cards. NL If any astray:Spell card is drawn this way, gain !astray:extras! astray:Magic this turn.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Draw !M! Attacks. NL If any astray:Spell card is drawn this way, gain !astray:extras! astray:Magic this turn.",
+      "astray:Enlighten NL Draw !M! Skills. NL If any astray:Spell card is drawn this way, gain !astray:extras! astray:Magic this turn."
+    ]
+  },
+  {
+    "ID": "B10",
+    "NAME": "Fragment of Life",
+    "DESCRIPTION": "Gain Regen of !M! + Upgraded times. NL Can be Upgraded any number of times but can't be Upgraded during combat. NL Exhaust.",
+    "MSG": [
+      " NL (Gain %d Regen)"
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B11",
+    "NAME": "藏刃在手",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 如果目标的意图是攻击则给予 !M! 虚弱 。 NL 消耗 "
+  },
+  {
+    "ID": "B11",
+    "NAME": "Effulgent Knife",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block.",
+    "UPGRADED_DESC": [
+      "Deal !D! damage !M! times. NL Gain !B! Block !M! times."
+    ]
+  },
+  {
+    "ID": "B12",
+    "NAME": "Purification",
+    "DESCRIPTION": "astray:Enlighten NL Remove 1 of your debuffs at random. NL Put this card into your hand when you gain debuffs. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten, Retain NL Remove ALL of your debuffs. NL Put this card into your hand when you gain debuffs. NL Exhaust.",
+      "astray:Enlighten NL Remove 1 of your debuffs at random and gain !B! Block. NL Put this card into your hand when you gain debuffs. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B13",
+    "NAME": "Mana Shard",
+    "DESCRIPTION": "astray:Enlighten NL Gain !M! astray:Mana. NL Put this card into your hand when your *Mana runs out. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Gain !M! astray:Mana. NL Put this card into your hand when your *Mana runs out. NL Exhaust.",
+      "astray:Enlighten NL Gain !M! astray:Mana. NL Exhaust."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B14",
+    "NAME": "奥术飞弹",
+    "DESCRIPTION": "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。",
+      "astray:衍生魔法 ， astray:晋升 !astray:promos! NL astray:启迪 ， astray:储能 NL 造成 !D! 点伤害。"
+    ]
+  },
+  {
+    "ID": "B14",
+    "NAME": "Arcane Missile",
+    "DESCRIPTION": "astray:Spell NL Deal !D! damage. NL If the enemy is astray:Embered, deal !M! times of that damage instead."
+  },
+  {
+    "ID": "B15",
+    "NAME": "Stacked Fields",
+    "DESCRIPTION": "astray:Enlighten, Retain NL Gain !B! Block. NL Reset the cost and return this card to your hand.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten, Retain NL Gain !B! Block. NL Reset the cost and return this card to your hand.",
+      "astray:Derive_Spell NL astray:Enlighten, Retain NL Gain !B! Block. NL Reset the cost and return this card to your hand."
+    ]
+  },
+  {
+    "ID": "B16",
+    "NAME": "Swift Leap",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Apply !astray:extras! Weak to ALL enemies.",
+    "UPGRADED_DESC": [
+      "Gain !B! Block. NL Draw !M! cards. NL Apply !astray:extras! Weak and astray:Frost to ALL enemies."
+    ]
+  },
+  {
+    "ID": "B17",
+    "NAME": "Frost Missile",
+    "DESCRIPTION": "astray:Spell NL Deal !D! damage. NL Apply !M!  astray:Frost."
+  },
+  {
+    "ID": "B18",
+    "NAME": "Wizard's Hand",
+    "DESCRIPTION": "Deal !D! damage. NL Gain all your stored resources."
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B19",
+    "NAME": "混乱法术",
+    "DESCRIPTION": "astray:启迪 ，打出后随机： NL 抽 !M! 张0费 *魔法牌 ； NL 或将 !M! 张耗能为0的随机 astray:魔法牌 置入手牌。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:启迪 NL 将 !M! 张耗能为0的随机 *魔法牌 置入手牌。 NL 消耗",
+      "astray:魔法 ， astray:启迪 NL 抽 !M! 张耗能为0的 *魔法牌 。 NL 消耗"
+    ],
+    "MSG": [
+      "抽牌堆中没有0费魔法牌。"
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B19",
+    "NAME": "混乱法术",
+    "DESCRIPTION": "将 !M! 张随机非能力牌 NL 和 !astray:extras! 张 *魔法牌 NL 置入手牌。 消耗"
+  },
+  {
+    "ID": "B19",
+    "NAME": "Chaos",
+    "DESCRIPTION": "astray:Spell, astray:Enlighten NL Add !M! random non-Power cards and !astray:extras! *Star to your hand. NL Give they Retain.",
+    "UPGRADED_DESC": [
+      "astray:Spell, astray:Enlighten NL Add !M! random non-Powers and !astray:extras! *Star to your hand. NL Give they Retain.",
+      "astray:Spell, astray:Enlighten NL Add !M! *Star to your hand. NL Give they Retain."
+    ],
+    "MSG": [
+      "No 0-cost Spells in my draw pile."
+    ]
+  },
+  {
+    "ID": "B20",
+    "NAME": "Opening Fireworks",
+    "DESCRIPTION": "astray:Spell, astray:Storage, Innate NL Deal !D! damage and apply !M! astray:Ember to ALL enemies. NL Exhaust."
+  },
+  {
+    "ID": "B21",
+    "NAME": "Crystal Ball",
+    "DESCRIPTION": "astray:Storage NL Scry !M!. NL Return a card from your discard pile to your hand.",
+    "MSG": [
+      "Choose %d card and put it to your hand"
+    ]
+  },
+  {
+    "ID": "B22",
+    "NAME": "Chaotic Missile",
+    "DESCRIPTION": "astray:Spell, Ethereal NL Deal !D! damage. NL Randomize the cost and return this card to your hand. This cost astray:Mana only when it is Exhausted."
+  },
+  {
+    "ID": "B23",
+    "NAME": "Overloaded Beam",
+    "DESCRIPTION": "astray:Storage NL Deal !D! damage. NL Lose !M!  astray:Magic."
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B24",
+    "NAME": "跳跃火花",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 对一名随机敌人造成 !D! 点伤害， NL 每有一名敌人重复 !M! 次。",
+    "MSG": [
+      " NL （造成%d点伤害%d次）"
+    ]
+  },
+  {
+    "ID": "B24",
+    "NAME": "Bouncing Sparks",
+    "DESCRIPTION": "astray:Spell NL Apply !M! astray:Ember to a random enemy for each enemy in combat.",
+    "MSG": [
+      " NL (Apply %d *Ember %d times)"
+    ]
+  },
+  {
+    "ID": "B25",
+    "NAME": "Pure",
+    "DESCRIPTION": "Gain !B! Block. NL At the end of your turn, if you have only played *Pure this turn, gain !M! Block again. NL Exhaust."
+  },
+  {
+    "ID": "B26",
+    "NAME": "Circuit",
+    "DESCRIPTION": "astray:Derive_Spell NL astray:Enlighten, astray:Promotion !astray:promos! NL Deal !D! damage. NL Gain !B! Block.",
+    "UPGRADED_DESC": [
+      "astray:Derive_Spell NL astray:Enlighten, astray:Promotion !astray:promos! NL Deal !D! damage. NL Gain !B! Block. NL Draw !M! cards.",
+      "astray:Derive_Spell NL astray:Enlighten, astray:Promotion !astray:promos! NL Deal !D! damage. NL Gain !B! Block. NL Gain !M! [E]."
+    ]
+  },
+  {
+    "ID": "B27",
+    "NAME": "Shake",
+    "DESCRIPTION": "astray:Spell NL astray:Extended (!astray:ext!), astray:Promotion !astray:promos! NL Deal !D! damage to ALL enemies. NL Deal !M! additional damage for each enemy in combat. Exhaust.",
+    "MSG": [
+      " NL (Deal %d damage)"
+    ]
+  },
+  {
+    "ID": "B28",
+    "NAME": "Magic Cards",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Each enemy can take damage no more than !astray:extras! times. NL Affected by astray:Magic."
+  },
+  {
+    "ID": "B29",
+    "NAME": "Ignite",
+    "DESCRIPTION": "astray:Storage NL Deal !D! damage. NL Apply !M! astray:Ember. NL Add a *Burn into your hand."
+  },
+  {
+    "ID": "B30",
+    "NAME": "Turmoil",
+    "DESCRIPTION": "astray:Storage NL Deal !D! damage. NL Apply !M! Weak. NL This has to cost 1 astray:Mana."
+  },
+  {
+    "ID": "B31",
+    "NAME": "Magic Explosion",
+    "DESCRIPTION": "astray:Spell NL Deal !D! damage to ALL enemies. NL Apply astray:Ember of the amount equal to !M! times of astray:Magic you have.",
+    "UPGRADED_DESC": [
+      "astray:Spell , astray:Promotion !astray:promos! NL Deal !D! damage to ALL enemies. NL Apply astray:Ember of the amount equal to !M! times of astray:Magic you have."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B32",
+    "NAME": "幻象描绘",
+    "DESCRIPTION": "astray:启迪 NL 将 !M! 张随机 *幻象牌 NL 置入手牌。 NL 将一张 *镜中幻象 NL 洗入抽牌堆 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:启迪 NL 将 !M! 张随机 *幻象牌 NL 置入手牌。 NL 将一张 *镜中幻象 NL 洗入抽牌堆。 NL 消耗",
+      "astray:启迪 NL 将 !M! 张随机 *幻象牌 NL 洗入弃牌堆。 NL 抽 !astray:extras! 张牌。"
+    ]
+  },
+  {
+    "ID": "B32",
+    "NAME": "Illusion Depiction",
+    "DESCRIPTION": "astray:Enlighten NL astray:Discover !M! *Illusion cards. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL astray:Discover !M! *Illusion . NL Exhaust .",
+      "astray:Enlighten NL Shuffle !M! random *Illusion cards into your draw pile. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B33",
+    "NAME": "Certain Future",
+    "DESCRIPTION": "astray:Storage NL Add a copy of the card on the top of draw pile into your hand. NL It costs 0 this combat, NL Exhaust."
+  },
+  {
+    "ID": "B34",
+    "NAME": "Read Thoughts",
+    "DESCRIPTION": "Draw !M! cards. NL If no enemies intend to attack, this costs 0.",
+    "UPGRADED_DESC": [
+      "Draw !M! cards. NL If any enemy intends not to attack, this costs 0."
+    ]
+  },
+  {
+    "ID": "B35",
+    "NAME": "Chilling Blow",
+    "DESCRIPTION": "astray:Spell, astray:Storage NL Gain !B! Block. NL Apply !M! astray:Frost to ALL enemies."
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B36",
+    "NAME": "臻冰之盾",
+    "DESCRIPTION": "astray:魔法 ， astray:储能 NL 获得 !B! +所有敌人 astray:冰霜 总层数的 格挡 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 ， astray:储能 NL 获得 !B! +所有敌人 astray:冰霜 总层数的 格挡 。 NL 下回合将一张该牌未 升级 的复制置入手牌。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B36",
+    "NAME": "Icy Shield",
+    "DESCRIPTION": "astray:Spell NL Gain !B! Block. NL ALL enemies don't lose astray:Frost for !M! turns. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Spell NL Gain !B! Block. NL ALL enemies don't lose astray:Frost for !M! turns."
+    ]
+  },
+  {
+    "ID": "B37",
+    "NAME": "Mana Hourglass",
+    "DESCRIPTION": "astray:Enlighten NL Gain !M! [E]. NL Lose !astray:extras! astray:Mana.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Gain !M! [E]. NL Lose !astray:extras! astray:Mana.",
+      "astray:Enlighten NL Gain !M! [E]. NL Add !astray:extras! *Disconnections into your hand."
+    ]
+  },
+  {
+    "ID": "B38",
+    "NAME": "Killer Missile",
+    "DESCRIPTION": "astray:Spell NL astray:Extended (!astray:ext!), astray:Promotion !astray:promos! NL Deal !D! damage. NL Kill the target if its HP is less than !M! times of astray:Magic you have.",
+    "UPGRADED_DESC": [
+      "astray:Spell NL astray:Extended (!astray:ext!), astray:Promote !astray:promos! NL Deal !D! damage to ALL enemies. NL  Kill ALL the targets whose HP is less than !M! times of astray:Magic you have."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B39",
+    "NAME": "魔术检索",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 每抽到一张 astray:魔法牌 NL 就再抽 !astray:extras! 张。"
+  },
+  {
+    "ID": "B39",
+    "NAME": "Magic Search",
+    "DESCRIPTION": "astray:Extended (!astray:ext!) NL Draw !M! astray:Spell. NL *Spells drawn this way become astray:Derive_Spell this combat.",
+    "UPGRADED_DESC": [
+      "astray:Extended (!astray:ext!) NL Draw !M! astray:Spell. NL *Spells drawn this way become astray:Derive_Spell this combat."
+    ]
+  },
+  {
+    "ID": "B40",
+    "NAME": "Wizard Field",
+    "DESCRIPTION": "astray:Spell, astray:Storage NL Gain !B! Block. NL Always keep at most !M! Block to next turn until you lose HP."
+  },
+  {
+    "ID": "B41",
+    "NAME": "Piercing the Spirit",
+    "DESCRIPTION": "astray:Spell, astray:Promotion !astray:promos! X NL Remove all Block from the enemy. Deal !D! damage.",
+    "UPDATED_DESC": [
+      "astray:Spell, astray:Promotion !astray:promos! X NL Remove all Block from the enemy. NL Deal !D! damage."
+    ]
+  },
+  {
+    "ID": "B42",
+    "NAME": "Eye of Spirit Realm",
+    "DESCRIPTION": "astray:Enlighten NL Lose !M! HP. NL Choose one of !astray:extras! Powers of other colors and play it. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Lose !M! HP. NL Choose one of !astray:extras! Upgraded Powers of other colors and play it. NL Exhaust.",
+      "astray:Enlighten NL Lose !M! HP. NL Choose one of !astray:extras! Powers of other colors and play it. NL Exhaust."
+    ],
+    "MSG": [
+      "Choose a card to play"
+    ]
+  },
+  {
+    "ID": "B43",
+    "NAME": "Stone Skin",
+    "DESCRIPTION": "astray:Spell, astray:Storage NL Take !M! % less damage from attacks until you lose HP. NL Add a *Disconnection into your hand. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Spell, astray:Storage NL Take !M! % less damage from attacks until you lose HP. NL Add a *Disconnection into your hand. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B44",
+    "NAME": "Physical Activation",
+    "DESCRIPTION": "astray:Enlighten NL Lose 1 astray:Magic. NL Gain !M! Strength or !astray:extras! Dexterity at random.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Lose 1 astray:Magic. NL Gain !M! Strength and !astray:extras! Dexterity.",
+      "astray:Enlighten NL Lose 1 astray:Magic. NL Gain !M! Strength and !astray:extras! Dexterity. NL Shuffle this card into your draw pile."
+    ]
+  },
+  {
+    "ID": "B45",
+    "NAME": "Pour",
+    "DESCRIPTION": "astray:Spell NL Consume ALL astray:Mana. NL Deal !D! damage for each *Mana consumed. NL If this kills the target, return ALL *Mana consumed."
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B46",
+    "NAME": "编撰绘本",
+    "DESCRIPTION": "每击败过一名boss， NL 获得 !M! 点 astray:魔力 。 NL 变更本场战斗中所有同名牌效果。 NL 消耗",
+    "UPGRADED_DESC": [
+      "固有 NL 每击败过一名boss， NL 获得 !M! 点 astray:魔力 。 NL 变更本场战斗中所有同名牌效果。 NL 消耗"
+    ],
+    "UPDATED_DESC": [
+      "抽1张牌。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B46",
+    "NAME": "Illustrated Book",
+    "DESCRIPTION": "Retain NL Gain !B! Block. NL Gain 1 astray:Magic for each boss you defeated. NL Exhaust."
+  },
+  {
+    "ID": "B47",
+    "NAME": "Uncontrolled Reaction",
+    "DESCRIPTION": "astray:Enlighten NL Exhaust !M! cards in hand at random. NL Gain !B! Block for each card exhausted. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Exhaust !M! cards in hand at random. NL Gain !B! Block for each card exhausted. NL Exhaust.",
+      "astray:Enlighten NL Exhaust !M! cards in hand. NL Gain !B! Block for each card exhausted. NL Exhaust."
+    ],
+    "MSG": [
+      "Uncontrolled React"
+    ]
+  },
+  {
+    "ID": "B48",
+    "NAME": "Choose Fate",
+    "DESCRIPTION": "astray:Enlighten, astray:Storage NL Draw !M! cards. NL If a astray:Spell is drawn this way, gain 1 astray:Mana. NL Otherwise, gain [E] and discard 1 card.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten, astray:Storage NL Draw !M! cards. NL If a astray:Spell is drawn this way, gain 1 astray:Mana. NL Otherwise, gain [E] and discard 2 card.",
+      "astray:Enlighten , astray:Storage NL draw !M! cards. NL If a astray:Spell is drawn this way, gain [E]."
+    ]
+  },
+  {
+    "ID": "B49",
+    "NAME": "Lucky Dice",
+    "DESCRIPTION": "Gain 3~18 *Gold at random. NL Deal that many damage. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "Deal !M! ~ !D! damage at random. NL Gain that many *Gold . NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B50",
+    "NAME": "Rising Ceremony",
+    "DESCRIPTION": "astray:Derive_Spell NL astray:Enlighten, astray:Storage NL Deal !D! damage. NL Gain !B! Block. NL astray:Promote after played.",
+    "UPGRADED_DESC": [
+      "astray:Derive_Spell NL astray:Enlighten, astray:Storage NL Deal !D! damage. NL Gain !B! Block. NL astray:Promote after played.",
+      "astray:Derive_Spell, astray:Promotion !astray:promos! NL astray:Enlighten, astray:Storage NL Deal !D! damage. NL Gain !B! Block. NL astray:Promote after played."
+    ],
+    "UPDATED_DESC": [
+      "astray:Derive_Spell, astray:Promotion !astray:promos! NL astray:Enlighten NL Deal !D! damage. NL Gain !B! Block. NL astray:Promote after played.",
+      "astray:Derive_Spell, astray:Promotion !astray:promos! NL astray:Enlighten, astray:Storage NL Deal !D! damage. NL Gain !B! Block. NL astray:Promote after played.",
+      "astray:Derive_Spell, astray:Promotion !astray:promos! NL astray:Enlighten, astray:Storage NL Deal !D! damage. NL Gain !B! Block. NL astray:Promote after played."
+    ]
+  },
+  {
+    "ID": "B51",
+    "NAME": "Element Blaze",
+    "DESCRIPTION": "astray:Spell, astray:Storage NL Deal damage to ALL enemies equal to !M! times the sum of astray:Frost and astray:Ember they have.",
+    "UPDATED_DESC": [
+      "astray:Spell, astray:Storage NL Deal damage to ALL enemies equal to !M! times the sum of astray:Frost and astray:Ember they have."
+    ]
+  },
+  {
+    "ID": "B52",
+    "NAME": "Enchanted Sword",
+    "DESCRIPTION": "astray:Spell, astray:Storage NL Deal !D! damage. NL Apply !M! Vulnerable, Weak, astray:Ember and astray:Frost."
+  },
+  {
+    "ID": "B53",
+    "NAME": "Mana Rhythm",
+    "DESCRIPTION": "Whenever you lose 1 astray:Mana, NL gain !astray:extras! [E]."
+  },
+  {
+    "ID": "B54",
+    "NAME": "Surge Field",
+    "DESCRIPTION": "astray:Enlighten NL At the start of your turn, gain !M! Block for each astray:Mana you have.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL At the start of your turn, gain !M! Block for each astray:Mana you have.",
+      "astray:Enlighten NL At the end of your turn, gain !M! Block for each astray:Mana you have."
+    ]
+  },
+  {
+    "ID": "B55",
+    "NAME": "Sequence",
+    "DESCRIPTION": "Expand *Major *Sequence .",
+    "UPGRADED_DESC": [
+      "Expand *Major Sequence and *Minor *Sequence."
+    ],
+    "MSG": [
+      "Major Sequence",
+      "After you #yExhausted a #ySpell , add #b%d random #ySpell or #yDerive_Spell into your hand.",
+      "Minor Sequence",
+      "After you #yExhausted a #yDerive_Spell , add #b%d random #ySpell or #yDerive_Spell into your hand."
+    ]
+  },
+  {
+    "ID": "B56",
+    "NAME": "Correct",
+    "DESCRIPTION": "After a card not Upgraded is played, Upgrade it this combat.",
+    "UPGRADED_DESC": [
+      "Innate NL After a card not Upgraded is played, Upgrade it this combat."
+    ]
+  },
+  {
+    "ID": "B57",
+    "NAME": "Unity",
+    "DESCRIPTION": "Gain 1 astray:Mana. NL Whenever you shuffle your draw pile, gain 1 astray:Mana."
+  },
+  {
+    "ID": "B58",
+    "NAME": "Imbalance",
+    "DESCRIPTION": "At the start of your turn, draw !M! cards and then discard !astray:extras! cards at random."
+  },
+  {
+    "ID": "B59",
+    "NAME": "Mastery",
+    "DESCRIPTION": "Cards created during combat cost 1 less [E]."
+  },
+  {
+    "ID": "B60",
+    "NAME": "Ignorance",
+    "DESCRIPTION": "Whenever you play Attack, NL apply !M! astray:Ember to ALL enemies.",
+    "UPGRADED_DESC": [
+      "Whenever you play a card, NL apply !M! astray:Ember to ALL enemies."
+    ]
+  },
+  {
+    "ID": "B61",
+    "NAME": "Creation",
+    "DESCRIPTION": "Whenever a card that's not in your deck is played, gain !M! Block.",
+    "UPGRADED_DESC": [
+      "Whenever a card that's not in your deck is played or created during combat, gain !M! Block."
+    ]
+  },
+  {
+    "ID": "B62",
+    "NAME": "Blossom Form",
+    "DESCRIPTION": "During your turn, NL whenever you gain or lose [E], NL draw !M! cards.",
+    "UPGRADED_DESC": [
+      "Innate NL During your turn, NL whenever you gain or lose [E], NL draw !M! cards."
+    ]
+  },
+  {
+    "ID": "B63",
+    "NAME": "Magic Body",
+    "DESCRIPTION": "You may draw cards even when hand is full. NL Gain !M! Block for each card put into discard pile due to full hand."
+  },
+  {
+    "ID": "B64",
+    "NAME": "Paper Flower",
+    "DESCRIPTION": "After the start of your turn, NL Exhaust 1 card each from your draw pile, discard pile and hand at random. NL Gain 1 astray:Magic.",
+    "UPGRADED_DESC": [
+      "Innate NL After the start of your turn, NL Exhaust 1 card each from your draw pile, discard pile and hand at random. NL Gain 1 astray:Magic."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B65",
+    "NAME": "余烬之前",
+    "DESCRIPTION": "在你打出已 升级 的 NL astray:启迪 牌后， NL 将它的另一个分支的 !M! 张复制置入手牌。"
+  },
+  {
+    "ID": "B65",
+    "NAME": "Before Embered",
+    "DESCRIPTION": "Ethereal NL Whenever you apply astray:Embers, gain that many Block. NL This expires after !M! cards are Exhausted."
+  },
+  {
+    "ID": "B66",
+    "NAME": "Broken Crystal",
+    "DESCRIPTION": "Unplayable. Retain. NL Can't be Upgraded. NL Exhaust when it retains for the second time. NL Gain !M! *Buffer and deal !D! damage to ALL enemies when exhausted.",
+    "MSG": [
+      "Buffer",
+      "Prevent the next time you would lose HP."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B67",
+    "NAME": "星海幻象",
+    "DESCRIPTION": "将所有未 消耗 的 astray:魔法牌 变化为随机 *魔法牌 。 NL 消耗",
+    "UPGRADED_DESC": [
+      "将所有未 消耗 的 astray:魔法牌 变化为 升级 的随机 *魔法牌 。 NL 消耗"
+    ]
+  },
+  {
+    "ID": "B67",
+    "NAME": "Starry Illusion",
+    "DESCRIPTION": "astray:Storage NL Exhaust all astray:Spells. NL Add an astray:Extended card into your hand for each card exhausted. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Storage NL Exhaust all astray:Spells. NL Add an Upgraded astray:Extended card into your hand for each card exhausted. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B68",
+    "NAME": "Meteorite Summon",
+    "DESCRIPTION": "astray:Extended (!astray:ext!) NL At the end of next turn, deal !D! damage to a random enemy and apply !M! astray:Ember to ALL enemies. NL Take effect immediately if played other way."
+  },
+  {
+    "ID": "B69",
+    "NAME": "Displace Magic",
+    "DESCRIPTION": "astray:Storage NL Gain [E] for each astray:Mana you have. NL Gain X *Mana , turn excessive *Mana into astray:Magic. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Storage NL Gain [E] for each astray:Mana you have. NL Gain X *Mana , turn excessive *Mana into astray:Magic. Draw X cards. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B70",
+    "NAME": "Breaking Star",
+    "DESCRIPTION": "Play X random Attack astray:Spell. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "Play X random Attack astray:Spell. NL Gain X astray:Mana. NL Exhaust.",
+      ""
+    ]
+  },
+  {
+    "ID": "B71",
+    "NAME": "Evil Mouth",
+    "DESCRIPTION": "astray:Storage, astray:Enlighten NL This turn, your next !M! astray:Spell is played twice.",
+    "UPGRADED_DESC": [
+      "astray:Storage, astray:Enlighten NL This turn, your next !M! astray:Spell is played twice.",
+      "astray:Storage, astray:Enlighten NL Your next !M! astray:Spell or astray:Derive_Spell played twice."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "B72",
+    "NAME": "Meteor Shower",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:启迪 NL 随机打出 *星星 或 *陨石召唤 共 !M! 张。 NL 打出 *陨石召唤 的概率为 !astray:extras! %.",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:启迪 NL 随机打出 *星星 或 *陨石召唤 共 !M! 张。 NL 打出 *陨石召唤 的概率为 !astray:extras! %.",
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:启迪 NL 打出 !M! 张 *星星 。"
+    ]
+  },
+  {
+    "ID": "B72",
+    "NAME": "Meteor Shower",
+    "DESCRIPTION": "astray:Spell, astray:Enlighten NL Add !M! *Stars to your hand.",
+    "UPGRADED_DESC": [
+      "astray:Spell, astray:Enlighten NL Play !M! *Stars . NL There's a !astray:extras! % chance to play *Meteorite *Summon instead of *Star .",
+      "astray:Spell, astray:Enlighten NL Add !M! *Stars to your hand. NL Play all *Stars that are out of your hand."
+    ]
+  },
+  {
+    "ID": "B73",
+    "NAME": "Mind Blossom",
+    "DESCRIPTION": "astray:Enlighten NL Upgrade astray:Spells and astray:Extended cards that are created in combat.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Upgrade astray:Spells and astray:Extended cards that are created in combat. NL Choose a branch for the *Enlighten cards.",
+      "astray:Enlighten NL Cards created in combat become Ethereal."
+    ],
+    "MSG": [
+      "Choose a branch for %s "
+    ]
+  },
+  {
+    "ID": "B74",
+    "NAME": "Fractured Memory",
+    "DESCRIPTION": "Unplayable. NL Whenever this is drawn, NL discard it. NL Gain !M! astray:Mana or [E] at random, Then draw !astray:extras! card.",
+    "UPGRADED_DESC": [
+      "Unplayable. NL Whenever this is drawn, NL discard it. NL Gain !M! astray:Mana and [E], and then draw !astray:extras! cards.",
+      ""
+    ],
+    "MSG": [
+      "Memory Losing",
+      "This card can work #b%d times a turn, after which this no longer works for the current turn.",
+      "This card can work #b%d times this turn, after which this no longer works this turn.",
+      "This card no longer works this turn."
+    ]
+  },
+  {
+    "ID": "B75",
+    "NAME": "Eternal Rising Moon",
+    "DESCRIPTION": "astray:Enlighten NL Exhaust ALL astray:Spells in your hand and gain that amount of astray:Mana. Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten NL Exhaust ALL cards in your hand and gain that amount of astray:Mana. Draw !M! cards. Exhaust.",
+      "astray:Enlighten NL Exhaust ALL astray:Spells in your hand and gain that amount of astray:Mana. "
+    ]
+  },
+  {
+    "ID": "B76",
+    "NAME": "Streak of Stars",
+    "DESCRIPTION": "astray:Storage, astray:Enlighten NL Deal !D! damage that is distributed to ALL enemies averagely.",
+    "UPGRADED_DESC": [
+      "astray:Storage, astray:Enlighten NL Deal !D! damage that is distributed to ALL enemies averagely.",
+      "astray:Spell, astray:Storage NL astray:Promotion !astray:promos! , astray:Enlighten NL Deal !D! damage to ALL enemies."
+    ]
+  },
+  {
+    "ID": "B77",
+    "NAME": "Magic Net Lookup",
+    "DESCRIPTION": "astray:Derive_Spell NL Add random astray:Spells into your hand until your hand is full. They cost !M! less [E] this turn. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Derive_Spell NL Add random astray:Spells into your hand until your hand is full. They cost !M! less [E] this turn."
+    ]
+  },
+  {
+    "ID": "B78",
+    "NAME": "Machinery Mind",
+    "DESCRIPTION": "astray:Enlighten, Innate NL Gain !M! [E] for each Power in your draw pile. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Enlighten, Innate NL Gain !M! astray:Mana for each Power in your draw pile. NL Exhaust.",
+      "astray:Enlighten, Innate NL Draw !M! card for each Power in your draw pile. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "B79",
+    "NAME": "Mirror Maze",
+    "DESCRIPTION": "astray:Storage NL Deal !D! damage to ALL enemies. NL Shuffle a random *Illusion *card into your draw pile for each enemy. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Spell , astray:Storage NL Deal !D! damage to ALL enemies. NL Shuffle a random *Illusion *card into your draw pile for each enemy. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "E80",
+    "NAME": "Time Illusion",
+    "DESCRIPTION": "astray:Derive_Spell, astray:Storage NL astray:Extended (!astray:ext!) NL Gain !M! *Blur . NL Gain !B! Block for each astray:Mana you have. NL Exhaust your discard pile. NL Exhaust.",
+    "MSG": [
+      "Blur",
+      "#yBlock is not removed at the start of your next turn."
+    ]
+  },
+  {
+    "ID": "E81",
+    "NAME": "Abyss Illusion",
+    "DESCRIPTION": "astray:Extended (!astray:ext!) NL Shuffle !astray:extras! random Curses into your draw pile. NL At the start of your turn, ALL enemies gain !M! debuffs they had last turn."
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "E82",
+    "NAME": "星穹幻象",
+    "DESCRIPTION": "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 将等量的 *星星 置入手牌。 NL 消耗",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 将等量 升级 的 *星星 NL 置入手牌。 消耗",
+      "astray:魔法 NL astray:启迪 ， astray:扩展 ( !astray:ext! ) NL 移除 消耗 堆中所有牌， NL 打出等量的 *星星 。 消耗"
+    ]
+  },
+  {
+    "ID": "E82",
+    "NAME": "Celestial Illusion",
+    "DESCRIPTION": "astray:Spell NL astray:Storage, astray:Extended (!astray:ext!) NL Play a *Star for each *Star in your Exhaust pile.",
+    "UPGRADED_DESC": [
+      "astray:Spell, astray:Storage NL astray:Enlighten, astray:Extended (!astray:ext!) NL Remove ALL cards in your Exhaust pile. NL Play that many *Star ."
+    ]
+  },
+  {
+    "ID": "E83",
+    "NAME": "Death Illusion",
+    "DESCRIPTION": "astray:Spell NL astray:Storage astray:Extended (!astray:ext!) NL Prevent any damage less than !M! for !astray:extras! turns. NL Exhaust ."
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "E84",
+    "NAME": "巨人幻象",
+    "DESCRIPTION": "astray:衍生魔法 NL 保留 ， astray:扩展 ( !astray:ext! ) NL 获得 !M! 层易伤 。 NL 获得 !B! 点 格挡 。 NL 消耗"
+  },
+  {
+    "ID": "E84",
+    "NAME": "Giant Illusion",
+    "DESCRIPTION": "astray:Extended (!astray:ext!), Exhaust NL Gain !M! Vulnerable and !astray:extras! Block at the start and the end of your turn."
+  },
+  {
+    "ID": "C85",
+    "NAME": "Illusion in Mirror",
+    "DESCRIPTION": "Unplayable. NL Whenever this is drawn, add a copy of this to your hand. NL End your turn if there are at least 3 *Illusion *cards in your hand."
+  },
+  {
+    "ID": "C86",
+    "NAME": "Drought",
+    "DESCRIPTION": "Unplayable. NL  You can't gain [E] this turn after this is drawn."
+  },
+  {
+    "ID": "C87",
+    "NAME": "Disconnection",
+    "DESCRIPTION": "Unplayable. Ethereal NL While in hand, you can't gain astray:Mana."
+  },
+  {
+    "ID": "C88",
+    "NAME": "Short Circuit",
+    "DESCRIPTION": "Unplayable. Ethereal NL While in hand, astray:Magic can't work. NL Exhaust this card after you play a astray:Spell."
+  },
+  {
+    "ID": "E89",
+    "NAME": "Star",
+    "DESCRIPTION": "astray:Derive_Spell, astray:Promotion !astray:promos! NL astray:Extended (!astray:ext!) NL Deal !D! damage to a random enemy. NL Exhaust."
+  },
+  {
+    "ID": "E90",
+    "NAME": "ALS",
+    "DESCRIPTION": "astray:Spell, Exhaust NL astray:Extended (!astray:ext!), astray:Storage NL ALL enemies lose ALL astray:Frost and that many Strength.",
+    "UPGRADED_DESC": [
+      "astray:Spell , Exhaust NL astray:Extended (!astray:ext!), astray:Storage NL ALL enemies lose ALL astray:Frost and that many Strength and gain that many Weak."
+    ]
+  },
+  {
+    "ID": "E91",
+    "NAME": "Through Black Door",
+    "DESCRIPTION": "astray:Spell NL astray:Extended (!astray:ext!). astray:Storage NL Gain !M! *Buffer . NL Apply !astray:extras! Weak to ALL enemies. NL Exhaust.",
+    "MSG": [
+      "Buffer",
+      "Prevent the next time you would lose HP"
+    ]
+  },
+  {
+    "ID": "E92",
+    "NAME": "Lightning Bolt",
+    "DESCRIPTION": "astray:Spell, astray:Enlighten NL astray:Extended (!astray:ext!), astray:Storage NL Deal !D! damage. NL Apply !M! astray:Ember . NL Become astray:Derive_Spell.",
+    "UPGRADED_DESC": [
+      "astray:Spell, astray:Enlighten NL astray:Extended (!astray:ext!), astray:Storage NL Deal !D! damage. NL Apply !M! astray:Ember. NL Become astray:Derive_Spell.",
+      "astray:Spell, astray:Enlighten NL astray:Extended (!astray:ext!), astray:Storage NL Deal !D! damage. NL Apply !M! astray:Ember. NL Put ALL unexhausted *Lightning *Bolts to your hand."
+    ],
+    "UPDATED_DESC": [
+      "astray:Derive_Spell, astray:Enlighten NL astray:Extended (!astray:ext!), astray:Storage NL Deal !D! damage. NL Apply !M! astray:Ember."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "E93",
+    "NAME": "台风",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 被 格挡 时给予 !M! 层 虚弱 。",
+    "UPGRADED_DESC": [
+      "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 造成 !D! 点伤害。 NL 被 格挡 时给予 !M! 层 虚弱 !astray:extras! 次。"
+    ]
+  },
+  {
+    "ID": "E93",
+    "NAME": "Typhoon",
+    "DESCRIPTION": "astray:Spell, astray:Extended (!astray:ext!) NL Deal !D! damage to ALL enemies . NL If the damage this deal is blocked completely, apply !M! Weak and !astray:extras! Vulnerable to the target."
+  },
+  {
+    "ID": "E94",
+    "NAME": "Razor Wind",
+    "DESCRIPTION": "astray:Spell, astray:Extended (!astray:ext!) NL Deal !D! damage. NL Deal damage !M! times more for each astray:Mana you have.",
+    "MSG": [
+      " NL （Deal %d damage %d times）"
+    ]
+  },
+  {
+    "ID": "E95",
+    "NAME": "Blasting Arrow",
+    "DESCRIPTION": "astray:Spell NL astray:Extended (!astray:ext!), astray:Storage NL Deal damage equal to !M! times of the amount of *Embers the target has. NL Remove ALL astray:Ember on it.",
+    "UPGRADED_DESC": [
+      "astray:Spell NL astray:Extended (!astray:ext!), astray:Storage NL Deal damage equal to !M! times of the amount of *Embers the target has."
+    ]
+  },
+  {
+    "ID": "E96",
+    "NAME": "Multiconstruct",
+    "DESCRIPTION": "astray:Spell NL astray:Extended (!astray:ext!), astray:Storage NL Double your *Metallicize . NL Turn *Plated *Armor into *Metallicize . NL Gain!M! *Plated *Armor ."
+  },
+  {
+    "ID": "E97",
+    "NAME": "Waking up",
+    "DESCRIPTION": "astray:Derive_Spell NL astray:Enlighten , astray:Extended (!astray:ext!) NL Add !M! *Discovery into your hand. NL They cost 0 until played. NL Exhaust.",
+    "UPGRADED_DESC": [
+      "astray:Derive_Spell NL astray:Enlighten , astray:Extended (!astray:ext!) NL Add !M! *Discovery into your hand. NL They cost 0 until played. NL Exhaust."
+    ]
+  },
+  {
+    "ID": "E98",
+    "NAME": "Stay",
+    "DESCRIPTION": "astray:Spell, astray:Extended (!astray:ext!), Exhaust NL astray:Enlighten , astray:Storage , Retain NL At the start of your next turn, gain Block equal to !M! times of Block you have now. NL Skip your next turn.",
+    "UPGRADED_DESC": [
+      "astray:Spell, astray:Extended (!astray:ext!), Exhaust NL astray:Enlighten , astray:Storage , Retain NL Gain !astray:extras! *Blur . NL At the start of your next turn, gain Block equal to !M! times of Block you have now. NL Skip your next turn.",
+      "astray:Spell, astray:Extended (!astray:ext!), Exhaust NL astray:Enlighten , astray:Storage , Retain NL At the start of your next turn, gain Block equal to !M! times of Block you have now. NL Skip your next turn."
+    ]
+  },
+  {
+    "DEPRECATED": true,
+    "ID": "E99",
+    "NAME": "滑雪场",
+    "DESCRIPTION": "astray:魔法 NL astray:扩展 ( !astray:ext! )， astray:储能 NL 所有没有 astray:冰霜 的敌人获得 !M! 层 *冰霜 。 NL 消耗"
+  },
+  {
+    "ID": "E99",
+    "NAME": "Skiing Area",
+    "DESCRIPTION": "astray:Spell, astray:Extended (!astray:ext!), astray:Storage. NL For !astray:extras! turns, apply !M! astray:Frost to ALL enemies at the end of your turn. NL Exhaust."
+  },
+  {
+    "ID": "E100",
+    "NAME": "Missile Storm",
+    "DESCRIPTION": "astray:Spell, astray:Extended (!astray:ext!) NL Lose all astray:Mana. Play !M! *Magic *Missile for each *Mana lost that way.",
+    "UPGRADED_DESC": [
+      "astray:Spell, astray:Extended (!astray:ext!) NL Lose all astray:Mana. Play !M! a random branch of *Magic *Missile+ for each *Mana lost that way."
+    ]
+  },
+  {
+    "ID": "E101",
+    "NAME": "Icy Thorn",
+    "DESCRIPTION": "astray:Spell, astray:Extended (!astray:ext!) NL Deal !D! damage. NL Apply !M! astray:Frost. NL Double this if the enemy has *Frost ."
+  },
+  {
+    "ID": "E102",
+    "NAME": "Wonder Badge",
+    "DESCRIPTION": "astray:Derive_Spell, astray:Extended (!astray:ext!) NL Draw !M! cards. NL Gain [E] for each card out of your hand. NL Exhaust."
+  },
+  {
+    "ID": "E103",
+    "NAME": "GG",
+    "DESCRIPTION": "astray:Derive_Spell astray:Extended (!astray:ext!) NL Deal !D! damage to ALL enemies. NL This kills *Minions immediately. NL Exhaust."
+  },
+  {
+    "ID": "E104",
+    "NAME": "Punished One",
+    "DESCRIPTION": "astray:Derive_Spell, astray:Extended (!astray:ext!) NL Take !D! damage. NL Heal !D! HP. NL Exhaust."
+  },
+  {
+    "ID": "E105",
+    "NAME": "Delicious Duck Neck",
+    "DESCRIPTION": "astray:Derive_Spell, astray:Extended (!astray:ext!) NL Can't be Upgraded. NL Heal !M! HP . NL astray:Discover !M! cards. NL Exhaust."
+  },
+  {
+    "ID": "E106",
+    "NAME": "Infinite Wisdom",
+    "DESCRIPTION": "astray:Extended (!astray:ext!) NL Can't be Upgraded. NL Add an additional card reward of other colors in the combat rewards."
+  },
+  {
+    "ID": "E107",
+    "NAME": "Execute",
+    "DESCRIPTION": "Can't be Upgraded. NL Gain !M! astray:Magic. NL Add !astray:extras! random cards into your hand."
+  }
+]

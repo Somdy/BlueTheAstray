@@ -5,7 +5,6 @@ import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
-import basemod.eventUtil.util.Condition;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -15,6 +14,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -34,12 +34,15 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
+import org.apache.logging.log4j.util.Strings;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.LManager;
 import rs.lazymankits.interfaces.OnMakingCardInCombatSubscriber;
 import rs.lazymankits.interfaces.OnShuffleSubscriber;
+import rs.lazymankits.managers.LMCustomAtkEffectMgr;
+import rs.lazymankits.utils.LMDamageInfoHelper;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayCard;
 import rs.wolf.theastray.abstracts.AstrayPower;
@@ -58,16 +61,15 @@ import rs.wolf.theastray.monsters.BlueTheBoss;
 import rs.wolf.theastray.patches.TACardEnums;
 import rs.wolf.theastray.relics.Relic1;
 import rs.wolf.theastray.relics.Relic11;
+import rs.wolf.theastray.ui.cursor.AstrayCursor;
 import rs.wolf.theastray.utils.*;
 import rs.wolf.theastray.variables.TAExtNeed;
 import rs.wolf.theastray.variables.TAExtraMagic;
 import rs.wolf.theastray.variables.TAPromotion;
+import rs.wolf.theastray.vfx.combat.MagicDamageEffect;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 @SpireInitializer
 @SuppressWarnings("unused")
@@ -92,6 +94,7 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     
     public static boolean ALLOW_RELICS = true;
     public static boolean ALLOW_EPISODIC_EVENTS = true;
+    public static boolean ASTRAY_CURSOR_AS_GLOBAL = false;
     
     public static boolean DEFEATED_HEART = false;
     public static boolean DEFEATED_THEBLUE_A20 = false;
@@ -117,6 +120,7 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         Properties properties = new Properties();
         properties.setProperty("ALLOW_RELICS", Boolean.toString(ALLOW_RELICS));
         properties.setProperty("ALLOW_EPISODIC_EVENTS", Boolean.toString(ALLOW_EPISODIC_EVENTS));
+        properties.setProperty("ASTRAY_CURSOR_AS_GLOBAL", Boolean.toString(ASTRAY_CURSOR_AS_GLOBAL));
         
         properties.setProperty("DEFEATED_HEART", Boolean.toString(DEFEATED_HEART));
         properties.setProperty("DEFEATED_THEBLUE_A20", Boolean.toString(DEFEATED_THEBLUE_A20));
@@ -139,6 +143,7 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         }
         ALLOW_RELICS = config.getBool("ALLOW_RELICS");
         ALLOW_EPISODIC_EVENTS = config.getBool("ALLOW_EPISODIC_EVENTS");
+        ASTRAY_CURSOR_AS_GLOBAL = config.getBool("ASTRAY_CURSOR_AS_GLOBAL");
         
         DEFEATED_HEART = config.getBool("DEFEATED_HEART");
         DEFEATED_THEBLUE_A20 = config.getBool("DEFEATED_THEBLUE_A20");
@@ -161,6 +166,7 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         assert config != null;
         config.setBool("ALLOW_RELICS", ALLOW_RELICS);
         config.setBool("ALLOW_EPISODIC_EVENTS", ALLOW_EPISODIC_EVENTS);
+        config.setBool("ASTRAY_CURSOR_AS_GLOBAL", ASTRAY_CURSOR_AS_GLOBAL);
         
         config.setBool("DEFEATED_HEART", DEFEATED_HEART);
         config.setBool("DEFEATED_THEBLUE_A20", DEFEATED_THEBLUE_A20);
@@ -202,7 +208,8 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     
     @Override
     public void onLoad(String s) {
-        SaveData.load(s);
+        if (s != null && Strings.isNotBlank(s))
+            SaveData.load(s);
     }
     
     @Override
@@ -267,6 +274,11 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         ConsoleCommand.addCommand("bluemana", ManaCMD.class);
         ConsoleCommand.addCommand("bluecheat", CheatCMD.class);
         
+        GlobalCursorMst.Initialize(CardCrawlGame.cursor);
+        GlobalCursorMst.AddCursor(TACardEnums.BlueTheAstray, new AstrayCursor());
+        
+        LMCustomAtkEffectMgr.RegisterEffect(TACardEnums.ASH_EXPLOSION, TAImageMst.ASH_EXPLOSION, "ATTACK_FIRE");
+        
         makeModPanels();
         
         addMonsters();
@@ -314,7 +326,9 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
     
     private static void makeModPanels() {
         ModPanel settings = new ModPanel();
-        ModLabeledToggleButton allowRelics = new ModLabeledToggleButton("允许其他职业遇见蓝新增的遗物",
+        UIStrings settingStrings = TAUtils.UIStrings(TAUtils.MakeID("ModConfigSettings"));
+        Map<String, String> settingDesc = settingStrings.TEXT_DICT;
+        ModLabeledToggleButton allowRelics = new ModLabeledToggleButton(settingDesc.get("ALLOW_RELICS"),
                 380F, 720F, Color.WHITE.cpy(), FontHelper.charDescFont, ALLOW_RELICS, settings, (l) -> {},
                 (btn) -> {
                     ALLOW_RELICS = btn.enabled;
@@ -322,7 +336,7 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
                     config.setBool("ALLOW_RELICS", ALLOW_RELICS);
                     save(config);
                 });
-        ModLabeledToggleButton allowEvents = new ModLabeledToggleButton("允许其他职业遇见蓝的剧情事件",
+        ModLabeledToggleButton allowEvents = new ModLabeledToggleButton(settingDesc.get("ALLOW_EPISODIC_EVENTS"),
                 380F, 680F, Color.WHITE.cpy(), FontHelper.charDescFont, ALLOW_EPISODIC_EVENTS, settings, (l) -> {},
                 (btn) -> {
                     ALLOW_EPISODIC_EVENTS = btn.enabled;
@@ -330,8 +344,18 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
                     config.setBool("ALLOW_EPISODIC_EVENTS", ALLOW_EPISODIC_EVENTS);
                     save(config);
                 });
+        ModLabeledToggleButton globalCursor = new ModLabeledToggleButton(settingDesc.get("ASTRAY_CURSOR_AS_GLOBAL"), 
+                settingDesc.get("ASTRAY_CURSOR_AS_GLOBAL_EXT"),
+                380F, 640F, Color.WHITE.cpy(), FontHelper.charDescFont, ASTRAY_CURSOR_AS_GLOBAL, settings, (l) -> {},
+                (btn) -> {
+                    ASTRAY_CURSOR_AS_GLOBAL = btn.enabled;
+                    SpireConfig config = makeConfig();
+                    config.setBool("ASTRAY_CURSOR_AS_GLOBAL", ASTRAY_CURSOR_AS_GLOBAL);
+                    save(config);
+                });
         settings.addUIElement(allowRelics);
         settings.addUIElement(allowEvents);
+        settings.addUIElement(globalCursor);
         BaseMod.registerModBadge(TAImageMst.BADGE, MOD_ID, Arrays.toString(AUTHORS), DESCRIPTION, settings);
     }
     
@@ -396,6 +420,13 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         for (AbstractPower p : target.powers) {
             if (p instanceof AstrayPower)
                 ((AstrayPower) p).preModifyDamage(info);
+        }
+    }
+    
+    public static void PostOnCreatureDamage(AbstractCreature target, DamageInfo info) {
+        // Magical Card Effect
+        if (LMDamageInfoHelper.HasTag(info, TAUtils.DAMAGE_FROM_MAGICAL_CARD) && target.hb != null) {
+            addToTop(new VFXAction(new MagicDamageEffect(target.hb.cX, target.hb.cY, target.lastDamageTaken)));
         }
     }
 

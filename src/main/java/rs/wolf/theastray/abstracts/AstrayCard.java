@@ -4,6 +4,7 @@ import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -17,12 +18,12 @@ import com.megacrit.cardcrawl.rooms.RestRoom;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.abstracts.LMCustomCard;
 import rs.lazymankits.actions.common.BetterDamageAllEnemiesAction;
-import rs.lazymankits.actions.common.NullableSrcDamageAction;
 import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.interfaces.cards.BranchableUpgradeCard;
 import rs.lazymankits.interfaces.cards.SensitiveTriggerOnUseCard;
 import rs.lazymankits.interfaces.cards.SwappableUpgBranchCard;
 import rs.lazymankits.interfaces.cards.UpgradeBranch;
+import rs.lazymankits.utils.LMDamageInfoHelper;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.commands.Cheat;
 import rs.wolf.theastray.core.CardMst;
@@ -777,17 +778,21 @@ public abstract class AstrayCard extends LMCustomCard implements TAUtils, Branch
         return new FrostPower(t, s, frost(amount, t));
     }
     
-    protected NullableSrcDamageAction DamageAction(AbstractCreature t, AbstractCreature s, int damage,
-                                                   DamageInfo.DamageType type, AbstractGameAction.AttackEffect effect) {
-        return new NullableSrcDamageAction(t, crtDmgInfo(s, damage, type), effect);
+    protected DamageAction DamageAction(AbstractCreature t, AbstractCreature s, int damage,
+                                        DamageInfo.DamageType type, AbstractGameAction.AttackEffect effect) {
+        DamageInfo info = LMDamageInfoHelper.Create(s, damage, type);
+        if (isMagical()) {
+            LMDamageInfoHelper.PutTags(info, TAUtils.MAGICAL_DAMAGE, TAUtils.DAMAGE_FROM_MAGICAL_CARD);
+        }
+        return new DamageAction(t, info, effect);
     }
     
-    protected NullableSrcDamageAction DamageAction(AbstractCreature t, AbstractCreature s, int damage,
-                                                   AbstractGameAction.AttackEffect effect) {
+    protected DamageAction DamageAction(AbstractCreature t, AbstractCreature s, int damage,
+                                        AbstractGameAction.AttackEffect effect) {
         return DamageAction(t, s, damage, damageTypeForTurn, effect);
     }
     
-    protected NullableSrcDamageAction DamageAction(AbstractCreature t, AbstractCreature s, AbstractGameAction.AttackEffect effect) {
+    protected DamageAction DamageAction(AbstractCreature t, AbstractCreature s, AbstractGameAction.AttackEffect effect) {
         return DamageAction(t, s, damage, damageTypeForTurn, effect);
     }
     

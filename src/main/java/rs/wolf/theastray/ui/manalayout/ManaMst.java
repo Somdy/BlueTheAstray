@@ -37,10 +37,10 @@ public class ManaMst implements TAUtils {
     private final List<Mana> orbs = new ArrayList<>();
     private final List<Mana> removeList = new ArrayList<>();
     private final Map<Integer, NemesisSoulOrbit> orbitMap = new HashMap<>();
-    private final int maxMana;
+    private int maxMana;
     private int currMana;
-    private final int startingMana;
-    private final float manaChargePerTurn;
+    private int startingMana;
+    private float manaChargePerTurn;
     private float manaCharge;
     private Layout layout;
     
@@ -163,12 +163,28 @@ public class ManaMst implements TAUtils {
         return currMana;
     }
     
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
+    }
+    
     public int getMaxMana() {
         return maxMana;
     }
     
+    public void setStartingMana(int startingMana) {
+        this.startingMana = startingMana;
+    }
+    
     public int getStartingMana() {
         return startingMana;
+    }
+    
+    public void setManaChargePerTurn(float manaChargePerTurn) {
+        this.manaChargePerTurn = manaChargePerTurn;
+    }
+    
+    public float getManaChargePerTurn() {
+        return manaChargePerTurn;
     }
     
     public boolean canUseMana(int amt) {

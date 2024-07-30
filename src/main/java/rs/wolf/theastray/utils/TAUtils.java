@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -17,10 +18,10 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import rs.lazymankits.LMDebug;
 import rs.lazymankits.abstracts.DamageInfoTag;
+import rs.lazymankits.utils.LMDamageInfoHelper;
 import rs.lazymankits.utils.LMGameGeneralUtils;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.core.Leader;
@@ -29,6 +30,7 @@ import rs.wolf.theastray.patches.TACardEnums;
 public interface TAUtils extends LMGameGeneralUtils {
     
     DamageInfoTag MAGICAL_DAMAGE = new DamageInfoTag(MakeID("MagicalDamage"));
+    DamageInfoTag DAMAGE_FROM_MAGICAL_CARD = new DamageInfoTag(MakeID("DamageFromMagicalCard"));
     
     default String getSupLang() {
         return getSupportedLanguage(Settings.language);
@@ -48,6 +50,8 @@ public interface TAUtils extends LMGameGeneralUtils {
     }
     
     static void AddUnlockBundle(AbstractUnlock.UnlockType type, AbstractPlayer.PlayerClass c, int level, @NotNull String... unlocks) {
+        if (unlocks.length < 3)
+            return;
         BaseMod.addUnlockBundle(new CustomUnlockBundle(type, unlocks[0], unlocks[1], unlocks[2]), c, level);
         if (type == AbstractUnlock.UnlockType.CARD) {
             for (String unlock : unlocks) {
@@ -119,6 +123,10 @@ public interface TAUtils extends LMGameGeneralUtils {
         return RoomAvailable() && clz.isInstance(AbstractDungeon.getCurrRoom());
     }
     
+    static boolean RoomChecker(AbstractRoom room, Class<? extends AbstractRoom> clz) {
+        return RoomAvailable() && clz.isInstance(room);
+    }
+    
     static boolean RoomChecker(AbstractRoom.RoomPhase phase) {
         return RoomAvailable() && AbstractDungeon.getCurrRoom().phase == phase;
     }
@@ -137,6 +145,10 @@ public interface TAUtils extends LMGameGeneralUtils {
     
     static boolean IsDeMagical(@NotNull AbstractCard card) {
         return card.hasTag(TACardEnums.DE_MAGICAL);
+    }
+    
+    static boolean IsMagicalDamage(DamageInfo info) {
+        return info != null && LMDamageInfoHelper.HasTag(info, MAGICAL_DAMAGE);
     }
     
     @NotNull

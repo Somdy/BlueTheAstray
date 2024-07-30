@@ -1,0 +1,94 @@
+{
+  "astray:Relic1": {
+    "NAME": "Apprentice's Notebook",
+    "FLAVOR": "A seeker of knowledge is an apprentice.",
+    "DESCRIPTIONS": [
+      "Every other turn, gain #b1 #yastray:Mana ."
+    ]
+  },
+  "astray:Relic2": {
+    "NAME": "Spellcasting Notebook",
+    "FLAVOR": "These are the only things that belong to you.",
+    "DESCRIPTIONS": [
+      "#rReplace #yApprentice's #yNotebook . NL At the start of each combat, gain #b5 #yastray:Mana and [E] , and draw #b1 card."
+    ]
+  },
+  "astray:Relic3": {
+    "NAME": "Crystal Cube",
+    "FLAVOR": "Not a cube that you should find in the books you have read.",
+    "DESCRIPTIONS": [
+      "Gain [E] for every #b8 cards drawn. Reset at the end of each turn."
+    ]
+  },
+  "astray:Relic4": {
+    "NAME": "Picture Book of the Abyss",
+    "FLAVOR": "You will be the door to it.",
+    "DESCRIPTIONS": [
+      "Lose #b50% max HP upon pickup. At the FIRST turn of each combat, draw #b2 additional cards and enery is not consumed when playing cards."
+    ]
+  },
+  "astray:Relic5": {
+    "NAME": "Book of Star Wheel",
+    "FLAVOR": "You took it with you sometime but haven't read it yet. Find a time to study it.",
+    "DESCRIPTIONS": [
+      "Once per turn: When your hand becomes full, gain #b1 #yastray:Mana and [E] ."
+    ]
+  },
+  "astray:Relic6": {
+    "NAME": "Gastric Pouch of Taotie",
+    "FLAVOR": "A product of flesh and blood alchemical magic. Better not to be associated with its maker.",
+    "DESCRIPTIONS": [
+      "At the end of combats of Elites, restore #b24 HP."
+    ]
+  },
+  "astray:Relic7": {
+    "NAME": "Traveller's Kit",
+    "FLAVOR": "A more relaxed way to get something wihout pays.",
+    "DESCRIPTIONS": [
+      "You can #ySmith #b2 times when you enter a Rest room if your HP is above #b%d%% ."
+    ]
+  },
+  "astray:Relic8": {
+    "NAME": "Experienced's Badge",
+    "FLAVOR": "This is what you took with you from where you became a mage. Now you deserve it as well.",
+    "DESCRIPTIONS": [
+      "Whenever you add a card to your deck, #yUpgrade a random card in your deck. Cards of lower rarity is chosen prior to others."
+    ]
+  },
+  "astray:Relic9": {
+    "NAME": "Burst Ice Pack",
+    "FLAVOR": "Mainly used to create ice fog to facilitate your escape.",
+    "DESCRIPTIONS": [
+      "At the starts of the first #b3 turns of each combat, apply #b2 #yastray:Frost to ALL enemies."
+    ]
+  },
+  "astray:Relic10": {
+    "NAME": "Miracle Wand",
+    "FLAVOR": "\"Miracles are knowledge of which one has no knowledge.\"",
+    "DESCRIPTIONS": [
+      "Whenver you enter a Rest room, #yUpgrade #b1 non- #yastray:Enlighten cards in your deck at random."
+    ]
+  },
+  "astray:Relic11": {
+    "NAME": "Rune of Jigen's Mark",
+    "FLAVOR": "Rune is never your forte... No one is...",
+    "DESCRIPTIONS": [
+      "Upon pickup, gain #b150 #ygolds . #rReplace Corrupt Heart with Jigen. Your #yStrength , #yDexterity , #yFocus , #yMagic , #yBlock and the #yastray:Frost and #yastray:Ember you apply can exceed the cap of #b999 ."
+    ]
+  },
+  "astray:Relic12": {
+    "NAME": "Strange Meat",
+    "FLAVOR": "No matter how much spice is added it doesn't taste good, and the good thing is it is never eaten up...",
+    "DESCRIPTIONS": [
+      "Whenever you enter a non combat room, restore #b6 HP. Restore #b6 additional HP when you enter a Rest room."
+    ]
+  },
+
+  "astray:RelicTest1": {
+    "NAME": "Relic for Test",
+    "FLAVOR": "Never should you see this.",
+    "DESCRIPTIONS": [
+      "Replace Corrupt Heart."
+    ]
+  }
+}

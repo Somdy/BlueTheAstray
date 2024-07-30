@@ -1,0 +1,49 @@
+{
+  "astray:ModConfigSettings": {
+    "TEXT_DICT": {
+      "ALLOW_RELICS": "Enable new relics added by this mod to spawn when playing other characters",
+      "ALLOW_EPISODIC_EVENTS": "Enable other characters to come across the Astray's scenario events",
+      "ASTRAY_CURSOR_AS_GLOBAL": "Use the Astray's exclusive cursor as global cursor unless the playing character has its own one",
+      "ASTRAY_CURSOR_AS_GLOBAL_TOOLTIP": "(Requires manual compatibility from other characters, no auto-detection)"
+    }
+  },
+  "astray:ExtensionCardTab": {
+    "TEXT": [
+      "Astray's Extension",
+      "Extended Cards"
+    ]
+  },
+  "astray:EnlightenOption": {
+    "TEXT": [
+      "Enlighten",
+      "Guide a way for an Enlighten card in your deck.",
+      "No Enlighten cards in your deck.",
+      "Choose a card and re- [#FFD700]Enlighten[] it.",
+      ""
+    ]
+  },
+  "astray:TravelerKitSmithOption": {
+    "TEXT": [
+      "Smith",
+      "You can Upgrade another card in your deck thanks to Traveller's Kit.",
+      "No cards can be upgraded.",
+      ""
+    ]
+  },
+  "astray:ManaMst": {
+    "TEXT": [
+      "Mana",
+      "Mana is required to play a #ySpell card."
+    ]
+  },
+  "astray:RichPresence": {
+    "TEXT": [
+      "Blue the Astray ✡",
+      "Reached floor %d ",
+      "at Ascension %d ",
+      "Fighting %s",
+      "Pondering in \"%s\"",
+      "Pondering in an unknown event"
+    ]
+  }
+}
