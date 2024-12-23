@@ -10,6 +10,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -67,6 +68,7 @@ import rs.wolf.theastray.variables.TAExtNeed;
 import rs.wolf.theastray.variables.TAExtraMagic;
 import rs.wolf.theastray.variables.TAPromotion;
 import rs.wolf.theastray.vfx.combat.MagicDamageEffect;
+import sts.jigen.character.Jigen;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -284,6 +286,11 @@ public class Leader implements TAUtils, CustomSavable<String>, EditStringsSubscr
         addMonsters();
         
         addEvents();
+        
+        BlueTheBoss.PutDialog(TACardEnums.BlueTheAstray, "BLUE_THE_ASTRAY");
+        if (Loader.isModLoadedOrSideloaded("Jigen")) {
+            BlueTheBoss.PutDialog(Jigen.Enums.JIGEN, "THE_CHORD");
+        }
         
         MsgLogger.Log();
     }

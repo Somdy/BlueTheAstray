@@ -1,0 +1,29 @@
+{
+  "DEFAULT_CHARACTER": {
+    "dialogs": [
+      {
+        "words": "你赢了，我能向你打听一个人吗？"
+      }
+    ]
+  },
+  "BLUE_THE_ASTRAY": {
+    "dialogs": [
+      {
+        "words": "你做到了！…"
+      },
+      {
+        "words": "这一路辛苦你了，好好休息吧…"
+      },
+      {
+        "words": "剩下的…就交给我…"
+      }
+    ]
+  },
+  "THE_CHORD": {
+    "dialogs": [
+      {
+        "words": "我理应只有一个影子。"
+      }
+    ]
+  }
+}

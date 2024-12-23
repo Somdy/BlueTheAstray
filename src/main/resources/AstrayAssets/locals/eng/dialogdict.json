@@ -1,0 +1,29 @@
+{
+  "DEFAULT_CHARACTER": {
+    "dialogs": [
+      {
+        "words": "You won. May I ask you about someone?"
+      }
+    ]
+  },
+  "BLUE_THE_ASTRAY": {
+    "dialogs": [
+      {
+        "words": "You made it...!"
+      },
+      {
+        "words": "It's been a hard journey. Now get some rest..."
+      },
+      {
+        "words": "I'll take care of the rest..."
+      }
+    ]
+  },
+  "THE_CHORD": {
+    "dialogs": [
+      {
+        "words": "I should have only one shadow."
+      }
+    ]
+  }
+}

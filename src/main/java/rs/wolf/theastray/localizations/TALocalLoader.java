@@ -14,6 +14,7 @@ import java.util.Map;
 public class TALocalLoader {
     private static final Map<String, TACardLocals> CardLocalMap = new HashMap<>();
     private static Map<String, String> LegacyLocalMap = new HashMap<>();
+    private static Map<String, TADialogDictLocals> DialogLocalMap = new HashMap<>();
     
     public static void Initialize() {
         Gson gson = new Gson();
@@ -32,6 +33,11 @@ public class TALocalLoader {
         json = loadJson(path);
         Type stringType = new TypeToken<Object>(){}.getType();
         LegacyLocalMap = gson.fromJson(json, stringType);
+        
+        path = "AstrayAssets/locals/" + lang + "/dialogdict.json";
+        json = loadJson(path);
+        Type dialogDictType = new TypeToken<Map<String, TADialogDictLocals>>(){}.getType();
+        DialogLocalMap = gson.fromJson(json, dialogDictType);
     }
     
     private static String loadJson(String path) {
@@ -54,5 +60,11 @@ public class TALocalLoader {
         if (id == null || !LegacyLocalMap.containsKey(id))
             return "No legacy";
         return LegacyLocalMap.get(id);
+    }
+    
+    public static TADialogDictLocals DIALOG(String id) {
+        if (id == null || !DialogLocalMap.containsKey(id))
+            return DialogLocalMap.get("DEFAULT_CHARACTER");
+        return DialogLocalMap.get(id);
     }
 }

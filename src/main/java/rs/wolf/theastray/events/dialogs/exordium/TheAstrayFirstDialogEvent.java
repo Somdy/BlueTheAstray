@@ -3,7 +3,6 @@ package rs.wolf.theastray.events.dialogs.exordium;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.curses.Doubt;
 import com.megacrit.cardcrawl.cards.curses.Pain;
@@ -13,8 +12,6 @@ import com.megacrit.cardcrawl.events.exordium.LivingWall;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
-import rs.lazymankits.actions.tools.GridCardManipulator;
-import rs.lazymankits.actions.utility.SimpleGridCardSelectBuilder;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AbstractDialogImageEvent;
 import rs.wolf.theastray.abstracts.DialogEventBlock;
@@ -26,7 +23,6 @@ import rs.wolf.theastray.utils.GlobalIDMst;
 import rs.wolf.theastray.utils.TAUtils;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class TheAstrayFirstDialogEvent extends AbstractDialogImageEvent {
     public static final String ID = TAUtils.MakeID("FirstScenarioEvent");

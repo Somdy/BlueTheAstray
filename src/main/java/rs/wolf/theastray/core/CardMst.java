@@ -18,6 +18,7 @@ import rs.wolf.theastray.cards.AstrayProCard;
 import rs.wolf.theastray.cards.colorless.C88;
 import rs.wolf.theastray.cards.curses.C85;
 import rs.wolf.theastray.cards.exts.E89;
+import rs.wolf.theastray.cards.pros.B4;
 import rs.wolf.theastray.cards.pros.StrikeTA;
 import rs.wolf.theastray.data.CardData;
 import rs.wolf.theastray.data.DataMst;
@@ -111,8 +112,8 @@ public class CardMst {
     }
     
     @NotNull
-    public static List<AstrayCard> GetAllCards(Predicate<AstrayCard> expt) {
-        return GetAllCards((data, card) -> expt.test(card));
+    public static List<AstrayCard> GetAllCards(Predicate<AstrayCard> filter) {
+        return GetAllCards((data, card) -> filter.test(card));
     }
     
     @NotNull
@@ -135,8 +136,8 @@ public class CardMst {
     }
     
     @NotNull
-    public static List<AstrayCard> ReturnAllCardsInCombat(Predicate<AstrayCard> expt, boolean forced) {
-        return GetAllCards(c -> (forced || c.canSpawnInCombat()) && expt.test(c));
+    public static List<AstrayCard> ReturnAllCardsInCombat(Predicate<AstrayCard> filter, boolean forced) {
+        return GetAllCards(c -> (forced || c.canSpawnInCombat()) && filter.test(c));
     }
     
     @NotNull
@@ -158,7 +159,7 @@ public class CardMst {
     
     public static AbstractCard ReturnRndMagicInCombat(@NotNull Random rng, boolean deMagicIncluded, boolean extIncluded, Predicate<AbstractCard> expt) {
         List<AstrayCard> tmp = GetAllCards((d, c) -> (TAUtils.IsTrueMagical(c) || deMagicIncluded && TAUtils.IsDeMagical(c))
-                && c.rarity != AbstractCard.CardRarity.BASIC 
+                && c.rarity != AbstractCard.CardRarity.BASIC && c.rarity != AbstractCard.CardRarity.SPECIAL
                 && ((extIncluded && c.canSpawnInCombat()) || !EXTS.contains(d.getInternalID())) && expt.test(c));
         if (tmp.isEmpty()) return new Madness();
         int index = rng.random(tmp.size() - 1);

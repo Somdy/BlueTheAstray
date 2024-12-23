@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.unique.RemoveAllPowersAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,15 +20,30 @@ import com.megacrit.cardcrawl.vfx.combat.ViceCrushEffect;
 import rs.lazymankits.actions.utility.QuickAction;
 import rs.lazymankits.utils.LMSK;
 import rs.wolf.theastray.abstracts.AstrayMonster;
+import rs.wolf.theastray.actions.uniques.BossTalkAction;
 import rs.wolf.theastray.characters.BlueTheAstray;
 import rs.wolf.theastray.core.Leader;
+import rs.wolf.theastray.localizations.TADialogDictLocals;
+import rs.wolf.theastray.localizations.TALocalLoader;
 import rs.wolf.theastray.powers.monsters.AssimilationPower;
 import rs.wolf.theastray.powers.monsters.FocusedEyesPower;
 import rs.wolf.theastray.powers.monsters.MasteryBossPower;
 import rs.wolf.theastray.utils.TAUtils;
 import rs.wolf.theastray.vfx.combat.BlueConvergeEffect;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BlueTheBoss extends AstrayMonster {
+    private static final Map<AbstractPlayer.PlayerClass, String> DialogMap = new HashMap<>();
+    
+    public static boolean PutDialog(AbstractPlayer.PlayerClass playerClass, String dialogID) {
+        if (DialogMap.containsKey(playerClass))
+            return false;
+        DialogMap.put(playerClass, dialogID);
+        return true;
+    }
+    
     public static final String ID = TAUtils.MakeID("BlueTheBoss");
     public static boolean AsFinal = false;
     private static final String IMG_PATH = "AstrayAssets/images/monsters/blue/image.png";
@@ -42,6 +58,8 @@ public class BlueTheBoss extends AstrayMonster {
     private final int regenAmt;
     private final int sliceMult;
     private int turnCount;
+    
+    private FinalWill will;
     
     public BlueTheBoss(float x, float y) {
         super(ID, 500, 0, 0, 220F, 335F, IMG_PATH, x, y);
@@ -59,6 +77,7 @@ public class BlueTheBoss extends AstrayMonster {
         addPower(new FocusedEyesPower(this, 12, 50));
         addPower(new InvinciblePower(this, invincibleAmt));
         addPower(new MasteryBossPower(this, 12, hardTime(19) ? 2 : 1));
+        will = new FinalWill(this);
     }
     
     @Override
@@ -141,17 +160,47 @@ public class BlueTheBoss extends AstrayMonster {
     @Override
     public void die() {
         if (!currRoom().cannotLose) {
-            addToBot(new TalkAction(this, DIALOG[1], 2F, 2F));
-            addToBot(new TalkAction(this, DIALOG[2], 2F, 2F));
-            addToBot(new TalkAction(this, DIALOG[3], 2F, 2F));
-            super.die();
-            onBossVictoryLogic();
-            onFinalBossVictoryLogic();
-            CardCrawlGame.stopClock = true;
-            if (ascenLv() >= 20 && !Leader.DEFEATED_THEBLUE_A20) {
-                Leader.DEFEATED_THEBLUE_A20 = true;
-                Leader.SaveConfig();
+//            addToBot(new TalkAction(this, DIALOG[1], 2.5F, 2.5F));
+//            addToBot(new TalkAction(this, DIALOG[2], 2.5F, 2.5F));
+//            addToBot(new TalkAction(this, DIALOG[3], 2.5F, 2.5F));
+            
+            if (!will.done) {
+                AbstractPlayer.PlayerClass playerClass = AbstractDungeon.player.chosenClass;
+                TADialogDictLocals dialogDict = TALocalLoader.DIALOG(DialogMap.get(playerClass));
+                if (dialogDict != null) {
+                    addToBot(new BossTalkAction(this, dialogDict.dialogs, will));
+                }
             }
+            
+            if (will.done) {
+                super.die();
+                onBossVictoryLogic();
+                onFinalBossVictoryLogic();
+                CardCrawlGame.stopClock = true;
+                if (ascenLv() >= 20 && !Leader.DEFEATED_THEBLUE_A20) {
+                    Leader.DEFEATED_THEBLUE_A20 = true;
+                    Leader.SaveConfig();
+                }
+            }
+        }
+    }
+    
+    public static class FinalWill {
+        private BlueTheBoss boss;
+        private boolean done = false;
+        
+        public FinalWill(BlueTheBoss boss) {
+            this.boss = boss;
+        }
+        
+        public void startSpeaking() {
+            boss.halfDead = true;
+        }
+        
+        public void finish() {
+            done = true;
+            boss.halfDead = false;
+            boss.die();
         }
     }
 }

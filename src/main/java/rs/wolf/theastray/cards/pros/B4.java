@@ -62,6 +62,11 @@ public class B4 extends AstrayProCard {
     }
     
     @Override
+    protected boolean selfCanSpawnInCombat() {
+        return false;
+    }
+    
+    @Override
     public void triggerOnGlowCheck() {
         glowColor = canTrigger() ? GOLD_BORDER_GLOW_COLOR : BLUE_BORDER_GLOW_COLOR;
     }

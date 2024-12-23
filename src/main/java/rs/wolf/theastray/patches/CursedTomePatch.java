@@ -15,8 +15,10 @@ public class CursedTomePatch {
     public static class AddExtraBookPatch {
         @SpireInsertPatch(rloc = 1, localvars = {"possibleBooks"})
         public static void Insert(ArrayList<AbstractRelic> possibleBooks) {
-            if (!LMSK.Player().hasRelic(GlobalIDMst.RelicID(4)))
-                possibleBooks.add(new Relic4());
+            if (!LMSK.Player().hasRelic(GlobalIDMst.RelicID(4))) {
+                AbstractRelic r = new Relic4();
+                if (r.canSpawn()) possibleBooks.add(r);
+            }
         }
     }
 }
